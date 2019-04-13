@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core'
 import { ExtraOptions, RouterModule, Routes } from '@angular/router'
 
-const routes: Routes = []
+const routes: Routes = [
+  { path: 'login', loadChildren: './login/login.module#LoginModule' }
+]
 
 const config: ExtraOptions = {
   useHash: true,
