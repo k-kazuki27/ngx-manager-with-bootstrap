@@ -1,6 +1,5 @@
 {
   "typescriptHero.imports.insertSemicolons": false,
   "prettier.semi": false,
-  "prettier.singleQuote": true,
-  "prettier.printWidth": 120
+  "prettier.singleQuote": true
 }
