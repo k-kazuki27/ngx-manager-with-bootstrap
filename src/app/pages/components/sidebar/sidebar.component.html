@@ -2,14 +2,22 @@
   class="sidebar"
   [ngClass]="{ sidebarPushRight: isActive, collapsed: collapsed }"
 >
+  <div class="toggle-menu">
+    <div [ngClass]="{ 'nav-collapsed': collapsed }">
+      <a
+        class="menu-trigger"
+        [ngClass]="{ 'menu-trigger-reverse': collapsed }"
+        href="javascript:void(0)"
+        (click)="toggleCollapsed()"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </a>
+    </div>
+  </div>
+
   <div class="list-group">
-    <a
-      class="list-group-item"
-      href="javascript:void(0)"
-      (click)="toggleCollapsed()"
-    >
-      <i class="fa fa-fw fa-angle-double-{{ collapsed ? 'right' : 'left' }}"></i
-    ></a>
     <a
       routerLink="/dashboard"
       [routerLinkActive]="['router-link-active']"
