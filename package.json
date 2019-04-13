@@ -50,7 +50,7 @@
   "jest": {
     "preset": "jest-preset-angular",
     "setupFilesAfterEnv": [
-      "<rootDir>/src/setupJest.ts"
+      "<rootDir>/src/setup-jest.ts"
     ]
   }
 }
