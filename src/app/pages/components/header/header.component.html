@@ -6,12 +6,13 @@
   <div class="collapse navbar-collapse">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a
-          href="javascript:void(0)"
-          class="nav-link btn mt-1"
-          style="padding: .375rem 1rem !important;border-color: #999;"
-          (click)="logout()"
-        >
+        <a href="javascript:void(0)" class="nav-link">
+          <i class="fa fa-user"></i> John Smith <b class="caret"></b>
+        </a>
+      </li>
+      &nbsp;
+      <li class="nav-item">
+        <a href="javascript:void(0)" class="nav-link" (click)="logout()">
           <i class="fa fa-fw fa-sign-out"></i>
           ログアウト
         </a>
