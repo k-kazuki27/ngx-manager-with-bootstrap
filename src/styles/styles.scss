@@ -1,2 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'spinner';
+
+@media screen and (max-width: 992px) {
+  .push-right {
+    .sidebar {
+      left: 235px !important;
+    }
+  }
+}
