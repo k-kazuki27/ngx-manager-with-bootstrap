@@ -35,14 +35,8 @@ export class HeaderComponent implements OnInit {
     dom.classList.toggle(this.pushRightClass)
   }
 
-  rltAndLtr() {
-    const dom: any = document.querySelector('body')
-    dom.classList.toggle('rtl')
-  }
-
   logout() {
-    localStorage.removeItem('isLoggedin')
+    sessionStorage.removeItem('isLoggedin')
+    this.router.navigate(['/login'])
   }
-
-  changeLang(language: string) {}
 }
