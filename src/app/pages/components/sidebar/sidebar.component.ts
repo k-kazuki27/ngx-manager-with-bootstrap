@@ -61,11 +61,8 @@ export class SidebarComponent implements OnInit {
     dom.classList.toggle(this.pushRightClass)
   }
 
-  logout() {}
-
-  changeLang(language: string) {}
-
-  onLoggedout() {
-    localStorage.removeItem('isLoggedin')
+  logout() {
+    sessionStorage.removeItem('isLoggedin')
+    this.router.navigate(['/login'])
   }
 }
