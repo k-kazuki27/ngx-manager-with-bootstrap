@@ -4,6 +4,13 @@
 >
   <div class="list-group">
     <a
+      class="list-group-item"
+      href="javascript:void(0)"
+      (click)="toggleCollapsed()"
+    >
+      <i class="fa fa-fw fa-angle-double-{{ collapsed ? 'right' : 'left' }}"></i
+    ></a>
+    <a
       routerLink="/dashboard"
       [routerLinkActive]="['router-link-active']"
       class="list-group-item"
