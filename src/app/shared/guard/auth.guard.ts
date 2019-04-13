@@ -8,7 +8,7 @@ export class AuthGuard implements CanActivate {
   constructor(private router: Router) {}
 
   canActivate(): Observable<boolean> | Promise<boolean> | boolean {
-    if (localStorage.getItem('isLoggedin')) {
+    if (sessionStorage.getItem('isLoggedin')) {
       return true
     }
 
