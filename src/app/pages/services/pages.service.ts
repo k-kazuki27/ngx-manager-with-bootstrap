@@ -1,6 +1,6 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout'
 import { Injectable } from '@angular/core'
-import { Observable } from 'rxjs'
+import { BehaviorSubject, Observable } from 'rxjs'
 import { map } from 'rxjs/operators'
 
 import { PagesResolverModule } from './pages-resolver.module'
@@ -9,9 +9,21 @@ import { PagesResolverModule } from './pages-resolver.module'
   providedIn: PagesResolverModule
 })
 export class PagesService {
-  isMobile$: Observable<boolean> = this.breakpointObserver
-    .observe(Breakpoints.Handset)
-    .pipe(map(result => result.matches))
+  private collapsed$ = new BehaviorSubject<boolean>(false)
 
   constructor(private breakpointObserver: BreakpointObserver) {}
+
+  get collapsedValueChanges(): Observable<boolean> {
+    return this.collapsed$.asObservable()
+  }
+
+  setCollapsed(result: boolean): void {
+    this.collapsed$.next(result)
+  }
+
+  get isMobileValueChanges(): Observable<boolean> {
+    return this.breakpointObserver
+      .observe(Breakpoints.Handset)
+      .pipe(map(result => result.matches))
+  }
 }

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnDestroy, OnInit } from '@angular/core'
+import { Subject } from 'rxjs'
+import { takeUntil } from 'rxjs/operators'
 
 import { PagesService } from './services/pages.service'
 
@@ -7,14 +9,22 @@ import { PagesService } from './services/pages.service'
   templateUrl: './pages.component.html',
   styleUrls: ['./pages.component.scss']
 })
-export class PagesComponent implements OnInit {
+export class PagesComponent implements OnInit, OnDestroy {
   collapedSideBar: boolean
 
-  constructor(private agesService: PagesService) {}
+  private onDestroy$ = new Subject()
 
-  ngOnInit() {}
+  constructor(private pagesService: PagesService) {}
 
-  receiveCollapsed($event) {
-    this.collapedSideBar = $event
+  ngOnInit() {
+    this.pagesService.collapsedValueChanges
+      .pipe(takeUntil(this.onDestroy$))
+      .subscribe(result => {
+        this.collapedSideBar = result
+      })
+  }
+
+  ngOnDestroy() {
+    this.onDestroy$.next()
   }
 }

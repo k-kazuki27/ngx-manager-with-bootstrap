@@ -1,21 +1,24 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core'
+import { Component, OnDestroy, OnInit } from '@angular/core'
 import { NavigationEnd, Router } from '@angular/router'
+import { Subject } from 'rxjs'
+import { takeUntil } from 'rxjs/operators'
+
+import { PagesService } from '../../services/pages.service'
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss']
 })
-export class SidebarComponent implements OnInit {
+export class SidebarComponent implements OnInit, OnDestroy {
   isActive: boolean
   collapsed: boolean
   showMenu: string
   pushRightClass: string
 
-  @Output()
-  collapsedEvent = new EventEmitter<boolean>()
+  private onDestroy$ = new Subject()
 
-  constructor(public router: Router) {
+  constructor(public router: Router, private pagesService: PagesService) {
     this.router.events.subscribe(val => {
       if (
         val instanceof NavigationEnd &&
@@ -32,15 +35,23 @@ export class SidebarComponent implements OnInit {
     this.collapsed = false
     this.showMenu = ''
     this.pushRightClass = 'push-right'
+
+    this.pagesService.collapsedValueChanges
+      .pipe(takeUntil(this.onDestroy$))
+      .subscribe(result => {
+        this.collapsed = result
+      })
+  }
+
+  ngOnDestroy() {
+    this.onDestroy$.next()
   }
 
   eventCalled() {
     this.isActive = !this.isActive
   }
 
-  collapseMenu(collapsed) {
-    this.collapsedEvent.emit()
-  }
+  collapseMenu(collapsed) {}
 
   addExpandClass(element: any) {
     if (element === this.showMenu) {
@@ -52,7 +63,6 @@ export class SidebarComponent implements OnInit {
 
   toggleCollapsed() {
     this.collapsed = !this.collapsed
-    this.collapsedEvent.emit(this.collapsed)
   }
 
   isToggled(): boolean {
