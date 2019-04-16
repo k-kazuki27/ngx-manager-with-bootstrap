@@ -1,4 +1,7 @@
-$topnav-background-color: #222;
+@import '~src/styles/variables';
+
+$sidebar-background-color: #222 !default;
+
 .sidebar {
   border-radius: 0;
   position: fixed;
@@ -10,7 +13,7 @@ $topnav-background-color: #222;
   border: none;
   border-radius: 0;
   overflow-y: auto;
-  background-color: $topnav-background-color;
+  background-color: $sidebar-background-color;
   bottom: 0;
   overflow-x: hidden;
   padding-bottom: 40px;
@@ -23,7 +26,7 @@ $topnav-background-color: #222;
   // border-top: 1px solid rgba(255,255,255,0.3);
   .list-group {
     a.list-group-item {
-      background: $topnav-background-color;
+      background: $sidebar-background-color;
       border: 0;
       border-radius: 0;
       color: #999;
@@ -33,11 +36,11 @@ $topnav-background-color: #222;
       }
     }
     a:hover {
-      background: darken($topnav-background-color, 5%);
+      background: darken($sidebar-background-color, 5%);
       color: #fff;
     }
     a.router-link-active {
-      background: darken($topnav-background-color, 5%);
+      background: darken($sidebar-background-color, 5%);
       color: #fff;
     }
     .header-fields {
@@ -61,7 +64,7 @@ $topnav-background-color: #222;
         color: #999;
         text-decoration: none;
         font-weight: 400;
-        background: $topnav-background-color;
+        background: $sidebar-background-color;
         span {
           position: relative;
           display: block;
@@ -77,14 +80,14 @@ $topnav-background-color: #222;
       }
     }
     .panel-title:hover {
-      background: darken($topnav-background-color, 5%);
+      background: darken($sidebar-background-color, 5%);
     }
     .panel-collapse {
       border: none;
       .panel-body {
         .list-group-item {
           border-radius: 0;
-          background-color: $topnav-background-color;
+          background-color: $sidebar-background-color;
           border: 0 solid transparent;
           a {
             color: #999;
@@ -94,7 +97,7 @@ $topnav-background-color: #222;
           }
         }
         .list-group-item:hover {
-          background: darken($topnav-background-color, 5%);
+          background: darken($sidebar-background-color, 5%);
         }
       }
     }
