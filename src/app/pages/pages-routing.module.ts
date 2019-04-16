@@ -6,7 +6,13 @@ import { PagesComponent } from './pages.component'
 const routes: Routes = [
   {
     path: '',
-    component: PagesComponent
+    component: PagesComponent,
+    children: [
+      {
+        path: 'user',
+        loadChildren: './user/user.module#UserModule'
+      }
+    ]
   }
 ]
 
