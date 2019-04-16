@@ -3,14 +3,17 @@
 $sidebar-background-color: #222 !default;
 $sidebar-font-color: #999 !default;
 
+$header-height: 56px !default;
+$sidebar-width: 235px !default;
+
 .sidebar {
   border-radius: 0;
   position: fixed;
   z-index: 1000;
-  top: 56px;
-  left: 235px;
-  width: 235px;
-  margin-left: -235px;
+  top: $header-height;
+  left: $sidebar-width;
+  width: $sidebar-width;
+  margin-left: -$sidebar-width;
   border: none;
   overflow-y: auto;
   background-color: $sidebar-background-color;

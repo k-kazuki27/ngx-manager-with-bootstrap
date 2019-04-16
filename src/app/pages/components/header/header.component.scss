@@ -4,8 +4,11 @@ $header-background-color: #222 !default;
 $header-title-font-color: #fff !default;
 $header-link-font-color: #999 !default;
 
+$header-height: 56px !default;
+
 :host {
   .navbar {
+    height: $header-height;
     background-color: $header-background-color;
     .navbar-brand {
       color: $header-title-font-color;
