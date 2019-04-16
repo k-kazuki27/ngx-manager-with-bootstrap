@@ -1,37 +1,19 @@
-$topnav-background-color: #222;
+@import '~src/styles/variables';
+
+$header-background-color: #222 !default;
+$header-title-font-color: #fff !default;
+$header-link-font-color: #999 !default;
+
 :host {
   .navbar {
-    background-color: $topnav-background-color;
+    background-color: $header-background-color;
     .navbar-brand {
-      color: #fff;
+      color: $header-title-font-color;
     }
     .nav-item > a {
-      color: #999;
+      color: $header-link-font-color;
       &:hover {
         color: #fff;
-      }
-    }
-  }
-  .messages {
-    width: 300px;
-    .media {
-      border-bottom: 1px solid #ddd;
-      padding: 5px 10px;
-      &:last-child {
-        border-bottom: none;
-      }
-    }
-    .media-body {
-      h5 {
-        font-size: 13px;
-        font-weight: 600;
-      }
-      .small {
-        margin: 0;
-      }
-      .last {
-        font-size: 12px;
-        margin: 0;
       }
     }
   }
