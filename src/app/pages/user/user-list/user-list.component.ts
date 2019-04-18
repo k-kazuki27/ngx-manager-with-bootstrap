@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core'
+import { FormBuilder, FormGroup } from '@angular/forms'
 import { routerTransition } from 'src/app/router.animations'
 
 @Component({
@@ -8,7 +9,20 @@ import { routerTransition } from 'src/app/router.animations'
   animations: [routerTransition()]
 })
 export class UserListComponent implements OnInit {
-  constructor() {}
+  searchForm: FormGroup
 
-  ngOnInit() {}
+  constructor(private fb: FormBuilder) {}
+
+  ngOnInit() {
+    this.searchForm = this.fb.group({
+      email: [null],
+      lastName: [null]
+    })
+  }
+
+  search() {}
+
+  reset() {
+    this.searchForm.reset()
+  }
 }

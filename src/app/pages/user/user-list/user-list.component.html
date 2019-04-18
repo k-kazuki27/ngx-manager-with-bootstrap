@@ -5,21 +5,31 @@
       検索
     </div>
     <div class="card-body">
-      <form autocomplete="off">
+      <form [formGroup]="searchForm" autocomplete="off">
         <div class="form-group row">
           <label for="email" class="col-2 col-form-label">メールアドレス</label>
-          <input type="email" class="form-control col-8" name="email" />
+          <input
+            type="email"
+            class="form-control col-8"
+            name="email"
+            formControlName="email"
+          />
         </div>
         <div class="form-group row">
           <label for="lastName" class="col-2 col-form-label">名前（姓）</label>
-          <input type="text" class="form-control col-8" name="lastName" />
+          <input
+            type="text"
+            class="form-control col-8"
+            name="lastName"
+            formControlName="lastName"
+          />
         </div>
       </form>
       <div class="search-bottom">
-        <button type="button" class="btn btn-primary">
+        <button type="button" class="btn btn-primary" (click)="search()">
           <i class="fa fa-search"></i>検索
         </button>
-        <button type="button" class="btn btn-warning">
+        <button type="button" class="btn btn-warning" (click)="reset()">
           <i class="fa fa-refresh"></i>リセット
         </button>
       </div>
