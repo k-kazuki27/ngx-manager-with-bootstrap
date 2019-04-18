@@ -7,8 +7,13 @@
 .inner-content {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   height: 49px;
   .header-text {
     font-size: 1.8rem;
+  }
+  a {
+    font-size: 1.2rem;
+    color: #666;
   }
 }
