@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'spinner';
+@import 'variables';
 
 @media screen and (max-width: 992px) {
   .push-right {
@@ -9,7 +10,12 @@
   }
 }
 
+html {
+  height: 100%;
+}
+
 body {
+  height: calc(100% - #{$header-height});
   font-family: 'Noto Sans Japanese', sans-serif;
   font-weight: 350;
 }
