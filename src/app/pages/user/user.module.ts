@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common'
 import { NgModule } from '@angular/core'
 import { ReactiveFormsModule } from '@angular/forms'
+import { BsDropdownModule } from 'ngx-bootstrap'
 import { PageHeaderModule } from 'src/app/shared'
 
 import { UserDetailComponent } from './user-detail/user-detail.component'
@@ -13,7 +14,8 @@ import { UserRoutingModule } from './user-routing.module'
     CommonModule,
     UserRoutingModule,
     PageHeaderModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BsDropdownModule.forRoot()
   ]
 })
 export class UserModule {}

@@ -1,7 +1,10 @@
 .search-bottom {
   display: flex;
   justify-content: flex-start;
-  button:nth-child(2) {
-    margin-left: 5px;
-  }
+}
+
+.list-bottom {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 10px;
 }

@@ -19,4 +19,9 @@ body {
   height: calc(100% - #{$header-height});
   font-family: 'Noto Sans Japanese', sans-serif;
   font-weight: 350;
+  font-size: 14px;
+}
+
+.minimum-width {
+  width: 1%;
 }
