@@ -1,0 +1,14 @@
+:host {
+  display: block;
+  padding-bottom: 5px;
+  border-bottom: solid 1px #bdbdbd;
+}
+
+.inner-content {
+  display: flex;
+  align-items: center;
+  height: 49px;
+  .header-text {
+    font-size: 1.8rem;
+  }
+}

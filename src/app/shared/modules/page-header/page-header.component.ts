@@ -7,9 +7,7 @@ import { Component, Input, OnInit } from '@angular/core'
 })
 export class PageHeaderComponent implements OnInit {
   @Input() title: string
-  @Input() titleIcon: string
   @Input() subTitle: string
-  @Input() subTitleIcon: string
 
   constructor() {}
 
