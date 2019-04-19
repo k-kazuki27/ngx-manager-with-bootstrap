@@ -25,4 +25,8 @@ export class UserListComponent implements OnInit {
   reset() {
     this.searchForm.reset()
   }
+
+  selectPageLines(lines: number) {
+    console.log(lines)
+  }
 }
