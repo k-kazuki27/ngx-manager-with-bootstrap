@@ -1,9 +1,6 @@
 <div [@routerTransition]>
   <app-page-header [title]="'ユーザ管理'"></app-page-header>
   <div class="card m-t-lg">
-    <div class="card-header">
-      検索
-    </div>
     <div class="card-body">
       <form [formGroup]="searchForm" autocomplete="off">
         <div class="form-group row">
@@ -46,9 +43,6 @@
     </div>
   </div>
   <div class="card m-t-lg">
-    <div class="card-header">
-      ユーザ一覧
-    </div>
     <div class="card-body">
       <div class="list-bottom">
         <button type="button" class="btn btn-success btn-sm" (click)="search()">
