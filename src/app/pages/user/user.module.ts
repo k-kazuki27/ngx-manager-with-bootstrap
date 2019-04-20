@@ -1,7 +1,14 @@
 import { CommonModule } from '@angular/common'
 import { NgModule } from '@angular/core'
 import { ReactiveFormsModule } from '@angular/forms'
-import { PaginationModule } from 'ngx-bootstrap'
+import {
+  BsDatepickerConfig,
+  BsDatepickerModule,
+  BsLocaleService,
+  defineLocale,
+  jaLocale,
+  PaginationModule,
+} from 'ngx-bootstrap'
 import { DropdownPageLinesModule, PageHeaderModule } from 'src/app/shared'
 
 import { UserDetailComponent } from './user-detail/user-detail.component'
@@ -16,7 +23,23 @@ import { UserRoutingModule } from './user-routing.module'
     PageHeaderModule,
     ReactiveFormsModule,
     DropdownPageLinesModule,
-    PaginationModule.forRoot()
+    PaginationModule.forRoot(),
+    BsDatepickerModule.forRoot()
+  ],
+  providers: [
+    BsDatepickerModule.forRoot().providers,
+    { provide: BsDatepickerConfig, useFactory: getDatepickerConfig }
   ]
 })
-export class UserModule {}
+export class UserModule {
+  constructor(private bsLocaleService: BsLocaleService) {
+    defineLocale('ja', jaLocale)
+    this.bsLocaleService.use('ja')
+  }
+}
+export function getDatepickerConfig(): BsDatepickerConfig {
+  return Object.assign(new BsDatepickerConfig(), {
+    dateInputFormat: 'YYYY-MM-DD',
+    containerClass: 'theme-blue'
+  })
+}

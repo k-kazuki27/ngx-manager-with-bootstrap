@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { FormBuilder, FormGroup } from '@angular/forms'
 import { Router } from '@angular/router'
+import { NgxSpinnerService } from 'ngx-spinner'
 import { routerTransition } from 'src/app/router.animations'
 
 @Component({
@@ -16,7 +17,11 @@ export class UserListComponent implements OnInit {
   toItemNo = 25
   showAdvance = false
 
-  constructor(private fb: FormBuilder, private router: Router) {}
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private spinner: NgxSpinnerService
+  ) {}
 
   ngOnInit() {
     this.searchForm = this.fb.group({
@@ -29,7 +34,14 @@ export class UserListComponent implements OnInit {
   openAdvance() {
     this.showAdvance = !this.showAdvance
   }
-  search() {}
+  search() {
+    this.spinner.show()
+
+    setTimeout(() => {
+      /** spinner ends after 5 seconds */
+      this.spinner.hide()
+    }, 2000)
+  }
 
   reset() {
     this.searchForm.reset()
