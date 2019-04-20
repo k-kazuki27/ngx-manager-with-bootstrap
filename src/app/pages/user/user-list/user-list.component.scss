@@ -12,3 +12,13 @@
 td {
   vertical-align: middle;
 }
+
+.pagination {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+ul {
+  margin-bottom: 0;
+}

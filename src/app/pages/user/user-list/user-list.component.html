@@ -53,7 +53,9 @@
           (select)="selectPageLines($event)"
         ></app-dropdown-page-lines>
       </div>
-      <div class="pagenation"></div>
+      <div class="pagination">
+        全 {{ totalItems }} 件中 {{ fromItemNo }} 件 ～ {{ toItemNo }} 件を表示
+      </div>
       <table class="table table-striped table-bordered table-hover table-sm">
         <thead>
           <tr>
@@ -90,6 +92,17 @@
           </tr>
         </tbody>
       </table>
+      <div class="pagination">
+        <pagination
+          [boundaryLinks]="true"
+          [totalItems]="77"
+          previousText="&lsaquo;"
+          nextText="&rsaquo;"
+          firstText="&laquo;"
+          lastText="&raquo;"
+        >
+        </pagination>
+      </div>
     </div>
   </div>
 </div>

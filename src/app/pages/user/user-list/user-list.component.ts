@@ -10,6 +10,9 @@ import { routerTransition } from 'src/app/router.animations'
 })
 export class UserListComponent implements OnInit {
   searchForm: FormGroup
+  totalItems = 100
+  fromItemNo = 1
+  toItemNo = 25
 
   constructor(private fb: FormBuilder) {}
 
