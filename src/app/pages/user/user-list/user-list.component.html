@@ -57,30 +57,36 @@
       <table class="table table-striped table-bordered table-hover table-sm">
         <thead>
           <tr>
-            <th scope="col" class="minimum-width"></th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
+            <th class="minimum-width"></th>
+            <th>First</th>
+            <th>Last</th>
+            <th>Handle</th>
+            <th class="minimum-width"></th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <th scope="row">1</th>
+            <th nowrap="true">
+              <button
+                type="button"
+                class="btn btn-warning btn-sm"
+                (click)="search()"
+              >
+                <i class="fa fa-fw fa-edit"></i>修正
+              </button>
+            </th>
             <td>Mark</td>
             <td>Otto</td>
             <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
+            <td nowrap="true">
+              <button
+                type="button"
+                class="btn btn-danger btn-sm"
+                (click)="search()"
+              >
+                <i class="fa fa-fw fa-times"></i>削除
+              </button>
+            </td>
           </tr>
         </tbody>
       </table>
