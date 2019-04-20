@@ -27,6 +27,31 @@
             formControlName="lastName"
           />
         </div>
+        <div class="m-b-sm">
+          <a href="javascript:void(0)" (click)="openAdvance()"
+            ><i
+              class="fa fa-fw "
+              [ngClass]="{ 'fa-plus': !showAdvance, 'fa-times': showAdvance }"
+            ></i
+            >詳細検索</a
+          >
+        </div>
+        <ng-container *ngIf="showAdvance">
+          <div class="dropdown-divider"></div>
+          <div class="form-group row">
+            <label
+              for="firstName"
+              class="col-sm-2 col-form-label col-form-label-sm"
+              >名前（名）</label
+            >
+            <input
+              type="text"
+              class="form-control form-control-sm col-sm-5"
+              name="firstName"
+              formControlName="firstName"
+            />
+          </div>
+        </ng-container>
       </form>
       <div class="search-bottom">
         <button type="button" class="btn btn-primary btn-sm" (click)="search()">

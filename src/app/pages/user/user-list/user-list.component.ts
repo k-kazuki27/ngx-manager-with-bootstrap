@@ -13,16 +13,21 @@ export class UserListComponent implements OnInit {
   totalItems = 100
   fromItemNo = 1
   toItemNo = 25
+  showAdvance = false
 
   constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
     this.searchForm = this.fb.group({
       email: [null],
-      lastName: [null]
+      lastName: [null],
+      firstName: [null]
     })
   }
 
+  openAdvance() {
+    this.showAdvance = !this.showAdvance
+  }
   search() {}
 
   reset() {
