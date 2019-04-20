@@ -1,15 +1,17 @@
 <div [@routerTransition]>
   <app-page-header [title]="'ユーザ管理'" [subTitle]="'登録'"></app-page-header>
-  <div class="card m-t-lg">
+  <div class="card m-t-lg col-sm-8">
     <div class="card-body">
       <form [formGroup]="form" autocomplete="off">
         <div class="form-group row">
-          <label for="email" class="col-sm-2 col-form-label col-form-label-sm"
-            >メールアドレス<span class="badge badge-danger">必須</span></label
+          <label for="email" class="col-sm-3 col-form-label col-form-label-sm"
+            >メールアドレス<span class="badge badge-danger m-l-xxs"
+              >必須</span
+            ></label
           >
           <input
             type="email"
-            class="form-control form-control-sm col-sm-5"
+            class="form-control form-control-sm col-sm-9"
             name="email"
             formControlName="email"
           />
@@ -17,12 +19,14 @@
         <div class="form-group row">
           <label
             for="lastName"
-            class="col-sm-2 col-form-label col-form-label-sm"
-            >名前（姓）<span class="badge badge-danger">必須</span></label
+            class="col-sm-3 col-form-label col-form-label-sm"
+            >名前（姓）<span class="badge badge-danger  m-l-xxs"
+              >必須</span
+            ></label
           >
           <input
             type="text"
-            class="form-control form-control-sm col-sm-5"
+            class="form-control form-control-sm col-sm-9"
             name="lastName"
             formControlName="lastName"
           />
