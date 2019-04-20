@@ -7,13 +7,9 @@ import { BsModalRef } from 'ngx-bootstrap'
   styleUrls: ['./confirm.component.scss']
 })
 export class ConfirmComponent implements OnInit {
-  title: string
-  closeBtnName: string
-  list: any[] = []
+  msg: string
 
   constructor(public bsModalRef: BsModalRef) {}
 
-  ngOnInit() {
-    this.list.push('PROFIT!!!')
-  }
+  ngOnInit() {}
 }

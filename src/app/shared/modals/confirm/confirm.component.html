@@ -1,5 +1,5 @@
 <div class="modal-header">
-  <h4 class="modal-title pull-left">{{ title }}</h4>
+  <h4 class="modal-title pull-left">確認</h4>
   <button
     type="button"
     class="close pull-right"
@@ -10,12 +10,21 @@
   </button>
 </div>
 <div class="modal-body">
-  <ul *ngIf="list.length">
-    <li *ngFor="let item of list">{{ item }}</li>
-  </ul>
+  {{ msg }}
 </div>
 <div class="modal-footer">
-  <button type="button" class="btn btn-default" (click)="bsModalRef.hide()">
-    {{ closeBtnName }}
+  <button
+    type="button"
+    class="btn btn-success btn-sm w-100px"
+    (click)="bsModalRef.hide()"
+  >
+    OK
+  </button>
+  <button
+    type="button"
+    class="btn btn btn-outline-secondary btn-sm"
+    (click)="bsModalRef.hide()"
+  >
+    キャンセル
   </button>
 </div>

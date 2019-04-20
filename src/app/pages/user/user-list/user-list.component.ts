@@ -58,6 +58,6 @@ export class UserListComponent implements OnInit {
     this.router.navigate(['/user/detail', id])
   }
   remove() {
-    this.confirmService.openModal()
+    this.confirmService.openRemoveConfirm()
   }
 }
