@@ -42,6 +42,7 @@ export class UserModule {
 export function getDatepickerConfig(): BsDatepickerConfig {
   return Object.assign(new BsDatepickerConfig(), {
     dateInputFormat: 'YYYY-MM-DD',
-    containerClass: 'theme-blue'
+    containerClass: 'theme-blue',
+    showWeekNumbers: false
   })
 }

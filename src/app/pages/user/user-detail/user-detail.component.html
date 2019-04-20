@@ -56,12 +56,18 @@
             <input
               type="text"
               class="form-control form-control-sm"
+              bsDatepicker
+              #birthdayDp="bsDatepicker"
               name="birthday"
               formControlName="birthday"
             />
             <div class="input-group-append">
-              <button type="button" class="btn btn-outline-secondary btn-sm">
-                Button
+              <button
+                type="button"
+                class="btn btn-outline-secondary btn-sm"
+                (click)="birthdayDp.show()"
+              >
+                <i class="fa fa-fw fa-calendar"></i>
               </button>
             </div>
           </div>
