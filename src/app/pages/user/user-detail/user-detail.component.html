@@ -5,7 +5,7 @@
       <form [formGroup]="form" autocomplete="off">
         <div class="form-group row">
           <label for="email" class="col-sm-2 col-form-label col-form-label-sm"
-            >メールアドレス</label
+            >メールアドレス<span class="badge badge-danger">必須</span></label
           >
           <input
             type="email"
@@ -18,7 +18,7 @@
           <label
             for="lastName"
             class="col-sm-2 col-form-label col-form-label-sm"
-            >名前（姓）</label
+            >名前（姓）<span class="badge badge-danger">必須</span></label
           >
           <input
             type="text"
