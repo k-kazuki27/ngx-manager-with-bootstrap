@@ -10,6 +10,7 @@ import {
   PaginationModule,
 } from 'ngx-bootstrap'
 import { DropdownPageLinesModule, PageHeaderModule } from 'src/app/shared'
+import { ConfirmModule } from 'src/app/shared/modals/confirm/confirm.module'
 
 import { UserDetailComponent } from './user-detail/user-detail.component'
 import { UserListComponent } from './user-list/user-list.component'
@@ -24,7 +25,8 @@ import { UserRoutingModule } from './user-routing.module'
     ReactiveFormsModule,
     DropdownPageLinesModule,
     PaginationModule.forRoot(),
-    BsDatepickerModule.forRoot()
+    BsDatepickerModule.forRoot(),
+    ConfirmModule
   ],
   providers: [
     BsDatepickerModule.forRoot().providers,
