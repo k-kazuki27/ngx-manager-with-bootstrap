@@ -7,7 +7,7 @@ import { BsModalRef } from 'ngx-bootstrap'
   styleUrls: ['./confirm.component.scss']
 })
 export class ConfirmComponent implements OnInit {
-  msg: string
+  message: string
 
   constructor(public bsModalRef: BsModalRef) {}
 

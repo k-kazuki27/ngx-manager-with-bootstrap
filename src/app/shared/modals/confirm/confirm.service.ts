@@ -10,13 +10,12 @@ export class ConfirmService {
   constructor(private modalService: BsModalService) {}
 
   openRemoveConfirm() {
-    this.openModal('削除')
+    this.openModal('削除します。よろしいですか？')
   }
 
   private openModal(message: string) {
-    const confirmMsg = `${message}します。よろしいですか？`
     this.bsModalRef = this.modalService.show(ConfirmComponent, {
-      initialState: { msg: confirmMsg }
+      initialState: { message }
     })
   }
 }
