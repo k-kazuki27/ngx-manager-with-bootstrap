@@ -23,7 +23,8 @@ export class UserDetailComponent implements OnInit {
     this.form = this.fb.group({
       email: [null],
       lastName: [null],
-      firstName: [null]
+      firstName: [null],
+      birthday: [null]
     })
   }
 

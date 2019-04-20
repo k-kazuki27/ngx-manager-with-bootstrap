@@ -31,6 +31,41 @@
             formControlName="lastName"
           />
         </div>
+        <div class="form-group row">
+          <label
+            for="firstName"
+            class="col-sm-3 col-form-label col-form-label-sm"
+            >名前（名）<span class="badge badge-danger m-l-xxs"
+              >必須</span
+            ></label
+          >
+          <input
+            type="text"
+            class="form-control form-control-sm col-sm-9"
+            name="firstName"
+            formControlName="firstName"
+          />
+        </div>
+        <div class="form-group row">
+          <label
+            for="birthday"
+            class="col-sm-3 col-form-label col-form-label-sm"
+            >誕生日</label
+          >
+          <div class="input-group input-group-sm col-sm-9">
+            <input
+              type="text"
+              class="form-control form-control-sm"
+              name="birthday"
+              formControlName="birthday"
+            />
+            <div class="input-group-append">
+              <button type="button" class="btn btn-outline-secondary btn-sm">
+                Button
+              </button>
+            </div>
+          </div>
+        </div>
       </form>
       <div class="edit-bottom">
         <button
