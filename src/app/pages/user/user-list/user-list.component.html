@@ -7,34 +7,40 @@
     <div class="card-body">
       <form [formGroup]="searchForm" autocomplete="off">
         <div class="form-group row">
-          <label for="email" class="col-sm-2 col-form-label"
+          <label for="email" class="col-sm-2 col-form-label col-form-label-sm"
             >メールアドレス</label
           >
           <input
             type="email"
-            class="form-control col-sm-8"
+            class="form-control form-control-sm col-sm-5"
             name="email"
             formControlName="email"
           />
         </div>
         <div class="form-group row">
-          <label for="lastName" class="col-sm-2 col-form-label"
+          <label
+            for="lastName"
+            class="col-sm-2 col-form-label col-form-label-sm"
             >名前（姓）</label
           >
           <input
             type="text"
-            class="form-control col-sm-8"
+            class="form-control form-control-sm col-sm-5"
             name="lastName"
             formControlName="lastName"
           />
         </div>
       </form>
       <div class="search-bottom">
-        <button type="button" class="btn btn-primary" (click)="search()">
-          <i class="fa fa-search"></i>検索
+        <button type="button" class="btn btn-primary btn-sm" (click)="search()">
+          <i class="fa fa-fw fa-search"></i>検索
         </button>
-        <button type="button" class="btn btn-warning m-l-sm" (click)="reset()">
-          <i class="fa fa-refresh"></i>リセット
+        <button
+          type="button"
+          class="btn btn-warning btn-sm m-l-sm"
+          (click)="reset()"
+        >
+          <i class="fa fa-fw fa-refresh"></i>リセット
         </button>
       </div>
     </div>
@@ -45,15 +51,16 @@
     </div>
     <div class="card-body">
       <div class="list-bottom">
-        <button type="button" class="btn btn-success" (click)="search()">
-          <i class="fa fa-plus"></i>新規
+        <button type="button" class="btn btn-success btn-sm" (click)="search()">
+          <i class="fa fa-fw fa-plus"></i>新規
         </button>
         <app-dropdown-page-lines
           class="m-l-sm"
           (select)="selectPageLines($event)"
         ></app-dropdown-page-lines>
       </div>
-      <table class="table table-striped table-bordered table-hover">
+      <div class="pagenation"></div>
+      <table class="table table-striped table-bordered table-hover table-sm">
         <thead>
           <tr>
             <th scope="col" class="minimum-width"></th>

@@ -2,6 +2,7 @@
 
 $header-height: 56px !default;
 $sidebar-width: 235px !default;
+$collapsed-sidebar-width: 50px !default;
 
 * {
   transition: margin-left 0.2s ease-in-out;
@@ -20,7 +21,7 @@ $sidebar-width: 235px !default;
 }
 
 .collapsed {
-  margin-left: 100px;
+  margin-left: $collapsed-sidebar-width;
 }
 
 @media screen and (max-width: 992px) {
