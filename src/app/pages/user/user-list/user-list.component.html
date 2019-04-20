@@ -70,7 +70,7 @@
   <div class="card m-t-lg">
     <div class="card-body">
       <div class="list-bottom">
-        <button type="button" class="btn btn-success btn-sm" (click)="search()">
+        <button type="button" class="btn btn-success btn-sm" (click)="create()">
           <i class="fa fa-fw fa-plus"></i>新規
         </button>
         <app-dropdown-page-lines
@@ -97,7 +97,7 @@
               <button
                 type="button"
                 class="btn btn-warning btn-sm"
-                (click)="search()"
+                (click)="edit(1)"
               >
                 <i class="fa fa-fw fa-edit"></i>修正
               </button>
@@ -109,9 +109,9 @@
               <button
                 type="button"
                 class="btn btn-danger btn-sm"
-                (click)="search()"
+                (click)="remove()"
               >
-                <i class="fa fa-fw fa-times"></i>削除
+                <i class="fa fa-fw fa-trash"></i>削除
               </button>
             </td>
           </tr>

@@ -10,7 +10,7 @@ import { routerTransition } from '../router.animations'
   animations: [routerTransition()]
 })
 export class LoginComponent implements OnInit {
-  constructor(public router: Router) {}
+  constructor(private router: Router) {}
 
   ngOnInit() {}
 

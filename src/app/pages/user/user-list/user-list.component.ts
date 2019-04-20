@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { FormBuilder, FormGroup } from '@angular/forms'
+import { Router } from '@angular/router'
 import { routerTransition } from 'src/app/router.animations'
 
 @Component({
@@ -15,7 +16,7 @@ export class UserListComponent implements OnInit {
   toItemNo = 25
   showAdvance = false
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private router: Router) {}
 
   ngOnInit() {
     this.searchForm = this.fb.group({
@@ -34,7 +35,13 @@ export class UserListComponent implements OnInit {
     this.searchForm.reset()
   }
 
-  selectPageLines(lines: number) {
-    console.log(lines)
+  selectPageLines(lines: number) {}
+
+  create() {
+    this.router.navigate(['/user/detail'])
   }
+  edit(id: number) {
+    this.router.navigate(['/user/detail', id])
+  }
+  remove() {}
 }
