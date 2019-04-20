@@ -13,6 +13,10 @@ export class ConfirmService {
     this.openModal('削除します。よろしいですか？')
   }
 
+  openEditConfirm() {
+    this.openModal('登録します。よろしいですか？')
+  }
+
   private openModal(message: string) {
     this.bsModalRef = this.modalService.show(ConfirmComponent, {
       initialState: { message }
