@@ -40,8 +40,9 @@ export class UserListComponent implements OnInit {
   toItemNo = 25
   showAdvance = false
   list: User[] = USERS
-  order = 'userId'
-  reverse = false
+  // カラム指定なしだと逆になるので、reverse=true
+  order = ''
+  reverse = true
 
   constructor(
     private fb: FormBuilder,
@@ -89,6 +90,8 @@ export class UserListComponent implements OnInit {
   setOrder(value: string): void {
     if (this.order === value) {
       this.reverse = !this.reverse
+    } else {
+      this.reverse = false
     }
 
     this.order = value

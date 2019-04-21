@@ -84,15 +84,15 @@
             <th (click)="setOrder('userId')">
               ユーザID
               <span *ngIf="order === 'userId'">
-                <i [hidden]="reverse" class="fa fa-fw fa-sort-asc"></i>
-                <i [hidden]="!reverse" class="fa fa-fw fa-sort-desc"></i>
+                <i [hidden]="reverse" class="fa fa-sort-asc"></i>
+                <i [hidden]="!reverse" class="fa fa-sort-desc"></i>
               </span>
             </th>
             <th (click)="setOrder('email')">
               メールアドレス
               <span *ngIf="order === 'email'">
-                <i [hidden]="reverse" class="fa fa-fw fa-sort-asc"></i>
-                <i [hidden]="!reverse" class="fa fa-fw fa-sort-desc"></i>
+                <i [hidden]="reverse" class="fa fa-sort-asc"></i>
+                <i [hidden]="!reverse" class="fa fa-sort-desc"></i>
               </span>
             </th>
             <th>名前（姓）</th>
