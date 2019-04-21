@@ -1,25 +1,26 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing'
+import { BsModalRef } from 'ngx-bootstrap'
 
-import { ConfirmComponent } from './confirm.component';
+import { ConfirmComponent } from './confirm.component'
 
 describe('ConfirmComponent', () => {
-  let component: ConfirmComponent;
-  let fixture: ComponentFixture<ConfirmComponent>;
+  let component: ConfirmComponent
+  let fixture: ComponentFixture<ConfirmComponent>
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ConfirmComponent ]
-    })
-    .compileComponents();
-  }));
+      declarations: [ConfirmComponent],
+      providers: [BsModalRef]
+    }).compileComponents()
+  }))
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ConfirmComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    fixture = TestBed.createComponent(ConfirmComponent)
+    component = fixture.componentInstance
+    fixture.detectChanges()
+  })
 
   it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+    expect(component).toBeTruthy()
+  })
+})
