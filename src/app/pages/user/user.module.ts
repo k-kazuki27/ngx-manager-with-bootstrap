@@ -12,6 +12,7 @@ import {
 import { DropdownPageLinesModule, PageHeaderModule } from 'src/app/shared'
 import { ConfirmModule } from 'src/app/shared/modals/confirm/confirm.module'
 
+import { CustomPaginationModule } from './../../shared/modules/custom-pagination/custom-pagination.module'
 import { UserDetailComponent } from './user-detail/user-detail.component'
 import { UserListComponent } from './user-list/user-list.component'
 import { UserRoutingModule } from './user-routing.module'
@@ -24,6 +25,7 @@ import { UserRoutingModule } from './user-routing.module'
     PageHeaderModule,
     ReactiveFormsModule,
     DropdownPageLinesModule,
+    CustomPaginationModule,
     PaginationModule.forRoot(),
     BsDatepickerModule.forRoot(),
     ConfirmModule
