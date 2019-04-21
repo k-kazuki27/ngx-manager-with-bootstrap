@@ -79,6 +79,14 @@ $sidebar-width: 235px !default;
 }
 
 @media screen and (max-width: 992px) {
+  .push-right {
+    .sidebar {
+      left: 235px !important;
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
   .sidebar {
     top: $header-height;
     left: 0px;

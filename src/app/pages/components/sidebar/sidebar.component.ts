@@ -11,10 +11,8 @@ import { PagesService } from '../../services/pages.service'
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit, OnDestroy {
-  isActive: boolean
   collapsed: boolean
-  showMenu: string
-  pushRightClass: string
+  overSidebar: boolean
 
   private onDestroy$ = new Subject()
 
@@ -23,56 +21,32 @@ export class SidebarComponent implements OnInit, OnDestroy {
       if (
         val instanceof NavigationEnd &&
         window.innerWidth <= 992 &&
-        this.isToggled()
+        this.overSidebar
       ) {
-        this.toggleSidebar()
+        this.overSidebar = !this.overSidebar
       }
     })
   }
 
   ngOnInit() {
-    this.isActive = false
     this.collapsed = false
-    this.showMenu = ''
-    this.pushRightClass = 'push-right'
+    this.overSidebar = false
 
     this.pagesService.collapsedValueChanges
       .pipe(takeUntil(this.onDestroy$))
       .subscribe(result => {
         this.collapsed = result
       })
+
+    this.pagesService.toggleSidebarValueChanges
+      .pipe(takeUntil(this.onDestroy$))
+      .subscribe(() => {
+        this.overSidebar = !this.overSidebar
+      })
   }
 
   ngOnDestroy() {
     this.onDestroy$.next()
-  }
-
-  eventCalled() {
-    this.isActive = !this.isActive
-  }
-
-  collapseMenu(collapsed) {}
-
-  addExpandClass(element: any) {
-    if (element === this.showMenu) {
-      this.showMenu = '0'
-    } else {
-      this.showMenu = element
-    }
-  }
-
-  toggleCollapsed() {
-    this.collapsed = !this.collapsed
-  }
-
-  isToggled(): boolean {
-    const dom: Element = document.querySelector('body')
-    return dom.classList.contains(this.pushRightClass)
-  }
-
-  toggleSidebar() {
-    const dom: any = document.querySelector('body')
-    dom.classList.toggle(this.pushRightClass)
   }
 
   logout() {

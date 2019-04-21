@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core'
-import { NavigationEnd, Router } from '@angular/router'
+import { Router } from '@angular/router'
+
+import { PagesService } from '../../services/pages.service'
 
 @Component({
   selector: 'app-header',
@@ -7,32 +9,12 @@ import { NavigationEnd, Router } from '@angular/router'
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  public pushRightClass: string
+  constructor(private router: Router, private pagesService: PagesService) {}
 
-  constructor(public router: Router) {
-    this.router.events.subscribe(val => {
-      if (
-        val instanceof NavigationEnd &&
-        window.innerWidth <= 992 &&
-        this.isToggled()
-      ) {
-        this.toggleSidebar()
-      }
-    })
-  }
-
-  ngOnInit() {
-    this.pushRightClass = 'push-right'
-  }
-
-  isToggled(): boolean {
-    const dom: Element = document.querySelector('body')
-    return dom.classList.contains(this.pushRightClass)
-  }
+  ngOnInit() {}
 
   toggleSidebar() {
-    const dom: any = document.querySelector('body')
-    dom.classList.toggle(this.pushRightClass)
+    this.pagesService.toggleSidebar()
   }
 
   logout() {

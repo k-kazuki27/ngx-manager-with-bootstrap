@@ -1,6 +1,6 @@
 import { BreakpointObserver } from '@angular/cdk/layout'
 import { Injectable } from '@angular/core'
-import { BehaviorSubject, Observable } from 'rxjs'
+import { BehaviorSubject, Observable, Subject } from 'rxjs'
 import { map } from 'rxjs/operators'
 
 import { PagesResolverModule } from './pages-resolver.module'
@@ -10,6 +10,7 @@ import { PagesResolverModule } from './pages-resolver.module'
 })
 export class PagesService {
   private collapsed$ = new BehaviorSubject<boolean>(false)
+  private toggleSidebar$ = new Subject<null>()
 
   constructor(private breakpointObserver: BreakpointObserver) {}
 
@@ -19,6 +20,14 @@ export class PagesService {
 
   setCollapsed(result: boolean): void {
     this.collapsed$.next(result)
+  }
+
+  get toggleSidebarValueChanges(): Observable<boolean> {
+    return this.toggleSidebar$.asObservable()
+  }
+
+  toggleSidebar(): void {
+    this.toggleSidebar$.next()
   }
 
   get isSmallValueChanges(): Observable<boolean> {
