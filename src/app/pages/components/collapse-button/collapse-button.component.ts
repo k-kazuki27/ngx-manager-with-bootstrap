@@ -9,11 +9,18 @@ import { PagesService } from '../../services/pages.service'
 })
 export class CollapseButtonComponent implements OnInit {
   collapsed: boolean
+  isShow = true
 
   constructor(private pagesService: PagesService) {}
 
   ngOnInit() {
     this.collapsed = false
+    this.pagesService.isSmallValueChanges.subscribe(result => {
+      this.isShow = !result
+      if (result && this.collapsed) {
+        this.collapse()
+      }
+    })
   }
 
   collapse() {
