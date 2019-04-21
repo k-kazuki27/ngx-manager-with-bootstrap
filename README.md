@@ -10,3 +10,5 @@
 - Jest
 - `ng add @briebug/jest-schematic`
 - https://github.com/thymikee/jest-preset-angular
+- ex.top.componentのテストだけ実行
+  - `npm test -- -t 'top'`
