@@ -80,7 +80,7 @@ $sidebar-width: 235px !default;
 
 @media screen and (max-width: 992px) {
   .sidebar {
-    top: 54px;
+    top: $header-height;
     left: 0px;
   }
 }
