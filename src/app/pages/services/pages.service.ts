@@ -1,4 +1,4 @@
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout'
+import { BreakpointObserver } from '@angular/cdk/layout'
 import { Injectable } from '@angular/core'
 import { BehaviorSubject, Observable } from 'rxjs'
 import { map } from 'rxjs/operators'
@@ -21,9 +21,9 @@ export class PagesService {
     this.collapsed$.next(result)
   }
 
-  get isMobileValueChanges(): Observable<boolean> {
+  get isSmallValueChanges(): Observable<boolean> {
     return this.breakpointObserver
-      .observe(Breakpoints.Handset)
+      .observe('(max-width: 992px)')
       .pipe(map(result => result.matches))
   }
 }
