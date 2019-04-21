@@ -2,6 +2,7 @@
 
 $sidebar-background-color: #222 !default;
 $sidebar-font-color: #999 !default;
+$page-background-color: #f0f0f0 !default;
 
 $header-height: 56px !default;
 $sidebar-width: 235px !default;
@@ -38,9 +39,8 @@ $sidebar-width: 235px !default;
       color: #fff;
     }
     a.router-link-active {
-      background: darken($sidebar-background-color, 5%);
-      background-color: #f0f0f0;
-      color: #000;
+      background-color: $page-background-color;
+      color: $sidebar-background-color;
     }
     .header-fields {
       padding-top: 10px;
