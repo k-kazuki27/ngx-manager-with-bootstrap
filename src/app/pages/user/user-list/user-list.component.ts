@@ -3,8 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router'
 import { NgxSpinnerService } from 'ngx-spinner'
 import { routerTransition } from 'src/app/router.animations'
-import { ConfirmService } from 'src/app/shared/modals/confirm/confirm.service'
-import { User } from 'src/app/shared/models'
+import { AbstractList, ConfirmService, User } from 'src/app/shared'
 
 import { TableHeader } from './../../../shared/models/common'
 
@@ -70,7 +69,7 @@ const TABLE_HEADER: TableHeader[] = [
   styleUrls: ['./user-list.component.scss'],
   animations: [routerTransition()]
 })
-export class UserListComponent implements OnInit {
+export class UserListComponent extends AbstractList implements OnInit {
   searchForm: FormGroup
   totalItems = 100
   fromItemNo = 1
@@ -78,9 +77,6 @@ export class UserListComponent implements OnInit {
   showAdvance = false
   list: User[] = USERS
   headers: TableHeader[] = TABLE_HEADER
-  // カラム指定なしだと逆になるので、reverse=true
-  order = ''
-  reverse = true
 
   constructor(
     private fb: FormBuilder,
@@ -88,7 +84,9 @@ export class UserListComponent implements OnInit {
     private spinner: NgxSpinnerService,
     private confirmService: ConfirmService,
     private route: ActivatedRoute
-  ) {}
+  ) {
+    super()
+  }
 
   ngOnInit() {
     this.searchForm = this.fb.group({
@@ -124,19 +122,5 @@ export class UserListComponent implements OnInit {
   }
   remove() {
     this.confirmService.openRemoveConfirm()
-  }
-
-  setOrder(value: string, isSort: boolean): void {
-    if (!isSort) {
-      return
-    }
-
-    if (this.order === value) {
-      this.reverse = !this.reverse
-    } else {
-      this.reverse = false
-    }
-
-    this.order = value
   }
 }
