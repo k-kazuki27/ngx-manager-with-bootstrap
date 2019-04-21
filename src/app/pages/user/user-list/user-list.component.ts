@@ -69,10 +69,11 @@ const TABLE_HEADER: TableHeader[] = [
 })
 export class UserListComponent extends AbstractList implements OnInit {
   searchForm: FormGroup
+  showAdvance = false
+
   totalItems = 100
   fromItemNo = 1
   toItemNo = 25
-  showAdvance = false
   list: User[] = USERS
   headers: TableHeader[] = TABLE_HEADER
 
@@ -94,31 +95,35 @@ export class UserListComponent extends AbstractList implements OnInit {
     })
   }
 
-  openAdvance() {
+  //
+  // 検索
+  //
+  openAdvance(): void {
     this.showAdvance = !this.showAdvance
   }
-  search() {
+  search(): void {
     this.spinner.show()
-
     setTimeout(() => {
-      /** spinner ends after 5 seconds */
       this.spinner.hide()
     }, 2000)
   }
-
-  reset() {
+  reset(): void {
     this.searchForm.reset()
   }
 
-  selectPageLines(lines: number) {}
-
-  create() {
+  //
+  // 一覧
+  //
+  selectPageLines(lines: number): void {
+    this.search()
+  }
+  create(): void {
     this.router.navigate(['detail'], { relativeTo: this.route })
   }
-  edit(id: number) {
+  edit(id: number): void {
     this.router.navigate(['detail', id], { relativeTo: this.route })
   }
-  remove() {
+  remove(): void {
     this.confirmService.openRemoveConfirm()
   }
 }
