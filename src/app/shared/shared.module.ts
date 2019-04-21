@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common'
 import { NgModule } from '@angular/core'
 import { ReactiveFormsModule } from '@angular/forms'
 import { BsDatepickerConfig, BsDatepickerModule, BsLocaleService, defineLocale, jaLocale } from 'ngx-bootstrap'
+import { OrderModule } from 'ngx-order-pipe'
 
 import { ConfirmModule, CustomPaginationModule, DropdownPageLinesModule, PageHeaderModule, RequiredModule } from '.'
 
@@ -13,7 +14,8 @@ const modules = [
   DropdownPageLinesModule,
   CustomPaginationModule,
   ConfirmModule,
-  RequiredModule
+  RequiredModule,
+  OrderModule
 ]
 
 @NgModule({

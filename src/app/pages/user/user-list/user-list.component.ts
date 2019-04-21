@@ -4,6 +4,28 @@ import { Router } from '@angular/router'
 import { NgxSpinnerService } from 'ngx-spinner'
 import { routerTransition } from 'src/app/router.animations'
 import { ConfirmService } from 'src/app/shared/modals/confirm/confirm.service'
+import { User } from 'src/app/shared/models'
+
+const USERS: User[] = [
+  {
+    userId: 'a',
+    email: 'a@a.com',
+    lastName: '田中',
+    firstName: '一郎'
+  },
+  {
+    userId: 'c',
+    email: 'c@c.com',
+    lastName: '田中',
+    firstName: '三郎'
+  },
+  {
+    userId: 'b',
+    email: 'b@b.com',
+    lastName: '田中',
+    firstName: '二郎'
+  }
+]
 
 @Component({
   selector: 'app-user-list',
@@ -17,6 +39,9 @@ export class UserListComponent implements OnInit {
   fromItemNo = 1
   toItemNo = 25
   showAdvance = false
+  list: User[] = USERS
+  order = 'userId'
+  reverse = false
 
   constructor(
     private fb: FormBuilder,
@@ -59,5 +84,13 @@ export class UserListComponent implements OnInit {
   }
   remove() {
     this.confirmService.openRemoveConfirm()
+  }
+
+  setOrder(value: string): void {
+    if (this.order === value) {
+      this.reverse = !this.reverse
+    }
+
+    this.order = value
   }
 }

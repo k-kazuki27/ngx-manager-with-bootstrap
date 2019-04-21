@@ -27,6 +27,7 @@
     "core-js": "^2.5.4",
     "font-awesome": "^4.7.0",
     "ngx-bootstrap": "^4.0.1",
+    "ngx-order-pipe": "^2.0.2",
     "ngx-spinner": "^7.1.4",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
