@@ -53,55 +53,6 @@
         <i class="fa fa-fw fa-wrench"></i>&nbsp;
         <span>Bootstrap Grid</span>
       </a>
-      <a
-        [routerLink]="['/components']"
-        [routerLinkActive]="['router-link-active']"
-        class="list-group-item"
-      >
-        <i class="fa fa-th-list"></i>&nbsp;
-        <span>Component</span>
-      </a>
-      <div class="nested-menu">
-        <a class="list-group-item" (click)="addExpandClass('pages')">
-          <i class="fa fa-plus"></i>&nbsp;
-          <span>Menu</span>
-        </a>
-        <li class="nested" [class.expand]="showMenu === 'pages'">
-          <ul class="submenu">
-            <li>
-              <a href="javascript:void(0)">
-                <i class="fa fa-monument"></i>&nbsp;
-                <span>Submenu</span>
-              </a>
-            </li>
-            <li>
-              <a href="javascript:void(0)">
-                <i class="fa fa-monument"></i>&nbsp;
-                <span>Submenu</span>
-              </a>
-            </li>
-            <li>
-              <a href="javascript:void(0)">
-                <i class="fa fa-monument"></i>&nbsp;
-                <span>Submenu</span>
-              </a>
-            </li>
-          </ul>
-        </li>
-      </div>
-      <a
-        [routerLink]="['/blank-page']"
-        [routerLinkActive]="['router-link-active']"
-        class="list-group-item"
-      >
-        <i class="fa fa-file-o"></i>&nbsp;
-        <span>Blank Page</span>
-      </a>
-      <a href="http://www.strapui.com/" class="list-group-item">
-        <i class="fa fa-caret-down"></i>&nbsp;
-        <span>More Themes</span>
-      </a>
-
       <div class="header-fields">
         <a (click)="logout()" class="list-group-item">
           <span><i class="fa fa-fw fa-sign-out"></i>&nbsp; ログアウト</span>
