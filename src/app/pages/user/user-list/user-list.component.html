@@ -80,24 +80,17 @@
       <table class="table table-striped table-bordered table-hover table-sm">
         <thead>
           <tr>
-            <th class="minimum-width"></th>
-            <th class="sort" (click)="setOrder('userId')">
-              ユーザID
-              <span *ngIf="order === 'userId'">
+            <th
+              *ngFor="let item of headers"
+              [ngClass]="{ 'minimum-width': item.isButton, sort: item.isSort }"
+              (click)="setOrder(item.key, item.isSort)"
+            >
+              {{ item.name }}
+              <span *ngIf="order === item.key">
                 <i [hidden]="reverse" class="fa fa-sort-asc"></i>
                 <i [hidden]="!reverse" class="fa fa-sort-desc"></i>
               </span>
             </th>
-            <th class="sort" (click)="setOrder('email')">
-              メールアドレス
-              <span *ngIf="order === 'email'">
-                <i [hidden]="reverse" class="fa fa-sort-asc"></i>
-                <i [hidden]="!reverse" class="fa fa-sort-desc"></i>
-              </span>
-            </th>
-            <th>名前（姓）</th>
-            <th>名前（名）</th>
-            <th class="minimum-width"></th>
           </tr>
         </thead>
         <tbody>

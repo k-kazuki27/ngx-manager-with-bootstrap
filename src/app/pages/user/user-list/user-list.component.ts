@@ -6,6 +6,8 @@ import { routerTransition } from 'src/app/router.animations'
 import { ConfirmService } from 'src/app/shared/modals/confirm/confirm.service'
 import { User } from 'src/app/shared/models'
 
+import { TableHeader } from './../../../shared/models/common'
+
 const USERS: User[] = [
   {
     userId: 'a',
@@ -27,6 +29,41 @@ const USERS: User[] = [
   }
 ]
 
+const TABLE_HEADER: TableHeader[] = [
+  {
+    isButton: true,
+    isSort: false
+  },
+  {
+    isButton: false,
+    isSort: true,
+    key: 'userId',
+    name: 'ユーザID'
+  },
+  {
+    isButton: false,
+    isSort: true,
+    key: 'email',
+    name: 'メールアドレス'
+  },
+  {
+    isButton: false,
+    isSort: true,
+    key: 'lastName',
+    name: '名前（姓）'
+  },
+  {
+    isButton: false,
+    isSort: true,
+    key: 'firstName',
+    name: '名前（名）'
+  },
+  {
+    isButton: true,
+    isSort: false
+  }
+]
+
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
@@ -40,6 +77,7 @@ export class UserListComponent implements OnInit {
   toItemNo = 25
   showAdvance = false
   list: User[] = USERS
+  headers: TableHeader[] = TABLE_HEADER
   // カラム指定なしだと逆になるので、reverse=true
   order = ''
   reverse = true
@@ -87,7 +125,11 @@ export class UserListComponent implements OnInit {
     this.confirmService.openRemoveConfirm()
   }
 
-  setOrder(value: string): void {
+  setOrder(value: string, isSort: boolean): void {
+    if (!isSort) {
+      return
+    }
+
     if (this.order === value) {
       this.reverse = !this.reverse
     } else {
