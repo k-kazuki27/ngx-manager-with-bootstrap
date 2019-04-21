@@ -3,9 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router'
 import { NgxSpinnerService } from 'ngx-spinner'
 import { routerTransition } from 'src/app/router.animations'
-import { AbstractList, ConfirmService, User } from 'src/app/shared'
-
-import { TableHeader } from './../../../shared/models/common'
+import { AbstractList, ConfirmService, TableHeader, User } from 'src/app/shared'
 
 const USERS: User[] = [
   {
