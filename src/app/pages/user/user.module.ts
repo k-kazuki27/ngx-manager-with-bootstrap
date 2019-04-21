@@ -9,7 +9,7 @@ import {
   jaLocale,
   PaginationModule,
 } from 'ngx-bootstrap'
-import { DropdownPageLinesModule, PageHeaderModule } from 'src/app/shared'
+import { DropdownPageLinesModule, PageHeaderModule, RequiredModule } from 'src/app/shared'
 import { ConfirmModule } from 'src/app/shared/modals/confirm/confirm.module'
 
 import { CustomPaginationModule } from './../../shared/modules/custom-pagination/custom-pagination.module'
@@ -28,7 +28,8 @@ import { UserRoutingModule } from './user-routing.module'
     CustomPaginationModule,
     PaginationModule.forRoot(),
     BsDatepickerModule.forRoot(),
-    ConfirmModule
+    ConfirmModule,
+    RequiredModule
   ],
   providers: [
     BsDatepickerModule.forRoot().providers,
