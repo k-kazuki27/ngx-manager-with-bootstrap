@@ -2,6 +2,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core'
 import { async, ComponentFixture, TestBed } from '@angular/core/testing'
 import { RouterTestingModule } from '@angular/router/testing'
 
+import { PagesResolverModule } from '../../services/pages-resolver.module'
 import { SidebarComponent } from './sidebar.component'
 
 describe('SidebarComponent', () => {
@@ -11,7 +12,7 @@ describe('SidebarComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [SidebarComponent],
-      imports: [RouterTestingModule],
+      imports: [RouterTestingModule, PagesResolverModule],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents()
   }))

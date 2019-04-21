@@ -1,25 +1,26 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing'
+import { PaginationModule } from 'ngx-bootstrap'
 
-import { CustomPaginationComponent } from './custom-pagination.component';
+import { CustomPaginationComponent } from './custom-pagination.component'
 
 describe('CustomPaginationComponent', () => {
-  let component: CustomPaginationComponent;
-  let fixture: ComponentFixture<CustomPaginationComponent>;
+  let component: CustomPaginationComponent
+  let fixture: ComponentFixture<CustomPaginationComponent>
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CustomPaginationComponent ]
-    })
-    .compileComponents();
-  }));
+      declarations: [CustomPaginationComponent],
+      imports: [PaginationModule.forRoot()]
+    }).compileComponents()
+  }))
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CustomPaginationComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    fixture = TestBed.createComponent(CustomPaginationComponent)
+    component = fixture.componentInstance
+    fixture.detectChanges()
+  })
 
   it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+    expect(component).toBeTruthy()
+  })
+})
