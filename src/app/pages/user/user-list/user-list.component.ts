@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { FormBuilder, FormGroup } from '@angular/forms'
-import { Router } from '@angular/router'
+import { ActivatedRoute, Router } from '@angular/router'
 import { NgxSpinnerService } from 'ngx-spinner'
 import { routerTransition } from 'src/app/router.animations'
 import { ConfirmService } from 'src/app/shared/modals/confirm/confirm.service'
@@ -86,7 +86,8 @@ export class UserListComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private spinner: NgxSpinnerService,
-    private confirmService: ConfirmService
+    private confirmService: ConfirmService,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit() {
@@ -116,10 +117,10 @@ export class UserListComponent implements OnInit {
   selectPageLines(lines: number) {}
 
   create() {
-    this.router.navigate(['/user/detail'])
+    this.router.navigate(['detail'], { relativeTo: this.route })
   }
   edit(id: number) {
-    this.router.navigate(['/user/detail', id])
+    this.router.navigate(['detail', id], { relativeTo: this.route })
   }
   remove() {
     this.confirmService.openRemoveConfirm()
