@@ -22,10 +22,6 @@ export class PagesComponent implements OnInit, OnDestroy {
       .subscribe(result => {
         this.collapedSideBar = result
       })
-
-    this.pagesService.isSmallValueChanges.subscribe(result => {
-      console.log('size:', result)
-    })
   }
 
   ngOnDestroy() {

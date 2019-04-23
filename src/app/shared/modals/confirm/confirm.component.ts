@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { BsModalRef } from 'ngx-bootstrap'
+import { Subject } from 'rxjs'
 
 @Component({
   selector: 'app-confirm',
@@ -8,8 +9,16 @@ import { BsModalRef } from 'ngx-bootstrap'
 })
 export class ConfirmComponent implements OnInit {
   message: string
+  result: Subject<boolean>
 
   constructor(public bsModalRef: BsModalRef) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.result = new Subject()
+  }
+
+  ok(): void {
+    this.result.next(true)
+    this.bsModalRef.hide()
+  }
 }

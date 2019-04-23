@@ -1,24 +1,29 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnDestroy, OnInit } from '@angular/core'
 import { FormBuilder, FormGroup } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router'
 import { NgxSpinnerService } from 'ngx-spinner'
+import { Subject } from 'rxjs'
+import { takeUntil } from 'rxjs/operators'
 import { routerTransition } from 'src/app/router.animations'
 import { AbstractList, ConfirmService, TableHeader, User } from 'src/app/shared'
 
 const USERS: User[] = [
   {
+    id: 1,
     userId: 'a',
     email: 'a@a.com',
     lastName: '田中',
     firstName: '一郎'
   },
   {
+    id: 2,
     userId: 'c',
     email: 'c@c.com',
     lastName: '田中',
     firstName: '三郎'
   },
   {
+    id: 3,
     userId: 'b',
     email: 'b@b.com',
     lastName: '田中',
@@ -67,7 +72,8 @@ const TABLE_HEADER: TableHeader[] = [
   styleUrls: ['./user-list.component.scss'],
   animations: [routerTransition()]
 })
-export class UserListComponent extends AbstractList implements OnInit {
+export class UserListComponent extends AbstractList
+  implements OnInit, OnDestroy {
   searchForm: FormGroup
   showAdvance = false
 
@@ -76,6 +82,8 @@ export class UserListComponent extends AbstractList implements OnInit {
   toItemNo = 25
   list: User[] = USERS
   headers: TableHeader[] = TABLE_HEADER
+
+  private onDestroy$ = new Subject()
 
   constructor(
     private fb: FormBuilder,
@@ -93,6 +101,10 @@ export class UserListComponent extends AbstractList implements OnInit {
       lastName: [null],
       firstName: [null]
     })
+  }
+
+  ngOnDestroy() {
+    this.onDestroy$.next()
   }
 
   //
@@ -123,7 +135,13 @@ export class UserListComponent extends AbstractList implements OnInit {
   edit(id: number): void {
     this.router.navigate(['detail', id], { relativeTo: this.route })
   }
-  remove(): void {
-    this.confirmService.openRemoveConfirm()
+  remove(id: number): void {
+    this.confirmService
+      .openRemoveConfirm()
+      .pipe(takeUntil(this.onDestroy$))
+      .subscribe(result => {
+        if (result) {
+        }
+      })
   }
 }
