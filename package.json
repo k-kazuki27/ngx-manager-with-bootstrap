@@ -6,6 +6,7 @@
     "start": "npm i && ng serve --port=4200 --open --configuration=local",
     "build": "ng build",
     "build:prod": "ng build --base-href=/ --prod --build-optimizer=true --vendor-chunk=true --configuration=live",
+    "build:github": "ng build --base-href=/ngx-manager-with-bootstrap/ --prod --build-optimizer=true --vendor-chunk=true --configuration=dev",
     "test": "jest",
     "lint": "ng lint",
     "e2e": "ng e2e",
