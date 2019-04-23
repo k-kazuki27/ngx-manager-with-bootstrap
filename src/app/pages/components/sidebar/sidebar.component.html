@@ -1,8 +1,5 @@
 <div [ngClass]="{ 'push-right': overSidebar }">
-  <nav
-    class="sidebar"
-    [ngClass]="{ sidebarPushRight: isActive, collapsed: collapsed }"
-  >
+  <nav class="sidebar" [ngClass]="{ collapsed: collapsed }">
     <app-collapse-button></app-collapse-button>
     <div class="list-group">
       <a

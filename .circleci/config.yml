@@ -26,6 +26,8 @@ jobs:
             - npm-{{ checksum "package.json" }}
       - run: npm install
       - run: npm run build:prod
+      - run: git config user.name $GITHUB_NAME
+      - run: git config user.email $GITHUB_EMAIL
       - run: npm run deploy:gh-pages
 workflows:
   version: 2.1
