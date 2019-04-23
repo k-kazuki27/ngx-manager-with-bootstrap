@@ -1,3 +1,6 @@
+# Demo
+- [DEMO](https://k-kazuki27.github.io/ngx-manager-with-bootstrap/)
+
 # Base
 - https://github.com/start-angular/SB-Admin-BS4-Angular-6
 
