@@ -1,25 +1,25 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing'
 
-import { ErrorLabelComponent } from './error-label.component';
+import { ErrorLabelComponent } from './error-label.component'
 
 describe('ErrorLabelComponent', () => {
-  let component: ErrorLabelComponent;
-  let fixture: ComponentFixture<ErrorLabelComponent>;
+  let component: ErrorLabelComponent
+  let fixture: ComponentFixture<ErrorLabelComponent>
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ErrorLabelComponent ]
-    })
-    .compileComponents();
-  }));
+      declarations: [ErrorLabelComponent],
+      imports: []
+    }).compileComponents()
+  }))
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ErrorLabelComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    fixture = TestBed.createComponent(ErrorLabelComponent)
+    component = fixture.componentInstance
+    fixture.detectChanges()
+  })
 
   it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+    expect(component).toBeTruthy()
+  })
+})
