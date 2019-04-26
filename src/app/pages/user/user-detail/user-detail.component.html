@@ -1,9 +1,10 @@
 <div [@routerTransition]>
   <app-page-header [title]="'ユーザ管理'" [subTitle]="'登録'"></app-page-header>
-  <div class="card m-t-lg col-lg-7">
+
+  <div class="container card m-t-lg">
     <div class="card-body">
       <form [formGroup]="form" autocomplete="off">
-        <div class="form-group row">
+        <div class="form-group row align-items-center">
           <label for="email" class="col-sm-3 col-form-label col-form-label-sm"
             >メールアドレス<app-required></app-required
             ><app-question-tooltip
@@ -21,7 +22,7 @@
             [form]="email"
           ></app-error-label>
         </div>
-        <div class="form-group row">
+        <div class="form-group row align-items-center">
           <label
             for="lastName"
             class="col-sm-3 col-form-label col-form-label-sm"
@@ -34,7 +35,7 @@
             formControlName="lastName"
           />
         </div>
-        <div class="form-group row">
+        <div class="form-group row align-items-center">
           <label
             for="firstName"
             class="col-sm-3 col-form-label col-form-label-sm"
@@ -47,7 +48,7 @@
             formControlName="firstName"
           />
         </div>
-        <div class="form-group row">
+        <div class="form-group row align-items-center">
           <label
             for="birthday"
             class="col-sm-3 col-form-label col-form-label-sm"
