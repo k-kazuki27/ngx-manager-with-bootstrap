@@ -12,6 +12,7 @@ import {
   PageHeaderModule,
   RequiredModule,
 } from '.'
+import { QuestionTooltipModule } from './modules/question-tooltip/question-tooltip.module'
 
 const modules = [
   CommonModule,
@@ -23,6 +24,7 @@ const modules = [
   ConfirmModule,
   RequiredModule,
   ErrorLabelModule,
+  QuestionTooltipModule,
   OrderModule
 ]
 
