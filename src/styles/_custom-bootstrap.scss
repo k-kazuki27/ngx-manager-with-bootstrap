@@ -14,3 +14,19 @@
   color: #0059f2;
   border-color: #0059f2;
 }
+
+.btn-link {
+  font-weight: 400;
+  color: #6c757d;
+  text-decoration: none;
+}
+.btn-link:hover {
+  color: darken(#6c757d, 20%);
+  text-decoration: underline;
+}
+
+.btn-link.focus,
+.btn-link:focus {
+  text-decoration: underline;
+  box-shadow: none;
+}

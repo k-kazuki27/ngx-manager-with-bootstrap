@@ -2,7 +2,12 @@
   <div class="header-text">
     {{ title }}<span *ngIf="subTitle">／{{ subTitle }}</span>
   </div>
-  <a *ngIf="subTitle" href="javascript:void(0)" (click)="back()"
-    ><i class="fa fa-fw fa-arrow-left"></i>戻る
-  </a>
+  <button
+    *ngIf="subTitle"
+    type="button"
+    class="btn btn-link btn-lg"
+    (click)="back()"
+  >
+    <i class="fa fa-fw fa-arrow-left"></i>戻る
+  </button>
 </div>
