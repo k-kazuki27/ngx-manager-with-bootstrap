@@ -3,6 +3,8 @@ export abstract class AbstractList {
   order = ''
   reverse = true
 
+  currentPage = 1
+
   constructor() {}
 
   setOrder(value: string, isSort: boolean): void {
@@ -17,5 +19,9 @@ export abstract class AbstractList {
     }
 
     this.order = value
+  }
+
+  pageChanged(current) {
+    this.currentPage = current
   }
 }

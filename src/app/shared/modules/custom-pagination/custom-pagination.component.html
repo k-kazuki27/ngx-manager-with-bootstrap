@@ -1,7 +1,10 @@
 <pagination
   class="pagination-sm"
-  [boundaryLinks]="false"
   [totalItems]="150"
+  [itemsPerPage]="itemsPerPage"
+  [(ngModel)]="currentPage"
+  (pageChanged)="change($event)"
+  [boundaryLinks]="false"
   [rotate]="false"
   [maxSize]="6"
   previousText="前"

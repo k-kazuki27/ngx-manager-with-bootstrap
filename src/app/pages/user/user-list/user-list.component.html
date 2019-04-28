@@ -106,7 +106,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let item of (list | orderBy: order:reverse)">
+          <tr *ngFor="let item of list | orderBy: order:reverse">
             <th nowrap="true">
               <button
                 type="button"
@@ -133,7 +133,12 @@
         </tbody>
       </table>
       <div class="list-footer">
-        <app-custom-pagination></app-custom-pagination>
+        <app-custom-pagination
+          [currentPage]="currentPage"
+          [itemsPerPage]="10"
+          [totalItems]="100"
+          (pageChanged)="pageChanged($event)"
+        ></app-custom-pagination>
       </div>
     </div>
   </div>

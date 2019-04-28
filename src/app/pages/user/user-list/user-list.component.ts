@@ -118,6 +118,7 @@ export class UserListComponent extends AbstractList
     setTimeout(() => {
       this.spinner.hide()
     }, 2000)
+    this.currentPage = 1
   }
   reset(): void {
     this.searchForm.reset()
