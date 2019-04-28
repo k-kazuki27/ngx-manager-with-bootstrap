@@ -191,6 +191,8 @@ ngx-bootstrap/pagination
 
 ngx-bootstrap/positioning
 
+ngx-bootstrap/tooltip
+
 ngx-bootstrap/utils
 
 ngx-order-pipe
