@@ -11,6 +11,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "test:watch": "jest --watch",
+    "test:ci": "CI=true node --max_old_space_size=1024 ./node_modules/jest/bin/jest.js --maxWorkers=2",
     "deploy:gh-pages": "gh-pages -d dist -m 'chore: update [skip ci]' -t"
   },
   "private": true,

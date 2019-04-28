@@ -15,7 +15,7 @@ jobs:
             - node_modules
           key: npm-{{ checksum "package.json" }}
       - run: npm run lint
-      - run: npm run test
+      - run: npm run test:ci
   deploy:
     docker:
       - image: circleci/node:10.15.3
