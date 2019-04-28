@@ -13,6 +13,8 @@ import {
   USER_LIST_HEADER
 } from 'src/app/shared'
 
+import { UserService } from '../services/user.service'
+
 const USERS: User[] = [
   {
     id: 1,
@@ -58,20 +60,28 @@ export class UserListComponent extends AbstractList
     private router: Router,
     private spinner: NgxSpinnerService,
     private confirmService: ConfirmService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private userService: UserService
   ) {
     super()
   }
 
   ngOnInit() {
-    this.searchForm = this.fb.group({
-      email: [null],
-      lastName: [null],
-      firstName: [null]
-    })
+    if (!this.userService.searchForm) {
+      console.log('aaa')
+      this.searchForm = this.fb.group({
+        email: [null],
+        lastName: [null],
+        firstName: [null]
+      })
+    } else {
+      console.log('bbbb')
+      this.searchForm = this.userService.searchForm
+    }
   }
 
   ngOnDestroy() {
+    console.log('cccc')
     this.onDestroy$.next()
   }
 
@@ -85,8 +95,9 @@ export class UserListComponent extends AbstractList
     this.spinner.show()
     setTimeout(() => {
       this.spinner.hide()
-    }, 2000)
-    this.currentPage = 1
+      this.currentPage = 1
+      this.userService.searchForm = this.searchForm
+    }, 1000)
   }
   reset(): void {
     this.searchForm.reset()
