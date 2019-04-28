@@ -3,6 +3,14 @@
     <app-collapse-button></app-collapse-button>
     <div class="list-group">
       <a
+        [routerLink]="['/home']"
+        [routerLinkActive]="['router-link-active']"
+        class="list-group-item"
+      >
+        <i class="fa fa-fw fa-home"></i>&nbsp;
+        <span>ホーム</span>
+      </a>
+      <a
         routerLink="/user"
         [routerLinkActive]="['router-link-active']"
         class="list-group-item"
