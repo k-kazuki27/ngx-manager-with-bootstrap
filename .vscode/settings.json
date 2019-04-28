@@ -1,9 +1,12 @@
 {
+  "typescriptHero.imports.organizeOnSave": false,
   "typescriptHero.imports.insertSemicolons": false,
+  "editor.formatOnSave": true,
   "prettier.semi": false,
   "prettier.singleQuote": true,
   "prettier.printWidth": 80,
   "prettier.useTabs": false,
   "prettier.tabWidth": 2,
-  "prettier.bracketSpacing": true
+  "prettier.bracketSpacing": true,
+  "prettier.tslintIntegration": true
 }
