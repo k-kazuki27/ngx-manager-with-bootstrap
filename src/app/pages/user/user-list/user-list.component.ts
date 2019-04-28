@@ -5,7 +5,13 @@ import { NgxSpinnerService } from 'ngx-spinner'
 import { Subject } from 'rxjs'
 import { takeUntil } from 'rxjs/operators'
 import { routerTransition } from 'src/app/router.animations'
-import { AbstractList, ConfirmService, TableHeader, User, USER_LIST_HEADER } from 'src/app/shared'
+import {
+  AbstractList,
+  ConfirmService,
+  TableHeader,
+  User,
+  USER_LIST_HEADER
+} from 'src/app/shared'
 
 const USERS: User[] = [
   {

@@ -1,7 +1,13 @@
 import { CommonModule } from '@angular/common'
 import { NgModule } from '@angular/core'
 import { ReactiveFormsModule } from '@angular/forms'
-import { BsDatepickerConfig, BsDatepickerModule, BsLocaleService, defineLocale, jaLocale } from 'ngx-bootstrap'
+import {
+  BsDatepickerConfig,
+  BsDatepickerModule,
+  BsLocaleService,
+  defineLocale,
+  jaLocale
+} from 'ngx-bootstrap'
 import { OrderModule } from 'ngx-order-pipe'
 
 import {
@@ -10,7 +16,7 @@ import {
   DropdownPageLinesModule,
   ErrorLabelModule,
   PageHeaderModule,
-  RequiredModule,
+  RequiredModule
 } from '.'
 import { QuestionTooltipModule } from './modules/question-tooltip/question-tooltip.module'
 
