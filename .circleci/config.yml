@@ -15,6 +15,7 @@ jobs:
             - node_modules
           key: npm-{{ checksum "package.json" }}
       - run: npm run lint
+      - run: npm run format:check
       - run: npm run test:ci
   deploy:
     docker:
