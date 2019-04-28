@@ -16,9 +16,9 @@ import {
   DropdownPageLinesModule,
   ErrorLabelModule,
   PageHeaderModule,
+  QuestionTooltipModule,
   RequiredModule
 } from '.'
-import { QuestionTooltipModule } from './modules/question-tooltip/question-tooltip.module'
 
 const modules = [
   CommonModule,

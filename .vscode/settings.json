@@ -1,6 +1,8 @@
 {
-  "typescriptHero.imports.organizeOnSave": false,
+  "typescriptHero.imports.organizeOnSave": true,
   "typescriptHero.imports.insertSemicolons": false,
+  "typescriptHero.imports.multiLineWrapThreshold": 80,
+  "typescriptHero.imports.multiLineTrailingComma": false,
   "editor.formatOnSave": true,
   "prettier.semi": false,
   "prettier.singleQuote": true,
