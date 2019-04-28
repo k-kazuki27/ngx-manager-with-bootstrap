@@ -1,4 +1,5 @@
 export * from './abstracts'
+export * from './constants'
 export * from './directives'
 export * from './guards'
 export * from './interceptors'

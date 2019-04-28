@@ -1,8 +1,9 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core'
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core'
 import { PageChangedEvent } from 'ngx-bootstrap'
 
+import { Page } from '../..'
+
 @Component({
-  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-custom-pagination',
   templateUrl: './custom-pagination.component.html',
   styleUrls: ['./custom-pagination.component.scss']
@@ -18,14 +19,13 @@ export class CustomPaginationComponent implements OnInit {
   totalItems: number
 
   @Output()
-  pageChanged = new EventEmitter<number>()
+  pageChanged = new EventEmitter<Page>()
 
   constructor() {}
 
   ngOnInit() {}
 
   change(event: PageChangedEvent): void {
-    console.log(event.page)
-    this.pageChanged.emit(event.page)
+    this.pageChanged.emit({ currentPage: event.page, toLine: 1, fromLine: 2 })
   }
 }

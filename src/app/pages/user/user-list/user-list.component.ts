@@ -5,7 +5,7 @@ import { NgxSpinnerService } from 'ngx-spinner'
 import { Subject } from 'rxjs'
 import { takeUntil } from 'rxjs/operators'
 import { routerTransition } from 'src/app/router.animations'
-import { AbstractList, ConfirmService, TableHeader, User } from 'src/app/shared'
+import { AbstractList, ConfirmService, TableHeader, User, USER_LIST_HEADER } from 'src/app/shared'
 
 const USERS: User[] = [
   {
@@ -31,41 +31,6 @@ const USERS: User[] = [
   }
 ]
 
-const TABLE_HEADER: TableHeader[] = [
-  {
-    isButton: true,
-    isSort: false
-  },
-  {
-    isButton: false,
-    isSort: true,
-    key: 'userId',
-    name: 'ユーザID'
-  },
-  {
-    isButton: false,
-    isSort: true,
-    key: 'email',
-    name: 'メールアドレス'
-  },
-  {
-    isButton: false,
-    isSort: true,
-    key: 'lastName',
-    name: '名前（姓）'
-  },
-  {
-    isButton: false,
-    isSort: true,
-    key: 'firstName',
-    name: '名前（名）'
-  },
-  {
-    isButton: true,
-    isSort: false
-  }
-]
-
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
@@ -77,11 +42,8 @@ export class UserListComponent extends AbstractList
   searchForm: FormGroup
   showAdvance = false
 
-  totalItems = 100
-  fromItemNo = 1
-  toItemNo = 25
   list: User[] = USERS
-  headers: TableHeader[] = TABLE_HEADER
+  headers: TableHeader[] = USER_LIST_HEADER
 
   private onDestroy$ = new Subject()
 
@@ -127,9 +89,6 @@ export class UserListComponent extends AbstractList
   //
   // 一覧
   //
-  selectPageLines(lines: number): void {
-    this.search()
-  }
   create(): void {
     this.router.navigate(['detail'], { relativeTo: this.route })
   }

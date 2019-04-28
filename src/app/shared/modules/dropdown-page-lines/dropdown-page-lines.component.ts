@@ -9,14 +9,14 @@ const PAGE_LINES = [10, 25, 50, 100]
 })
 export class DropdownPageLinesComponent implements OnInit {
   @Output()
-  select = new EventEmitter<number>()
+  changePageLines = new EventEmitter<number>()
 
   pageLines = PAGE_LINES
   constructor() {}
 
   ngOnInit() {}
 
-  selectDisplayLines(lines: number) {
-    this.select.emit(lines)
+  selectPageLines(lines: number) {
+    this.changePageLines.emit(lines)
   }
 }
