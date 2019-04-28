@@ -12,7 +12,7 @@
     "e2e": "ng e2e",
     "test:watch": "jest --watch",
     "test:ci": "CI=true node --max_old_space_size=1024 ./node_modules/jest/bin/jest.js --maxWorkers=2",
-    "format:check": "prettier --no-semi true --single-quote true --list-different \"src/app/**/*{.ts,.js,.json,.css,.scss}\"",
+    "format:check": "prettier --no-semi true --single-quote true --check \"src/app/**/*{.ts,.js,.json,.css,.scss,.html}\"",
     "deploy:gh-pages": "gh-pages -d dist -m 'chore: update [skip ci]' -t"
   },
   "private": true,
