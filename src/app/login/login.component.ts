@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core'
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms'
 import { Router } from '@angular/router'
+import { NgxSpinnerService } from 'ngx-spinner'
 
 import { routerTransition } from '../router.animations'
+
+const LOGIN_ERROR = 'ユーザID、もしくはパスワードが間違っています。'
+const REQUIRED = 'ユーザIDとパスワードを入力してください。'
 
 @Component({
   selector: 'app-login',
@@ -10,12 +15,40 @@ import { routerTransition } from '../router.animations'
   animations: [routerTransition()]
 })
 export class LoginComponent implements OnInit {
-  constructor(private router: Router) {}
+  form: FormGroup
+  errorMessage: string
 
-  ngOnInit() {}
+  constructor(
+    private router: Router,
+    private fb: FormBuilder,
+    private spinner: NgxSpinnerService
+  ) {}
 
-  login() {
-    sessionStorage.setItem('isLoggedin', 'true')
-    this.router.navigate(['/'])
+  ngOnInit() {
+    this.form = this.fb.group({
+      userId: [null, []],
+      password: [null, []]
+    })
+    this.errorMessage = null
+  }
+
+  get userId(): FormControl {
+    return this.form.get('userId') as FormControl
+  }
+  get password(): FormControl {
+    return this.form.get('password') as FormControl
+  }
+
+  login(): void {
+    if (!this.userId.value || !this.password.value) {
+      this.errorMessage = REQUIRED
+      return
+    }
+    this.spinner.show()
+    setTimeout(() => {
+      this.spinner.hide()
+      sessionStorage.setItem('isLoggedin', 'true')
+      this.router.navigate(['/'])
+    }, 500)
   }
 }

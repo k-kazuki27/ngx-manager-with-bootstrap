@@ -7,12 +7,14 @@
         class="user-avatar"
       />
       <h1>管理画面</h1>
-      <form role="form">
+      <form [formGroup]="form" autocomplete="off">
         <div class="form-content">
           <div class="form-group">
             <input
               type="text"
               class="form-control input-underline input-lg"
+              name="userId"
+              formControlName="userId"
               placeholder="ユーザID"
             />
           </div>
@@ -20,9 +22,14 @@
             <input
               type="password"
               class="form-control input-underline input-lg"
+              name="password"
+              formControlName="password"
               placeholder="パスワード"
             />
           </div>
+          <p *ngIf="errorMessage" class="text-danger">
+            <i class="fa fa-times-circle-o"></i>{{ errorMessage }}
+          </p>
         </div>
         <a class="btn rounded-btn" (click)="login()">ログイン</a>
       </form>
