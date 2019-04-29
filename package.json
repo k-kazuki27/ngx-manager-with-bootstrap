@@ -13,6 +13,7 @@
     "test:watch": "jest --watch",
     "test:ci": "CI=true node --max_old_space_size=1024 ./node_modules/jest/bin/jest.js --maxWorkers=2",
     "format:check": "prettier --no-semi true --single-quote true --check \"src/app/**/*{.ts,.js,.json,.css,.scss,.html}\"",
+    "format:write": "npm run format:check -- --write",
     "deploy:gh-pages": "gh-pages -d dist -m 'chore: update [skip ci]' -t"
   },
   "private": true,
