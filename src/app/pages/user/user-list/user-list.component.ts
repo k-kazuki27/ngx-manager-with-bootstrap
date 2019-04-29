@@ -68,20 +68,17 @@ export class UserListComponent extends AbstractList
 
   ngOnInit() {
     if (!this.userService.searchForm) {
-      console.log('aaa')
       this.searchForm = this.fb.group({
         email: [null],
         lastName: [null],
         firstName: [null]
       })
     } else {
-      console.log('bbbb')
       this.searchForm = this.userService.searchForm
     }
   }
 
   ngOnDestroy() {
-    console.log('cccc')
     this.onDestroy$.next()
   }
 

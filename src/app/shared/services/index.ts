@@ -1,1 +1,1 @@
-export * from './'
+export * from './route-history.service'
