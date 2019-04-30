@@ -1,4 +1,5 @@
 export * from './abstracts'
+export * from './api-clients'
 export * from './constants'
 export * from './directives'
 export * from './guards'

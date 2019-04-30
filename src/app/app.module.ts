@@ -7,6 +7,7 @@ import { NgxSpinnerModule } from 'ngx-spinner'
 
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
+import { ApiModule } from './shared'
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,7 +17,8 @@ import { AppComponent } from './app.component'
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    ApiModule
   ],
   providers: [],
   bootstrap: [AppComponent]
