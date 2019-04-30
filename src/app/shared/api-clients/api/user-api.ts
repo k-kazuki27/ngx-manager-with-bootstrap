@@ -1,19 +1,3 @@
-import {
-  HttpClient,
-  HttpEvent,
-  HttpHeaders,
-  HttpParams,
-  HttpResponse
-} from '@angular/common/http'
-import { Inject, Injectable, Optional } from '@angular/core'
-import { Observable, of } from 'rxjs'
-
-import { Configuration } from '../configuration'
-import { CustomHttpUrlEncodingCodec } from '../encoder'
-import { UserResponseDTO } from '../model/user-response-dto'
-import { BASE_PATH } from '../variables'
-import { DUMMY_USERS } from './../../mock/user'
-
 /**
  * Mock API
  * Mock API
@@ -26,12 +10,27 @@ import { DUMMY_USERS } from './../../mock/user'
  * Do not edit the class manually.
  */
 /* tslint:disable:no-unused-variable member-ordering */
+import {
+  HttpClient,
+  HttpEvent,
+  HttpHeaders,
+  HttpParams,
+  HttpResponse
+} from '@angular/common/http'
+import { Inject, Injectable, Optional } from '@angular/core'
+import { Observable, of } from 'rxjs'
+
+import { DUMMY_USERS } from '../../mock'
+import { Configuration } from '../configuration'
+import { CustomHttpUrlEncodingCodec } from '../encoder'
+import { UserResponseDTO } from '../model/user-response-dto'
+import { BASE_PATH } from '../variables'
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserApi {
-  protected basePath = 'https://petstore.swagger.io/v2'
+  protected basePath = 'http://localhost'
   public defaultHeaders = new HttpHeaders()
   public configuration = new Configuration()
 
@@ -66,35 +65,56 @@ export class UserApi {
   /**
    * find users
    *
+   * @param from
+   * @param to
    * @param userId
    * @param lastName
    * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
    * @param reportProgress flag to report request and response progress.
    */
   public finfUsers(
+    from: number,
+    to: number,
     userId?: string,
     lastName?: string,
     observe?: 'body',
     reportProgress?: boolean
   ): Observable<Array<UserResponseDTO>>
   public finfUsers(
+    from: number,
+    to: number,
     userId?: string,
     lastName?: string,
     observe?: 'response',
     reportProgress?: boolean
   ): Observable<HttpResponse<Array<UserResponseDTO>>>
   public finfUsers(
+    from: number,
+    to: number,
     userId?: string,
     lastName?: string,
     observe?: 'events',
     reportProgress?: boolean
   ): Observable<HttpEvent<Array<UserResponseDTO>>>
   public finfUsers(
+    from: number,
+    to: number,
     userId?: string,
     lastName?: string,
     observe: any = 'body',
     reportProgress: boolean = false
   ): Observable<any> {
+    if (from === null || from === undefined) {
+      throw new Error(
+        'Required parameter from was null or undefined when calling finfUsers.'
+      )
+    }
+    if (to === null || to === undefined) {
+      throw new Error(
+        'Required parameter to was null or undefined when calling finfUsers.'
+      )
+    }
+
     let queryParameters = new HttpParams({
       encoder: new CustomHttpUrlEncodingCodec()
     })
@@ -121,15 +141,5 @@ export class UserApi {
 
     // tslint:disable-next-line: deprecation
     return of(DUMMY_USERS)
-    // return this.httpClient.get<Array<UserResponseDTO>>(
-    //   `${this.configuration.basePath}/user`,
-    //   {
-    //     params: queryParameters,
-    //     withCredentials: this.configuration.withCredentials,
-    //     headers: headers,
-    //     observe: observe,
-    //     reportProgress: reportProgress
-    //   }
-    // )
   }
 }

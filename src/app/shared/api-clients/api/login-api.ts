@@ -32,7 +32,7 @@ import { Configuration } from '../configuration'
   providedIn: 'root'
 })
 export class LoginApi {
-  protected basePath = 'https://petstore.swagger.io/v2'
+  protected basePath = 'http://localhost'
   public defaultHeaders = new HttpHeaders()
   public configuration = new Configuration()
 

@@ -9,9 +9,12 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { UserDTO } from './user-dto'
 
-export interface UserResponseDTO {
-  totalItems?: number
-  users?: Array<UserDTO>
+export interface UserDTO {
+  id?: number
+  userId?: string
+  firstName?: string
+  lastName?: string
+  email?: string
+  password?: string
 }
