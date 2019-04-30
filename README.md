@@ -45,3 +45,30 @@ $ npm start
 $ npm run build
 ```
 
+### OpenAPI Generator
+- [openapi-generator](https://github.com/OpenAPITools/openapi-generator)
+
+#### Installation
+
+```
+$ npm install @openapitools/openapi-generator-cli -g
+```
+
+#### Generate
+
+```
+$ openapi-generator generate \
+-i openapi.yaml  \
+-g typescript-angular \
+-o api-clients \
+--additional-properties ngVersion=7.0.0 \
+--additional-properties serviceSuffix=Api \
+--additional-properties serviceFileSuffix=-api
+
+```
+
+#### Help Config
+
+```
+$ openapi-generator config-help -g typescript-angular
+```
