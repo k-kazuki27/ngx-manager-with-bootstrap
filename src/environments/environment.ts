@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  ENV: 'LOCAL'
+  ENV: 'LOCAL',
+  API_BASE_PATH: 'http://127.0.0.1:8080'
 }
 
 /*
