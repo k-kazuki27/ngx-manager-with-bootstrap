@@ -86,60 +86,68 @@
           (changePageLines)="changePageLines($event)"
         ></app-dropdown-page-lines>
       </div>
-      <div class="pagination">
-        全 {{ totalItems }} 件中 {{ fromItem }} 件 ～ {{ toItem }} 件を表示
-      </div>
-      <table class="table table-bordered table-hover table-sm">
-        <thead>
-          <tr>
-            <th
-              *ngFor="let item of headers"
-              [ngClass]="{ 'minimum-width': item.isButton, sort: item.isSort }"
-              (click)="setOrder(item.key, item.isSort)"
-            >
-              {{ item.name }}
-              <span *ngIf="order === item.key">
-                <i [hidden]="reverse" class="fa fa-sort-asc"></i>
-                <i [hidden]="!reverse" class="fa fa-sort-desc"></i>
-              </span>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let item of list | orderBy: order:reverse">
-            <th nowrap="true">
-              <button
-                type="button"
-                class="btn btn-outline-primary btn-sm"
-                (click)="edit(item.id)"
+      <ng-container *ngIf="list$ | async as user; else notFound">
+        <div class="pagination">
+          全 {{ totalItems }} 件中 {{ fromItem }} 件 ～ {{ toItem }} 件を表示
+        </div>
+        <table class="table table-bordered table-hover table-sm">
+          <thead>
+            <tr>
+              <th
+                *ngFor="let item of headers"
+                [ngClass]="{
+                  'minimum-width': item.isButton,
+                  sort: item.isSort
+                }"
+                (click)="setOrder(item.key, item.isSort)"
               >
-                <i class="fa fa-fw fa-edit"></i>修正
-              </button>
-            </th>
-            <td>{{ item.userId }}</td>
-            <td>{{ item.email }}</td>
-            <td>{{ item.lastName }}</td>
-            <td>{{ item.firstName }}</td>
-            <td nowrap="true">
-              <button
-                type="button"
-                class="btn btn-outline-danger btn-sm"
-                (click)="remove(item.id)"
-              >
-                <i class="fa fa-fw fa-trash"></i>削除
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <div class="list-footer">
-        <app-custom-pagination
-          [currentPage]="currentPage"
-          [itemsPerPage]="10"
-          [totalItems]="100"
-          (pageChanged)="pageChanged($event)"
-        ></app-custom-pagination>
-      </div>
+                {{ item.name }}
+                <span *ngIf="order === item.key">
+                  <i [hidden]="reverse" class="fa fa-sort-asc"></i>
+                  <i [hidden]="!reverse" class="fa fa-sort-desc"></i>
+                </span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of user | orderBy: order:reverse">
+              <th nowrap="true">
+                <button
+                  type="button"
+                  class="btn btn-outline-primary btn-sm"
+                  (click)="edit(item.id)"
+                >
+                  <i class="fa fa-fw fa-edit"></i>修正
+                </button>
+              </th>
+              <td>{{ item.userId }}</td>
+              <td>{{ item.email }}</td>
+              <td>{{ item.lastName }}</td>
+              <td>{{ item.firstName }}</td>
+              <td nowrap="true">
+                <button
+                  type="button"
+                  class="btn btn-outline-danger btn-sm"
+                  (click)="remove(item.id)"
+                >
+                  <i class="fa fa-fw fa-trash"></i>削除
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="list-footer">
+          <app-custom-pagination
+            [currentPage]="currentPage"
+            [itemsPerPage]="10"
+            [totalItems]="100"
+            (pageChanged)="pageChanged($event)"
+          ></app-custom-pagination>
+        </div>
+      </ng-container>
+      <ng-template #notFound>
+        <p>not found</p>
+      </ng-template>
     </div>
   </div>
 </div>

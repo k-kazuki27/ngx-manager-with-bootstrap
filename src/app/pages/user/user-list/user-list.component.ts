@@ -2,15 +2,17 @@ import { Component, OnDestroy, OnInit } from '@angular/core'
 import { FormBuilder, FormGroup } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router'
 import { NgxSpinnerService } from 'ngx-spinner'
-import { Subject } from 'rxjs'
-import { takeUntil } from 'rxjs/operators'
+import { Observable, Subject } from 'rxjs'
+import { map, takeUntil } from 'rxjs/operators'
 import { routerTransition } from 'src/app/router.animations'
 import {
   AbstractList,
   ConfirmService,
   TableHeader,
   User,
-  USER_LIST_HEADER
+  USER_LIST_HEADER,
+  UserApi,
+  UserResponseDTO
 } from 'src/app/shared'
 
 import { UserService } from '../services/user.service'
@@ -51,6 +53,7 @@ export class UserListComponent extends AbstractList
   showAdvance = false
 
   list: User[] = USERS
+  list$: Observable<Array<UserResponseDTO>>
   headers: TableHeader[] = USER_LIST_HEADER
 
   private onDestroy$ = new Subject()
@@ -61,7 +64,8 @@ export class UserListComponent extends AbstractList
     private spinner: NgxSpinnerService,
     private confirmService: ConfirmService,
     private route: ActivatedRoute,
-    private userService: UserService
+    private userService: UserService,
+    private userApi: UserApi
   ) {
     super()
   }
@@ -76,6 +80,8 @@ export class UserListComponent extends AbstractList
     } else {
       this.searchForm = this.userService.searchForm
     }
+
+    this.list$ = this.userApi.finfUsers().pipe(map(res => res))
   }
 
   ngOnDestroy() {

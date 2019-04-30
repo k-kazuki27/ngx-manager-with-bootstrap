@@ -1,3 +1,19 @@
+import {
+  HttpClient,
+  HttpEvent,
+  HttpHeaders,
+  HttpParams,
+  HttpResponse
+} from '@angular/common/http'
+import { Inject, Injectable, Optional } from '@angular/core'
+import { Observable, of } from 'rxjs'
+
+import { Configuration } from '../configuration'
+import { CustomHttpUrlEncodingCodec } from '../encoder'
+import { UserResponseDTO } from '../model/user-response-dto'
+import { BASE_PATH } from '../variables'
+import { DUMMY_USERS } from './../../mock/user'
+
 /**
  * Mock API
  * Mock API
@@ -10,23 +26,6 @@
  * Do not edit the class manually.
  */
 /* tslint:disable:no-unused-variable member-ordering */
-
-import { Inject, Injectable, Optional } from '@angular/core'
-import {
-  HttpClient,
-  HttpHeaders,
-  HttpParams,
-  HttpResponse,
-  HttpEvent
-} from '@angular/common/http'
-import { CustomHttpUrlEncodingCodec } from '../encoder'
-
-import { Observable } from 'rxjs'
-
-import { UserResponseDTO } from '../model/user-response-dto'
-
-import { BASE_PATH, COLLECTION_FORMATS } from '../variables'
-import { Configuration } from '../configuration'
 
 @Injectable({
   providedIn: 'root'
@@ -100,10 +99,10 @@ export class UserApi {
       encoder: new CustomHttpUrlEncodingCodec()
     })
     if (userId !== undefined && userId !== null) {
-      queryParameters = queryParameters.set('userId', <any>userId)
+      queryParameters = queryParameters.set('userId', userId as any)
     }
     if (lastName !== undefined && lastName !== null) {
-      queryParameters = queryParameters.set('lastName', <any>lastName)
+      queryParameters = queryParameters.set('lastName', lastName as any)
     }
 
     let headers = this.defaultHeaders
@@ -120,15 +119,17 @@ export class UserApi {
     // to determine the Content-Type header
     const consumes: string[] = []
 
-    return this.httpClient.get<Array<UserResponseDTO>>(
-      `${this.configuration.basePath}/user`,
-      {
-        params: queryParameters,
-        withCredentials: this.configuration.withCredentials,
-        headers: headers,
-        observe: observe,
-        reportProgress: reportProgress
-      }
-    )
+    // tslint:disable-next-line: deprecation
+    return of(DUMMY_USERS)
+    // return this.httpClient.get<Array<UserResponseDTO>>(
+    //   `${this.configuration.basePath}/user`,
+    //   {
+    //     params: queryParameters,
+    //     withCredentials: this.configuration.withCredentials,
+    //     headers: headers,
+    //     observe: observe,
+    //     reportProgress: reportProgress
+    //   }
+    // )
   }
 }
