@@ -1,0 +1,113 @@
+openapi: 3.0.0
+info:
+  description: |
+    Mock API
+  version: 1.0.0
+  title: Mock API
+tags:
+  - name: login
+    description: Login API
+  - name: user
+    description: User API
+externalDocs:
+  description: Find out more about Swagger
+  url: http://swagger.io
+paths:
+  /login:
+    post:
+      tags:
+        - login
+      summary: Login
+      description: ''
+      operationId: login
+      requestBody:
+        $ref: '#/components/requestBodies/LoginRequest'
+      responses:
+        '200':
+          description: OK
+  /user/{from}/{to}:
+    get:
+      tags:
+        - user
+      summary: find users
+      description: ''
+      operationId: finfUsers
+      parameters:
+        - name: from
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+          description: ''
+        - name: to
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+          description: ''
+        - name: userId
+          in: query
+          description: ''
+          required: false
+          schema:
+            type: string
+        - name: lastName
+          in: query
+          description: ''
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json::
+              schema:
+                $ref: '#/components/schemas/UserResponse'
+components:
+  requestBodies:
+    LoginRequest:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/LoginRequest'
+      description: List of user object
+      required: true
+  schemas:
+    LoginRequest:
+      type: object
+      properties:
+        userId:
+          type: string
+        password:
+          type: string
+    UserResponse:
+      type: object
+      properties:
+        totalItems:
+          type: integer
+          format: int32
+        users:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        userId:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+        
+        

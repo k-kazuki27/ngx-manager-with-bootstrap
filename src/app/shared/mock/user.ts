@@ -1,6 +1,6 @@
-import { UserResponseDTO } from '..'
+import { UserDTO, UserResponseDTO } from '../api-clients'
 
-export const DUMMY_USERS: UserResponseDTO[] = [
+const USERS: UserDTO[] = [
   {
     id: 1,
     email: 'a@a.com',
@@ -20,3 +20,8 @@ export const DUMMY_USERS: UserResponseDTO[] = [
     firstName: '二郎'
   }
 ]
+
+export const DUMMY_USERS: UserResponseDTO = {
+  totalItems: 10,
+  users: USERS
+}

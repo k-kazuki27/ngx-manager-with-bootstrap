@@ -1,3 +1,19 @@
+import {
+  HttpClient,
+  HttpEvent,
+  HttpHeaders,
+  HttpParams,
+  HttpResponse
+} from '@angular/common/http'
+import { Inject, Injectable, Optional } from '@angular/core'
+import { Observable, of } from 'rxjs'
+
+import { Configuration } from '../configuration'
+import { CustomHttpUrlEncodingCodec } from '../encoder'
+import { UserResponseDTO } from '../model/user-response-dto'
+import { BASE_PATH } from '../variables'
+import { DUMMY_USERS } from './../../mock/user'
+
 /**
  * Mock API
  * Mock API
@@ -10,21 +26,6 @@
  * Do not edit the class manually.
  */
 /* tslint:disable:no-unused-variable member-ordering */
-import {
-  HttpClient,
-  HttpEvent,
-  HttpHeaders,
-  HttpParams,
-  HttpResponse
-} from '@angular/common/http'
-import { Inject, Injectable, Optional } from '@angular/core'
-import { Observable, of } from 'rxjs'
-
-import { DUMMY_USERS } from '../../mock'
-import { Configuration } from '../configuration'
-import { CustomHttpUrlEncodingCodec } from '../encoder'
-import { UserResponseDTO } from '../model/user-response-dto'
-import { BASE_PATH } from '../variables'
 
 @Injectable({
   providedIn: 'root'
@@ -79,7 +80,7 @@ export class UserApi {
     lastName?: string,
     observe?: 'body',
     reportProgress?: boolean
-  ): Observable<Array<UserResponseDTO>>
+  ): Observable<UserResponseDTO>
   public finfUsers(
     from: number,
     to: number,
@@ -87,7 +88,7 @@ export class UserApi {
     lastName?: string,
     observe?: 'response',
     reportProgress?: boolean
-  ): Observable<HttpResponse<Array<UserResponseDTO>>>
+  ): Observable<HttpResponse<UserResponseDTO>>
   public finfUsers(
     from: number,
     to: number,
@@ -95,7 +96,7 @@ export class UserApi {
     lastName?: string,
     observe?: 'events',
     reportProgress?: boolean
-  ): Observable<HttpEvent<Array<UserResponseDTO>>>
+  ): Observable<HttpEvent<UserResponseDTO>>
   public finfUsers(
     from: number,
     to: number,

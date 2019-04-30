@@ -60,7 +60,7 @@ $ npm install @openapitools/openapi-generator-cli -g
 $ openapi-generator generate \
 -i openapi.yaml  \
 -g typescript-angular \
--o api-clients \
+-o src/app/shared/api-clients \
 --additional-properties ngVersion=7.0.0 \
 --additional-properties fileNaming=kebab-case \
 --additional-properties serviceSuffix=Api \

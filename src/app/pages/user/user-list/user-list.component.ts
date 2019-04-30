@@ -3,43 +3,19 @@ import { FormBuilder, FormGroup } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router'
 import { NgxSpinnerService } from 'ngx-spinner'
 import { Observable, Subject } from 'rxjs'
-import { map, takeUntil } from 'rxjs/operators'
+import { finalize, map, takeUntil, tap } from 'rxjs/operators'
 import { routerTransition } from 'src/app/router.animations'
 import {
   AbstractList,
   ConfirmService,
   TableHeader,
-  User,
   USER_LIST_HEADER,
   UserApi,
+  UserDTO,
   UserResponseDTO
 } from 'src/app/shared'
 
 import { UserService } from '../services/user.service'
-
-const USERS: User[] = [
-  {
-    id: 1,
-    userId: 'a',
-    email: 'a@a.com',
-    lastName: '田中',
-    firstName: '一郎'
-  },
-  {
-    id: 2,
-    userId: 'c',
-    email: 'c@c.com',
-    lastName: '田中',
-    firstName: '三郎'
-  },
-  {
-    id: 3,
-    userId: 'b',
-    email: 'b@b.com',
-    lastName: '田中',
-    firstName: '二郎'
-  }
-]
 
 @Component({
   selector: 'app-user-list',
@@ -52,8 +28,7 @@ export class UserListComponent extends AbstractList
   searchForm: FormGroup
   showAdvance = false
 
-  list: User[] = USERS
-  list$: Observable<Array<UserResponseDTO>>
+  list$: Observable<UserDTO[]>
   headers: TableHeader[] = USER_LIST_HEADER
 
   private onDestroy$ = new Subject()
@@ -81,7 +56,7 @@ export class UserListComponent extends AbstractList
       this.searchForm = this.userService.searchForm
     }
 
-    this.list$ = this.userApi.finfUsers().pipe(map(res => res))
+    this.search()
   }
 
   ngOnDestroy() {
@@ -96,11 +71,15 @@ export class UserListComponent extends AbstractList
   }
   search(): void {
     this.spinner.show()
-    setTimeout(() => {
-      this.spinner.hide()
-      this.currentPage = 1
-      this.userService.searchForm = this.searchForm
-    }, 1000)
+    this.list$ = this.userApi.finfUsers(1, 2).pipe(
+      tap((res: UserResponseDTO) => (this.totalItems = res.totalItems)),
+      map((res: UserResponseDTO) => res.users),
+      finalize(() => {
+        this.currentPage = 1
+        this.userService.searchForm = this.searchForm
+        this.spinner.hide()
+      })
+    )
   }
   reset(): void {
     this.searchForm.reset()
