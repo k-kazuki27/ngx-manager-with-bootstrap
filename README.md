@@ -62,9 +62,11 @@ $ openapi-generator generate \
 -g typescript-angular \
 -o api-clients \
 --additional-properties ngVersion=7.0.0 \
+--additional-properties fileNaming=kebab-case \
 --additional-properties serviceSuffix=Api \
---additional-properties serviceFileSuffix=-api
-
+--additional-properties serviceFileSuffix=-api \
+--additional-properties modelSuffix=DTO \
+--additional-properties modelFileSuffix=-dto
 ```
 
 #### Help Config

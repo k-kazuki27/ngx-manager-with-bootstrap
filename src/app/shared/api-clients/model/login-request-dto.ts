@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-export interface LoginRequest {
+export interface LoginRequestDTO {
   userId?: string
   password?: string
 }

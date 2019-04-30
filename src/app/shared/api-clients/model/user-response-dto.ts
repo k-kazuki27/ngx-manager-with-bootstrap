@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-export interface UserResponse {
+export interface UserResponseDTO {
   id?: number
   username?: string
   firstName?: string

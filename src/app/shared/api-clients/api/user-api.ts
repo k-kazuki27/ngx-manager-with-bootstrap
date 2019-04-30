@@ -23,7 +23,7 @@ import { CustomHttpUrlEncodingCodec } from '../encoder'
 
 import { Observable } from 'rxjs'
 
-import { LoginRequest } from '../model/loginRequest'
+import { UserResponseDTO } from '../model/user-response-dto'
 
 import { BASE_PATH, COLLECTION_FORMATS } from '../variables'
 import { Configuration } from '../configuration'
@@ -31,7 +31,7 @@ import { Configuration } from '../configuration'
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService {
+export class UserApi {
   protected basePath = 'https://petstore.swagger.io/v2'
   public defaultHeaders = new HttpHeaders()
   public configuration = new Configuration()
@@ -65,42 +65,51 @@ export class LoginService {
   }
 
   /**
-   * Login
+   * find users
    *
-   * @param loginRequest List of user object
+   * @param userId
+   * @param lastName
    * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
    * @param reportProgress flag to report request and response progress.
    */
-  public login(
-    loginRequest: LoginRequest,
+  public finfUsers(
+    userId?: string,
+    lastName?: string,
     observe?: 'body',
     reportProgress?: boolean
-  ): Observable<any>
-  public login(
-    loginRequest: LoginRequest,
+  ): Observable<Array<UserResponseDTO>>
+  public finfUsers(
+    userId?: string,
+    lastName?: string,
     observe?: 'response',
     reportProgress?: boolean
-  ): Observable<HttpResponse<any>>
-  public login(
-    loginRequest: LoginRequest,
+  ): Observable<HttpResponse<Array<UserResponseDTO>>>
+  public finfUsers(
+    userId?: string,
+    lastName?: string,
     observe?: 'events',
     reportProgress?: boolean
-  ): Observable<HttpEvent<any>>
-  public login(
-    loginRequest: LoginRequest,
+  ): Observable<HttpEvent<Array<UserResponseDTO>>>
+  public finfUsers(
+    userId?: string,
+    lastName?: string,
     observe: any = 'body',
     reportProgress: boolean = false
   ): Observable<any> {
-    if (loginRequest === null || loginRequest === undefined) {
-      throw new Error(
-        'Required parameter loginRequest was null or undefined when calling login.'
-      )
+    let queryParameters = new HttpParams({
+      encoder: new CustomHttpUrlEncodingCodec()
+    })
+    if (userId !== undefined && userId !== null) {
+      queryParameters = queryParameters.set('userId', <any>userId)
+    }
+    if (lastName !== undefined && lastName !== null) {
+      queryParameters = queryParameters.set('lastName', <any>lastName)
     }
 
     let headers = this.defaultHeaders
 
     // to determine the Accept header
-    const httpHeaderAccepts: string[] = []
+    const httpHeaderAccepts: string[] = ['application/json:']
     const httpHeaderAcceptSelected:
       | string
       | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts)
@@ -109,18 +118,12 @@ export class LoginService {
     }
 
     // to determine the Content-Type header
-    const consumes: string[] = ['application/json']
-    const httpContentTypeSelected:
-      | string
-      | undefined = this.configuration.selectHeaderContentType(consumes)
-    if (httpContentTypeSelected !== undefined) {
-      headers = headers.set('Content-Type', httpContentTypeSelected)
-    }
+    const consumes: string[] = []
 
-    return this.httpClient.post<any>(
-      `${this.configuration.basePath}/login`,
-      loginRequest,
+    return this.httpClient.get<Array<UserResponseDTO>>(
+      `${this.configuration.basePath}/user`,
       {
+        params: queryParameters,
         withCredentials: this.configuration.withCredentials,
         headers: headers,
         observe: observe,

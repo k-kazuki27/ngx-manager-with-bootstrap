@@ -1,19 +1,3 @@
-import {
-  HttpClient,
-  HttpEvent,
-  HttpHeaders,
-  HttpParams,
-  HttpResponse
-} from '@angular/common/http'
-import { Inject, Injectable, Optional } from '@angular/core'
-import { Observable, of } from 'rxjs'
-
-import { Configuration } from '../configuration'
-import { CustomHttpUrlEncodingCodec } from '../encoder'
-import { UserResponse } from '../model/userResponse'
-import { BASE_PATH } from '../variables'
-import { DUMMY_USERS } from './../../mock/user'
-
 /**
  * Mock API
  * Mock API
@@ -27,10 +11,27 @@ import { DUMMY_USERS } from './../../mock/user'
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
+import { Inject, Injectable, Optional } from '@angular/core'
+import {
+  HttpClient,
+  HttpHeaders,
+  HttpParams,
+  HttpResponse,
+  HttpEvent
+} from '@angular/common/http'
+import { CustomHttpUrlEncodingCodec } from '../encoder'
+
+import { Observable } from 'rxjs'
+
+import { LoginRequestDTO } from '../model/login-request-dto'
+
+import { BASE_PATH, COLLECTION_FORMATS } from '../variables'
+import { Configuration } from '../configuration'
+
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class LoginApi {
   protected basePath = 'https://petstore.swagger.io/v2'
   public defaultHeaders = new HttpHeaders()
   public configuration = new Configuration()
@@ -64,51 +65,42 @@ export class UserService {
   }
 
   /**
-   * find users
+   * Login
    *
-   * @param userId
-   * @param lastName
+   * @param loginRequestDTO List of user object
    * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
    * @param reportProgress flag to report request and response progress.
    */
-  public finfUsers(
-    userId?: string,
-    lastName?: string,
+  public login(
+    loginRequestDTO: LoginRequestDTO,
     observe?: 'body',
     reportProgress?: boolean
-  ): Observable<Array<UserResponse>>
-  public finfUsers(
-    userId?: string,
-    lastName?: string,
+  ): Observable<any>
+  public login(
+    loginRequestDTO: LoginRequestDTO,
     observe?: 'response',
     reportProgress?: boolean
-  ): Observable<HttpResponse<Array<UserResponse>>>
-  public finfUsers(
-    userId?: string,
-    lastName?: string,
+  ): Observable<HttpResponse<any>>
+  public login(
+    loginRequestDTO: LoginRequestDTO,
     observe?: 'events',
     reportProgress?: boolean
-  ): Observable<HttpEvent<Array<UserResponse>>>
-  public finfUsers(
-    userId?: string,
-    lastName?: string,
+  ): Observable<HttpEvent<any>>
+  public login(
+    loginRequestDTO: LoginRequestDTO,
     observe: any = 'body',
     reportProgress: boolean = false
   ): Observable<any> {
-    let queryParameters = new HttpParams({
-      encoder: new CustomHttpUrlEncodingCodec()
-    })
-    if (userId !== undefined && userId !== null) {
-      queryParameters = queryParameters.set('userId', userId as any)
-    }
-    if (lastName !== undefined && lastName !== null) {
-      queryParameters = queryParameters.set('lastName', lastName as any)
+    if (loginRequestDTO === null || loginRequestDTO === undefined) {
+      throw new Error(
+        'Required parameter loginRequestDTO was null or undefined when calling login.'
+      )
     }
 
     let headers = this.defaultHeaders
 
     // to determine the Accept header
-    const httpHeaderAccepts: string[] = ['application/json:']
+    const httpHeaderAccepts: string[] = []
     const httpHeaderAcceptSelected:
       | string
       | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts)
@@ -117,19 +109,23 @@ export class UserService {
     }
 
     // to determine the Content-Type header
-    const consumes: string[] = []
+    const consumes: string[] = ['application/json']
+    const httpContentTypeSelected:
+      | string
+      | undefined = this.configuration.selectHeaderContentType(consumes)
+    if (httpContentTypeSelected !== undefined) {
+      headers = headers.set('Content-Type', httpContentTypeSelected)
+    }
 
-    // tslint:disable-next-line: deprecation
-    return of(DUMMY_USERS)
-    // return this.httpClient.get<Array<UserResponse>>(
-    //   `${this.configuration.basePath}/user`,
-    //   {
-    //     params: queryParameters,
-    //     withCredentials: this.configuration.withCredentials,
-    //     headers: headers,
-    //     observe: observe,
-    //     reportProgress: reportProgress
-    //   }
-    // )
+    return this.httpClient.post<any>(
+      `${this.configuration.basePath}/login`,
+      loginRequestDTO,
+      {
+        withCredentials: this.configuration.withCredentials,
+        headers: headers,
+        observe: observe,
+        reportProgress: reportProgress
+      }
+    )
   }
 }

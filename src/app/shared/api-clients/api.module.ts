@@ -7,14 +7,14 @@ import {
 import { Configuration } from './configuration'
 import { HttpClient } from '@angular/common/http'
 
-import { LoginService } from './api/login.service'
-import { UserService } from './api/user.service'
+import { LoginApi } from './api/login-api'
+import { UserApi } from './api/user-api'
 
 @NgModule({
   imports: [],
   declarations: [],
   exports: [],
-  providers: [LoginService, UserService]
+  providers: [LoginApi, UserApi]
 })
 export class ApiModule {
   public static forRoot(

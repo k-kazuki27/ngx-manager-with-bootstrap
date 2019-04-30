@@ -1,5 +1,5 @@
-export * from './login.service'
-import { LoginService } from './login.service'
-export * from './user.service'
-import { UserService } from './user.service'
-export const APIS = [LoginService, UserService]
+export * from './login-api'
+import { LoginApi } from './login-api'
+export * from './user-api'
+import { UserApi } from './user-api'
+export const APIS = [LoginApi, UserApi]
