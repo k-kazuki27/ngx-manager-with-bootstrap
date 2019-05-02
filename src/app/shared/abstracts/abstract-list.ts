@@ -37,8 +37,8 @@ export abstract class AbstractList {
     if (this.currentPage === currentPage) {
       return
     }
+    this.currentPage = currentPage
     this.search().then(() => {
-      this.currentPage = currentPage
       this.setPaging()
     })
   }

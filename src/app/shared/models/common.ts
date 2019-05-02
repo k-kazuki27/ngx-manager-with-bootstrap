@@ -7,6 +7,5 @@ export interface TableHeader {
 
 export interface Page {
   currentPage: number
-  toLine: number
-  fromLine: number
+  itemsPerPage: number
 }

@@ -54,6 +54,13 @@ export class UserListComponent extends AbstractList
       this.searchForm = this.userService.searchForm
     }
 
+    if (this.userService.searchPage) {
+      console.log('aaaaa', this.userService.searchPage)
+
+      this.currentPage = this.userService.searchPage.currentPage
+      this.itemsPerPage = this.userService.searchPage.itemsPerPage
+    }
+
     this.search()
   }
 
@@ -78,7 +85,10 @@ export class UserListComponent extends AbstractList
             this.currentPage = 1
           }
           this.setPaging()
-          this.userService.searchForm = this.searchForm
+          this.userService.saveSearch(this.searchForm, {
+            currentPage: this.currentPage,
+            itemsPerPage: this.itemsPerPage
+          })
           resolve()
         })
       )

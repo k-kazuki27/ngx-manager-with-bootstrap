@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core'
 import { FormGroup } from '@angular/forms'
-import { RouteHistoryService } from 'src/app/shared'
+import { Page, RouteHistoryService } from 'src/app/shared'
 
 import { UserResolverModule } from './user-resolver.module'
 
@@ -9,6 +9,8 @@ import { UserResolverModule } from './user-resolver.module'
 })
 export class UserService {
   private form: FormGroup
+  private page: Page
+
   constructor(private routeHistoryService: RouteHistoryService) {}
 
   get searchForm(): FormGroup | null {
@@ -18,7 +20,15 @@ export class UserService {
     return null
   }
 
-  set searchForm(form: FormGroup) {
+  get searchPage(): Page | null {
+    if (this.routeHistoryService.isFromDetailToList()) {
+      return this.page
+    }
+    return null
+  }
+
+  saveSearch(form: FormGroup, page: Page) {
     this.form = form
+    this.page = page
   }
 }
