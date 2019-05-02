@@ -15,7 +15,7 @@ Powered by StartAngular & StrapUI
 
 Provides fast, reliable and extensible starter for the development of Angular projects.
 
-`sb-admin-bs4-angular7` provides the following features:
+`ngx-manager-with-bootstrap` provides the following features:
 
 - Developed using boostrap-v4.0.0
 - angular-v7.2.0
