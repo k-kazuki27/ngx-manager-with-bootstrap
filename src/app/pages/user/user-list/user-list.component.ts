@@ -55,8 +55,6 @@ export class UserListComponent extends AbstractList
     }
 
     if (this.userService.searchPage) {
-      console.log('aaaaa', this.userService.searchPage)
-
       this.currentPage = this.userService.searchPage.currentPage
       this.itemsPerPage = this.userService.searchPage.itemsPerPage
     }
@@ -76,14 +74,14 @@ export class UserListComponent extends AbstractList
   }
 
   search(doPageReset?: boolean): Promise<any> {
+    if (doPageReset) {
+      this.currentPage = 1
+    }
     return new Promise(resolve => {
       this.list$ = this.userApi.findUsers(1, 2, null, null, 'body', true).pipe(
         tap((res: UsersDTO) => (this.totalItems = res.totalItems)),
         map((res: UsersDTO) => res.users),
         finalize(() => {
-          if (doPageReset) {
-            this.currentPage = 1
-          }
           this.setPaging()
           this.userService.saveSearch(this.searchForm, {
             currentPage: this.currentPage,
