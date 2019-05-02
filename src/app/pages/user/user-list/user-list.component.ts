@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router'
 import { NgxSpinnerService } from 'ngx-spinner'
 import { Observable, Subject } from 'rxjs'
-import { finalize, map, takeUntil, tap } from 'rxjs/operators'
+import { delay, finalize, map, takeUntil, tap } from 'rxjs/operators'
 import { routerTransition } from 'src/app/router.animations'
 import {
   AbstractList,
@@ -72,10 +72,11 @@ export class UserListComponent extends AbstractList
   search(): void {
     this.spinner.show()
     this.list$ = this.userApi.finfUsers(1, 2).pipe(
+      delay(new Date(Date.now() + 1000)), // 意図的に遅延
       tap((res: UserResponseDTO) => (this.totalItems = res.totalItems)),
       map((res: UserResponseDTO) => res.users),
       finalize(() => {
-        this.currentPage = 1
+        this.resetPage()
         this.userService.searchForm = this.searchForm
         this.spinner.hide()
       })

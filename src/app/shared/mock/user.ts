@@ -22,6 +22,6 @@ const USERS: UserDTO[] = [
 ]
 
 export const DUMMY_USERS: UserResponseDTO = {
-  totalItems: 10,
+  totalItems: 55,
   users: USERS
 }
