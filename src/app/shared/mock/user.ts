@@ -25,3 +25,5 @@ export const DUMMY_USERS: UsersDTO = {
   totalItems: 55,
   users: USERS
 }
+
+export const DUMMY_USER: UserDTO = USERS[0]

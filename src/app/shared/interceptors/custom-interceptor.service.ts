@@ -12,7 +12,7 @@ import { NgxSpinnerService } from 'ngx-spinner'
 import { Observable, of, throwError } from 'rxjs'
 import { catchError, delay, finalize } from 'rxjs/operators'
 
-import { DUMMY_USERS } from './../mock/user'
+import { DUMMY_USER, DUMMY_USERS } from './../mock/user'
 
 @Injectable({
   providedIn: 'root'
@@ -57,12 +57,21 @@ export function httpMock(
   const url = request.url
   const method = request.method
 
-  if (method !== 'GET') {
+  if (!url.includes('login') && method !== 'GET') {
     // tslint:disable-next-line: deprecation
     result = of(
       new HttpResponse({
         status: 200,
         body: {}
+      })
+    )
+  }
+  if (url.includes('login') && method === 'POST') {
+    // tslint:disable-next-line: deprecation
+    result = of(
+      new HttpResponse({
+        status: 200,
+        body: DUMMY_USER
       })
     )
   }

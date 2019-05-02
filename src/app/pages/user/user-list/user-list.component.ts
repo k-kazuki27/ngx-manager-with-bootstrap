@@ -102,9 +102,12 @@ export class UserListComponent extends AbstractList
       .pipe(takeUntil(this.onDestroy$))
       .subscribe(result => {
         if (result) {
-          this.userApi.removeUser(id, 'body', true).subscribe(() => {
-            this.search()
-          })
+          this.userApi
+            .removeUser(id, 'body', true)
+            .pipe(takeUntil(this.onDestroy$))
+            .subscribe(() => {
+              this.search()
+            })
         }
       })
   }

@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnDestroy, OnInit } from '@angular/core'
 import { Router } from '@angular/router'
+import { Subject } from 'rxjs'
+import { takeUntil } from 'rxjs/operators'
+import { LoginUserService, UserDTO } from 'src/app/shared'
 
 import { PagesService } from '../../services/pages.service'
 
@@ -8,10 +11,28 @@ import { PagesService } from '../../services/pages.service'
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
-  constructor(private router: Router, private pagesService: PagesService) {}
+export class HeaderComponent implements OnInit, OnDestroy {
+  loginUser: UserDTO
 
-  ngOnInit() {}
+  private onDestroy$ = new Subject()
+
+  constructor(
+    private router: Router,
+    private pagesService: PagesService,
+    private loginUserService: LoginUserService
+  ) {}
+
+  ngOnInit() {
+    this.loginUserService.loginUserValueChanges
+      .pipe(takeUntil(this.onDestroy$))
+      .subscribe(user => {
+        this.loginUser = user
+      })
+  }
+
+  ngOnDestroy() {
+    this.onDestroy$.next()
+  }
 
   toggleSidebar() {
     this.pagesService.toggleSidebar()
