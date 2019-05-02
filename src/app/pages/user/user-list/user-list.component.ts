@@ -75,8 +75,9 @@ export class UserListComponent extends AbstractList
         map((res: UsersDTO) => res.users),
         finalize(() => {
           if (doPageReset) {
-            this.resetPage()
+            this.currentPage = 1
           }
+          this.setPaging()
           this.userService.searchForm = this.searchForm
           resolve()
         })

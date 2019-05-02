@@ -17,7 +17,7 @@ export abstract class AbstractList {
 
   changePageLines(lines: number): void {
     this.itemsPerPage = lines
-    this.search()
+    this.search(true)
   }
 
   setOrder(value: string, isSort: boolean): void {
@@ -41,16 +41,13 @@ export abstract class AbstractList {
     }
     this.search().then(() => {
       this.currentPage = page.currentPage
-      this.fromItem = this.itemsPerPage * (this.currentPage - 1) + 1
-      const maxToItem = this.itemsPerPage * this.currentPage
-      this.toItem = this.totalItems < maxToItem ? this.totalItems : maxToItem
+      this.setPaging()
     })
   }
 
-  protected resetPage() {
-    this.currentPage = 1
-    this.fromItem = 1
-    this.toItem =
-      this.totalItems < this.itemsPerPage ? this.totalItems : this.itemsPerPage
+  protected setPaging() {
+    this.fromItem = this.itemsPerPage * (this.currentPage - 1) + 1
+    const maxToItem = this.itemsPerPage * this.currentPage
+    this.toItem = this.totalItems < maxToItem ? this.totalItems : maxToItem
   }
 }
