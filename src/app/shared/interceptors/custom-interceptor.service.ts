@@ -27,10 +27,8 @@ export class CustomInterceptorService implements HttpInterceptor {
     if (req.reportProgress) {
       this.spinner.show()
     }
-    console.log('httpMock', req.reportProgress)
-    const url = req.url
-    const method = req.method
-    return (httpMock(url, method, req) || next.handle(req)).pipe(
+    // APIがないため、MOCKに差し替え
+    return (httpMock(req) || next.handle(req)).pipe(
       delay(new Date(Date.now() + 1000)), // 意図的に遅延
       catchError((res: HttpErrorResponse) => {
         switch (res.status) {
@@ -52,13 +50,14 @@ export class CustomInterceptorService implements HttpInterceptor {
 }
 
 export function httpMock(
-  url: string,
-  method: string,
   request: HttpRequest<any>
 ): Observable<HttpEvent<any>> | false {
   let result: Observable<HttpEvent<any>> | false = false
 
-  if (method === 'OPTIONS') {
+  const url = request.url
+  const method = request.method
+
+  if (method !== 'GET') {
     // tslint:disable-next-line: deprecation
     result = of(
       new HttpResponse({

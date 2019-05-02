@@ -68,13 +68,15 @@ export class UserListComponent extends AbstractList
     this.showAdvance = !this.showAdvance
   }
 
-  search(): Promise<any> {
+  search(doPageReset?: boolean): Promise<any> {
     return new Promise(resolve => {
       this.list$ = this.userApi.findUsers(1, 2, null, null, 'body', true).pipe(
         tap((res: UsersDTO) => (this.totalItems = res.totalItems)),
         map((res: UsersDTO) => res.users),
         finalize(() => {
-          this.resetPage()
+          if (doPageReset) {
+            this.resetPage()
+          }
           this.userService.searchForm = this.searchForm
           resolve()
         })
@@ -100,6 +102,9 @@ export class UserListComponent extends AbstractList
       .pipe(takeUntil(this.onDestroy$))
       .subscribe(result => {
         if (result) {
+          this.userApi.removeUser(id, 'body', true).subscribe(() => {
+            this.search()
+          })
         }
       })
   }

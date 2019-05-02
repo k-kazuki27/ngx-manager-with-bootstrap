@@ -13,7 +13,7 @@ export abstract class AbstractList {
 
   constructor() {}
 
-  abstract search(): Promise<any>
+  abstract search(doPageReset?: boolean): Promise<any>
 
   changePageLines(lines: number): void {
     this.itemsPerPage = lines
