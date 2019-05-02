@@ -1,9 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core'
 import { FormBuilder, FormGroup } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router'
-import { NgxSpinnerService } from 'ngx-spinner'
 import { Observable, Subject } from 'rxjs'
-import { delay, finalize, map, takeUntil, tap } from 'rxjs/operators'
+import { finalize, map, takeUntil, tap } from 'rxjs/operators'
 import { routerTransition } from 'src/app/router.animations'
 import {
   AbstractList,
@@ -36,7 +35,6 @@ export class UserListComponent extends AbstractList
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private spinner: NgxSpinnerService,
     private confirmService: ConfirmService,
     private route: ActivatedRoute,
     private userService: UserService,
@@ -72,15 +70,12 @@ export class UserListComponent extends AbstractList
 
   search(): Promise<any> {
     return new Promise(resolve => {
-      this.spinner.show()
-      this.list$ = this.userApi.findUsers(1, 2).pipe(
-        delay(new Date(Date.now() + 1000)), // 意図的に遅延
+      this.list$ = this.userApi.findUsers(1, 2, null, null, 'body', true).pipe(
         tap((res: UsersDTO) => (this.totalItems = res.totalItems)),
         map((res: UsersDTO) => res.users),
         finalize(() => {
           this.resetPage()
           this.userService.searchForm = this.searchForm
-          this.spinner.hide()
           resolve()
         })
       )

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms'
 import { Router } from '@angular/router'
-import { NgxSpinnerService } from 'ngx-spinner'
 
 import { routerTransition } from '../router.animations'
 
@@ -18,11 +17,7 @@ export class LoginComponent implements OnInit {
   form: FormGroup
   errorMessage: string
 
-  constructor(
-    private router: Router,
-    private fb: FormBuilder,
-    private spinner: NgxSpinnerService
-  ) {}
+  constructor(private router: Router, private fb: FormBuilder) {}
 
   ngOnInit() {
     this.form = this.fb.group({
@@ -44,9 +39,8 @@ export class LoginComponent implements OnInit {
       this.errorMessage = REQUIRED
       return
     }
-    this.spinner.show()
+
     setTimeout(() => {
-      this.spinner.hide()
       sessionStorage.setItem('isLoggedin', 'true')
       this.router.navigate(['/'])
     }, 500)

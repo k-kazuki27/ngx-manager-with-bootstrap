@@ -10,23 +10,24 @@
  * Do not edit the class manually.
  */
 /* tslint:disable:no-unused-variable member-ordering */
+
+import { Inject, Injectable, Optional } from '@angular/core'
 import {
   HttpClient,
-  HttpEvent,
   HttpHeaders,
   HttpParams,
-  HttpResponse
+  HttpResponse,
+  HttpEvent
 } from '@angular/common/http'
-import { Inject, Injectable, Optional } from '@angular/core'
-import { Observable, of } from 'rxjs'
-
-import { DUMMY_USERS } from '../../mock'
-import { Configuration } from '../configuration'
 import { CustomHttpUrlEncodingCodec } from '../encoder'
+
+import { Observable } from 'rxjs'
+
 import { UserDTO } from '../model/user-dto'
 import { UsersDTO } from '../model/users-dto'
-import { BASE_PATH } from '../variables'
 
+import { BASE_PATH, COLLECTION_FORMATS } from '../variables'
+import { Configuration } from '../configuration'
 
 @Injectable({
   providedIn: 'root'
@@ -122,9 +123,9 @@ export class UserApi {
       userDTO,
       {
         withCredentials: this.configuration.withCredentials,
-        headers,
-        observe,
-        reportProgress
+        headers: headers,
+        observe: observe,
+        reportProgress: reportProgress
       }
     )
   }
@@ -187,9 +188,9 @@ export class UserApi {
       userDTO,
       {
         withCredentials: this.configuration.withCredentials,
-        headers,
-        observe,
-        reportProgress
+        headers: headers,
+        observe: observe,
+        reportProgress: reportProgress
       }
     )
   }
@@ -251,10 +252,10 @@ export class UserApi {
       encoder: new CustomHttpUrlEncodingCodec()
     })
     if (userId !== undefined && userId !== null) {
-      queryParameters = queryParameters.set('userId', userId as any)
+      queryParameters = queryParameters.set('userId', <any>userId)
     }
     if (lastName !== undefined && lastName !== null) {
-      queryParameters = queryParameters.set('lastName', lastName as any)
+      queryParameters = queryParameters.set('lastName', <any>lastName)
     }
 
     let headers = this.defaultHeaders
@@ -271,8 +272,6 @@ export class UserApi {
     // to determine the Content-Type header
     const consumes: string[] = []
 
-    // tslint:disable-next-line: deprecation
-    return of(DUMMY_USERS)
     return this.httpClient.get<UsersDTO>(
       `${this.configuration.basePath}/user/${encodeURIComponent(
         String(from)
@@ -280,9 +279,9 @@ export class UserApi {
       {
         params: queryParameters,
         withCredentials: this.configuration.withCredentials,
-        headers,
-        observe,
-        reportProgress
+        headers: headers,
+        observe: observe,
+        reportProgress: reportProgress
       }
     )
   }
@@ -338,9 +337,9 @@ export class UserApi {
       `${this.configuration.basePath}/user/${encodeURIComponent(String(id))}`,
       {
         withCredentials: this.configuration.withCredentials,
-        headers,
-        observe,
-        reportProgress
+        headers: headers,
+        observe: observe,
+        reportProgress: reportProgress
       }
     )
   }
