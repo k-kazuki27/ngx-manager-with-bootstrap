@@ -71,7 +71,6 @@ export class LoginComponent implements OnInit, OnDestroy {
         res => {
           this.loginUserService.setLoginUser(res)
           this.storageService.setAuth()
-          sessionStorage.setItem('isLoggedin', 'true')
           this.router.navigate(['/'])
         },
         () => {

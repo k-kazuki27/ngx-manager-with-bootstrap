@@ -39,7 +39,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   logout() {
-    sessionStorage.removeItem('isLoggedin')
     this.router.navigate(['/login'])
   }
 }

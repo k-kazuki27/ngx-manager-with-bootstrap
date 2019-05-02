@@ -65,8 +65,9 @@ export function httpMock(
         body: {}
       })
     )
+    return result
   }
-  if (url.includes('login') && method === 'POST') {
+  if (url.includes('login')) {
     // tslint:disable-next-line: deprecation
     result = of(
       new HttpResponse({
@@ -74,6 +75,7 @@ export function httpMock(
         body: DUMMY_USER
       })
     )
+    return result
   }
   if (url.includes('user') && method === 'GET') {
     // tslint:disable-next-line: deprecation
