@@ -5,10 +5,13 @@ import { Subject } from 'rxjs'
 import { takeUntil } from 'rxjs/operators'
 
 import { routerTransition } from '../router.animations'
-import { LoginApi, LoginUserService, StorageService } from '../shared'
-
-const LOGIN_ERROR = 'ユーザID、もしくはパスワードが間違っています。'
-const REQUIRED = 'ユーザIDとパスワードを入力してください。'
+import {
+  LOGIN_ERROR,
+  LoginApi,
+  LoginUserService,
+  REQUIRED_ERROR,
+  StorageService
+} from '../shared'
 
 @Component({
   selector: 'app-login',
@@ -53,7 +56,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   login(): void {
     if (!this.userId.value || !this.password.value) {
-      this.errorMessage = REQUIRED
+      this.errorMessage = REQUIRED_ERROR
       return
     }
 
