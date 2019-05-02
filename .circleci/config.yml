@@ -17,6 +17,7 @@ jobs:
       - run: npm run lint
       - run: npm run format:check
       - run: npm run test:ci
+      - run: npm run e2e
   deploy:
     docker:
       - image: circleci/node:10.15.3

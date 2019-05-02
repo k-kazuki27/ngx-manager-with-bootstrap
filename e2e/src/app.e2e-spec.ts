@@ -1,23 +1,29 @@
-import { AppPage } from './app.po';
-import { browser, logging } from 'protractor';
+import { browser, logging } from 'protractor'
+
+import { AppPage } from './app.po'
 
 describe('workspace-project App', () => {
-  let page: AppPage;
+  let page: AppPage
 
   beforeEach(() => {
-    page = new AppPage();
-  });
+    page = new AppPage()
+  })
 
   it('should display welcome message', () => {
-    page.navigateTo();
-    expect(page.getTitleText()).toEqual('Welcome to ngx-manager-with-bootstrap!');
-  });
+    page.navigateTo()
+    expect(page.getTitleText()).toEqual('管理画面')
+  })
 
   afterEach(async () => {
     // Assert that there are no errors emitted from the browser
-    const logs = await browser.manage().logs().get(logging.Type.BROWSER);
-    expect(logs).not.toContain(jasmine.objectContaining({
-      level: logging.Level.SEVERE,
-    } as logging.Entry));
-  });
-});
+    const logs = await browser
+      .manage()
+      .logs()
+      .get(logging.Type.BROWSER)
+    expect(logs).not.toContain(
+      jasmine.objectContaining({
+        level: logging.Level.SEVERE
+      } as logging.Entry)
+    )
+  })
+})
