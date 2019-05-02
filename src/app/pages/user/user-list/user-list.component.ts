@@ -69,18 +69,22 @@ export class UserListComponent extends AbstractList
   openAdvance(): void {
     this.showAdvance = !this.showAdvance
   }
-  search(): void {
-    this.spinner.show()
-    this.list$ = this.userApi.finfUsers(1, 2).pipe(
-      delay(new Date(Date.now() + 1000)), // 意図的に遅延
-      tap((res: UserResponseDTO) => (this.totalItems = res.totalItems)),
-      map((res: UserResponseDTO) => res.users),
-      finalize(() => {
-        this.resetPage()
-        this.userService.searchForm = this.searchForm
-        this.spinner.hide()
-      })
-    )
+
+  search(): Promise<any> {
+    return new Promise(resolve => {
+      this.spinner.show()
+      this.list$ = this.userApi.finfUsers(1, 2).pipe(
+        delay(new Date(Date.now() + 1000)), // 意図的に遅延
+        tap((res: UserResponseDTO) => (this.totalItems = res.totalItems)),
+        map((res: UserResponseDTO) => res.users),
+        finalize(() => {
+          this.resetPage()
+          this.userService.searchForm = this.searchForm
+          this.spinner.hide()
+          resolve()
+        })
+      )
+    })
   }
   reset(): void {
     this.searchForm.reset()

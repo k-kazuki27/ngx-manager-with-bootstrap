@@ -13,7 +13,7 @@ export abstract class AbstractList {
 
   constructor() {}
 
-  abstract search(): void
+  abstract search(): Promise<any>
 
   changePageLines(lines: number): void {
     this.itemsPerPage = lines
@@ -34,12 +34,17 @@ export abstract class AbstractList {
     this.order = value
   }
 
-  pageChanged(page: Page) {
-    this.currentPage = page.currentPage
-    this.fromItem = this.itemsPerPage * (this.currentPage - 1) + 1
-    const maxToItem = this.itemsPerPage * this.currentPage
-    this.toItem = this.totalItems < maxToItem ? this.totalItems : maxToItem
-    this.search()
+  pageChanged(page: Page): void {
+    // currentPageに値を設定することによって発火するイベントをスルー
+    if (this.currentPage === page.currentPage) {
+      return
+    }
+    this.search().then(() => {
+      this.currentPage = page.currentPage
+      this.fromItem = this.itemsPerPage * (this.currentPage - 1) + 1
+      const maxToItem = this.itemsPerPage * this.currentPage
+      this.toItem = this.totalItems < maxToItem ? this.totalItems : maxToItem
+    })
   }
 
   protected resetPage() {
