@@ -74,3 +74,6 @@ $ openapi-generator generate \
 ```
 $ openapi-generator config-help -g typescript-angular
 ```
+
+### Storybook for Angular
+- [Storybook for Angular](https://storybook.js.org/docs/guides/guide-angular/)

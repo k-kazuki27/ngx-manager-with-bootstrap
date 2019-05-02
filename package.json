@@ -14,7 +14,9 @@
     "test:ci": "CI=true node --max_old_space_size=1024 ./node_modules/jest/bin/jest.js --maxWorkers=2",
     "format:check": "prettier --no-semi true --single-quote true --check \"src/app/**/*{.ts,.js,.json,.css,.scss,.html}\"",
     "format:write": "npm run format:check -- --write",
-    "deploy:gh-pages": "gh-pages -d dist -m 'chore: update [skip ci]' -t"
+    "deploy:gh-pages": "gh-pages -d dist -m 'chore: update [skip ci]' -t",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "private": true,
   "dependencies": {
@@ -42,6 +44,7 @@
     "@angular/cli": "~7.3.8",
     "@angular/compiler-cli": "~7.2.14",
     "@angular/language-service": "~7.2.14",
+    "@storybook/cli": "^5.0.11",
     "@types/jasmine": "~3.3.12",
     "@types/jasminewd2": "~2.0.6",
     "@types/jest": "^24.0.11",
@@ -57,7 +60,14 @@
     "ts-node": "~8.1.0",
     "tslint": "~5.16.0",
     "tslint-config-prettier": "^1.18.0",
-    "typescript": "~3.2.2"
+    "typescript": "~3.2.2",
+    "@babel/core": "^7.4.4",
+    "babel-loader": "^8.0.5",
+    "@storybook/angular": "^5.0.11",
+    "@storybook/addon-notes": "^5.0.11",
+    "@storybook/addon-actions": "^5.0.11",
+    "@storybook/addon-links": "^5.0.11",
+    "@storybook/addons": "^5.0.11"
   },
   "jest": {
     "preset": "jest-preset-angular",
