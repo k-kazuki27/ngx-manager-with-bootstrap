@@ -1,20 +1,3 @@
-import {
-  HttpClient,
-  HttpEvent,
-  HttpHeaders,
-  HttpParams,
-  HttpResponse
-} from '@angular/common/http'
-import { Inject, Injectable, Optional } from '@angular/core'
-import { Observable, of } from 'rxjs'
-
-import { Configuration } from '../configuration'
-import { CustomHttpUrlEncodingCodec } from '../encoder'
-import { UserDTO } from '../model/user-dto'
-import { UsersDTO } from '../model/users-dto'
-import { BASE_PATH } from '../variables'
-import { DUMMY_USERS } from './../../mock/user'
-
 /**
  * Mock API
  * Mock API
@@ -27,6 +10,23 @@ import { DUMMY_USERS } from './../../mock/user'
  * Do not edit the class manually.
  */
 /* tslint:disable:no-unused-variable member-ordering */
+import {
+  HttpClient,
+  HttpEvent,
+  HttpHeaders,
+  HttpParams,
+  HttpResponse
+} from '@angular/common/http'
+import { Inject, Injectable, Optional } from '@angular/core'
+import { Observable, of } from 'rxjs'
+
+import { DUMMY_USERS } from '../../mock'
+import { Configuration } from '../configuration'
+import { CustomHttpUrlEncodingCodec } from '../encoder'
+import { UserDTO } from '../model/user-dto'
+import { UsersDTO } from '../model/users-dto'
+import { BASE_PATH } from '../variables'
+
 
 @Injectable({
   providedIn: 'root'
@@ -273,6 +273,18 @@ export class UserApi {
 
     // tslint:disable-next-line: deprecation
     return of(DUMMY_USERS)
+    return this.httpClient.get<UsersDTO>(
+      `${this.configuration.basePath}/user/${encodeURIComponent(
+        String(from)
+      )}/${encodeURIComponent(String(to))}`,
+      {
+        params: queryParameters,
+        withCredentials: this.configuration.withCredentials,
+        headers,
+        observe,
+        reportProgress
+      }
+    )
   }
 
   /**

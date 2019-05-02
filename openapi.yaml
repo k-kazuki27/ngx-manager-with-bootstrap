@@ -24,7 +24,25 @@ paths:
         $ref: '#/components/requestBodies/LoginRequest'
       responses:
         '200':
-          description: OK
+          description: successful operation
+          content:
+            application/json::
+              schema:
+                $ref: '#/components/schemas/User'
+  /login/user:
+    get:
+      tags:
+        - login
+      summary: Login
+      description: ''
+      operationId: getCurrentAuthenticatedUser
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json::
+              schema:
+                $ref: '#/components/schemas/User'
   /user/{from}/{to}:
     get:
       tags:

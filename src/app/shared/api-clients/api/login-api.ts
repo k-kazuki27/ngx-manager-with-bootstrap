@@ -24,6 +24,7 @@ import { CustomHttpUrlEncodingCodec } from '../encoder'
 import { Observable } from 'rxjs'
 
 import { LoginDTO } from '../model/login-dto'
+import { UserDTO } from '../model/user-dto'
 
 import { BASE_PATH, COLLECTION_FORMATS } from '../variables'
 import { Configuration } from '../configuration'
@@ -67,6 +68,53 @@ export class LoginApi {
   /**
    * Login
    *
+   * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+   * @param reportProgress flag to report request and response progress.
+   */
+  public getCurrentAuthenticatedUser(
+    observe?: 'body',
+    reportProgress?: boolean
+  ): Observable<UserDTO>
+  public getCurrentAuthenticatedUser(
+    observe?: 'response',
+    reportProgress?: boolean
+  ): Observable<HttpResponse<UserDTO>>
+  public getCurrentAuthenticatedUser(
+    observe?: 'events',
+    reportProgress?: boolean
+  ): Observable<HttpEvent<UserDTO>>
+  public getCurrentAuthenticatedUser(
+    observe: any = 'body',
+    reportProgress: boolean = false
+  ): Observable<any> {
+    let headers = this.defaultHeaders
+
+    // to determine the Accept header
+    const httpHeaderAccepts: string[] = ['application/json:']
+    const httpHeaderAcceptSelected:
+      | string
+      | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts)
+    if (httpHeaderAcceptSelected !== undefined) {
+      headers = headers.set('Accept', httpHeaderAcceptSelected)
+    }
+
+    // to determine the Content-Type header
+    const consumes: string[] = []
+
+    return this.httpClient.get<UserDTO>(
+      `${this.configuration.basePath}/login/user`,
+      {
+        withCredentials: this.configuration.withCredentials,
+        headers: headers,
+        observe: observe,
+        reportProgress: reportProgress
+      }
+    )
+  }
+
+  /**
+   * Login
+   *
    * @param loginDTO List of user object
    * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
    * @param reportProgress flag to report request and response progress.
@@ -75,17 +123,17 @@ export class LoginApi {
     loginDTO: LoginDTO,
     observe?: 'body',
     reportProgress?: boolean
-  ): Observable<any>
+  ): Observable<UserDTO>
   public login(
     loginDTO: LoginDTO,
     observe?: 'response',
     reportProgress?: boolean
-  ): Observable<HttpResponse<any>>
+  ): Observable<HttpResponse<UserDTO>>
   public login(
     loginDTO: LoginDTO,
     observe?: 'events',
     reportProgress?: boolean
-  ): Observable<HttpEvent<any>>
+  ): Observable<HttpEvent<UserDTO>>
   public login(
     loginDTO: LoginDTO,
     observe: any = 'body',
@@ -100,7 +148,7 @@ export class LoginApi {
     let headers = this.defaultHeaders
 
     // to determine the Accept header
-    const httpHeaderAccepts: string[] = []
+    const httpHeaderAccepts: string[] = ['application/json:']
     const httpHeaderAcceptSelected:
       | string
       | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts)
@@ -117,7 +165,7 @@ export class LoginApi {
       headers = headers.set('Content-Type', httpContentTypeSelected)
     }
 
-    return this.httpClient.post<any>(
+    return this.httpClient.post<UserDTO>(
       `${this.configuration.basePath}/login`,
       loginDTO,
       {
