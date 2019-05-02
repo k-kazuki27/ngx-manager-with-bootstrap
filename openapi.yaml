@@ -31,7 +31,7 @@ paths:
         - user
       summary: find users
       description: ''
-      operationId: finfUsers
+      operationId: findUsers
       parameters:
         - name: from
           in: path
@@ -65,25 +65,73 @@ paths:
           content:
             application/json::
               schema:
-                $ref: '#/components/schemas/UserResponse'
+                $ref: '#/components/schemas/Users'
+  /user:
+    post:
+      tags:
+        - user
+      summary: Create User
+      description: ''
+      operationId: createUser
+      requestBody:
+        $ref: '#/components/requestBodies/UserRequest'
+      responses:
+        '200':
+          description: OK
+    put:
+      tags:
+        - user
+      summary: Edit User
+      description: ''
+      operationId: editUser
+      requestBody:
+        $ref: '#/components/requestBodies/UserRequest'
+      responses:
+        '200':
+          description: OK
+  /user/{id}:
+    delete:
+      tags:
+        - user
+      summary: Remove User
+      description: ''
+      operationId: removeUser
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+          description: ''
+      responses:
+        '200':
+          description: OK
 components:
   requestBodies:
     LoginRequest:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/LoginRequest'
+            $ref: '#/components/schemas/Login'
+      description: List of user object
+      required: true
+    UserRequest:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/User'
       description: List of user object
       required: true
   schemas:
-    LoginRequest:
+    Login:
       type: object
       properties:
         userId:
           type: string
         password:
           type: string
-    UserResponse:
+    Users:
       type: object
       properties:
         totalItems:

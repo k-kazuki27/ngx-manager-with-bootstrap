@@ -12,7 +12,7 @@ import {
   USER_LIST_HEADER,
   UserApi,
   UserDTO,
-  UserResponseDTO
+  UsersDTO
 } from 'src/app/shared'
 
 import { UserService } from '../services/user.service'
@@ -73,10 +73,10 @@ export class UserListComponent extends AbstractList
   search(): Promise<any> {
     return new Promise(resolve => {
       this.spinner.show()
-      this.list$ = this.userApi.finfUsers(1, 2).pipe(
+      this.list$ = this.userApi.findUsers(1, 2).pipe(
         delay(new Date(Date.now() + 1000)), // 意図的に遅延
-        tap((res: UserResponseDTO) => (this.totalItems = res.totalItems)),
-        map((res: UserResponseDTO) => res.users),
+        tap((res: UsersDTO) => (this.totalItems = res.totalItems)),
+        map((res: UsersDTO) => res.users),
         finalize(() => {
           this.resetPage()
           this.userService.searchForm = this.searchForm

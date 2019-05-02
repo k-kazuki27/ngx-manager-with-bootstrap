@@ -10,7 +10,8 @@ import { Observable, of } from 'rxjs'
 
 import { Configuration } from '../configuration'
 import { CustomHttpUrlEncodingCodec } from '../encoder'
-import { UserResponseDTO } from '../model/user-response-dto'
+import { UserDTO } from '../model/user-dto'
+import { UsersDTO } from '../model/users-dto'
 import { BASE_PATH } from '../variables'
 import { DUMMY_USERS } from './../../mock/user'
 
@@ -64,6 +65,136 @@ export class UserApi {
   }
 
   /**
+   * Create User
+   *
+   * @param userDTO List of user object
+   * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+   * @param reportProgress flag to report request and response progress.
+   */
+  public createUser(
+    userDTO: UserDTO,
+    observe?: 'body',
+    reportProgress?: boolean
+  ): Observable<any>
+  public createUser(
+    userDTO: UserDTO,
+    observe?: 'response',
+    reportProgress?: boolean
+  ): Observable<HttpResponse<any>>
+  public createUser(
+    userDTO: UserDTO,
+    observe?: 'events',
+    reportProgress?: boolean
+  ): Observable<HttpEvent<any>>
+  public createUser(
+    userDTO: UserDTO,
+    observe: any = 'body',
+    reportProgress: boolean = false
+  ): Observable<any> {
+    if (userDTO === null || userDTO === undefined) {
+      throw new Error(
+        'Required parameter userDTO was null or undefined when calling createUser.'
+      )
+    }
+
+    let headers = this.defaultHeaders
+
+    // to determine the Accept header
+    const httpHeaderAccepts: string[] = []
+    const httpHeaderAcceptSelected:
+      | string
+      | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts)
+    if (httpHeaderAcceptSelected !== undefined) {
+      headers = headers.set('Accept', httpHeaderAcceptSelected)
+    }
+
+    // to determine the Content-Type header
+    const consumes: string[] = ['application/json']
+    const httpContentTypeSelected:
+      | string
+      | undefined = this.configuration.selectHeaderContentType(consumes)
+    if (httpContentTypeSelected !== undefined) {
+      headers = headers.set('Content-Type', httpContentTypeSelected)
+    }
+
+    return this.httpClient.post<any>(
+      `${this.configuration.basePath}/user`,
+      userDTO,
+      {
+        withCredentials: this.configuration.withCredentials,
+        headers,
+        observe,
+        reportProgress
+      }
+    )
+  }
+
+  /**
+   * Edit User
+   *
+   * @param userDTO List of user object
+   * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+   * @param reportProgress flag to report request and response progress.
+   */
+  public editUser(
+    userDTO: UserDTO,
+    observe?: 'body',
+    reportProgress?: boolean
+  ): Observable<any>
+  public editUser(
+    userDTO: UserDTO,
+    observe?: 'response',
+    reportProgress?: boolean
+  ): Observable<HttpResponse<any>>
+  public editUser(
+    userDTO: UserDTO,
+    observe?: 'events',
+    reportProgress?: boolean
+  ): Observable<HttpEvent<any>>
+  public editUser(
+    userDTO: UserDTO,
+    observe: any = 'body',
+    reportProgress: boolean = false
+  ): Observable<any> {
+    if (userDTO === null || userDTO === undefined) {
+      throw new Error(
+        'Required parameter userDTO was null or undefined when calling editUser.'
+      )
+    }
+
+    let headers = this.defaultHeaders
+
+    // to determine the Accept header
+    const httpHeaderAccepts: string[] = []
+    const httpHeaderAcceptSelected:
+      | string
+      | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts)
+    if (httpHeaderAcceptSelected !== undefined) {
+      headers = headers.set('Accept', httpHeaderAcceptSelected)
+    }
+
+    // to determine the Content-Type header
+    const consumes: string[] = ['application/json']
+    const httpContentTypeSelected:
+      | string
+      | undefined = this.configuration.selectHeaderContentType(consumes)
+    if (httpContentTypeSelected !== undefined) {
+      headers = headers.set('Content-Type', httpContentTypeSelected)
+    }
+
+    return this.httpClient.put<any>(
+      `${this.configuration.basePath}/user`,
+      userDTO,
+      {
+        withCredentials: this.configuration.withCredentials,
+        headers,
+        observe,
+        reportProgress
+      }
+    )
+  }
+
+  /**
    * find users
    *
    * @param from
@@ -73,31 +204,31 @@ export class UserApi {
    * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
    * @param reportProgress flag to report request and response progress.
    */
-  public finfUsers(
+  public findUsers(
     from: number,
     to: number,
     userId?: string,
     lastName?: string,
     observe?: 'body',
     reportProgress?: boolean
-  ): Observable<UserResponseDTO>
-  public finfUsers(
+  ): Observable<UsersDTO>
+  public findUsers(
     from: number,
     to: number,
     userId?: string,
     lastName?: string,
     observe?: 'response',
     reportProgress?: boolean
-  ): Observable<HttpResponse<UserResponseDTO>>
-  public finfUsers(
+  ): Observable<HttpResponse<UsersDTO>>
+  public findUsers(
     from: number,
     to: number,
     userId?: string,
     lastName?: string,
     observe?: 'events',
     reportProgress?: boolean
-  ): Observable<HttpEvent<UserResponseDTO>>
-  public finfUsers(
+  ): Observable<HttpEvent<UsersDTO>>
+  public findUsers(
     from: number,
     to: number,
     userId?: string,
@@ -107,12 +238,12 @@ export class UserApi {
   ): Observable<any> {
     if (from === null || from === undefined) {
       throw new Error(
-        'Required parameter from was null or undefined when calling finfUsers.'
+        'Required parameter from was null or undefined when calling findUsers.'
       )
     }
     if (to === null || to === undefined) {
       throw new Error(
-        'Required parameter to was null or undefined when calling finfUsers.'
+        'Required parameter to was null or undefined when calling findUsers.'
       )
     }
 
@@ -142,5 +273,63 @@ export class UserApi {
 
     // tslint:disable-next-line: deprecation
     return of(DUMMY_USERS)
+  }
+
+  /**
+   * Remove User
+   *
+   * @param id
+   * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+   * @param reportProgress flag to report request and response progress.
+   */
+  public removeUser(
+    id: number,
+    observe?: 'body',
+    reportProgress?: boolean
+  ): Observable<any>
+  public removeUser(
+    id: number,
+    observe?: 'response',
+    reportProgress?: boolean
+  ): Observable<HttpResponse<any>>
+  public removeUser(
+    id: number,
+    observe?: 'events',
+    reportProgress?: boolean
+  ): Observable<HttpEvent<any>>
+  public removeUser(
+    id: number,
+    observe: any = 'body',
+    reportProgress: boolean = false
+  ): Observable<any> {
+    if (id === null || id === undefined) {
+      throw new Error(
+        'Required parameter id was null or undefined when calling removeUser.'
+      )
+    }
+
+    let headers = this.defaultHeaders
+
+    // to determine the Accept header
+    const httpHeaderAccepts: string[] = []
+    const httpHeaderAcceptSelected:
+      | string
+      | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts)
+    if (httpHeaderAcceptSelected !== undefined) {
+      headers = headers.set('Accept', httpHeaderAcceptSelected)
+    }
+
+    // to determine the Content-Type header
+    const consumes: string[] = []
+
+    return this.httpClient.delete<any>(
+      `${this.configuration.basePath}/user/${encodeURIComponent(String(id))}`,
+      {
+        withCredentials: this.configuration.withCredentials,
+        headers,
+        observe,
+        reportProgress
+      }
+    )
   }
 }

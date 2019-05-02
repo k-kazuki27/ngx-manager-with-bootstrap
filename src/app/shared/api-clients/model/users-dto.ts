@@ -11,7 +11,7 @@
  */
 import { UserDTO } from './user-dto'
 
-export interface UserResponseDTO {
+export interface UsersDTO {
   totalItems?: number
   users?: Array<UserDTO>
 }

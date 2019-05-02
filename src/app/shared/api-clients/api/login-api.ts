@@ -23,7 +23,7 @@ import { CustomHttpUrlEncodingCodec } from '../encoder'
 
 import { Observable } from 'rxjs'
 
-import { LoginRequestDTO } from '../model/login-request-dto'
+import { LoginDTO } from '../model/login-dto'
 
 import { BASE_PATH, COLLECTION_FORMATS } from '../variables'
 import { Configuration } from '../configuration'
@@ -67,33 +67,33 @@ export class LoginApi {
   /**
    * Login
    *
-   * @param loginRequestDTO List of user object
+   * @param loginDTO List of user object
    * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
    * @param reportProgress flag to report request and response progress.
    */
   public login(
-    loginRequestDTO: LoginRequestDTO,
+    loginDTO: LoginDTO,
     observe?: 'body',
     reportProgress?: boolean
   ): Observable<any>
   public login(
-    loginRequestDTO: LoginRequestDTO,
+    loginDTO: LoginDTO,
     observe?: 'response',
     reportProgress?: boolean
   ): Observable<HttpResponse<any>>
   public login(
-    loginRequestDTO: LoginRequestDTO,
+    loginDTO: LoginDTO,
     observe?: 'events',
     reportProgress?: boolean
   ): Observable<HttpEvent<any>>
   public login(
-    loginRequestDTO: LoginRequestDTO,
+    loginDTO: LoginDTO,
     observe: any = 'body',
     reportProgress: boolean = false
   ): Observable<any> {
-    if (loginRequestDTO === null || loginRequestDTO === undefined) {
+    if (loginDTO === null || loginDTO === undefined) {
       throw new Error(
-        'Required parameter loginRequestDTO was null or undefined when calling login.'
+        'Required parameter loginDTO was null or undefined when calling login.'
       )
     }
 
@@ -119,7 +119,7 @@ export class LoginApi {
 
     return this.httpClient.post<any>(
       `${this.configuration.basePath}/login`,
-      loginRequestDTO,
+      loginDTO,
       {
         withCredentials: this.configuration.withCredentials,
         headers: headers,
