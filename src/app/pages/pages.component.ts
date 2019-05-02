@@ -36,7 +36,6 @@ export class PagesComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.onDestroy$))
       .subscribe(
         res => {
-          console.log(res)
           this.loginUserService.setLoginUser(res)
         },
         () => {

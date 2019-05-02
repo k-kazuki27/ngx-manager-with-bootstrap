@@ -1,8 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core'
 import { PageChangedEvent } from 'ngx-bootstrap'
 
-import { Page } from '../..'
-
 @Component({
   selector: 'app-custom-pagination',
   templateUrl: './custom-pagination.component.html',
@@ -19,13 +17,13 @@ export class CustomPaginationComponent implements OnInit {
   totalItems: number
 
   @Output()
-  pageChanged = new EventEmitter<Page>()
+  pageChanged = new EventEmitter<number>()
 
   constructor() {}
 
   ngOnInit() {}
 
   change(event: PageChangedEvent): void {
-    this.pageChanged.emit({ currentPage: event.page, toLine: 1, fromLine: 2 })
+    this.pageChanged.emit(event.page)
   }
 }

@@ -83,7 +83,7 @@
         </button>
         <app-dropdown-page-lines
           class="m-l-sm"
-          (changePageLines)="changePageLines($event)"
+          (changeItemsPerPage)="changeItemsPerPage($event)"
         ></app-dropdown-page-lines>
       </div>
       <ng-container *ngIf="list$ | async as user; else notFound">

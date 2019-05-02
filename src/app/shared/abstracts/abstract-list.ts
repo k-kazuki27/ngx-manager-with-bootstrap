@@ -1,5 +1,3 @@
-import { Page } from '../models'
-
 export abstract class AbstractList {
   // カラム指定なしだと逆になるので、reverse=true
   order = ''
@@ -15,8 +13,8 @@ export abstract class AbstractList {
 
   abstract search(doPageReset?: boolean): Promise<any>
 
-  changePageLines(lines: number): void {
-    this.itemsPerPage = lines
+  changeItemsPerPage(itemsPerPage: number): void {
+    this.itemsPerPage = itemsPerPage
     this.search(true)
   }
 
@@ -34,13 +32,13 @@ export abstract class AbstractList {
     this.order = value
   }
 
-  pageChanged(page: Page): void {
+  pageChanged(currentPage: number): void {
     // currentPageに値を設定することによって発火するイベントをスルー
-    if (this.currentPage === page.currentPage) {
+    if (this.currentPage === currentPage) {
       return
     }
     this.search().then(() => {
-      this.currentPage = page.currentPage
+      this.currentPage = currentPage
       this.setPaging()
     })
   }
