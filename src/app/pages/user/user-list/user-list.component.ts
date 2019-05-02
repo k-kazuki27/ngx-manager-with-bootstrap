@@ -72,8 +72,7 @@ export class UserListComponent extends AbstractList
   openAdvance(): void {
     this.showAdvance = !this.showAdvance
   }
-
-  search(doPageReset?: boolean): Promise<any> {
+  search(doPageReset?: boolean): Promise<null> {
     if (doPageReset) {
       this.currentPage = 1
     }
