@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router'
 import { Subject } from 'rxjs'
 import { takeUntil } from 'rxjs/operators'
 import { routerTransition } from 'src/app/router.animations'
-import { ConfirmService, UserApi } from 'src/app/shared'
+import { ConfirmService, UserApi, UserDTO } from 'src/app/shared'
 
 @Component({
   selector: 'app-user-detail',
@@ -15,6 +15,7 @@ import { ConfirmService, UserApi } from 'src/app/shared'
 export class UserDetailComponent implements OnInit, OnDestroy {
   form: FormGroup
 
+  private id: number
   private onDestroy$ = new Subject()
 
   constructor(
@@ -32,16 +33,19 @@ export class UserDetailComponent implements OnInit, OnDestroy {
       birthday: [null]
     })
 
-    const id = Number(this.route.snapshot.params.id)
-    if (id) {
-      this.userApi.getUser(id, 'body', true).subscribe(res => {
-        this.form.patchValue({
-          email: res.email,
-          lastName: res.lastName,
-          firstName: res.firstName,
-          birthday: new Date()
+    this.id = Number(this.route.snapshot.params.id)
+    if (this.id) {
+      this.userApi
+        .getUser(this.id, 'body', true)
+        .pipe(takeUntil(this.onDestroy$))
+        .subscribe(res => {
+          this.form.patchValue({
+            email: res.email,
+            lastName: res.lastName,
+            firstName: res.firstName,
+            birthday: new Date()
+          })
         })
-      })
     }
   }
 
@@ -62,16 +66,44 @@ export class UserDetailComponent implements OnInit, OnDestroy {
     return this.form.get('birthday') as FormControl
   }
 
-  edit(): void {
+  register(): void {
     this.confirmService
       .openEditConfirm()
       .pipe(takeUntil(this.onDestroy$))
       .subscribe(result => {
         if (result) {
-          history.back()
+          const user: UserDTO = {
+            id: this.id,
+            userId: '',
+            lastName: ''
+          }
+          if (this.id) {
+            this.edit(user)
+          } else {
+            this.create(user)
+          }
         }
       })
   }
+
+  private create(user: UserDTO): void {
+    this.userApi
+      .createUser(user, 'body', true)
+      .pipe(takeUntil(this.onDestroy$))
+      .subscribe(() => {
+        history.back()
+      })
+  }
+
+  private edit(user: UserDTO): void {
+    this.userApi
+      .editUser(user, 'body', true)
+      .pipe(takeUntil(this.onDestroy$))
+      .subscribe(() => {
+        history.back()
+      })
+  }
+
   cancel() {
     history.back()
   }

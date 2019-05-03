@@ -78,7 +78,7 @@ export function httpMock(
     )
     return result
   }
-  console.log(request)
+
   if (url.includes('/user/1/2') && method === 'GET') {
     // tslint:disable-next-line: deprecation
     result = of(
