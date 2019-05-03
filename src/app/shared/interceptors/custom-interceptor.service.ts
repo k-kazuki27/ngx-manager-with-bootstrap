@@ -67,6 +67,7 @@ export function httpMock(
     )
     return result
   }
+
   if (url.includes('login')) {
     // tslint:disable-next-line: deprecation
     result = of(
@@ -77,7 +78,8 @@ export function httpMock(
     )
     return result
   }
-  if (url.includes('user') && method === 'GET') {
+  console.log(request)
+  if (url.includes('/user/1/2') && method === 'GET') {
     // tslint:disable-next-line: deprecation
     result = of(
       new HttpResponse({
@@ -85,6 +87,17 @@ export function httpMock(
         body: DUMMY_USERS
       })
     )
+    return result
+  }
+  if (url.includes('/user/') && method === 'GET') {
+    // tslint:disable-next-line: deprecation
+    result = of(
+      new HttpResponse({
+        status: 200,
+        body: DUMMY_USER
+      })
+    )
+    return result
   }
 
   return result

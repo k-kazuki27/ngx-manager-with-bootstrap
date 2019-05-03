@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router'
 import { Subject } from 'rxjs'
 import { takeUntil } from 'rxjs/operators'
 import { routerTransition } from 'src/app/router.animations'
-import { ConfirmService } from 'src/app/shared/modals/confirm/confirm.service'
+import { ConfirmService, UserApi } from 'src/app/shared'
 
 @Component({
   selector: 'app-user-detail',
@@ -20,7 +20,8 @@ export class UserDetailComponent implements OnInit, OnDestroy {
   constructor(
     private fb: FormBuilder,
     private route: ActivatedRoute,
-    private confirmService: ConfirmService
+    private confirmService: ConfirmService,
+    private userApi: UserApi
   ) {}
 
   ngOnInit() {
@@ -33,11 +34,13 @@ export class UserDetailComponent implements OnInit, OnDestroy {
 
     const id = Number(this.route.snapshot.params.id)
     if (id) {
-      this.form.patchValue({
-        email: 'test@test.com',
-        lastName: '田中',
-        firstName: '太郎',
-        birthday: new Date()
+      this.userApi.getUser(id, 'body', true).subscribe(res => {
+        this.form.patchValue({
+          email: res.email,
+          lastName: res.lastName,
+          firstName: res.firstName,
+          birthday: new Date()
+        })
       })
     }
   }

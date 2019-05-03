@@ -108,6 +108,27 @@ paths:
         '200':
           description: OK
   /user/{id}:
+    get:
+      tags:
+        - user
+      summary: find user
+      description: ''
+      operationId: getUser
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+          description: ''
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json::
+              schema:
+                $ref: '#/components/schemas/User'
     delete:
       tags:
         - user
