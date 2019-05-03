@@ -109,9 +109,11 @@ export class UserListComponent extends AbstractList
   create(): void {
     this.router.navigate(['detail'], { relativeTo: this.route })
   }
+
   edit(id: number): void {
     this.router.navigate(['detail', id], { relativeTo: this.route })
   }
+
   remove(id: number): void {
     this.confirmService
       .openRemoveConfirm()
