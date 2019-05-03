@@ -11,7 +11,7 @@ export abstract class AbstractList {
 
   constructor() {}
 
-  abstract search(doPageReset?: boolean): Promise<null>
+  abstract search(doPageReset?: boolean): void
 
   changeItemsPerPage(itemsPerPage: number): void {
     this.itemsPerPage = itemsPerPage
@@ -38,9 +38,7 @@ export abstract class AbstractList {
       return
     }
     this.currentPage = currentPage
-    this.search().then(() => {
-      this.setPaging()
-    })
+    this.search()
   }
 
   protected setPaging(): void {

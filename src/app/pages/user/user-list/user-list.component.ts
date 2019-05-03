@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core'
 import { FormBuilder, FormGroup } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router'
-import { Observable, Subject } from 'rxjs'
-import { finalize, map, takeUntil, tap } from 'rxjs/operators'
+import { BehaviorSubject, Observable, Subject } from 'rxjs'
+import { finalize, map, switchMap, takeUntil, tap } from 'rxjs/operators'
 import { routerTransition } from 'src/app/router.animations'
 import {
   AbstractList,
@@ -30,6 +30,7 @@ export class UserListComponent extends AbstractList
   list$: Observable<UserDTO[]>
   headers: TableHeader[] = USER_LIST_HEADER
 
+  private search$ = new BehaviorSubject(null)
   private onDestroy$ = new Subject()
 
   constructor(
@@ -59,11 +60,29 @@ export class UserListComponent extends AbstractList
       this.itemsPerPage = this.userService.searchPage.itemsPerPage
     }
 
-    this.search()
+    this.list$ = this.search$.asObservable().pipe(
+      switchMap(() => {
+        return this.findUsers()
+      })
+    )
   }
 
   ngOnDestroy() {
     this.onDestroy$.next()
+  }
+
+  private findUsers(): Observable<UserDTO[]> {
+    return this.userApi.findUsers(1, 2, null, null, 'body', true).pipe(
+      tap((res: UsersDTO) => (this.totalItems = res.totalItems)),
+      map((res: UsersDTO) => res.users),
+      finalize(() => {
+        this.setPaging()
+        this.userService.saveSearch(this.searchForm, {
+          currentPage: this.currentPage,
+          itemsPerPage: this.itemsPerPage
+        })
+      })
+    )
   }
 
   //
@@ -72,25 +91,14 @@ export class UserListComponent extends AbstractList
   openAdvance(): void {
     this.showAdvance = !this.showAdvance
   }
-  search(doPageReset?: boolean): Promise<null> {
+
+  search(doPageReset?: boolean): void {
     if (doPageReset) {
       this.currentPage = 1
     }
-    return new Promise(resolve => {
-      this.list$ = this.userApi.findUsers(1, 2, null, null, 'body', true).pipe(
-        tap((res: UsersDTO) => (this.totalItems = res.totalItems)),
-        map((res: UsersDTO) => res.users),
-        finalize(() => {
-          this.setPaging()
-          this.userService.saveSearch(this.searchForm, {
-            currentPage: this.currentPage,
-            itemsPerPage: this.itemsPerPage
-          })
-          resolve()
-        })
-      )
-    })
+    this.search$.next(null)
   }
+
   reset(): void {
     this.searchForm.reset()
   }
