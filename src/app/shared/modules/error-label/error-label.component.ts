@@ -26,7 +26,6 @@ export class ErrorLabelComponent implements OnInit {
 
   getErrorMessage(): string {
     for (const field of Object.keys(this.form.errors)) {
-  
       const error = this.form.errors[field]
       if (error) {
         if (field === 'minlength' || field === 'maxlength') {
