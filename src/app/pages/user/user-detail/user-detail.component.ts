@@ -68,6 +68,9 @@ export class UserDetailComponent implements OnInit, OnDestroy {
     })
   }
 
+  get userId(): FormControl {
+    return this.form.get('userId') as FormControl
+  }
   get email(): FormControl {
     return this.form.get('email') as FormControl
   }

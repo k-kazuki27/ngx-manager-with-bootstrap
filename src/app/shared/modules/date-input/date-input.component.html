@@ -1,18 +1,20 @@
-<div [formGroup]="form" class="input-group input-group-sm">
-  <input
-    type="text"
-    class="form-control form-control-sm"
-    bsDatepicker
-    #birthdayDp="bsDatepicker"
-    formControlName="birthday"
-  />
-  <div class="input-group-append">
-    <button
-      type="button"
-      class="btn btn-outline-secondary btn-sm"
-      (click)="birthdayDp.show()"
-    >
-      <i class="fa fa-fw fa-calendar"></i>
-    </button>
+<ng-container [formGroup]="form">
+  <div class="input-group input-group-sm">
+    <input
+      type="text"
+      class="form-control form-control-sm"
+      bsDatepicker
+      #birthdayDp="bsDatepicker"
+      formControlName="birthday"
+    />
+    <div class="input-group-append">
+      <button
+        type="button"
+        class="btn btn-outline-secondary btn-sm"
+        (click)="birthdayDp.show()"
+      >
+        <i class="fa fa-fw fa-calendar"></i>
+      </button>
+    </div>
   </div>
-</div>
+</ng-container>

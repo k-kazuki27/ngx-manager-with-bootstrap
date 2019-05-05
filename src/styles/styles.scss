@@ -36,5 +36,7 @@ body {
 
 // Form
 .ng-invalid.ng-dirty:not(form) {
-  border: solid 2px lightcoral;
+  border-color: lightcoral;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(240, 128, 128, 0.25);
 }

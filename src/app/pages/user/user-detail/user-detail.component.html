@@ -6,6 +6,17 @@
       <form [formGroup]="form" autocomplete="off">
         <div [class]="formGroupClass">
           <label [class]="labelClass"
+            >ユーザID<app-required></app-required
+          ></label>
+          <input type="text" [class]="inputClass" formControlName="userId" />
+          <app-error-label
+            [class]="errorLabelClass"
+            [form]="userId"
+          ></app-error-label>
+        </div>
+
+        <div [class]="formGroupClass">
+          <label [class]="labelClass"
             >メールアドレス<app-required></app-required
             ><app-question-tooltip
               message="会社のメールアドレスを入力してください。"
@@ -35,6 +46,10 @@
         <div [class]="formGroupClass">
           <label [class]="labelClass">誕生日</label>
           <app-date-input class="col-sm-9" [form]="form"></app-date-input>
+          <app-error-label
+            [class]="errorLabelClass"
+            [form]="birthday"
+          ></app-error-label>
         </div>
       </form>
       <div class="detail-bottom">
