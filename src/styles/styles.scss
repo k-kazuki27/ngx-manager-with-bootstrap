@@ -33,3 +33,8 @@ body {
 .w-100px {
   width: 100px;
 }
+
+// Form
+.ng-invalid.ng-dirty:not(form) {
+  border: solid 2px lightcoral;
+}
