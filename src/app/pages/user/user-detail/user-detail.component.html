@@ -34,6 +34,10 @@
             >名前（姓）<app-required></app-required>
           </label>
           <input type="text" [class]="inputClass" formControlName="lastName" />
+          <app-error-label
+            [class]="errorLabelClass"
+            [form]="lastName"
+          ></app-error-label>
         </div>
 
         <div [class]="formGroupClass">
@@ -41,6 +45,10 @@
             >名前（名）<app-required></app-required
           ></label>
           <input type="text" [class]="inputClass" formControlName="firstName" />
+          <app-error-label
+            [class]="errorLabelClass"
+            [form]="firstName"
+          ></app-error-label>
         </div>
 
         <div [class]="formGroupClass">

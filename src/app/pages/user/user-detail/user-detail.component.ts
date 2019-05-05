@@ -72,8 +72,8 @@ export class UserDetailComponent implements OnInit, OnDestroy {
         null,
         [Validators.required, Validators.email, Validators.maxLength(64)]
       ],
-      lastName: [null, [Validators.required, Validators.maxLength(16)]],
-      firstName: [null, [Validators.required, Validators.maxLength(16)]],
+      lastName: [null, [Validators.required, Validators.maxLength(32)]],
+      firstName: [null, [Validators.required, Validators.maxLength(32)]],
       birthday: [null]
     })
   }
