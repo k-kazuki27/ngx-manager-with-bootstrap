@@ -1,5 +1,5 @@
 <label
-  *ngIf="form.invalid && (form.dirty || form.touched)"
+  *ngIf="form?.invalid && (form?.dirty || form?.touched)"
   class="error-label text-danger"
   [hidden]="!form?.errors"
 >
