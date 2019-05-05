@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common'
 import { NgModule } from '@angular/core'
+import { ReactiveFormsModule } from '@angular/forms'
 import {
   BsDatepickerConfig,
   BsDatepickerModule,
@@ -12,7 +13,7 @@ import { DateInputComponent } from './date-input.component'
 
 @NgModule({
   declarations: [DateInputComponent],
-  imports: [CommonModule, BsDatepickerModule],
+  imports: [CommonModule, ReactiveFormsModule, BsDatepickerModule],
   exports: [DateInputComponent],
   providers: [
     BsDatepickerModule.forRoot().providers,

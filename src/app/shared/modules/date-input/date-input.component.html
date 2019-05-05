@@ -1,9 +1,10 @@
-<div class="input-group input-group-sm">
+<div [formGroup]="form" class="input-group input-group-sm">
   <input
     type="text"
     class="form-control form-control-sm"
     bsDatepicker
     #birthdayDp="bsDatepicker"
+    formControlName="birthday"
   />
   <div class="input-group-append">
     <button
