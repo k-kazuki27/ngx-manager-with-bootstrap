@@ -170,6 +170,7 @@ components:
           type: string
         password:
           type: string
+          format: password
     Users:
       type: object
       properties:
@@ -186,6 +187,7 @@ components:
         id:
           type: integer
           format: int32
+          readOnly: true
         userId:
           type: string
         firstName:
@@ -194,7 +196,14 @@ components:
           type: string
         email:
           type: string
-        password:
+          format: email
+        birthday:
           type: string
+          format: date
+      required:
+        - userId
+        - firstName
+        - lastName
+        
         
         

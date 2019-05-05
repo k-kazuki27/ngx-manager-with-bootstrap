@@ -11,10 +11,10 @@
  */
 
 export interface UserDTO {
-  id?: number
-  userId?: string
-  firstName?: string
-  lastName?: string
+  readonly id?: number
+  userId: string
+  firstName: string
+  lastName: string
   email?: string
-  password?: string
+  birthday?: string
 }
