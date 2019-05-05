@@ -4,7 +4,12 @@ import { ActivatedRoute } from '@angular/router'
 import { Subject } from 'rxjs'
 import { takeUntil } from 'rxjs/operators'
 import { routerTransition } from 'src/app/router.animations'
-import { ConfirmService, UserApi, UserDTO } from 'src/app/shared'
+import {
+  ConfirmService,
+  REG_EXP_HALF_ALPHA_NUM_SYMBOL,
+  UserApi,
+  UserDTO
+} from 'src/app/shared'
 
 @Component({
   selector: 'app-user-detail',
@@ -56,7 +61,12 @@ export class UserDetailComponent implements OnInit, OnDestroy {
     this.form = this.fb.group({
       userId: [
         null,
-        [Validators.required, Validators.minLength(4), Validators.maxLength(64)]
+        [
+          Validators.required,
+          Validators.minLength(4),
+          Validators.maxLength(64),
+          Validators.pattern(REG_EXP_HALF_ALPHA_NUM_SYMBOL)
+        ]
       ],
       email: [
         null,

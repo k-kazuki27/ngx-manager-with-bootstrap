@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core'
 import { FormControl } from '@angular/forms'
 
+import { REG_EXP_HALF_ALPHA_NUM_SYMBOL } from '../../constants'
+
 const ERROR_MAP = new Map<string, string>([
   ['required', '必須です。'],
   ['email', '正しいメールアドレスの形式で入力してください。'],
@@ -24,10 +26,17 @@ export class ErrorLabelComponent implements OnInit {
 
   getErrorMessage(): string {
     for (const field of Object.keys(this.form.errors)) {
+  
       const error = this.form.errors[field]
       if (error) {
         if (field === 'minlength' || field === 'maxlength') {
           return this.stringFormat(ERROR_MAP.get(field), [error.requiredLength])
+        }
+
+        if (field === 'pattern') {
+          if (error.requiredPattern === REG_EXP_HALF_ALPHA_NUM_SYMBOL) {
+            return '半角英数字記号で入力してください。'
+          }
         }
         return ERROR_MAP.get(field)
       }
