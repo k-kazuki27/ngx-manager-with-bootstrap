@@ -1,0 +1,17 @@
+<div class="input-group input-group-sm">
+  <input
+    type="text"
+    class="form-control form-control-sm"
+    bsDatepicker
+    #birthdayDp="bsDatepicker"
+  />
+  <div class="input-group-append">
+    <button
+      type="button"
+      class="btn btn-outline-secondary btn-sm"
+      (click)="birthdayDp.show()"
+    >
+      <i class="fa fa-fw fa-calendar"></i>
+    </button>
+  </div>
+</div>

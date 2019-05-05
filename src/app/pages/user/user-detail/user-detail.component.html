@@ -34,25 +34,7 @@
 
         <div [class]="formGroupClass">
           <label [class]="labelClass">誕生日</label>
-          <div class="input-group input-group-sm col-sm-9">
-            <input
-              type="text"
-              class="form-control form-control-sm"
-              bsDatepicker
-              #birthdayDp="bsDatepicker"
-              name="birthday"
-              formControlName="birthday"
-            />
-            <div class="input-group-append">
-              <button
-                type="button"
-                class="btn btn-outline-secondary btn-sm"
-                (click)="birthdayDp.show()"
-              >
-                <i class="fa fa-fw fa-calendar"></i>
-              </button>
-            </div>
-          </div>
+          <app-date-input class="col-sm-9"></app-date-input>
         </div>
       </form>
       <div class="detail-bottom">
