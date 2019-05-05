@@ -10,6 +10,7 @@ Powered by StartAngular & StrapUI
 
 ## Demo
 - [DEMO](https://k-kazuki27.github.io/ngx-manager-with-bootstrap/)
+- ID/PW：test/test
 
 ### Introduction
 
