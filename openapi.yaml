@@ -190,6 +190,8 @@ components:
           readOnly: true
         userId:
           type: string
+          minLength: 4
+          maxLength: 32
         firstName:
           type: string
         lastName:

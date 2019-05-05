@@ -1,7 +1,7 @@
 <label
   *ngIf="form.invalid && (form.dirty || form.touched)"
   class="error-label text-danger"
-  [hidden]="!(form?.errors && form?.errors?.required)"
+  [hidden]="!form?.errors"
 >
   <i class="fa fa-times-circle-o"></i>{{ getErrorMessage() }}
 </label>

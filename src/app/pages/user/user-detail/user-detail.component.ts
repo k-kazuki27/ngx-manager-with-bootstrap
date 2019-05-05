@@ -26,12 +26,7 @@ export class UserDetailComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.form = this.fb.group({
-      email: [null, [Validators.required, Validators.maxLength(64)]],
-      lastName: [null, [Validators.required, Validators.maxLength(16)]],
-      firstName: [null, [Validators.required, Validators.maxLength(16)]],
-      birthday: [null]
-    })
+    this.buildForm()
 
     this.id = Number(this.route.snapshot.params.id)
     if (this.id) {
@@ -51,6 +46,22 @@ export class UserDetailComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.onDestroy$.next()
+  }
+
+  private buildForm(): void {
+    this.form = this.fb.group({
+      userId: [
+        null,
+        [Validators.required, Validators.minLength(4), Validators.maxLength(64)]
+      ],
+      email: [
+        null,
+        [Validators.required, Validators.email, Validators.maxLength(64)]
+      ],
+      lastName: [null, [Validators.required, Validators.maxLength(16)]],
+      firstName: [null, [Validators.required, Validators.maxLength(16)]],
+      birthday: [null]
+    })
   }
 
   get email(): FormControl {
@@ -76,7 +87,7 @@ export class UserDetailComponent implements OnInit, OnDestroy {
             id: this.id,
             userId: '',
             lastName: '',
-            firstName:''
+            firstName: ''
           }
           if (this.id) {
             this.edit(user)

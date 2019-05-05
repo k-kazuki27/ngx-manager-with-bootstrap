@@ -1,7 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core'
 import { FormControl } from '@angular/forms'
 
-const ERROR_MAP = new Map<string, string>([['required', '必須です。']])
+const ERROR_MAP = new Map<string, string>([
+  ['required', '必須です。'],
+  ['email', '正しいメールアドレスの形式で入力してください。']
+])
 
 @Component({
   selector: 'app-error-label',

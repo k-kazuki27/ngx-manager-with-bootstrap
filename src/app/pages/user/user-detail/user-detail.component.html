@@ -87,6 +87,7 @@
           type="button"
           class="btn btn-primary btn-sm w-100px"
           (click)="register()"
+          [attr.disabled]="form.valid && form.dirty ? null : true"
         >
           <i class="fa fa-fw fa-edit"></i>登録
         </button>
