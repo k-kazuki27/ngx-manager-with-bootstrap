@@ -48,6 +48,10 @@ $ npm run build
 ### OpenAPI Generator
 - [openapi-generator](https://github.com/OpenAPITools/openapi-generator)
 
+#### Document
+- [OpenAPI-Specification](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md)
+- [Web](https://swagger.io/specification/)
+
 #### Installation
 
 ```

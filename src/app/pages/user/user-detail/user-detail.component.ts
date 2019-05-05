@@ -75,7 +75,8 @@ export class UserDetailComponent implements OnInit, OnDestroy {
           const user: UserDTO = {
             id: this.id,
             userId: '',
-            lastName: ''
+            lastName: '',
+            firstName:''
           }
           if (this.id) {
             this.edit(user)
