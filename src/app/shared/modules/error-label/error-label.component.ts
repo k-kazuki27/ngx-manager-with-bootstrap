@@ -8,7 +8,8 @@ const ERROR_MAP = new Map<string, string>([
   ['email', '正しいメールアドレスの形式で入力してください。'],
   ['bsDate', '日付を入力してください。'],
   ['minlength', '{0}文字以上で入力してください。'],
-  ['maxlength', '{0}文字以下で入力してください。']
+  ['maxlength', '{0}文字以下で入力してください。'],
+  ['uniqueUserId', '指定のユーザIDは、既に登録されています。']
 ])
 
 @Component({

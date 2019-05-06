@@ -9,7 +9,8 @@ import {
   ConfirmService,
   REG_EXP_HALF_ALPHA_NUM_SYMBOL,
   UserApi,
-  UserDTO
+  UserDTO,
+  UserValidator
 } from 'src/app/shared'
 
 @Component({
@@ -78,7 +79,9 @@ export class UserDetailComponent implements OnInit, OnDestroy {
           Validators.minLength(4),
           Validators.maxLength(64),
           Validators.pattern(REG_EXP_HALF_ALPHA_NUM_SYMBOL)
-        ]
+        ],
+        [UserValidator.unique(this.userApi)],
+        'blur'
       ],
       email: [
         null,
