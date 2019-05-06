@@ -1,7 +1,8 @@
 import {
   AbstractControl,
   AsyncValidatorFn,
-  ValidationErrors
+  ValidationErrors,
+  ValidatorFn
 } from '@angular/forms'
 import { Observable } from 'rxjs'
 import { map } from 'rxjs/operators'
@@ -9,7 +10,7 @@ import { map } from 'rxjs/operators'
 import { UserApi, UsersDTO } from '../api-clients'
 
 export class UserValidator {
-  static unique(userApi: UserApi): AsyncValidatorFn {
+  static uniqueUserId(userApi: UserApi): AsyncValidatorFn {
     return (
       control: AbstractControl
     ):
@@ -22,6 +23,12 @@ export class UserValidator {
           return res ? null : { uniqueUserId: true }
         })
       )
+    }
+  }
+
+  static samePassword(target: string): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+      return control.value === target ? { samePassword: true } : null
     }
   }
 }

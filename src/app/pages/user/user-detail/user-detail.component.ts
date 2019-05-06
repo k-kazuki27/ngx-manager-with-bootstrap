@@ -57,11 +57,15 @@ export class UserDetailComponent implements OnInit, OnDestroy {
     } else {
       this.form.addControl(
         'password',
-        new FormControl({ value: null }, [
+        new FormControl(null, [
           Validators.required,
           Validators.minLength(4),
           Validators.maxLength(64)
         ])
+      )
+      this.form.addControl(
+        'confirmPassword',
+        new FormControl(null, [UserValidator.samePassword(this.password.value)])
       )
     }
   }
@@ -80,7 +84,7 @@ export class UserDetailComponent implements OnInit, OnDestroy {
           Validators.maxLength(64),
           Validators.pattern(REG_EXP_HALF_ALPHA_NUM_SYMBOL)
         ],
-        [UserValidator.unique(this.userApi)],
+        [UserValidator.uniqueUserId(this.userApi)],
         'blur'
       ],
       email: [
@@ -95,6 +99,12 @@ export class UserDetailComponent implements OnInit, OnDestroy {
 
   get userId(): FormControl {
     return this.form.get('userId') as FormControl
+  }
+  get password(): FormControl {
+    return this.form.get('password') as FormControl
+  }
+  get confirmPassword(): FormControl {
+    return this.form.get('confirmPassword') as FormControl
   }
   get email(): FormControl {
     return this.form.get('email') as FormControl
