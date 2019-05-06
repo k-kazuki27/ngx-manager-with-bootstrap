@@ -9,7 +9,8 @@ const ERROR_MAP = new Map<string, string>([
   ['bsDate', '日付を入力してください。'],
   ['minlength', '{0}文字以上で入力してください。'],
   ['maxlength', '{0}文字以下で入力してください。'],
-  ['uniqueUserId', '指定のユーザIDは、既に登録されています。']
+  ['uniqueUserId', '指定のユーザIDは、既に登録されています。'],
+  ['samePassword', 'パスワードが一致しません。']
 ])
 
 @Component({

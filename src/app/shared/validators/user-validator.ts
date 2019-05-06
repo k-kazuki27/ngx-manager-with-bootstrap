@@ -26,9 +26,9 @@ export class UserValidator {
     }
   }
 
-  static samePassword(target: string): ValidatorFn {
+  static samePassword(target: AbstractControl): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
-      return control.value === target ? { samePassword: true } : null
+      return control.value !== target.value ? { samePassword: true } : null
     }
   }
 }

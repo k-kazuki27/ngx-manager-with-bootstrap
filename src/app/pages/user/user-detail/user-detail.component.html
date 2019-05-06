@@ -15,6 +15,38 @@
           ></app-error-label>
         </div>
 
+        <ng-container *ngIf="!id">
+          <div [class]="formGroupClass">
+            <label [class]="labelClass"
+              >パスワード<app-required></app-required
+            ></label>
+            <input
+              type="text"
+              [class]="inputClass"
+              formControlName="password"
+            />
+            <app-error-label
+              [class]="errorLabelClass"
+              [form]="password"
+            ></app-error-label>
+          </div>
+
+          <div [class]="formGroupClass">
+            <label [class]="labelClass"
+              >パスワード（確認）<app-required></app-required
+            ></label>
+            <input
+              type="text"
+              [class]="inputClass"
+              formControlName="confirmPassword"
+            />
+            <app-error-label
+              [class]="errorLabelClass"
+              [form]="confirmPassword"
+            ></app-error-label>
+          </div>
+        </ng-container>
+
         <div [class]="formGroupClass">
           <label [class]="labelClass"
             >メールアドレス<app-required></app-required

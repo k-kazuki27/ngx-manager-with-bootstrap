@@ -26,7 +26,7 @@ export class UserDetailComponent implements OnInit, OnDestroy {
   inputClass = 'form-control form-control-sm col-sm-9'
   errorLabelClass = 'offset-sm-3 col-sm-9'
 
-  private id: number
+  id: number
   private onDestroy$ = new Subject()
 
   constructor(
@@ -55,18 +55,7 @@ export class UserDetailComponent implements OnInit, OnDestroy {
           })
         })
     } else {
-      this.form.addControl(
-        'password',
-        new FormControl(null, [
-          Validators.required,
-          Validators.minLength(4),
-          Validators.maxLength(64)
-        ])
-      )
-      this.form.addControl(
-        'confirmPassword',
-        new FormControl(null, [UserValidator.samePassword(this.password.value)])
-      )
+      this.buildPasswordForm()
     }
   }
 
@@ -95,6 +84,22 @@ export class UserDetailComponent implements OnInit, OnDestroy {
       firstName: [null, [Validators.required, Validators.maxLength(32)]],
       birthday: [null]
     })
+  }
+
+  private buildPasswordForm(): void {
+    this.form.addControl(
+      'password',
+      new FormControl(null, [
+        Validators.required,
+        Validators.minLength(4),
+        Validators.maxLength(64),
+        Validators.pattern(REG_EXP_HALF_ALPHA_NUM_SYMBOL)
+      ])
+    )
+    this.form.addControl(
+      'confirmPassword',
+      new FormControl(null, [UserValidator.samePassword(this.password)])
+    )
   }
 
   get userId(): FormControl {
