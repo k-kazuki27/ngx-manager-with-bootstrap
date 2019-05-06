@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common'
 import { Component, OnDestroy, OnInit } from '@angular/core'
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { ActivatedRoute } from '@angular/router'
@@ -31,7 +32,8 @@ export class UserDetailComponent implements OnInit, OnDestroy {
     private fb: FormBuilder,
     private route: ActivatedRoute,
     private confirmService: ConfirmService,
-    private userApi: UserApi
+    private userApi: UserApi,
+    private datePipe: DatePipe
   ) {}
 
   ngOnInit() {
@@ -44,12 +46,22 @@ export class UserDetailComponent implements OnInit, OnDestroy {
         .pipe(takeUntil(this.onDestroy$))
         .subscribe(res => {
           this.form.patchValue({
+            userId: res.userId,
             email: res.email,
             lastName: res.lastName,
             firstName: res.firstName,
-            birthday: new Date()
+            birthday: res.birthday ? new Date(res.birthday) : null
           })
         })
+    } else {
+      this.form.addControl(
+        'password',
+        new FormControl({ value: null }, [
+          Validators.required,
+          Validators.minLength(4),
+          Validators.maxLength(64)
+        ])
+      )
     }
   }
 
@@ -102,10 +114,12 @@ export class UserDetailComponent implements OnInit, OnDestroy {
         if (result) {
           const user: UserDTO = {
             id: this.id,
-            userId: '',
-            lastName: '',
-            firstName: ''
+            userId: this.userId.value,
+            lastName: this.lastName.value,
+            firstName: this.firstName.value,
+            birthday: this.datePipe.transform(this.birthday.value, 'yyyy-MM-dd')
           }
+          console.log(user)
           if (this.id) {
             this.edit(user)
           } else {

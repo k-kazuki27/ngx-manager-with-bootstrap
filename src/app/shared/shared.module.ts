@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common'
+import { CommonModule, DatePipe } from '@angular/common'
 import { NgModule } from '@angular/core'
 import { ReactiveFormsModule } from '@angular/forms'
 import { OrderModule } from 'ngx-order-pipe'
@@ -31,6 +31,7 @@ const modules = [
 @NgModule({
   declarations: [],
   imports: [...modules],
-  exports: [...modules]
+  exports: [...modules],
+  providers: [DatePipe]
 })
 export class SharedModule {}

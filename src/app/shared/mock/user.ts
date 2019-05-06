@@ -6,7 +6,8 @@ const USERS: UserDTO[] = [
     userId: 'z0001',
     email: 'a@a.com',
     lastName: '田中',
-    firstName: '一郎'
+    firstName: '一郎',
+    birthday: '2011-04-07'
   },
   {
     id: 2,
