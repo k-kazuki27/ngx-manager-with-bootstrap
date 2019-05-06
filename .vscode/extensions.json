@@ -6,6 +6,7 @@
     "johnpapa.angular-essentials",
     "steoates.autoimport",
     "christian-kohler.path-intellisense",
-    "rbbit.typescript-hero"
+    "rbbit.typescript-hero",
+    "firsttris.vscode-jest-runner"
   ]
 }
