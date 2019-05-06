@@ -1,11 +1,12 @@
 import { DatePipe } from '@angular/common'
 import { Component, OnDestroy, OnInit } from '@angular/core'
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
+import { FormBuilder, FormControl, Validators } from '@angular/forms'
 import { ActivatedRoute } from '@angular/router'
 import { Subject } from 'rxjs'
 import { takeUntil } from 'rxjs/operators'
 import { routerTransition } from 'src/app/router.animations'
 import {
+  AbstractDetail,
   ConfirmService,
   REG_EXP_HALF_ALPHA_NUM_SYMBOL,
   UserApi,
@@ -19,14 +20,8 @@ import {
   styleUrls: ['./user-detail.component.scss'],
   animations: [routerTransition()]
 })
-export class UserDetailComponent implements OnInit, OnDestroy {
-  form: FormGroup
-  formGroupClass = 'form-group row align-items-center'
-  labelClass = 'col-sm-3 col-form-label col-form-label-sm'
-  inputClass = 'form-control form-control-sm col-sm-9'
-  errorLabelClass = 'offset-sm-3 col-sm-9'
-
-  id: number
+export class UserDetailComponent extends AbstractDetail
+  implements OnInit, OnDestroy {
   private onDestroy$ = new Subject()
 
   constructor(
@@ -35,7 +30,9 @@ export class UserDetailComponent implements OnInit, OnDestroy {
     private confirmService: ConfirmService,
     private userApi: UserApi,
     private datePipe: DatePipe
-  ) {}
+  ) {
+    super()
+  }
 
   ngOnInit() {
     this.buildForm()
@@ -102,28 +99,6 @@ export class UserDetailComponent implements OnInit, OnDestroy {
     )
   }
 
-  get userId(): FormControl {
-    return this.form.get('userId') as FormControl
-  }
-  get password(): FormControl {
-    return this.form.get('password') as FormControl
-  }
-  get confirmPassword(): FormControl {
-    return this.form.get('confirmPassword') as FormControl
-  }
-  get email(): FormControl {
-    return this.form.get('email') as FormControl
-  }
-  get lastName(): FormControl {
-    return this.form.get('lastName') as FormControl
-  }
-  get firstName(): FormControl {
-    return this.form.get('firstName') as FormControl
-  }
-  get birthday(): FormControl {
-    return this.form.get('birthday') as FormControl
-  }
-
   register(): void {
     this.confirmService
       .openEditConfirm()
@@ -165,7 +140,25 @@ export class UserDetailComponent implements OnInit, OnDestroy {
       })
   }
 
-  cancel() {
-    history.back()
+  get userId(): FormControl {
+    return this.form.get('userId') as FormControl
+  }
+  get password(): FormControl {
+    return this.form.get('password') as FormControl
+  }
+  get confirmPassword(): FormControl {
+    return this.form.get('confirmPassword') as FormControl
+  }
+  get email(): FormControl {
+    return this.form.get('email') as FormControl
+  }
+  get lastName(): FormControl {
+    return this.form.get('lastName') as FormControl
+  }
+  get firstName(): FormControl {
+    return this.form.get('firstName') as FormControl
+  }
+  get birthday(): FormControl {
+    return this.form.get('birthday') as FormControl
   }
 }
