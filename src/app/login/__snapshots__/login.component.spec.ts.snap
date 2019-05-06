@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginComponent should create 1`] = `
+<app-login
+  errorMessage="null"
+  fb={[Function FormBuilder]}
+  form={[Function FormGroup]}
+  loginApi={[Function LoginApi]}
+  loginUserService={[Function LoginUserService]}
+  onDestroy$={[Function Subject]}
+  router={[Function Router]}
+  storageService={[Function StorageService]}
+>
+  <div
+    class="login-page ng-trigger ng-trigger-routerTransition"
+    style=""
+  >
+    <div
+      class="row justify-content-md-center"
+    >
+      <div
+        class="col-md-4"
+      >
+        <img
+          class="user-avatar"
+          src="assets/images/login/logo.png"
+          width="150px"
+        />
+        <h1
+          class="ng-tns-c0-0"
+        >
+          管理画面
+        </h1>
+        <form
+          autocomplete="off"
+          class="ng-tns-c0-0 ng-untouched ng-pristine ng-valid"
+          ng-reflect-form="[object Object]"
+          novalidate=""
+        >
+          <div
+            class="form-content"
+          >
+            <div
+              class="form-group"
+            >
+              <input
+                class="form-control input-underline input-lg ng-untouched ng-pristine ng-valid"
+                formcontrolname="userId"
+                name="userId"
+                ng-reflect-name="userId"
+                placeholder="ユーザID"
+                type="text"
+              />
+            </div>
+            <div
+              class="form-group"
+            >
+              <input
+                class="form-control input-underline input-lg ng-untouched ng-pristine ng-valid"
+                formcontrolname="password"
+                name="password"
+                ng-reflect-name="password"
+                placeholder="パスワード"
+                type="password"
+              />
+            </div>
+            
+          </div>
+          <a
+            class="btn rounded-btn"
+          >
+            ログイン
+          </a>
+        </form>
+      </div>
+    </div>
+  </div>
+</app-login>
+`;
