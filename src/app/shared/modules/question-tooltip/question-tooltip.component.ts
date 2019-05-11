@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core'
 })
 export class QuestionTooltipComponent implements OnInit {
   @Input()
-  message: string
+  message!: string
 
   constructor() {}
 

@@ -8,7 +8,7 @@ import { PagesService } from '../../services/pages.service'
   styleUrls: ['./collapse-button.component.scss']
 })
 export class CollapseButtonComponent implements OnInit {
-  collapsed: boolean
+  collapsed!: boolean
   isShow = true
 
   constructor(private pagesService: PagesService) {}

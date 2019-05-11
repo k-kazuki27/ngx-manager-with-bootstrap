@@ -22,7 +22,7 @@ export class PagesService {
     this.collapsed$.next(result)
   }
 
-  get toggleSidebarValueChanges(): Observable<boolean> {
+  get toggleSidebarValueChanges(): Observable<null> {
     return this.toggleSidebar$.asObservable()
   }
 

@@ -110,7 +110,8 @@ export class UserDetailComponent extends AbstractDetail
             userId: this.userId.value,
             lastName: this.lastName.value,
             firstName: this.firstName.value,
-            birthday: this.datePipe.transform(this.birthday.value, 'yyyy-MM-dd')
+            birthday:
+              this.datePipe.transform(this.birthday.value, 'yyyy-MM-dd') || ''
           }
           console.log(user)
           if (this.id) {

@@ -8,13 +8,13 @@ import { PageChangedEvent } from 'ngx-bootstrap'
 })
 export class CustomPaginationComponent implements OnInit {
   @Input()
-  currentPage: number
+  currentPage!: number
 
   @Input()
-  itemsPerPage: number
+  itemsPerPage!: number
 
   @Input()
-  totalItems: number
+  totalItems!: number
 
   @Output()
   pageChanged = new EventEmitter<number>()

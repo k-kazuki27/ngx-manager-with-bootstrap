@@ -13,12 +13,9 @@ import { DateInputComponent } from './date-input.component'
 
 @NgModule({
   declarations: [DateInputComponent],
-  imports: [CommonModule, ReactiveFormsModule, BsDatepickerModule],
+  imports: [CommonModule, ReactiveFormsModule, BsDatepickerModule.forRoot()],
   exports: [DateInputComponent],
-  providers: [
-    BsDatepickerModule.forRoot().providers,
-    { provide: BsDatepickerConfig, useFactory: getDatepickerConfig }
-  ]
+  providers: [{ provide: BsDatepickerConfig, useFactory: getDatepickerConfig }]
 })
 export class DateInputModule {
   constructor(private bsLocaleService: BsLocaleService) {

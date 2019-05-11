@@ -20,8 +20,8 @@ import {
   animations: [routerTransition()]
 })
 export class LoginComponent implements OnInit, OnDestroy {
-  form: FormGroup
-  errorMessage: string
+  form!: FormGroup
+  errorMessage!: string | null
 
   private onDestroy$ = new Subject()
 

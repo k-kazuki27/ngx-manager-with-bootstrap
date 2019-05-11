@@ -20,13 +20,17 @@ const ERROR_MAP = new Map<string, string>([
 })
 export class ErrorLabelComponent implements OnInit {
   @Input()
-  form: FormControl
+  form!: FormControl
 
   constructor() {}
 
   ngOnInit() {}
 
-  getErrorMessage(): string {
+  getErrorMessage(): string | null {
+    if (!this.form || !this.form.errors) {
+      return null
+    }
+
     for (const field of Object.keys(this.form.errors)) {
       const error = this.form.errors[field]
       if (error) {
@@ -39,19 +43,17 @@ export class ErrorLabelComponent implements OnInit {
             return '半角英数字記号で入力してください。'
           }
         }
-        return ERROR_MAP.get(field)
+        return ERROR_MAP.get(field) || null
       }
     }
+    return null
   }
 
-  private stringFormat(str: string, arg: string[] | object): string {
-    let replaceFn
-    if (typeof arg === 'object') {
-      replaceFn = (m, k) => arg[k]
-    } else {
-      const args: string[] = arg
-      replaceFn = (m, k) => args[Number(k) + 1]
+  private stringFormat(str: string | undefined, args: string[]): string | null {
+    if (typeof str === 'undefined') {
+      return null
     }
+    const replaceFn = (m: string, k: string): string => args[Number(k) + 1]
     return str.replace(/\{(\w+)\}/g, replaceFn)
   }
 }

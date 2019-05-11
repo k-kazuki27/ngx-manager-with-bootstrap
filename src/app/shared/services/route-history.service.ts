@@ -6,8 +6,8 @@ import { filter } from 'rxjs/operators'
   providedIn: 'root'
 })
 export class RouteHistoryService {
-  previousUrl: string
-  currentUrl: string
+  previousUrl!: string
+  currentUrl!: string
 
   constructor(private router: Router) {
     this.router.events

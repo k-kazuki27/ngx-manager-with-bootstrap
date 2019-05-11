@@ -8,8 +8,8 @@ import { UserResolverModule } from './user-resolver.module'
   providedIn: UserResolverModule
 })
 export class UserService {
-  private form: FormGroup
-  private page: Page
+  private form!: FormGroup
+  private page!: Page
 
   constructor(private routeHistoryService: RouteHistoryService) {}
 

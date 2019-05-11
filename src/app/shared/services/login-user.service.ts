@@ -7,12 +7,12 @@ import { UserDTO } from '..'
   providedIn: 'root'
 })
 export class LoginUserService {
-  private loginUser$: BehaviorSubject<UserDTO>
+  private loginUser$!: BehaviorSubject<UserDTO | null>
   constructor() {}
 
-  get loginUserValueChanges(): Observable<UserDTO> {
+  get loginUserValueChanges(): Observable<UserDTO | null> {
     if (!this.loginUser$) {
-      this.loginUser$ = new BehaviorSubject<UserDTO>(null)
+      this.loginUser$ = new BehaviorSubject<UserDTO | null>(null)
     }
     return this.loginUser$.asObservable()
   }
@@ -21,7 +21,7 @@ export class LoginUserService {
     if (this.loginUser$) {
       this.loginUser$.next(loginUser)
     } else {
-      this.loginUser$ = new BehaviorSubject<UserDTO>(loginUser)
+      this.loginUser$ = new BehaviorSubject<UserDTO | null>(loginUser)
     }
   }
 }

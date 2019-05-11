@@ -6,7 +6,7 @@ import { ConfirmComponent } from './confirm.component'
 
 @Injectable()
 export class ConfirmService {
-  private bsModalRef: BsModalRef
+  private bsModalRef!: BsModalRef
 
   constructor(private modalService: BsModalService) {}
 

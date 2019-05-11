@@ -24,10 +24,10 @@ import { UserService } from '../services/user.service'
 })
 export class UserListComponent extends AbstractList
   implements OnInit, OnDestroy {
-  searchForm: FormGroup
+  searchForm!: FormGroup
   showAdvance = false
 
-  list$: Observable<UserDTO[]>
+  list$!: Observable<UserDTO[]>
   headers: TableHeader[] = USER_LIST_HEADER
 
   private search$ = new BehaviorSubject(null)
@@ -72,17 +72,19 @@ export class UserListComponent extends AbstractList
   }
 
   private findUsers(): Observable<UserDTO[]> {
-    return this.userApi.findUsers(1, 2, null, null, 'body', true).pipe(
-      tap((res: UsersDTO) => (this.totalItems = res.totalItems)),
-      map((res: UsersDTO) => res.users),
-      finalize(() => {
-        this.setPaging()
-        this.userService.saveSearch(this.searchForm, {
-          currentPage: this.currentPage,
-          itemsPerPage: this.itemsPerPage
+    return this.userApi
+      .findUsers(1, 2, undefined, undefined, 'body', true)
+      .pipe(
+        tap((res: UsersDTO) => (this.totalItems = res.totalItems || 0)),
+        map((res: UsersDTO) => res.users || []),
+        finalize(() => {
+          this.setPaging()
+          this.userService.saveSearch(this.searchForm, {
+            currentPage: this.currentPage,
+            itemsPerPage: this.itemsPerPage
+          })
         })
-      })
-    )
+      )
   }
 
   //

@@ -11,8 +11,8 @@ import { PagesService } from '../../services/pages.service'
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit, OnDestroy {
-  collapsed: boolean
-  overSidebar: boolean
+  collapsed!: boolean
+  overSidebar!: boolean
 
   private onDestroy$ = new Subject()
 

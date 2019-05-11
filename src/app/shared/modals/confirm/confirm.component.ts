@@ -8,8 +8,8 @@ import { Subject } from 'rxjs'
   styleUrls: ['./confirm.component.scss']
 })
 export class ConfirmComponent implements OnInit {
-  message: string
-  result: Subject<boolean>
+  message!: string
+  result!: Subject<boolean>
 
   constructor(public bsModalRef: BsModalRef) {}
 

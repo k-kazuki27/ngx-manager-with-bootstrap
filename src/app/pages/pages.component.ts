@@ -13,7 +13,7 @@ import { PagesService } from './services/pages.service'
   styleUrls: ['./pages.component.scss']
 })
 export class PagesComponent implements OnInit, OnDestroy {
-  collapedSideBar: boolean
+  collapedSideBar!: boolean
 
   private onDestroy$ = new Subject()
 

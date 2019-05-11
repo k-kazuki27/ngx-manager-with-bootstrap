@@ -8,7 +8,7 @@ import { FormGroup } from '@angular/forms'
 })
 export class DateInputComponent implements OnInit {
   @Input()
-  form: FormGroup
+  form!: FormGroup
 
   constructor() {}
 

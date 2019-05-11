@@ -12,7 +12,7 @@ import { PagesService } from '../../services/pages.service'
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit, OnDestroy {
-  loginUser: UserDTO
+  loginUser!: UserDTO | null
 
   private onDestroy$ = new Subject()
 
