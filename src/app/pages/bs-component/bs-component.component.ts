@@ -6,7 +6,11 @@ import { Component, OnInit } from '@angular/core'
   styleUrls: ['./bs-component.component.scss']
 })
 export class BsComponentComponent implements OnInit {
-  people: any[] = []
+  people: any[] = [
+    { id: 1, name: '田中太郎' },
+    { id: 2, name: '山本一郎' },
+    { id: 3, name: '近藤良太' }
+  ]
   selectedPeople = []
   selectedPeople2 = []
 
