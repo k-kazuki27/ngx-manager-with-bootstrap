@@ -15,6 +15,10 @@ const routes: Routes = [
       {
         path: 'user',
         loadChildren: './user/user.module#UserModule'
+      },
+      {
+        path: 'bs-component',
+        loadChildren: './bs-component/bs-component.module#BsComponentModule'
       }
     ]
   }

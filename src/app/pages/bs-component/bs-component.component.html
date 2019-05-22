@@ -1,0 +1,45 @@
+<div class="card">
+  <div class="card-header">
+    ng-select
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Special title treatment</h5>
+    <ng-select
+      [items]="people"
+      [multiple]="true"
+      bindLabel="name"
+      groupBy="gender"
+      [selectableGroup]="true"
+      [closeOnSelect]="false"
+      bindValue="id"
+      [(ngModel)]="selectedPeople"
+    >
+      <ng-template
+        ng-optgroup-tmp
+        let-item="item"
+        let-item$="item$"
+        let-index="index"
+      >
+        <input
+          id="item-{{ index }}"
+          type="checkbox"
+          [ngModel]="item$.selected"
+        />
+        {{ item.gender | uppercase }}
+      </ng-template>
+      <ng-template
+        ng-option-tmp
+        let-item="item"
+        let-item$="item$"
+        let-index="index"
+      >
+        <input
+          id="item-{{ index }}"
+          type="checkbox"
+          [ngModel]="item$.selected"
+        />
+        {{ item.name }}
+      </ng-template>
+    </ng-select>
+  </div>
+</div>
