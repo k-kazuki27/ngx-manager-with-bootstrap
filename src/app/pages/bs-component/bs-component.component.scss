@@ -1,1 +1,4 @@
-@import "~@ng-select/ng-select/themes/default.theme.css";
+.form-control.ng-select {
+  border: none;
+  padding: 0;
+}
