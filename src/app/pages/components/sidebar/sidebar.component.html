@@ -11,7 +11,7 @@
         <span>ホーム</span>
       </a>
       <a
-        routerLink="/user"
+        [routerLink]="['/user']"
         [routerLinkActive]="['router-link-active']"
         class="list-group-item"
       >
@@ -19,44 +19,12 @@
         <span>ユーザ管理</span>
       </a>
       <a
-        [routerLink]="['/charts']"
-        [routerLinkActive]="['router-link-active']"
-        class="list-group-item"
-      >
-        <i class="fa fa-fw fa-bar-chart-o"></i>&nbsp;
-        <span>Charts</span>
-      </a>
-      <a
-        [routerLink]="['/tables']"
-        [routerLinkActive]="['router-link-active']"
-        class="list-group-item"
-      >
-        <i class="fa fa-fw fa-table"></i>&nbsp;
-        <span>Tables</span>
-      </a>
-      <a
-        [routerLink]="['/forms']"
-        [routerLinkActive]="['router-link-active']"
-        class="list-group-item"
-      >
-        <i class="fa fa-fw fa-edit"></i>&nbsp;
-        <span>Forms</span>
-      </a>
-      <a
-        [routerLink]="['/bs-element']"
+        [routerLink]="['/bs-component']"
         [routerLinkActive]="['router-link-active']"
         class="list-group-item"
       >
         <i class="fa fa-fw fa-desktop"></i>&nbsp;
-        <span>Bootstrap Element</span>
-      </a>
-      <a
-        [routerLink]="['/grid']"
-        [routerLinkActive]="['router-link-active']"
-        class="list-group-item"
-      >
-        <i class="fa fa-fw fa-wrench"></i>&nbsp;
-        <span>Bootstrap Grid</span>
+        <span>BS Component</span>
       </a>
       <div class="header-fields">
         <a (click)="logout()" class="list-group-item">
