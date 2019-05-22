@@ -53,7 +53,7 @@ export class ErrorLabelComponent implements OnInit {
     if (typeof str === 'undefined') {
       return null
     }
-    const replaceFn = (m: string, k: string): string => args[Number(k) + 1]
+    const replaceFn = (m: string, k: string): string => args[Number(k)]
     return str.replace(/\{(\w+)\}/g, replaceFn)
   }
 }
