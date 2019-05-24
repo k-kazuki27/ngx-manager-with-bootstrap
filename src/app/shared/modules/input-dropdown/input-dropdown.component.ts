@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core'
+import { FormGroup } from '@angular/forms'
 
 @Component({
   selector: 'app-input-dropdown',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./input-dropdown.component.scss']
 })
 export class InputDropdownComponent implements OnInit {
+  @Input()
+  form!: FormGroup
 
-  constructor() { }
+  items = ['テスト１', 'テスト２', 'テスト３']
 
-  ngOnInit() {
-  }
+  constructor() {}
 
+  ngOnInit() {}
+
+  select(item: string): void {}
 }

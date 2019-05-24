@@ -1,31 +1,26 @@
-<div class="input-group input-group-sm">
-  <input type="text" class="form-control form-control-sm" />
-  <div class="input-group-append" dropdown>
-    <button
-      type="button"
-      class="btn btn-outline-secondary btn-sm dropdown-toggle"
-      dropdownToggle
-    ></button>
-    <ul
-      id="dropdown-basic"
-      *dropdownMenu
-      class="dropdown-menu"
-      role="menu"
-      aria-labelledby="button-basic"
-    >
-      <li role="menuitem">
-        <a class="dropdown-item">Action</a>
-      </li>
-      <li role="menuitem">
-        <a class="dropdown-item">Another action</a>
-      </li>
-      <li role="menuitem">
-        <a class="dropdown-item">Something else here</a>
-      </li>
-      <li class="divider dropdown-divider"></li>
-      <li role="menuitem">
-        <a class="dropdown-item">Separated link</a>
-      </li>
-    </ul>
+<ng-container [formGroup]="form">
+  <div class="input-group input-group-sm">
+    <input
+      type="text"
+      class="form-control form-control-sm"
+      formControlName="item"
+    />
+    <div class="input-group-append" dropdown>
+      <button
+        type="button"
+        class="btn btn-outline-secondary btn-sm dropdown-toggle"
+        dropdownToggle
+      ></button>
+      <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu">
+        <li role="menuitem" *ngFor="let item of items">
+          <a
+            href="javascript:void(0)"
+            class="dropdown-item"
+            (click)="select(item)"
+            >{{ item }}</a
+          >
+        </li>
+      </ul>
+    </div>
   </div>
-</div>
+</ng-container>
