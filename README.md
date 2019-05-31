@@ -91,3 +91,15 @@ $ npm run storybook
 
 #### Demo
 - [DEMO](https://k-kazuki27.github.io/ngx-manager-with-bootstrap/story/)
+
+
+### Compodoc
+
+#### How to start
+
+```
+$ npm run compodoc
+```
+
+#### Demo
+- [DEMO](https://k-kazuki27.github.io/ngx-manager-with-bootstrap/compodoc/)

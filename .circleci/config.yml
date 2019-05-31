@@ -28,6 +28,7 @@ jobs:
             - npm-{{ checksum "package.json" }}
       - run: npm install
       - run: npm run build:github
+      - run: npm run build:compodoc
       - run: npm run build:storybook
       - run: git config user.name $GITHUB_NAME
       - run: git config user.email $GITHUB_EMAIL
