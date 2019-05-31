@@ -1,0 +1,809 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>ngx-manager-with-bootstrap documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">ngx-manager-with-bootstrap documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>SidebarComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/components/sidebar/sidebar.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                    <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-sidebar</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./sidebar.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./sidebar.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#collapsed">collapsed</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#onDestroy$">onDestroy$</a>
+                            </li>
+                            <li>
+                                <a href="#overSidebar">overSidebar</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#router">router</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#logout">logout</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy">ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, pagesService: <a href="../injectables/PagesService.html">PagesService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/pages/components/sidebar/sidebar.component.ts:17</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>pagesService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/PagesService.html" target="_self" >PagesService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="logout"></a>
+                    <span class="name">
+                        <b>
+                            logout
+                        </b>
+                        <a href="#logout"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>logout()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="52"
+                            class="link-to-prism">src/app/pages/components/sidebar/sidebar.component.ts:52</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <b>
+                            ngOnDestroy
+                        </b>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="48"
+                            class="link-to-prism">src/app/pages/components/sidebar/sidebar.component.ts:48</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="31"
+                            class="link-to-prism">src/app/pages/components/sidebar/sidebar.component.ts:31</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="collapsed"></a>
+                        <span class="name">
+                            <b>
+                            collapsed</b>
+                            <a href="#collapsed"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/pages/components/sidebar/sidebar.component.ts:14</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onDestroy$"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            onDestroy$</b>
+                            <a href="#onDestroy$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Subject()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/pages/components/sidebar/sidebar.component.ts:17</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="overSidebar"></a>
+                        <span class="name">
+                            <b>
+                            overSidebar</b>
+                            <a href="#overSidebar"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/pages/components/sidebar/sidebar.component.ts:15</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="router"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            router</b>
+                            <a href="#router"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/pages/components/sidebar/sidebar.component.ts:19</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnDestroy, OnInit } from &#x27;@angular/core&#x27;
+import { NavigationEnd, Router } from &#x27;@angular/router&#x27;
+import { Subject } from &#x27;rxjs&#x27;
+import { takeUntil } from &#x27;rxjs/operators&#x27;
+
+import { PagesService } from &#x27;../../services/pages.service&#x27;
+
+@Component({
+  selector: &#x27;app-sidebar&#x27;,
+  templateUrl: &#x27;./sidebar.component.html&#x27;,
+  styleUrls: [&#x27;./sidebar.component.scss&#x27;]
+})
+export class SidebarComponent implements OnInit, OnDestroy {
+  collapsed!: boolean
+  overSidebar!: boolean
+
+  private onDestroy$ &#x3D; new Subject()
+
+  constructor(public router: Router, private pagesService: PagesService) {
+    this.router.events.subscribe(val &#x3D;&gt; {
+      if (
+        val instanceof NavigationEnd &amp;&amp;
+        window.innerWidth &lt;&#x3D; 992 &amp;&amp;
+        this.overSidebar
+      ) {
+        this.overSidebar &#x3D; !this.overSidebar
+      }
+    })
+  }
+
+  ngOnInit() {
+    this.collapsed &#x3D; false
+    this.overSidebar &#x3D; false
+
+    this.pagesService.collapsedValueChanges
+      .pipe(takeUntil(this.onDestroy$))
+      .subscribe(result &#x3D;&gt; {
+        this.collapsed &#x3D; result
+      })
+
+    this.pagesService.toggleSidebarValueChanges
+      .pipe(takeUntil(this.onDestroy$))
+      .subscribe(() &#x3D;&gt; {
+        this.overSidebar &#x3D; !this.overSidebar
+      })
+  }
+
+  ngOnDestroy() {
+    this.onDestroy$.next()
+  }
+
+  logout() {
+    sessionStorage.removeItem(&#x27;isLoggedin&#x27;)
+    this.router.navigate([&#x27;/login&#x27;])
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div [ngClass]&#x3D;&quot;{ &#x27;push-right&#x27;: overSidebar }&quot;&gt;
+  &lt;nav class&#x3D;&quot;sidebar&quot; [ngClass]&#x3D;&quot;{ collapsed: collapsed }&quot;&gt;
+    &lt;app-collapse-button&gt;&lt;/app-collapse-button&gt;
+    &lt;div class&#x3D;&quot;list-group&quot;&gt;
+      &lt;a
+        [routerLink]&#x3D;&quot;[&#x27;/home&#x27;]&quot;
+        [routerLinkActive]&#x3D;&quot;[&#x27;router-link-active&#x27;]&quot;
+        class&#x3D;&quot;list-group-item&quot;
+      &gt;
+        &lt;i class&#x3D;&quot;fa fa-fw fa-home&quot;&gt;&lt;/i&gt;&amp;nbsp;
+        &lt;span&gt;ホーム&lt;/span&gt;
+      &lt;/a&gt;
+      &lt;a
+        [routerLink]&#x3D;&quot;[&#x27;/user&#x27;]&quot;
+        [routerLinkActive]&#x3D;&quot;[&#x27;router-link-active&#x27;]&quot;
+        class&#x3D;&quot;list-group-item&quot;
+      &gt;
+        &lt;i class&#x3D;&quot;fa fa-fw fa-user&quot;&gt;&lt;/i&gt;&amp;nbsp;
+        &lt;span&gt;ユーザ管理&lt;/span&gt;
+      &lt;/a&gt;
+      &lt;a
+        [routerLink]&#x3D;&quot;[&#x27;/bs-component&#x27;]&quot;
+        [routerLinkActive]&#x3D;&quot;[&#x27;router-link-active&#x27;]&quot;
+        class&#x3D;&quot;list-group-item&quot;
+      &gt;
+        &lt;i class&#x3D;&quot;fa fa-fw fa-desktop&quot;&gt;&lt;/i&gt;&amp;nbsp;
+        &lt;span&gt;BS Component&lt;/span&gt;
+      &lt;/a&gt;
+      &lt;div class&#x3D;&quot;header-fields&quot;&gt;
+        &lt;a (click)&#x3D;&quot;logout()&quot; class&#x3D;&quot;list-group-item&quot;&gt;
+          &lt;span&gt;&lt;i class&#x3D;&quot;fa fa-fw fa-sign-out&quot;&gt;&lt;/i&gt;&amp;nbsp; ログアウト&lt;/span&gt;
+        &lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/nav&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./sidebar.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">@import &#x27;~src/styles/variables&#x27;;
+
+$sidebar-background-color: #222 !default;
+$sidebar-font-color: #999 !default;
+$page-background-color: #f0f0f0 !default;
+
+$header-height: 56px !default;
+$sidebar-width: 235px !default;
+
+.sidebar {
+  border-radius: 0;
+  position: fixed;
+  z-index: 1000;
+  top: $header-height;
+  left: $sidebar-width;
+  width: $sidebar-width;
+  margin-left: -$sidebar-width;
+  border: none;
+  overflow-y: auto;
+  background-color: $sidebar-background-color;
+  bottom: 0;
+  overflow-x: hidden;
+  white-space: nowrap;
+  transition: all 0.2s ease-in-out;
+  // border-top: 1px solid rgba(255, 255, 255, 0.3);
+  .list-group {
+    a.list-group-item {
+      background: $sidebar-background-color;
+      border: 0;
+      border-radius: 0;
+      color: $sidebar-font-color;
+      text-decoration: none;
+      .fa {
+        margin-right: 10px;
+      }
+    }
+    a:hover {
+      background: darken($sidebar-background-color, 5%);
+      color: #fff;
+    }
+    a.router-link-active {
+      background-color: $page-background-color;
+      color: $sidebar-background-color;
+    }
+    .header-fields {
+      padding-top: 10px;
+
+      &gt; .list-group-item:first-child {
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+      }
+    }
+  }
+}
+
+.nested-menu {
+  .list-group-item {
+    cursor: pointer;
+  }
+  .nested {
+    list-style-type: none;
+  }
+  ul.submenu {
+    display: none;
+    height: 0;
+  }
+  &amp; .expand {
+    ul.submenu {
+      display: block;
+      list-style-type: none;
+      height: auto;
+      li {
+        a {
+          color: #fff;
+          padding: 10px;
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .push-right {
+    .sidebar {
+      left: 235px !important;
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .sidebar {
+    top: $header-height;
+    left: 0px;
+  }
+}
+
+@media (min-width: 992px) {
+  .header-fields {
+    display: none;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 3px;
+  box-shadow: inset 0 0 0px rgba(255, 255, 255, 1);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  box-shadow: inset 0 0 3px rgba(255, 255, 255, 1);
+}
+
+.collapsed {
+  width: 50px;
+  span {
+    display: none;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div [ngClass]="{ \'push-right\': overSidebar }">  <nav class="sidebar" [ngClass]="{ collapsed: collapsed }">    <app-collapse-button></app-collapse-button>    <div class="list-group">      <a        [routerLink]="[\'/home\']"        [routerLinkActive]="[\'router-link-active\']"        class="list-group-item"      >        <i class="fa fa-fw fa-home"></i>&nbsp;        <span>ホーム</span>      </a>      <a        [routerLink]="[\'/user\']"        [routerLinkActive]="[\'router-link-active\']"        class="list-group-item"      >        <i class="fa fa-fw fa-user"></i>&nbsp;        <span>ユーザ管理</span>      </a>      <a        [routerLink]="[\'/bs-component\']"        [routerLinkActive]="[\'router-link-active\']"        class="list-group-item"      >        <i class="fa fa-fw fa-desktop"></i>&nbsp;        <span>BS Component</span>      </a>      <div class="header-fields">        <a (click)="logout()" class="list-group-item">          <span><i class="fa fa-fw fa-sign-out"></i>&nbsp; ログアウト</span>        </a>      </div>    </div>  </nav></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BsComponentComponent', 'selector': 'app-bs-component'},{'name': 'CollapseButtonComponent', 'selector': 'app-collapse-button'},{'name': 'ConfirmComponent', 'selector': 'app-confirm'},{'name': 'CustomPaginationComponent', 'selector': 'app-custom-pagination'},{'name': 'DateInputComponent', 'selector': 'app-date-input'},{'name': 'DropdownPageLinesComponent', 'selector': 'app-dropdown-page-lines'},{'name': 'ErrorLabelComponent', 'selector': 'app-error-label'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InputDropdownComponent', 'selector': 'app-input-dropdown'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'PageHeaderComponent', 'selector': 'app-page-header'},{'name': 'PagesComponent', 'selector': 'app-pages'},{'name': 'QuestionTooltipComponent', 'selector': 'app-question-tooltip'},{'name': 'RequiredComponent', 'selector': 'app-required'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'UserDetailComponent', 'selector': 'app-user-detail'},{'name': 'UserListComponent', 'selector': 'app-user-list'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'SidebarComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'SidebarComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

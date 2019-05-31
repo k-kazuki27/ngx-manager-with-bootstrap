@@ -1,0 +1,412 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>ngx-manager-with-bootstrap documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">ngx-manager-with-bootstrap documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interceptor">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Interceptors</li>
+  <li>CustomInterceptorService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/shared/interceptors/custom-interceptor.service.ts</code>
+        </p>
+
+
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#intercept">intercept</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, spinner: NgxSpinnerService)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/shared/interceptors/custom-interceptor.service.ts:20</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>spinner</td>
+                                                  
+                                                        <td>
+                                                                    <code>NgxSpinnerService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="intercept"></a>
+                    <span class="name">
+                        <b>
+                            intercept
+                        </b>
+                        <a href="#intercept"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>intercept(req: HttpRequest<any>, next: <a href="https://angular.io/api/common/http/HttpHandler" target="_blank">HttpHandler</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="23"
+                            class="link-to-prism">src/app/shared/interceptors/custom-interceptor.service.ts:23</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>req</td>
+                                    <td>
+                                            <code>HttpRequest&lt;any&gt;</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>next</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/common/http/HttpHandler" target="_blank" >HttpHandler</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;HttpEvent&lt;any&gt;&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  HttpErrorResponse,
+  HttpEvent,
+  HttpHandler,
+  HttpInterceptor,
+  HttpRequest,
+  HttpResponse
+} from &#x27;@angular/common/http&#x27;
+import { Injectable } from &#x27;@angular/core&#x27;
+import { Router } from &#x27;@angular/router&#x27;
+import { NgxSpinnerService } from &#x27;ngx-spinner&#x27;
+import { Observable, of, throwError } from &#x27;rxjs&#x27;
+import { catchError, delay, finalize } from &#x27;rxjs/operators&#x27;
+
+import { DUMMY_USER, DUMMY_USERS } from &#x27;./../mock/user&#x27;
+
+@Injectable({
+  providedIn: &#x27;root&#x27;
+})
+export class CustomInterceptorService implements HttpInterceptor {
+  constructor(private router: Router, private spinner: NgxSpinnerService) {}
+
+  intercept(
+    req: HttpRequest&lt;any&gt;,
+    next: HttpHandler
+  ): Observable&lt;HttpEvent&lt;any&gt;&gt; {
+    if (req.reportProgress) {
+      this.spinner.show()
+    }
+    // APIがないため、MOCKに差し替え
+    return (httpMock(req) || next.handle(req)).pipe(
+      delay(new Date(Date.now() + 1000)), // 意図的に遅延
+      catchError((res: HttpErrorResponse) &#x3D;&gt; {
+        switch (res.status) {
+          case 401:
+            this.router.navigate([&#x27;/login&#x27;])
+            break
+          default:
+            console.log(res)
+        }
+        return throwError(res)
+      }),
+      finalize(() &#x3D;&gt; {
+        if (req.reportProgress) {
+          this.spinner.hide()
+        }
+      })
+    )
+  }
+}
+
+export function httpMock(
+  request: HttpRequest&lt;any&gt;
+): Observable&lt;HttpEvent&lt;any&gt;&gt; | false {
+  let result: Observable&lt;HttpEvent&lt;any&gt;&gt; | false &#x3D; false
+
+  const url &#x3D; request.url
+  const method &#x3D; request.method
+
+  if (!url.includes(&#x27;login&#x27;) &amp;&amp; method !&#x3D;&#x3D; &#x27;GET&#x27;) {
+    // tslint:disable-next-line: deprecation
+    result &#x3D; of(
+      new HttpResponse({
+        status: 200,
+        body: {}
+      })
+    )
+    return result
+  }
+
+  if (url.includes(&#x27;login&#x27;)) {
+    // tslint:disable-next-line: deprecation
+    result &#x3D; of(
+      new HttpResponse({
+        status: 200,
+        body: DUMMY_USER
+      })
+    )
+    return result
+  }
+
+  if (url.includes(&#x27;/user/1/2&#x27;) &amp;&amp; method &#x3D;&#x3D;&#x3D; &#x27;GET&#x27;) {
+    // tslint:disable-next-line: deprecation
+    result &#x3D; of(
+      new HttpResponse({
+        status: 200,
+        body: DUMMY_USERS
+      })
+    )
+    return result
+  }
+  if (url.includes(&#x27;/user/&#x27;) &amp;&amp; method &#x3D;&#x3D;&#x3D; &#x27;GET&#x27;) {
+    // tslint:disable-next-line: deprecation
+    result &#x3D; of(
+      new HttpResponse({
+        status: 200,
+        body: DUMMY_USER
+      })
+    )
+    return result
+  }
+
+  return result
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interceptor';
+            var COMPODOC_CURRENT_PAGE_URL = 'CustomInterceptorService.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
