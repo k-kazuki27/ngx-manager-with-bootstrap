@@ -18,7 +18,10 @@ const routes: Routes = [
       },
       {
         path: 'bs-component',
-        loadChildren: () => import('./bs-component/bs-component.module').then(m => m.BsComponentModule)
+        loadChildren: () =>
+          import('./bs-component/bs-component.module').then(
+            m => m.BsComponentModule
+          )
       }
     ]
   }
