@@ -10,15 +10,15 @@ const routes: Routes = [
     children: [
       {
         path: 'home',
-        loadChildren: './home/home.module#HomeModule'
+        loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
       },
       {
         path: 'user',
-        loadChildren: './user/user.module#UserModule'
+        loadChildren: () => import('./user/user.module').then(m => m.UserModule)
       },
       {
         path: 'bs-component',
-        loadChildren: './bs-component/bs-component.module#BsComponentModule'
+        loadChildren: () => import('./bs-component/bs-component.module').then(m => m.BsComponentModule)
       }
     ]
   }
