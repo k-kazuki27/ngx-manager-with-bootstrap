@@ -1,3 +1,4 @@
+import { Type } from '@angular/core'
 import { TestBed } from '@angular/core/testing'
 import { RouterTestingModule } from '@angular/router/testing'
 
@@ -9,7 +10,9 @@ describe('RouteHistoryService', () => {
   )
 
   it('should be created', () => {
-    const service: RouteHistoryService = TestBed.get(RouteHistoryService)
+    const service: RouteHistoryService = TestBed.get(
+      RouteHistoryService as Type<RouteHistoryService>
+    )
     expect(service).toBeTruthy()
   })
 })

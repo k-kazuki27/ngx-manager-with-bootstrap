@@ -1,3 +1,4 @@
+import { Type } from '@angular/core'
 import { TestBed } from '@angular/core/testing'
 import { ModalModule } from 'ngx-bootstrap'
 
@@ -12,7 +13,9 @@ describe('ConfirmService', () => {
   )
 
   it('should be created', () => {
-    const service: ConfirmService = TestBed.get(ConfirmService)
+    const service: ConfirmService = TestBed.get(ConfirmService as Type<
+      ConfirmService
+    >)
     expect(service).toBeTruthy()
   })
 })
