@@ -85,7 +85,10 @@
 
         <div [class]="formGroupClass">
           <label [class]="labelClass">誕生日</label>
-          <app-date-input class="col-sm-9" [form]="form"></app-date-input>
+          <app-date-input
+            class="col-sm-9"
+            controlName="birthday"
+          ></app-date-input>
           <app-error-label
             [class]="errorLabelClass"
             [form]="birthday"
