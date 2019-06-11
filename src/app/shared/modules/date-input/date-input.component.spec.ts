@@ -18,9 +18,9 @@ describe('DateInputComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(DateInputComponent)
     component = fixture.componentInstance
-    component.form = new FormGroup({
-      birthday: new FormControl()
-    })
+    // component.form = new FormGroup({
+    //   birthday: new FormControl()
+    // })
     fixture.detectChanges()
   })
 
