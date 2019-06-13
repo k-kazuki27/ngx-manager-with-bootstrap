@@ -11,16 +11,18 @@ describe('DateInputComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [DateInputComponent],
-      imports: [ReactiveFormsModule, BsDatepickerModule.forRoot()]
+      imports: [ReactiveFormsModule, BsDatepickerModule.forRoot()],
+      providers: []
     }).compileComponents()
   }))
 
   beforeEach(() => {
     fixture = TestBed.createComponent(DateInputComponent)
     component = fixture.componentInstance
-    // component.form = new FormGroup({
-    //   birthday: new FormControl()
-    // })
+    component.parentForm = new FormGroup({
+      birthday: new FormControl()
+    })
+    component.controlName = 'birthday'
     fixture.detectChanges()
   })
 

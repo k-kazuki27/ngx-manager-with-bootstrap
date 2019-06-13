@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core'
-import { ControlContainer } from '@angular/forms'
+import { FormGroup } from '@angular/forms'
 
 @Component({
   selector: 'app-date-input',
@@ -8,9 +8,12 @@ import { ControlContainer } from '@angular/forms'
 })
 export class DateInputComponent implements OnInit {
   @Input()
+  parentForm!: FormGroup
+
+  @Input()
   controlName!: string
 
-  constructor(public controlContainer: ControlContainer) {}
+  constructor() {}
 
   ngOnInit() {}
 }
