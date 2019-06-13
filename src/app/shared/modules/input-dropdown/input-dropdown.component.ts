@@ -1,27 +1,26 @@
-import { Component, OnInit } from '@angular/core'
-import { ControlValueAccessor } from '@angular/forms'
+import { Component, Input, OnInit } from '@angular/core'
+import { FormControl, FormGroup } from '@angular/forms'
 
 @Component({
   selector: 'app-input-dropdown',
   templateUrl: './input-dropdown.component.html',
   styleUrls: ['./input-dropdown.component.scss']
 })
-export class InputDropdownComponent implements OnInit, ControlValueAccessor {
+export class InputDropdownComponent implements OnInit {
+  @Input()
+  parentForm!: FormGroup
+
+  @Input()
+  controlName!: string
+
   items = ['テスト１', 'テスト２', 'テスト３']
 
   constructor() {}
 
   ngOnInit() {}
 
-  writeValue(obj: any): void {
-    throw new Error('Method not implemented.')
+  select(item: string): void {
+    const formControl = this.parentForm.get(this.controlName) as FormControl
+    formControl.setValue(item)
   }
-  registerOnChange(fn: any): void {
-    throw new Error('Method not implemented.')
-  }
-  registerOnTouched(fn: any): void {
-    throw new Error('Method not implemented.')
-  }
-
-  select(item: string): void {}
 }

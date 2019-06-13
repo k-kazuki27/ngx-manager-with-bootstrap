@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core'
+import { FormBuilder, FormGroup } from '@angular/forms'
 
 @Component({
   selector: 'app-bs-component',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core'
   styleUrls: ['./bs-component.component.scss']
 })
 export class BsComponentComponent implements OnInit {
+  form!: FormGroup
+
   people: any[] = [
     { id: 1, name: '田中太郎' },
     { id: 2, name: '山本一郎' },
@@ -14,7 +17,11 @@ export class BsComponentComponent implements OnInit {
   selectedPeople = []
   selectedPeople2 = []
 
-  constructor() {}
+  constructor(private fb: FormBuilder) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.form = this.fb.group({
+      hoge: [null, []]
+    })
+  }
 }

@@ -48,6 +48,9 @@
     input-dropdown
   </div>
   <div class="card-body">
-    <app-input-dropdown></app-input-dropdown>
+    <app-input-dropdown
+      [parentForm]="form"
+      controlName="hoge"
+    ></app-input-dropdown>
   </div>
 </div>

@@ -1,6 +1,10 @@
-<ng-container>
+<ng-container [formGroup]="parentForm">
   <div class="input-group input-group-sm">
-    <input type="text" class="form-control form-control-sm" />
+    <input
+      type="text"
+      class="form-control form-control-sm"
+      [formControlName]="controlName"
+    />
     <div class="input-group-append" dropdown>
       <button
         type="button"

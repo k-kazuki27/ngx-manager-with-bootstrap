@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing'
-import { ReactiveFormsModule } from '@angular/forms'
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms'
 
 import { InputDropdownComponent } from './input-dropdown.component'
 
@@ -17,6 +17,10 @@ describe('InputDropdownComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(InputDropdownComponent)
     component = fixture.componentInstance
+    component.parentForm = new FormGroup({
+      test: new FormControl()
+    })
+    component.controlName = 'test'
     fixture.detectChanges()
   })
 
