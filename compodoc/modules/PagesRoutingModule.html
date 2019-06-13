@@ -82,15 +82,18 @@ const routes: Routes &#x3D; [
     children: [
       {
         path: &#x27;home&#x27;,
-        loadChildren: &#x27;./home/home.module#HomeModule&#x27;
+        loadChildren: () &#x3D;&gt; &quot;import(&#x27;./home/home.module&#x27;).then(m &#x3D;&gt; m.HomeModule)&quot;
       },
       {
         path: &#x27;user&#x27;,
-        loadChildren: &#x27;./user/user.module#UserModule&#x27;
+        loadChildren: () &#x3D;&gt; &quot;import(&#x27;./user/user.module&#x27;).then(m &#x3D;&gt; m.UserModule)&quot;
       },
       {
         path: &#x27;bs-component&#x27;,
-        loadChildren: &#x27;./bs-component/bs-component.module#BsComponentModule&#x27;
+        loadChildren: () &#x3D;&gt;
+          &quot;import(&#x27;./bs-component/bs-component.module&#x27;).then(\
+            m &#x3D;&gt; m.BsComponentModule\
+          )&quot;
       }
     ]
   }

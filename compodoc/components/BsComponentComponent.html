@@ -130,6 +130,9 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                <a href="#form">form</a>
+                            </li>
+                            <li>
                                 <a href="#people">people</a>
                             </li>
                             <li>
@@ -171,15 +174,45 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor()</code>
+<code>constructor(fb: <a href="https://angular.io/api/forms/FormBuilder" target="_blank">FormBuilder</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/pages/bs-component/bs-component.component.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/pages/bs-component/bs-component.component.ts:18</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>fb</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/forms/FormBuilder" target="_blank" >FormBuilder</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -215,8 +248,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="19"
-                            class="link-to-prism">src/app/pages/bs-component/bs-component.component.ts:19</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="22"
+                            class="link-to-prism">src/app/pages/bs-component/bs-component.component.ts:22</a></div>
                 </td>
             </tr>
 
@@ -238,6 +271,33 @@
         <h3 id="inputs">
             Properties
         </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="form"></a>
+                        <span class="name">
+                            <b>
+                            form</b>
+                            <a href="#form"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/pages/bs-component/bs-component.component.ts:10</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
@@ -267,7 +327,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/pages/bs-component/bs-component.component.ts:9</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/pages/bs-component/bs-component.component.ts:12</a></div>
                             </td>
                         </tr>
 
@@ -299,7 +359,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/pages/bs-component/bs-component.component.ts:14</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/pages/bs-component/bs-component.component.ts:17</a></div>
                             </td>
                         </tr>
 
@@ -331,7 +391,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/pages/bs-component/bs-component.component.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/pages/bs-component/bs-component.component.ts:18</a></div>
                             </td>
                         </tr>
 
@@ -345,6 +405,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;
+import { FormBuilder, FormGroup } from &#x27;@angular/forms&#x27;
 
 @Component({
   selector: &#x27;app-bs-component&#x27;,
@@ -352,6 +413,8 @@
   styleUrls: [&#x27;./bs-component.component.scss&#x27;]
 })
 export class BsComponentComponent implements OnInit {
+  form!: FormGroup
+
   people: any[] &#x3D; [
     { id: 1, name: &#x27;田中太郎&#x27; },
     { id: 2, name: &#x27;山本一郎&#x27; },
@@ -360,9 +423,13 @@ export class BsComponentComponent implements OnInit {
   selectedPeople &#x3D; []
   selectedPeople2 &#x3D; []
 
-  constructor() {}
+  constructor(private fb: FormBuilder) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.form &#x3D; this.fb.group({
+      hoge: [null, []]
+    })
+  }
 }
 </code></pre>
     </div>
@@ -418,7 +485,10 @@ export class BsComponentComponent implements OnInit {
     input-dropdown
   &lt;/div&gt;
   &lt;div class&#x3D;&quot;card-body&quot;&gt;
-    &lt;app-input-dropdown&gt;&lt;/app-input-dropdown&gt;
+    &lt;app-input-dropdown
+      [parentForm]&#x3D;&quot;form&quot;
+      controlName&#x3D;&quot;hoge&quot;
+    &gt;&lt;/app-input-dropdown&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
@@ -460,7 +530,7 @@ export class BsComponentComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="card">  <div class="card-header">    ng-select  </div>  <div class="card-body">    <ng-select      class="form-control form-control-sm"      [items]="people"      [multiple]="true"      bindLabel="name"      groupBy="gender"      [selectableGroup]="true"      [closeOnSelect]="false"      bindValue="id"      [(ngModel)]="selectedPeople"    >      <ng-template        ng-optgroup-tmp        let-item="item"        let-item$="item$"        let-index="index"      >        <input          id="item-{{ index }}"          type="checkbox"          [ngModel]="item$.selected"        />        {{ item.gender | uppercase }}      </ng-template>      <ng-template        ng-option-tmp        let-item="item"        let-item$="item$"        let-index="index"      >        <input          id="item-{{ index }}"          type="checkbox"          [ngModel]="item$.selected"        />        {{ item.name }}      </ng-template>    </ng-select>  </div></div><div class="card m-t-lg">  <div class="card-header">    input-dropdown  </div>  <div class="card-body">    <app-input-dropdown></app-input-dropdown>  </div></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="card">  <div class="card-header">    ng-select  </div>  <div class="card-body">    <ng-select      class="form-control form-control-sm"      [items]="people"      [multiple]="true"      bindLabel="name"      groupBy="gender"      [selectableGroup]="true"      [closeOnSelect]="false"      bindValue="id"      [(ngModel)]="selectedPeople"    >      <ng-template        ng-optgroup-tmp        let-item="item"        let-item$="item$"        let-index="index"      >        <input          id="item-{{ index }}"          type="checkbox"          [ngModel]="item$.selected"        />        {{ item.gender | uppercase }}      </ng-template>      <ng-template        ng-option-tmp        let-item="item"        let-item$="item$"        let-index="index"      >        <input          id="item-{{ index }}"          type="checkbox"          [ngModel]="item$.selected"        />        {{ item.name }}      </ng-template>    </ng-select>  </div></div><div class="card m-t-lg">  <div class="card-header">    input-dropdown  </div>  <div class="card-body">    <app-input-dropdown      [parentForm]="form"      controlName="hoge"    ></app-input-dropdown>  </div></div></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BsComponentComponent', 'selector': 'app-bs-component'},{'name': 'CollapseButtonComponent', 'selector': 'app-collapse-button'},{'name': 'ConfirmComponent', 'selector': 'app-confirm'},{'name': 'CustomPaginationComponent', 'selector': 'app-custom-pagination'},{'name': 'DateInputComponent', 'selector': 'app-date-input'},{'name': 'DropdownPageLinesComponent', 'selector': 'app-dropdown-page-lines'},{'name': 'ErrorLabelComponent', 'selector': 'app-error-label'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InputDropdownComponent', 'selector': 'app-input-dropdown'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'PageHeaderComponent', 'selector': 'app-page-header'},{'name': 'PagesComponent', 'selector': 'app-pages'},{'name': 'QuestionTooltipComponent', 'selector': 'app-question-tooltip'},{'name': 'RequiredComponent', 'selector': 'app-required'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'UserDetailComponent', 'selector': 'app-user-detail'},{'name': 'UserListComponent', 'selector': 'app-user-list'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'BsComponentComponent'};

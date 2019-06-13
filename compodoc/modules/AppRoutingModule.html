@@ -78,10 +78,13 @@ import { AuthGuard } from &#x27;./shared&#x27;
 const routes: Routes &#x3D; [
   {
     path: &#x27;&#x27;,
-    loadChildren: &#x27;./pages/pages.module#PagesModule&#x27;,
+    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./pages/pages.module&#x27;).then(m &#x3D;&gt; m.PagesModule)&quot;,
     canActivate: [AuthGuard]
   },
-  { path: &#x27;login&#x27;, loadChildren: &#x27;./login/login.module#LoginModule&#x27; },
+  {
+    path: &#x27;login&#x27;,
+    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./login/login.module&#x27;).then(m &#x3D;&gt; m.LoginModule)&quot;
+  },
   { path: &#x27;**&#x27;, redirectTo: &#x27;&#x27; }
 ]
 
