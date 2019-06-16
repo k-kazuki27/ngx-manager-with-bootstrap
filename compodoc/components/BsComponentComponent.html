@@ -490,6 +490,18 @@ export class BsComponentComponent implements OnInit {
       controlName&#x3D;&quot;hoge&quot;
     &gt;&lt;/app-input-dropdown&gt;
   &lt;/div&gt;
+
+  &lt;div class&#x3D;&quot;card m-t-lg&quot;&gt;
+    &lt;div class&#x3D;&quot;card-header&quot;&gt;
+      tab-button
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;card-body&quot;&gt;
+      &lt;tabset type&#x3D;&quot;pills&quot;&gt;
+        &lt;tab heading&#x3D;&quot;Pills 1&quot;&gt;&lt;/tab&gt;
+        &lt;tab heading&#x3D;&quot;Pills 2&quot;&gt;&lt;/tab&gt;
+      &lt;/tabset&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
     </div>
@@ -530,7 +542,7 @@ export class BsComponentComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="card">  <div class="card-header">    ng-select  </div>  <div class="card-body">    <ng-select      class="form-control form-control-sm"      [items]="people"      [multiple]="true"      bindLabel="name"      groupBy="gender"      [selectableGroup]="true"      [closeOnSelect]="false"      bindValue="id"      [(ngModel)]="selectedPeople"    >      <ng-template        ng-optgroup-tmp        let-item="item"        let-item$="item$"        let-index="index"      >        <input          id="item-{{ index }}"          type="checkbox"          [ngModel]="item$.selected"        />        {{ item.gender | uppercase }}      </ng-template>      <ng-template        ng-option-tmp        let-item="item"        let-item$="item$"        let-index="index"      >        <input          id="item-{{ index }}"          type="checkbox"          [ngModel]="item$.selected"        />        {{ item.name }}      </ng-template>    </ng-select>  </div></div><div class="card m-t-lg">  <div class="card-header">    input-dropdown  </div>  <div class="card-body">    <app-input-dropdown      [parentForm]="form"      controlName="hoge"    ></app-input-dropdown>  </div></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="card">  <div class="card-header">    ng-select  </div>  <div class="card-body">    <ng-select      class="form-control form-control-sm"      [items]="people"      [multiple]="true"      bindLabel="name"      groupBy="gender"      [selectableGroup]="true"      [closeOnSelect]="false"      bindValue="id"      [(ngModel)]="selectedPeople"    >      <ng-template        ng-optgroup-tmp        let-item="item"        let-item$="item$"        let-index="index"      >        <input          id="item-{{ index }}"          type="checkbox"          [ngModel]="item$.selected"        />        {{ item.gender | uppercase }}      </ng-template>      <ng-template        ng-option-tmp        let-item="item"        let-item$="item$"        let-index="index"      >        <input          id="item-{{ index }}"          type="checkbox"          [ngModel]="item$.selected"        />        {{ item.name }}      </ng-template>    </ng-select>  </div></div><div class="card m-t-lg">  <div class="card-header">    input-dropdown  </div>  <div class="card-body">    <app-input-dropdown      [parentForm]="form"      controlName="hoge"    ></app-input-dropdown>  </div>  <div class="card m-t-lg">    <div class="card-header">      tab-button    </div>    <div class="card-body">      <tabset type="pills">        <tab heading="Pills 1"></tab>        <tab heading="Pills 2"></tab>      </tabset>    </div>  </div></div></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BsComponentComponent', 'selector': 'app-bs-component'},{'name': 'CollapseButtonComponent', 'selector': 'app-collapse-button'},{'name': 'ConfirmComponent', 'selector': 'app-confirm'},{'name': 'CustomPaginationComponent', 'selector': 'app-custom-pagination'},{'name': 'DateInputComponent', 'selector': 'app-date-input'},{'name': 'DropdownPageLinesComponent', 'selector': 'app-dropdown-page-lines'},{'name': 'ErrorLabelComponent', 'selector': 'app-error-label'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InputDropdownComponent', 'selector': 'app-input-dropdown'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'PageHeaderComponent', 'selector': 'app-page-header'},{'name': 'PagesComponent', 'selector': 'app-pages'},{'name': 'QuestionTooltipComponent', 'selector': 'app-question-tooltip'},{'name': 'RequiredComponent', 'selector': 'app-required'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'UserDetailComponent', 'selector': 'app-user-detail'},{'name': 'UserListComponent', 'selector': 'app-user-list'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'BsComponentComponent'};
