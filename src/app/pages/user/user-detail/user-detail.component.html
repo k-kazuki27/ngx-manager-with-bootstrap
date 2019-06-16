@@ -10,8 +10,9 @@
           ></label>
           <input type="text" [class]="inputClass" formControlName="userId" />
           <app-error-label
+            *ngIf="userId?.invalid && (userId?.dirty || userId?.touched)"
             [class]="errorLabelClass"
-            [form]="userId"
+            [errors]="userId.errors"
           ></app-error-label>
         </div>
 
@@ -26,8 +27,11 @@
               formControlName="password"
             />
             <app-error-label
+              *ngIf="
+                password?.invalid && (password?.dirty || password?.touched)
+              "
               [class]="errorLabelClass"
-              [form]="password"
+              [errors]="password.errors"
             ></app-error-label>
           </div>
 
@@ -41,8 +45,12 @@
               formControlName="confirmPassword"
             />
             <app-error-label
+              *ngIf="
+                confirmPassword?.invalid &&
+                (confirmPassword?.dirty || confirmPassword?.touched)
+              "
               [class]="errorLabelClass"
-              [form]="confirmPassword"
+              [errors]="confirmPassword.errors"
             ></app-error-label>
           </div>
         </ng-container>
@@ -56,8 +64,9 @@
           ></label>
           <input type="email" [class]="inputClass" formControlName="email" />
           <app-error-label
+            *ngIf="email?.invalid && (email?.dirty || email?.touched)"
             [class]="errorLabelClass"
-            [form]="email"
+            [errors]="email.errors"
           ></app-error-label>
         </div>
 
@@ -67,8 +76,9 @@
           </label>
           <input type="text" [class]="inputClass" formControlName="lastName" />
           <app-error-label
+            *ngIf="lastName?.invalid && (lastName?.dirty || lastName?.touched)"
             [class]="errorLabelClass"
-            [form]="lastName"
+            [errors]="lastName.errors"
           ></app-error-label>
         </div>
 
@@ -78,8 +88,11 @@
           ></label>
           <input type="text" [class]="inputClass" formControlName="firstName" />
           <app-error-label
+            *ngIf="
+              firstName?.invalid && (firstName?.dirty || firstName?.touched)
+            "
             [class]="errorLabelClass"
-            [form]="firstName"
+            [errors]="firstName.errors"
           ></app-error-label>
         </div>
 
@@ -91,8 +104,9 @@
             controlName="birthday"
           ></app-date-input>
           <app-error-label
+            *ngIf="birthday?.invalid && (birthday?.dirty || birthday?.touched)"
             [class]="errorLabelClass"
-            [form]="birthday"
+            [errors]="birthday.errors"
           ></app-error-label>
         </div>
       </form>

@@ -1,5 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core'
-import { FormControl } from '@angular/forms'
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnInit
+} from '@angular/core'
+import { ValidationErrors } from '@angular/forms'
 
 import { REG_EXP_HALF_ALPHA_NUM_SYMBOL } from '../../constants'
 
@@ -16,38 +21,43 @@ const ERROR_MAP = new Map<string, string>([
 @Component({
   selector: 'app-error-label',
   templateUrl: './error-label.component.html',
-  styleUrls: ['./error-label.component.scss']
+  styleUrls: ['./error-label.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ErrorLabelComponent implements OnInit {
   @Input()
-  form!: FormControl
+  set errors(errors: ValidationErrors) {
+    if (errors === undefined || errors === null) {
+      this.errorMessage = null
+    } else {
+      for (const field of Object.keys(errors)) {
+        const error = errors[field]
+        if (error) {
+          switch (field) {
+            case 'minlength':
+            case 'maxlength':
+              this.errorMessage = this.stringFormat(ERROR_MAP.get(field), [
+                error.requiredLength
+              ])
+              break
+            case 'pattern':
+              if (error.requiredPattern === REG_EXP_HALF_ALPHA_NUM_SYMBOL) {
+                this.errorMessage = '半角英数字記号で入力してください。'
+              }
+              break
+            default:
+              this.errorMessage = ERROR_MAP.get(field) || null
+          }
+        }
+      }
+    }
+  }
+
+  errorMessage: string | null = null
 
   constructor() {}
 
   ngOnInit() {}
-
-  getErrorMessage(): string | null {
-    if (!this.form || !this.form.errors) {
-      return null
-    }
-
-    for (const field of Object.keys(this.form.errors)) {
-      const error = this.form.errors[field]
-      if (error) {
-        if (field === 'minlength' || field === 'maxlength') {
-          return this.stringFormat(ERROR_MAP.get(field), [error.requiredLength])
-        }
-
-        if (field === 'pattern') {
-          if (error.requiredPattern === REG_EXP_HALF_ALPHA_NUM_SYMBOL) {
-            return '半角英数字記号で入力してください。'
-          }
-        }
-        return ERROR_MAP.get(field) || null
-      }
-    }
-    return null
-  }
 
   private stringFormat(str: string | undefined, args: string[]): string | null {
     if (typeof str === 'undefined') {
