@@ -7,14 +7,13 @@ import { takeUntil } from 'rxjs/operators'
 import { routerTransition } from 'src/app/router.animations'
 import {
   AbstractDetail,
+  ApplicationError,
   ConfirmService,
   REG_EXP_HALF_ALPHA_NUM_SYMBOL,
   UserApi,
   UserDTO,
   UserValidator
 } from 'src/app/shared'
-
-import { ApplicationError } from './../../../shared/errors/application-error'
 
 @Component({
   selector: 'app-user-detail',
