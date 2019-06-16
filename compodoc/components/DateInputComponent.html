@@ -79,6 +79,10 @@
     <table class="table table-sm table-hover">
         <tbody>
 
+            <tr>
+                <td class="col-md-3">changeDetection</td>
+                <td class="col-md-9"><code>ChangeDetectionStrategy.OnPush</code></td>
+            </tr>
 
 
 
@@ -173,7 +177,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/shared/modules/date-input/date-input.component.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/shared/modules/date-input/date-input.component.ts:20</a></div>
                             </td>
                         </tr>
 
@@ -199,7 +203,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/shared/modules/date-input/date-input.component.ts:14</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/shared/modules/date-input/date-input.component.ts:20</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -220,7 +224,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/shared/modules/date-input/date-input.component.ts:11</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/shared/modules/date-input/date-input.component.ts:17</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -256,8 +260,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="18"
-                            class="link-to-prism">src/app/shared/modules/date-input/date-input.component.ts:18</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="24"
+                            class="link-to-prism">src/app/shared/modules/date-input/date-input.component.ts:24</a></div>
                 </td>
             </tr>
 
@@ -279,13 +283,19 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input, OnInit } from &#x27;@angular/core&#x27;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnInit
+} from &#x27;@angular/core&#x27;
 import { FormGroup } from &#x27;@angular/forms&#x27;
 
 @Component({
   selector: &#x27;app-date-input&#x27;,
   templateUrl: &#x27;./date-input.component.html&#x27;,
-  styleUrls: [&#x27;./date-input.component.scss&#x27;]
+  styleUrls: [&#x27;./date-input.component.scss&#x27;],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DateInputComponent implements OnInit {
   @Input()
