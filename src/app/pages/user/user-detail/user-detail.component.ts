@@ -106,7 +106,7 @@ export class UserDetailComponent extends AbstractDetail
       .subscribe(result => {
         if (result) {
           const user: UserDTO = {
-            id: this.id,
+            id: this.id || undefined,
             userId: this.userId.value,
             lastName: this.lastName.value,
             firstName: this.firstName.value,
