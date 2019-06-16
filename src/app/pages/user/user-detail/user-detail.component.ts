@@ -14,6 +14,8 @@ import {
   UserValidator
 } from 'src/app/shared'
 
+import { ApplicationError } from './../../../shared/errors/application-error'
+
 @Component({
   selector: 'app-user-detail',
   templateUrl: './user-detail.component.html',
@@ -84,6 +86,12 @@ export class UserDetailComponent extends AbstractDetail
   }
 
   private buildPasswordForm(): void {
+    if (!this.form) {
+      throw new ApplicationError(
+        'Logic Error：buildFormを先に実行する必要があります。'
+      )
+    }
+
     this.form.addControl(
       'password',
       new FormControl(null, [
