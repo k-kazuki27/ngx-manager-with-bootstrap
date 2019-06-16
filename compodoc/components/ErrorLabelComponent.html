@@ -79,6 +79,10 @@
     <table class="table table-sm table-hover">
         <tbody>
 
+            <tr>
+                <td class="col-md-3">changeDetection</td>
+                <td class="col-md-9"><code>ChangeDetectionStrategy.OnPush</code></td>
+            </tr>
 
 
 
@@ -121,6 +125,20 @@
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#errorMessage">errorMessage</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -130,9 +148,6 @@
                 <tr>
                     <td class="col-md-4">
                         <ul class="index-list">
-                            <li>
-                                <a href="#getErrorMessage">getErrorMessage</a>
-                            </li>
                             <li>
                                 <a href="#ngOnInit">ngOnInit</a>
                             </li>
@@ -153,7 +168,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#form">form</a>
+                                <a href="#errors">errors</a>
                             </li>
                         </ul>
                     </td>
@@ -162,6 +177,20 @@
 
 
 
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#errors">errors</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
         </tbody>
     </table>
 </section>
@@ -177,7 +206,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/shared/modules/error-label/error-label.component.ts:23</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/shared/modules/error-label/error-label.component.ts:56</a></div>
                             </td>
                         </tr>
 
@@ -191,19 +220,13 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="form"></a>
-                        <b>form</b>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormControl" target="_blank" >FormControl</a></code>
-
+                        <a name="errors"></a>
+                        <b>errors</b>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/shared/modules/error-label/error-label.component.ts:23</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/shared/modules/error-label/error-label.component.ts:29</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -217,45 +240,6 @@
     <h3 id="methods">
         Methods
     </h3>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="getErrorMessage"></a>
-                    <span class="name">
-                        <b>
-                            getErrorMessage
-                        </b>
-                        <a href="#getErrorMessage"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>getErrorMessage()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="29"
-                            class="link-to-prism">src/app/shared/modules/error-label/error-label.component.ts:29</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>string | null</code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -278,8 +262,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="27"
-                            class="link-to-prism">src/app/shared/modules/error-label/error-label.component.ts:27</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="60"
+                            class="link-to-prism">src/app/shared/modules/error-label/error-label.component.ts:60</a></div>
                 </td>
             </tr>
 
@@ -319,8 +303,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="52"
-                            class="link-to-prism">src/app/shared/modules/error-label/error-label.component.ts:52</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="62"
+                            class="link-to-prism">src/app/shared/modules/error-label/error-label.component.ts:62</a></div>
                 </td>
             </tr>
 
@@ -380,13 +364,116 @@
         </tbody>
     </table>
 </section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="errorMessage"></a>
+                        <span class="name">
+                            <b>
+                            errorMessage</b>
+                            <a href="#errorMessage"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>string | null</code>
 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>null</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/shared/modules/error-label/error-label.component.ts:56</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="errors"></a>
+                        <span class="name"><b>errors</b><a href="#errors"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>set</b><code>errors(errors)</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/shared/modules/error-label/error-label.component.ts:29</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                    <td>Optional</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                            <td>errors</td>
+                                                    
+                                                    
+                                                        <td>
+                                                                No
+                                                        </td>
+                                                        
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+</section>
 </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input, OnInit } from &#x27;@angular/core&#x27;
-import { FormControl } from &#x27;@angular/forms&#x27;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnInit
+} from &#x27;@angular/core&#x27;
+import { ValidationErrors } from &#x27;@angular/forms&#x27;
 
 import { REG_EXP_HALF_ALPHA_NUM_SYMBOL } from &#x27;../../constants&#x27;
 
@@ -403,38 +490,43 @@ const ERROR_MAP &#x3D; new Map&lt;string, string&gt;([
 @Component({
   selector: &#x27;app-error-label&#x27;,
   templateUrl: &#x27;./error-label.component.html&#x27;,
-  styleUrls: [&#x27;./error-label.component.scss&#x27;]
+  styleUrls: [&#x27;./error-label.component.scss&#x27;],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ErrorLabelComponent implements OnInit {
   @Input()
-  form!: FormControl
+  set errors(errors: ValidationErrors) {
+    if (errors &#x3D;&#x3D;&#x3D; undefined || errors &#x3D;&#x3D;&#x3D; null) {
+      this.errorMessage &#x3D; null
+    } else {
+      for (const field of Object.keys(errors)) {
+        const error &#x3D; errors[field]
+        if (error) {
+          switch (field) {
+            case &#x27;minlength&#x27;:
+            case &#x27;maxlength&#x27;:
+              this.errorMessage &#x3D; this.stringFormat(ERROR_MAP.get(field), [
+                error.requiredLength
+              ])
+              break
+            case &#x27;pattern&#x27;:
+              if (error.requiredPattern &#x3D;&#x3D;&#x3D; REG_EXP_HALF_ALPHA_NUM_SYMBOL) {
+                this.errorMessage &#x3D; &#x27;半角英数字記号で入力してください。&#x27;
+              }
+              break
+            default:
+              this.errorMessage &#x3D; ERROR_MAP.get(field) || null
+          }
+        }
+      }
+    }
+  }
+
+  errorMessage: string | null &#x3D; null
 
   constructor() {}
 
   ngOnInit() {}
-
-  getErrorMessage(): string | null {
-    if (!this.form || !this.form.errors) {
-      return null
-    }
-
-    for (const field of Object.keys(this.form.errors)) {
-      const error &#x3D; this.form.errors[field]
-      if (error) {
-        if (field &#x3D;&#x3D;&#x3D; &#x27;minlength&#x27; || field &#x3D;&#x3D;&#x3D; &#x27;maxlength&#x27;) {
-          return this.stringFormat(ERROR_MAP.get(field), [error.requiredLength])
-        }
-
-        if (field &#x3D;&#x3D;&#x3D; &#x27;pattern&#x27;) {
-          if (error.requiredPattern &#x3D;&#x3D;&#x3D; REG_EXP_HALF_ALPHA_NUM_SYMBOL) {
-            return &#x27;半角英数字記号で入力してください。&#x27;
-          }
-        }
-        return ERROR_MAP.get(field) || null
-      }
-    }
-    return null
-  }
 
   private stringFormat(str: string | undefined, args: string[]): string | null {
     if (typeof str &#x3D;&#x3D;&#x3D; &#x27;undefined&#x27;) {
@@ -448,12 +540,8 @@ export class ErrorLabelComponent implements OnInit {
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;label
-  *ngIf&#x3D;&quot;form?.invalid &amp;&amp; (form?.dirty || form?.touched)&quot;
-  class&#x3D;&quot;error-label text-danger&quot;
-  [hidden]&#x3D;&quot;!form?.errors&quot;
-&gt;
-  &lt;i class&#x3D;&quot;fa fa-times-circle-o&quot;&gt;&lt;/i&gt;{{ getErrorMessage() }}
+        <pre class="line-numbers"><code class="language-html">&lt;label *ngIf&#x3D;&quot;errorMessage&quot; class&#x3D;&quot;error-label text-danger&quot;&gt;
+  &lt;i class&#x3D;&quot;fa fa-times-circle-o&quot;&gt;&lt;/i&gt;{{ errorMessage }}
 &lt;/label&gt;
 </code></pre>
     </div>
@@ -495,7 +583,7 @@ export class ErrorLabelComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><label  *ngIf="form?.invalid && (form?.dirty || form?.touched)"  class="error-label text-danger"  [hidden]="!form?.errors">  <i class="fa fa-times-circle-o"></i>{{ getErrorMessage() }}</label></div>'
+        var COMPONENT_TEMPLATE = '<div><label *ngIf="errorMessage" class="error-label text-danger">  <i class="fa fa-times-circle-o"></i>{{ errorMessage }}</label></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BsComponentComponent', 'selector': 'app-bs-component'},{'name': 'CollapseButtonComponent', 'selector': 'app-collapse-button'},{'name': 'ConfirmComponent', 'selector': 'app-confirm'},{'name': 'CustomPaginationComponent', 'selector': 'app-custom-pagination'},{'name': 'DateInputComponent', 'selector': 'app-date-input'},{'name': 'DropdownPageLinesComponent', 'selector': 'app-dropdown-page-lines'},{'name': 'ErrorLabelComponent', 'selector': 'app-error-label'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InputDropdownComponent', 'selector': 'app-input-dropdown'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'PageHeaderComponent', 'selector': 'app-page-header'},{'name': 'PagesComponent', 'selector': 'app-pages'},{'name': 'QuestionTooltipComponent', 'selector': 'app-question-tooltip'},{'name': 'RequiredComponent', 'selector': 'app-required'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'UserDetailComponent', 'selector': 'app-user-detail'},{'name': 'UserListComponent', 'selector': 'app-user-list'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'ErrorLabelComponent'};
