@@ -15,7 +15,9 @@ import {
   ConfigurationParameters,
   CustomErrorHandlerService,
   CustomInterceptorService
-} from './shared'
+} from './shared';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment'
 
 export function apiConfigFactory(): Configuration {
   const params: ConfigurationParameters = {
@@ -34,7 +36,8 @@ export function apiConfigFactory(): Configuration {
     AppRoutingModule,
     HttpClientModule,
     NgxSpinnerModule,
-    ApiModule.forRoot(apiConfigFactory)
+    ApiModule.forRoot(apiConfigFactory),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     { provide: BASE_PATH, useValue: environment.API_BASE_PATH },
