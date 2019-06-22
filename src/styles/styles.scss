@@ -1,9 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
-@import "spinner";
-@import "variables";
-@import "util";
-@import "custom-bootstrap";
-@import "~@ng-select/ng-select/themes/default.theme.css";
+@import 'spinner';
+@import 'variables';
+@import 'util';
+@import 'custom-bootstrap';
+@import '~@ng-select/ng-select/themes/default.theme.css';
 
 //
 // Global CSS
@@ -15,7 +15,9 @@ html {
 body {
   height: calc(100% - #{$header-height});
   color: #333;
-  font-family: -apple-system, BlinkMacSystemFont, Roboto, 'Noto Sans JP', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Roboto, 'Noto Sans JP',
+    'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande',
+    sans-serif;
   font-weight: 400;
   font-size: 14px;
   -webkit-font-smoothing: antialiased;
@@ -30,7 +32,7 @@ body {
 }
 
 .w-100px {
-  width: 100px;
+  min-width: 100px;
 }
 
 // Form
