@@ -1,0 +1,122 @@
+{
+  "configVersion": 1,
+  "timestamp": 1561180484959,
+  "index": "/ngx-manager-with-bootstrap/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "/ngx-manager-with-bootstrap/10-es2015.e05ef00e0ff3d2c798e1.js",
+        "/ngx-manager-with-bootstrap/10-es5.134d5ecfb1323494ec26.js",
+        "/ngx-manager-with-bootstrap/6-es2015.7f3c8681af833d1069d5.js",
+        "/ngx-manager-with-bootstrap/6-es5.ff81a2e77826763124a3.js",
+        "/ngx-manager-with-bootstrap/7-es2015.b4da76f77266a95e9105.js",
+        "/ngx-manager-with-bootstrap/7-es5.6a5f98b5347c729334ae.js",
+        "/ngx-manager-with-bootstrap/8-es2015.376f46af21126e4d6382.js",
+        "/ngx-manager-with-bootstrap/8-es5.17064a6865bdbc1df67c.js",
+        "/ngx-manager-with-bootstrap/9-es2015.2c622ae61283e91a75c9.js",
+        "/ngx-manager-with-bootstrap/9-es5.54cc086895d90be5ea82.js",
+        "/ngx-manager-with-bootstrap/common-es2015.1e314c20555a38292391.js",
+        "/ngx-manager-with-bootstrap/common-es5.0164a65ceaa2b32d6bcc.js",
+        "/ngx-manager-with-bootstrap/favicon.ico",
+        "/ngx-manager-with-bootstrap/index.html",
+        "/ngx-manager-with-bootstrap/main-es2015.e1f6741b21c9d280a479.js",
+        "/ngx-manager-with-bootstrap/main-es5.c5ed3dc598ef4bf2628e.js",
+        "/ngx-manager-with-bootstrap/polyfills-es2015.542631dca76648d5efd5.js",
+        "/ngx-manager-with-bootstrap/polyfills-es5.e7a9b6bc425d7b827358.js",
+        "/ngx-manager-with-bootstrap/polyfills-nomodule-es5.b79bfebc521ac1ea1602.js",
+        "/ngx-manager-with-bootstrap/runtime-es2015.af3cd515653d9e852182.js",
+        "/ngx-manager-with-bootstrap/runtime-es5.5148f97de29788fd7995.js",
+        "/ngx-manager-with-bootstrap/styles.b4f19f74b6d619b9428d.css",
+        "/ngx-manager-with-bootstrap/vendor-es2015.39480a1b91c7c7390b92.js",
+        "/ngx-manager-with-bootstrap/vendor-es5.162875d6e33b9c65cf11.js"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "urls": [
+        "/ngx-manager-with-bootstrap/assets/icons/icon-128x128.png",
+        "/ngx-manager-with-bootstrap/assets/icons/icon-144x144.png",
+        "/ngx-manager-with-bootstrap/assets/icons/icon-152x152.png",
+        "/ngx-manager-with-bootstrap/assets/icons/icon-192x192.png",
+        "/ngx-manager-with-bootstrap/assets/icons/icon-384x384.png",
+        "/ngx-manager-with-bootstrap/assets/icons/icon-512x512.png",
+        "/ngx-manager-with-bootstrap/assets/icons/icon-72x72.png",
+        "/ngx-manager-with-bootstrap/assets/icons/icon-96x96.png",
+        "/ngx-manager-with-bootstrap/assets/images/header/logo.png",
+        "/ngx-manager-with-bootstrap/assets/images/login/logo.png",
+        "/ngx-manager-with-bootstrap/fontawesome-webfont.674f50d287a8c48dc19b.eot",
+        "/ngx-manager-with-bootstrap/fontawesome-webfont.912ec66d7572ff821749.svg",
+        "/ngx-manager-with-bootstrap/fontawesome-webfont.af7ae505a9eed503f8b8.woff2",
+        "/ngx-manager-with-bootstrap/fontawesome-webfont.b06871f281fee6b241d6.ttf",
+        "/ngx-manager-with-bootstrap/fontawesome-webfont.fee66e712a8a08eef580.woff"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/ngx-manager-with-bootstrap/10-es2015.e05ef00e0ff3d2c798e1.js": "1a46bdfe521d3bb0fb2dd2e2dd09360c61ab44a5",
+    "/ngx-manager-with-bootstrap/10-es5.134d5ecfb1323494ec26.js": "836d7722fc86b04ec025abe0b64da12aeab19280",
+    "/ngx-manager-with-bootstrap/6-es2015.7f3c8681af833d1069d5.js": "5484fe565dea259f90238fdac93ee05cfe61a12f",
+    "/ngx-manager-with-bootstrap/6-es5.ff81a2e77826763124a3.js": "ec4456a3c8876c3e3cd89856dc6b20cfb10b2cb3",
+    "/ngx-manager-with-bootstrap/7-es2015.b4da76f77266a95e9105.js": "cf82f7e0834fea33b768d8322bb1b581330b39d9",
+    "/ngx-manager-with-bootstrap/7-es5.6a5f98b5347c729334ae.js": "6f44f8d2bea636c3b55827fd38294ec14d9b6e1e",
+    "/ngx-manager-with-bootstrap/8-es2015.376f46af21126e4d6382.js": "13340a550859c021d53e8108b3c1b616db1b70fd",
+    "/ngx-manager-with-bootstrap/8-es5.17064a6865bdbc1df67c.js": "b79a3a4a15a60412cd4992f6566dcbe4b10e115e",
+    "/ngx-manager-with-bootstrap/9-es2015.2c622ae61283e91a75c9.js": "8bcf3f3bf6399d864a3471f523cdea4c6005a65a",
+    "/ngx-manager-with-bootstrap/9-es5.54cc086895d90be5ea82.js": "6445c105400b9aa5ad0c191397152939f273a843",
+    "/ngx-manager-with-bootstrap/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
+    "/ngx-manager-with-bootstrap/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
+    "/ngx-manager-with-bootstrap/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
+    "/ngx-manager-with-bootstrap/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
+    "/ngx-manager-with-bootstrap/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "/ngx-manager-with-bootstrap/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "/ngx-manager-with-bootstrap/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
+    "/ngx-manager-with-bootstrap/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "/ngx-manager-with-bootstrap/assets/images/header/logo.png": "e7467123050975678b0f0d870b4a53dde03dbeb1",
+    "/ngx-manager-with-bootstrap/assets/images/login/logo.png": "85ddebbb8bd316c1784e85cdda8dbeb6578d90cb",
+    "/ngx-manager-with-bootstrap/common-es2015.1e314c20555a38292391.js": "15accb90d7b2d66d3a9745eef1130251b096a852",
+    "/ngx-manager-with-bootstrap/common-es5.0164a65ceaa2b32d6bcc.js": "5d0b2f5eab49576a82e4dc8962bfc95066dc2059",
+    "/ngx-manager-with-bootstrap/favicon.ico": "018f5a9ace23b35a71f5fd78054d8e2ad4ee346a",
+    "/ngx-manager-with-bootstrap/fontawesome-webfont.674f50d287a8c48dc19b.eot": "d980c2ce873dc43af460d4d572d441304499f400",
+    "/ngx-manager-with-bootstrap/fontawesome-webfont.912ec66d7572ff821749.svg": "98a8aa5cf7d62c2eff5f07ede8d844b874ef06ed",
+    "/ngx-manager-with-bootstrap/fontawesome-webfont.af7ae505a9eed503f8b8.woff2": "d6f48cba7d076fb6f2fd6ba993a75b9dc1ecbf0c",
+    "/ngx-manager-with-bootstrap/fontawesome-webfont.b06871f281fee6b241d6.ttf": "13b1eab65a983c7a73bc7997c479d66943f7c6cb",
+    "/ngx-manager-with-bootstrap/fontawesome-webfont.fee66e712a8a08eef580.woff": "28b782240b3e76db824e12c02754a9731a167527",
+    "/ngx-manager-with-bootstrap/index.html": "567d6a73136be12e260b76d0829a80f4027bf4d8",
+    "/ngx-manager-with-bootstrap/main-es2015.e1f6741b21c9d280a479.js": "c5467a4c5e9d26ae6602d93bd20db08ea02633a5",
+    "/ngx-manager-with-bootstrap/main-es5.c5ed3dc598ef4bf2628e.js": "9e3b1888c9f134dbc8449d23a81a8d97f1e374a9",
+    "/ngx-manager-with-bootstrap/polyfills-es2015.542631dca76648d5efd5.js": "8788702b8f87d9e6991f96cac0c252c355113762",
+    "/ngx-manager-with-bootstrap/polyfills-es5.e7a9b6bc425d7b827358.js": "88ebf4b6b0cc03d4782ca79b52e4e6b824f2df15",
+    "/ngx-manager-with-bootstrap/polyfills-nomodule-es5.b79bfebc521ac1ea1602.js": "8982d31d786192b8f6d0bb7428940bb08f0cc3ae",
+    "/ngx-manager-with-bootstrap/runtime-es2015.af3cd515653d9e852182.js": "421e8eea5ff014b75cfc9bc7b578d595f395feec",
+    "/ngx-manager-with-bootstrap/runtime-es5.5148f97de29788fd7995.js": "33930b9657f51c9f2bc91684975fffd11ebf964b",
+    "/ngx-manager-with-bootstrap/styles.b4f19f74b6d619b9428d.css": "f8f7c5618353593e42ea5ab1f84ecfcd02f27df7",
+    "/ngx-manager-with-bootstrap/vendor-es2015.39480a1b91c7c7390b92.js": "0c870c960a6d224bbf62eeb433329664c1f3518a",
+    "/ngx-manager-with-bootstrap/vendor-es5.162875d6e33b9c65cf11.js": "56d7299c551755b924eb5bce991589a8d6178597"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ]
+}
