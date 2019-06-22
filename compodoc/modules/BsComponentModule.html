@@ -171,7 +171,7 @@
 import { NgModule } from &#x27;@angular/core&#x27;
 import { FormsModule } from &#x27;@angular/forms&#x27;
 import { NgSelectModule } from &#x27;@ng-select/ng-select&#x27;
-import { TabsModule } from &#x27;ngx-bootstrap&#x27;
+import { TabsModule, TypeaheadModule } from &#x27;ngx-bootstrap&#x27;
 import { InputDropdownModule } from &#x27;src/app/shared&#x27;
 
 import { BsComponentRoutingModule } from &#x27;./bs-component-routing.module&#x27;
@@ -185,7 +185,8 @@ import { BsComponentComponent } from &#x27;./bs-component.component&#x27;
     BsComponentRoutingModule,
     NgSelectModule,
     InputDropdownModule,
-    TabsModule.forRoot()
+    TabsModule.forRoot(),
+    TypeaheadModule.forRoot()
   ]
 })
 export class BsComponentModule {}

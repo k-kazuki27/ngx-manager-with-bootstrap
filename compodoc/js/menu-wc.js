@@ -98,13 +98,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/BsComponentModule.html" data-type="entity-link">BsComponentModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-BsComponentModule-6dc5dcbb25fb8bac920023e2581b747e"' : 'data-target="#xs-components-links-module-BsComponentModule-6dc5dcbb25fb8bac920023e2581b747e"' }>
+                                            'data-target="#components-links-module-BsComponentModule-08dffff3bf13e36f502f50ebc9f5eeb3"' : 'data-target="#xs-components-links-module-BsComponentModule-08dffff3bf13e36f502f50ebc9f5eeb3"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-BsComponentModule-6dc5dcbb25fb8bac920023e2581b747e"' :
-                                            'id="xs-components-links-module-BsComponentModule-6dc5dcbb25fb8bac920023e2581b747e"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-BsComponentModule-08dffff3bf13e36f502f50ebc9f5eeb3"' :
+                                            'id="xs-components-links-module-BsComponentModule-08dffff3bf13e36f502f50ebc9f5eeb3"' }>
                                             <li class="link">
                                                 <a href="components/BsComponentComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">BsComponentComponent</a>
