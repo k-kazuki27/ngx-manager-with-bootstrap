@@ -53,16 +53,29 @@
       controlName="hoge"
     ></app-input-dropdown>
   </div>
-
-  <div class="card m-t-lg">
-    <div class="card-header">
-      tab-button
-    </div>
-    <div class="card-body">
-      <tabset type="pills">
-        <tab heading="Pills 1"></tab>
-        <tab heading="Pills 2"></tab>
-      </tabset>
-    </div>
+</div>
+<div class="card m-t-lg">
+  <div class="card-header">
+    tab-button
+  </div>
+  <div class="card-body">
+    <tabset type="pills">
+      <tab heading="Pills 1"></tab>
+      <tab heading="Pills 2"></tab>
+    </tabset>
+  </div>
+</div>
+<div class="card m-t-lg">
+  <div class="card-header">
+    typeahead
+  </div>
+  <div class="card-body">
+    <input
+      [(ngModel)]="selected"
+      [typeahead]="states"
+      [typeaheadOptionsInScrollableView]="5"
+      [typeaheadScrollable]="true"
+      class="form-control form-control-sm"
+    />
   </div>
 </div>

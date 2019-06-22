@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing'
 import { FormsModule } from '@angular/forms'
 import { NgSelectModule } from '@ng-select/ng-select'
-import { TabsModule } from 'ngx-bootstrap'
+import { TabsModule, TypeaheadModule } from 'ngx-bootstrap'
 import { InputDropdownModule } from 'src/app/shared'
 import { SharedModule } from 'src/app/shared/shared.module'
 
@@ -19,7 +19,8 @@ describe('BsComponentComponent', () => {
         NgSelectModule,
         SharedModule,
         InputDropdownModule,
-        TabsModule.forRoot()
+        TabsModule.forRoot(),
+        TypeaheadModule.forRoot()
       ]
     }).compileComponents()
   }))
