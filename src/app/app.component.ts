@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-
+import browser from 'browser-detect';
 import { RouteHistoryService } from './shared'
 
 @Component({
@@ -10,5 +10,6 @@ import { RouteHistoryService } from './shared'
 export class AppComponent {
   constructor(private routeHistoryService: RouteHistoryService) {
     // 履歴保持のため、インスタンス生成だけしておく
+    console.log(browser())
   }
 }
