@@ -1,5 +1,6 @@
 import { Component } from '@angular/core'
-import browser from 'browser-detect';
+import browser from 'browser-detect'
+
 import { RouteHistoryService } from './shared'
 
 @Component({
