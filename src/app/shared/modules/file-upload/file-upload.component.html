@@ -1,0 +1,17 @@
+<div
+  class="drag-drop-area"
+  (dragover)="onDragOver($event)"
+  (drop)="onDrop($event)"
+>
+  <p>画像をドラッグ＆ドロップしてください</p>
+</div>
+
+<div class="fileup" *ngFor="let item of images; let i = index">
+  <div class="file-preview">
+    <img [src]="item.src" alt="item.alt" />
+  </div>
+  <label for="fileInput">
+    <div class="file-name">{{ item.name }}</div>
+    <span class="block" (click)="deleteImage(i)">削除</span>
+  </label>
+</div>

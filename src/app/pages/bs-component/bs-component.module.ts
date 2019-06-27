@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core'
 import { FormsModule } from '@angular/forms'
 import { NgSelectModule } from '@ng-select/ng-select'
 import { TabsModule, TypeaheadModule } from 'ngx-bootstrap'
-import { InputDropdownModule } from 'src/app/shared'
+import { FileUploadModule, InputDropdownModule } from 'src/app/shared'
 
 import { BsComponentRoutingModule } from './bs-component-routing.module'
 import { BsComponentComponent } from './bs-component.component'
@@ -17,7 +17,8 @@ import { BsComponentComponent } from './bs-component.component'
     NgSelectModule,
     InputDropdownModule,
     TabsModule.forRoot(),
-    TypeaheadModule.forRoot()
+    TypeaheadModule.forRoot(),
+    FileUploadModule
   ]
 })
 export class BsComponentModule {}

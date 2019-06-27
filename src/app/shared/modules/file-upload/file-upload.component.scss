@@ -1,0 +1,15 @@
+.drag-drop-area {
+  border: 1px solid #000;
+  border-radius: 8px;
+  height: 180px;
+  position: relative;
+}
+
+.drag-drop-area p {
+  font-size: 14px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #707070;
+}
