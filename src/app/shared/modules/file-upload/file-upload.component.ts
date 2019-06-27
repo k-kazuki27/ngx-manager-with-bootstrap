@@ -51,7 +51,16 @@ export class FileUploadComponent implements OnInit {
   deleteImage() {
     this.image = null
   }
-  onFileSelect() {}
+  onFileSelect(e: Event) {
+    if (e) {
+      const fileInput = e.target as HTMLInputElement
+      const fileList: FileList | null = fileInput.files
+      if (fileList) {
+        const file: File = fileList[0]
+        this.setImage(file)
+      }
+    }
+  }
 }
 
 interface Image {
