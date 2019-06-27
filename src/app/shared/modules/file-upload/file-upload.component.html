@@ -1,17 +1,36 @@
-<div
-  class="drag-drop-area"
-  (dragover)="onDragOver($event)"
-  (drop)="onDrop($event)"
->
-  <p>画像をドラッグ＆ドロップしてください</p>
-</div>
-
-<div class="fileup" *ngFor="let item of images; let i = index">
-  <div class="file-preview">
-    <img [src]="item.src" alt="item.alt" />
+<div class="row">
+  <div
+    class="drag-drop-area col-sm-6"
+    (dragover)="onDragOver($event)"
+    (drop)="onDrop($event)"
+  >
+    <span>ドラッグ＆ドロップ</span>
   </div>
-  <label for="fileInput">
-    <div class="file-name">{{ item.name }}</div>
-    <span class="block" (click)="deleteImage(i)">削除</span>
-  </label>
+  <div class="fileup col-sm-6">
+    <label for="fileInput">
+      <input
+        id="fileInput"
+        type="file"
+        value="ファイルを選択"
+        accept="image/png,image/jpeg,image/gif"
+        maxsize="5242880"
+        name="image"
+        (change)="onFileSelect($event)"
+      />
+      <span>ファイルを選択</span>
+    </label>
+  </div>
+  <div class="file-image col-sm-12 m-t-sm" *ngIf="image">
+    <div class="file-preview">
+      <img [src]="image?.src" alt="イメージ" />
+    </div>
+    <label class="m-l-sm">{{ image?.name }}</label>
+    <button
+      type="button"
+      class="btn btn btn-outline-secondary btn-sm m-l-sm"
+      (click)="deleteImage()"
+    >
+      <i class="fa fa-fw fa-trash"></i>削除
+    </button>
+  </div>
 </div>

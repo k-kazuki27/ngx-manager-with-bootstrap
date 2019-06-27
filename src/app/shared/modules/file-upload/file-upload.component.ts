@@ -1,10 +1,9 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 
 @Component({
   selector: 'app-file-upload',
   templateUrl: './file-upload.component.html',
-  styleUrls: ['./file-upload.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./file-upload.component.scss']
 })
 export class FileUploadComponent implements OnInit {
   image: Image | null = null
@@ -43,6 +42,7 @@ export class FileUploadComponent implements OnInit {
           name: file.name,
           src: target.result
         }
+        console.log(this.image)
       }
     }
     reader.readAsDataURL(file)
@@ -51,6 +51,7 @@ export class FileUploadComponent implements OnInit {
   deleteImage() {
     this.image = null
   }
+  onFileSelect() {}
 }
 
 interface Image {
