@@ -98,13 +98,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/BsComponentModule.html" data-type="entity-link">BsComponentModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-BsComponentModule-08dffff3bf13e36f502f50ebc9f5eeb3"' : 'data-target="#xs-components-links-module-BsComponentModule-08dffff3bf13e36f502f50ebc9f5eeb3"' }>
+                                            'data-target="#components-links-module-BsComponentModule-21a6345562a49a30681612b7ff9c2930"' : 'data-target="#xs-components-links-module-BsComponentModule-21a6345562a49a30681612b7ff9c2930"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-BsComponentModule-08dffff3bf13e36f502f50ebc9f5eeb3"' :
-                                            'id="xs-components-links-module-BsComponentModule-08dffff3bf13e36f502f50ebc9f5eeb3"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-BsComponentModule-21a6345562a49a30681612b7ff9c2930"' :
+                                            'id="xs-components-links-module-BsComponentModule-21a6345562a49a30681612b7ff9c2930"' }>
                                             <li class="link">
                                                 <a href="components/BsComponentComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">BsComponentComponent</a>
@@ -216,6 +216,24 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                             <li class="link">
                                                 <a href="components/ErrorLabelComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">ErrorLabelComponent</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                            </li>
+                            <li class="link">
+                                <a href="modules/FileUploadModule.html" data-type="entity-link">FileUploadModule</a>
+                                    <li class="chapter inner">
+                                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
+                                            'data-target="#components-links-module-FileUploadModule-dd02f328d8c758c5b7f360001c434440"' : 'data-target="#xs-components-links-module-FileUploadModule-dd02f328d8c758c5b7f360001c434440"' }>
+                                            <span class="icon ion-md-cog"></span>
+                                            <span>Components</span>
+                                            <span class="icon ion-ios-arrow-down"></span>
+                                        </div>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-FileUploadModule-dd02f328d8c758c5b7f360001c434440"' :
+                                            'id="xs-components-links-module-FileUploadModule-dd02f328d8c758c5b7f360001c434440"' }>
+                                            <li class="link">
+                                                <a href="components/FileUploadComponent.html"
+                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">FileUploadComponent</a>
                                             </li>
                                         </ul>
                                     </li>
@@ -495,6 +513,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         <ul class="links collapse" ${ isNormalMode ? ' id="interfaces-links"' : 'id="xs-interfaces-links"' }>
                             <li class="link">
                                 <a href="interfaces/ConfigurationParameters.html" data-type="entity-link">ConfigurationParameters</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/Image.html" data-type="entity-link">Image</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/LoginDTO.html" data-type="entity-link">LoginDTO</a>
