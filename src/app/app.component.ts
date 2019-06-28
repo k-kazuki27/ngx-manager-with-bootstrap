@@ -11,6 +11,8 @@ import { RouteHistoryService } from './shared'
 export class AppComponent {
   constructor(private routeHistoryService: RouteHistoryService) {
     // 履歴保持のため、インスタンス生成だけしておく
-    console.log(browser())
+    if (browser) {
+      console.log(browser())
+    }
   }
 }
