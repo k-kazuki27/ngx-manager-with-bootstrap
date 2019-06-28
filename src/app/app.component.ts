@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-import browser from 'browser-detect'
+import { detect } from 'detect-browser'
 
 import { RouteHistoryService } from './shared'
 
@@ -9,10 +9,8 @@ import { RouteHistoryService } from './shared'
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  // 履歴保持のため、インスタンス生成だけしておく(RouteHistoryService)
   constructor(private routeHistoryService: RouteHistoryService) {
-    // 履歴保持のため、インスタンス生成だけしておく
-    if (browser) {
-      console.log(browser())
-    }
+    console.log(detect())
   }
 }
