@@ -36,7 +36,7 @@ This project is a port of the famous Free Admin Bootstrap Theme SB Admin v7.0 to
 Powered by StartAngular &amp; StrapUI</p>
 <h2 id="base">Base</h2>
 <ul>
-<li>https://github.com/start-angular/SB-Admin-BS4-Angular-6</li>
+<li><a href="https://github.com/start-angular/SB-Admin-BS4-Angular-6">https://github.com/start-angular/SB-Admin-BS4-Angular-6</a></li>
 </ul>
 <h2 id="demo">Demo</h2>
 <ul>
@@ -60,18 +60,15 @@ Powered by StartAngular &amp; StrapUI</p>
 <h3 id="how-to-start">How to start</h3>
 <p><strong>Note</strong> that this seed project requires <strong>node &gt;=v8.9.0 and npm &gt;=4</strong>.</p>
 <p>In order to start the project use:</p>
-<p>```bash
-$ git clone https://github.com/k-kazuki27/ngx-manager-with-bootstrap.git
-$ cd ngx-manager-with-bootstrap</p>
-<h1 id="install-the-projects-dependencies">install the project&#39;s dependencies</h1>
-<p>$ npm install</p>
-<h1 id="watches-your-files-and-uses-livereload-by-default-run-npm-start-for-a-dev-server-navigate-to-httplocalhost4200-the-app-will-automatically-reload-if-you-change-any-of-the-source-files">watches your files and uses livereload by default run <code>npm start</code> for a dev server. Navigate to <code>http://localhost:4200/</code>. The app will automatically reload if you change any of the source files.</h1>
-<p>$ npm start</p>
-<h1 id="prod-build-will-output-the-production-application-in-dist">prod build, will output the production application in <code>dist</code></h1>
-<h1 id="the-produced-code-can-be-deployed-rsynced-to-a-remote-server">the produced code can be deployed (rsynced) to a remote server</h1>
-<p>$ npm run build
-```</p>
-<h3 id="openapi-generator">OpenAPI Generator</h3>
+<div><pre class="line-numbers"><code class="language-bash">$ git clone https://github.com/k-kazuki27/ngx-manager-with-bootstrap.git
+$ cd ngx-manager-with-bootstrap
+# install the project&#39;s dependencies
+$ npm install
+# watches your files and uses livereload by default run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+$ npm start
+# prod build, will output the production application in `dist`
+# the produced code can be deployed (rsynced) to a remote server
+$ npm run build</code></pre></div><h3 id="openapi-generator">OpenAPI Generator</h3>
 <ul>
 <li><a href="https://github.com/OpenAPITools/openapi-generator">openapi-generator</a></li>
 </ul>
@@ -81,9 +78,8 @@ $ cd ngx-manager-with-bootstrap</p>
 <li><a href="https://swagger.io/specification/">Web</a></li>
 </ul>
 <h4 id="installation">Installation</h4>
-<p><code>$ npm install @openapitools/openapi-generator-cli -g</code></p>
-<h4 id="generate">Generate</h4>
-<p><code>$ openapi-generator generate \
+<div><pre class="line-numbers"><code class="language-none">$ npm install &#64;openapitools/openapi-generator-cli -g</code></pre></div><h4 id="generate">Generate</h4>
+<div><pre class="line-numbers"><code class="language-none">$ openapi-generator generate \
 -i openapi.yaml  \
 -g typescript-angular \
 -o src/app/shared/api-clients \
@@ -92,23 +88,19 @@ $ cd ngx-manager-with-bootstrap</p>
 --additional-properties serviceSuffix=Api \
 --additional-properties serviceFileSuffix=-api \
 --additional-properties modelSuffix=DTO \
---additional-properties modelFileSuffix=-dto</code></p>
-<h4 id="help-config">Help Config</h4>
-<p><code>$ openapi-generator config-help -g typescript-angular</code></p>
-<h3 id="storybook-for-angular">Storybook for Angular</h3>
+--additional-properties modelFileSuffix=-dto</code></pre></div><h4 id="help-config">Help Config</h4>
+<div><pre class="line-numbers"><code class="language-none">$ openapi-generator config-help -g typescript-angular</code></pre></div><h3 id="storybook-for-angular">Storybook for Angular</h3>
 <ul>
 <li><a href="https://storybook.js.org/docs/guides/guide-angular/">Storybook for Angular</a></li>
 </ul>
 <h4 id="how-to-start-1">How to start</h4>
-<p><code>$ npm run storybook</code></p>
-<h4 id="demo-1">Demo</h4>
+<div><pre class="line-numbers"><code class="language-none">$ npm run storybook</code></pre></div><h4 id="demo-1">Demo</h4>
 <ul>
 <li><a href="https://k-kazuki27.github.io/ngx-manager-with-bootstrap/story/">DEMO</a></li>
 </ul>
 <h3 id="compodoc">Compodoc</h3>
 <h4 id="how-to-start-2">How to start</h4>
-<p><code>$ npm run compodoc</code></p>
-<h4 id="demo-2">Demo</h4>
+<div><pre class="line-numbers"><code class="language-none">$ npm run compodoc</code></pre></div><h4 id="demo-2">Demo</h4>
 <ul>
 <li><a href="https://k-kazuki27.github.io/ngx-manager-with-bootstrap/compodoc/">DEMO</a></li>
 </ul>
@@ -126,6 +118,7 @@ $ cd ngx-manager-with-bootstrap</p>
 
 
 
+                   
 
 
 
