@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
 import { ReusableFormComponent } from './reusable-form.component'
 
@@ -8,7 +9,8 @@ describe('ReusableFormComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ReusableFormComponent]
+      declarations: [ReusableFormComponent],
+      imports: [FormsModule, ReactiveFormsModule]
     }).compileComponents()
   }))
 

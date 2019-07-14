@@ -6,7 +6,7 @@ import {
   Self,
   ViewChild
 } from '@angular/core'
-import { ControlValueAccessor, NgControl, Validators } from '@angular/forms'
+import { ControlValueAccessor, NgControl } from '@angular/forms'
 
 @Component({
   selector: 'app-reusable-form',
@@ -20,21 +20,19 @@ export class ReusableFormComponent implements OnInit, ControlValueAccessor {
   onChange!: (value: any) => void
   onTouched!: (value: any) => void
 
-  constructor(@Self() @Optional() public controlDir: NgControl) {
-    if (this.controlDir) {
-      this.controlDir.valueAccessor = this
+  constructor(@Self() @Optional() private ngControl: NgControl) {
+    if (this.ngControl) {
+      this.ngControl.valueAccessor = this
     }
   }
 
   ngOnInit() {
-    const control = this.controlDir.control
-    if (control) {
-      const validators = control.validator
-        ? [control.validator, Validators.required]
-        : Validators.required
-
-      control.setValidators(validators)
-      control.updateValueAndValidity()
+    if (this.ngControl) {
+      const control = this.ngControl.control
+      if (control) {
+        control.setValidators(control.validator)
+        control.updateValueAndValidity()
+      }
     }
   }
 
