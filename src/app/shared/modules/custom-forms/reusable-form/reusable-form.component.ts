@@ -18,7 +18,7 @@ export class ReusableFormComponent implements OnInit, ControlValueAccessor {
 
   disabled!: boolean
   onChange!: (value: any) => void
-  onTouched!: (value: any) => void
+  onTouched!: () => void
 
   constructor(@Self() @Optional() private ngControl: NgControl) {
     if (this.ngControl) {

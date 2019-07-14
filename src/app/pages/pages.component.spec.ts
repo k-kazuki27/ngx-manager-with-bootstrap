@@ -1,8 +1,11 @@
 import { HttpClientModule } from '@angular/common/http'
 import { async, ComponentFixture, TestBed } from '@angular/core/testing'
 import { RouterTestingModule } from '@angular/router/testing'
+import { BsDropdownModule } from 'ngx-bootstrap'
 
-import { CollapseButtonComponent } from './components/collapse-button/collapse-button.component'
+import {
+  CollapseButtonComponent
+} from './components/collapse-button/collapse-button.component'
 import { HeaderComponent } from './components/header/header.component'
 import { SidebarComponent } from './components/sidebar/sidebar.component'
 import { PagesComponent } from './pages.component'
@@ -20,7 +23,12 @@ describe('PagesComponent', () => {
         SidebarComponent,
         CollapseButtonComponent
       ],
-      imports: [HttpClientModule, RouterTestingModule, PagesResolverModule]
+      imports: [
+        HttpClientModule,
+        RouterTestingModule,
+        PagesResolverModule,
+        BsDropdownModule.forRoot()
+      ]
     }).compileComponents()
   }))
 
