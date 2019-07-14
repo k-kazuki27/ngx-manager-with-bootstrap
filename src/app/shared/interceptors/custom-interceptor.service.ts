@@ -29,7 +29,7 @@ export class CustomInterceptorService implements HttpInterceptor {
     }
     // APIがないため、MOCKに差し替え
     return (httpMock(req) || next.handle(req)).pipe(
-      delay(new Date(Date.now() + 1000)), // 意図的に遅延
+      // delay(new Date(Date.now() + 1000)), // 意図的に遅延
       catchError((res: HttpErrorResponse) => {
         switch (res.status) {
           case 401:
