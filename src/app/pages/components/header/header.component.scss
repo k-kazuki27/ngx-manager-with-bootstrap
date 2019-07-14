@@ -14,6 +14,8 @@ $header-height: 56px !default;
       color: $header-title-font-color;
       display: flex;
       align-items: center;
+      margin-right: 0;
+      min-width: 219px;
     }
     .navbar-toggler {
       &:focus {
@@ -23,10 +25,12 @@ $header-height: 56px !default;
         box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.5);
       }
     }
-    .nav-item > a {
-      color: $header-link-font-color;
-      &:hover {
-        color: #fff;
+    .nav-item {
+      > a {
+        color: $header-link-font-color;
+        &:hover {
+          color: #fff;
+        }
       }
     }
   }
