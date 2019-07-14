@@ -229,6 +229,7 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CommonModule } from &#x27;@angular/common&#x27;
 import { NgModule } from &#x27;@angular/core&#x27;
+import { BsDropdownModule } from &#x27;ngx-bootstrap&#x27;
 
 import { CollapseButtonComponent } from &#x27;./components/collapse-button/collapse-button.component&#x27;
 import { HeaderComponent } from &#x27;./components/header/header.component&#x27;
@@ -244,7 +245,12 @@ import { PagesResolverModule } from &#x27;./services/pages-resolver.module&#x27;
     SidebarComponent,
     CollapseButtonComponent
   ],
-  imports: [CommonModule, PagesRoutingModule, PagesResolverModule]
+  imports: [
+    CommonModule,
+    PagesRoutingModule,
+    PagesResolverModule,
+    BsDropdownModule.forRoot()
+  ]
 })
 export class PagesModule {}
 </code></pre>

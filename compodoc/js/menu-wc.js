@@ -98,13 +98,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/BsComponentModule.html" data-type="entity-link">BsComponentModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-BsComponentModule-21a6345562a49a30681612b7ff9c2930"' : 'data-target="#xs-components-links-module-BsComponentModule-21a6345562a49a30681612b7ff9c2930"' }>
+                                            'data-target="#components-links-module-BsComponentModule-336f22213944b38a8b5b3aeb337f04b5"' : 'data-target="#xs-components-links-module-BsComponentModule-336f22213944b38a8b5b3aeb337f04b5"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-BsComponentModule-21a6345562a49a30681612b7ff9c2930"' :
-                                            'id="xs-components-links-module-BsComponentModule-21a6345562a49a30681612b7ff9c2930"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-BsComponentModule-336f22213944b38a8b5b3aeb337f04b5"' :
+                                            'id="xs-components-links-module-BsComponentModule-336f22213944b38a8b5b3aeb337f04b5"' }>
                                             <li class="link">
                                                 <a href="components/BsComponentComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">BsComponentComponent</a>
@@ -320,13 +320,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/PagesModule.html" data-type="entity-link">PagesModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-PagesModule-bfcba4b67d06debe41a9fd8937d26f39"' : 'data-target="#xs-components-links-module-PagesModule-bfcba4b67d06debe41a9fd8937d26f39"' }>
+                                            'data-target="#components-links-module-PagesModule-ea819b4ffce95f449d769f426920387b"' : 'data-target="#xs-components-links-module-PagesModule-ea819b4ffce95f449d769f426920387b"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-PagesModule-bfcba4b67d06debe41a9fd8937d26f39"' :
-                                            'id="xs-components-links-module-PagesModule-bfcba4b67d06debe41a9fd8937d26f39"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-PagesModule-ea819b4ffce95f449d769f426920387b"' :
+                                            'id="xs-components-links-module-PagesModule-ea819b4ffce95f449d769f426920387b"' }>
                                             <li class="link">
                                                 <a href="components/CollapseButtonComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">CollapseButtonComponent</a>
@@ -384,6 +384,24 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                             <li class="link">
                                                 <a href="components/RequiredComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">RequiredComponent</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                            </li>
+                            <li class="link">
+                                <a href="modules/ReusableFormModule.html" data-type="entity-link">ReusableFormModule</a>
+                                    <li class="chapter inner">
+                                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
+                                            'data-target="#components-links-module-ReusableFormModule-640d51338424cee9099f493bd1fede27"' : 'data-target="#xs-components-links-module-ReusableFormModule-640d51338424cee9099f493bd1fede27"' }>
+                                            <span class="icon ion-md-cog"></span>
+                                            <span>Components</span>
+                                            <span class="icon ion-ios-arrow-down"></span>
+                                        </div>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-ReusableFormModule-640d51338424cee9099f493bd1fede27"' :
+                                            'id="xs-components-links-module-ReusableFormModule-640d51338424cee9099f493bd1fede27"' }>
+                                            <li class="link">
+                                                <a href="components/ReusableFormComponent.html"
+                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">ReusableFormComponent</a>
                                             </li>
                                         </ul>
                                     </li>
