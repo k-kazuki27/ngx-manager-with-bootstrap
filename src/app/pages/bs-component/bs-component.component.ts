@@ -75,7 +75,8 @@ export class BsComponentComponent implements OnInit {
 
   ngOnInit() {
     this.form = this.fb.group({
-      hoge: [null, []]
+      hoge: [null, []],
+      test: []
     })
   }
 }

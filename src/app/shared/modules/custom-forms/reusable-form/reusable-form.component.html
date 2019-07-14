@@ -1,0 +1,9 @@
+<input
+  type="text"
+  (input)="onChange($event.target.value)"
+  (blur)="onTouched()"
+  [disabled]="disabled"
+  #input
+/>
+
+<pre>errors: {{ controlDir.errors | json }}</pre>
