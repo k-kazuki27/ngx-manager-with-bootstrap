@@ -689,9 +689,11 @@ export class LoginComponent implements OnInit, OnDestroy {
                     <code>./login.component.scss</code>
                 </p>
                 <pre class="line-numbers"><code class="language-scss">$topnav-background-color: #222;
+
 :host {
   display: block;
 }
+
 .login-page {
   position: absolute;
   top: 0;
@@ -703,9 +705,11 @@ export class LoginComponent implements OnInit, OnDestroy {
   text-align: center;
   color: #fff;
   padding: 3em;
+
   .col-lg-4 {
     padding: 0;
   }
+
   .input-lg {
     height: 46px;
     padding: 10px 16px;
@@ -713,6 +717,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     line-height: 1.3333333;
     border-radius: 0;
   }
+
   .input-underline {
     background: 0 0;
     border: none;
@@ -721,10 +726,12 @@ export class LoginComponent implements OnInit, OnDestroy {
     color: #fff;
     border-radius: 0;
   }
+
   .input-underline:focus {
     border-bottom: 2px solid #fff;
     box-shadow: none;
   }
+
   .rounded-btn {
     -webkit-border-radius: 50px;
     border-radius: 50px;
@@ -736,6 +743,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     padding: 0 25px;
     width: 100%;
   }
+
   .rounded-btn:hover,
   .rounded-btn:focus,
   .rounded-btn:active,
@@ -750,6 +758,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     margin-top: 20px;
     margin-bottom: 10px;
     font-size: 36px;
+
     small {
       color: rgba(255, 255, 255, 0.7);
     }
@@ -757,6 +766,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   .form-group {
     padding: 8px 0;
+
     input::-webkit-input-placeholder {
       color: rgba(255, 255, 255, 0.6) !important;
     }
@@ -766,18 +776,15 @@ export class LoginComponent implements OnInit, OnDestroy {
       color: rgba(255, 255, 255, 0.6) !important;
     }
 
-    input::-moz-placeholder {
-      /* Firefox 19+ */
-      color: rgba(255, 255, 255, 0.6) !important;
-    }
-
     input:-ms-input-placeholder {
       color: rgba(255, 255, 255, 0.6) !important;
     }
   }
+
   .form-content {
     padding: 40px 0;
   }
+
   .user-avatar {
     -webkit-border-radius: 50%;
     border-radius: 50%;

@@ -420,7 +420,7 @@ export class CollapseButtonComponent implements OnInit {
                     <code>./collapse-button.component.scss</code>
                 </p>
                 <pre class="line-numbers"><code class="language-scss">.collapse-button {
-  padding: 5px 10px 5px 0px;
+  padding: 5px 10px 5px 0;
   text-align: right;
 
   .menu-arrow {
@@ -441,22 +441,27 @@ export class CollapseButtonComponent implements OnInit {
       display: inline-block;
       transition: all 0.4s;
       box-sizing: border-box;
+
       &amp;:nth-of-type(1) {
         top: 0;
       }
+
       &amp;:nth-of-type(2) {
         top: 9px;
       }
+
       &amp;:nth-of-type(3) {
         bottom: 0;
       }
     }
+
     &amp;:hover {
       span {
         &amp;:nth-of-type(1) {
           width: 20px;
           transform: translate(-4px, 2px) rotate(-45deg);
         }
+
         &amp;:nth-of-type(3) {
           width: 20px;
           transform: translate(-4px, -2px) rotate(45deg);
@@ -472,6 +477,7 @@ export class CollapseButtonComponent implements OnInit {
           width: 20px;
           transform: translate(4px, 2px) rotate(45deg);
         }
+
         &amp;:nth-of-type(3) {
           width: 20px;
           transform: translate(4px, -2px) rotate(-45deg);
