@@ -10,5 +10,6 @@
   "prettier.useTabs": false,
   "prettier.tabWidth": 2,
   "prettier.bracketSpacing": true,
-  "prettier.tslintIntegration": true
+  "prettier.tslintIntegration": true,
+  "workbench.colorCustomizations": {}
 }
