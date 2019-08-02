@@ -4,14 +4,9 @@ import { Router } from '@angular/router'
 import { Subject } from 'rxjs'
 import { takeUntil } from 'rxjs/operators'
 
-import { routerTransition } from '../router.animations'
-import {
-  LOGIN_ERROR,
-  LoginApi,
-  LoginUserService,
-  REQUIRED_ERROR,
-  StorageService
-} from '../shared'
+import { routerTransition } from '../../router.animations'
+import { LoginApi, LoginUserService, StorageService } from '../../shared'
+import { LOGIN_ERROR, REQUIRED_ERROR } from '../auth-shared'
 
 @Component({
   selector: 'app-login',
