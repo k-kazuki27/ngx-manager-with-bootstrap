@@ -8,13 +8,12 @@ import {
   AbstractList,
   ConfirmService,
   TableHeader,
-  USER_LIST_HEADER,
   UserApi,
   UserDTO,
   UsersDTO
 } from 'src/app/shared'
 
-import { UserService } from '../services/user.service'
+import { USER_LIST_HEADER, UserService } from '../user-shared'
 
 @Component({
   selector: 'app-user-list',

@@ -4,7 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { RouterTestingModule } from '@angular/router/testing'
 import { SharedModule } from 'src/app/shared/shared.module'
 
-import { UserResolverModule } from '../services/user-resolver.module'
+import { UserServiceModule } from '../user-shared'
 import { UserListComponent } from './user-list.component'
 
 describe('UserListComponent', () => {
@@ -18,7 +18,7 @@ describe('UserListComponent', () => {
         HttpClientModule,
         BrowserAnimationsModule,
         RouterTestingModule,
-        UserResolverModule,
+        UserServiceModule,
         SharedModule
       ]
     }).compileComponents()

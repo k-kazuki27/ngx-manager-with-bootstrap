@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core'
 import { FormGroup } from '@angular/forms'
 import { Page, RouteHistoryService } from 'src/app/shared'
 
-import { UserResolverModule } from './user-resolver.module'
+import { UserServiceModule } from './user-service.module'
 
 @Injectable({
-  providedIn: UserResolverModule
+  providedIn: UserServiceModule
 })
 export class UserService {
   private form!: FormGroup

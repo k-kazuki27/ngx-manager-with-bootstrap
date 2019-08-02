@@ -11,9 +11,9 @@ import {
   ConfirmService,
   REG_EXP_HALF_ALPHA_NUM_SYMBOL,
   UserApi,
-  UserDTO,
-  UserValidator
+  UserDTO
 } from 'src/app/shared'
+import { UserValidator } from '../user-shared';
 
 @Component({
   selector: 'app-user-detail',

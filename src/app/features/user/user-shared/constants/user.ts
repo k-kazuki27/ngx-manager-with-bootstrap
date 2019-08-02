@@ -1,4 +1,4 @@
-import { TableHeader } from '../models'
+import { TableHeader } from 'src/app/shared'
 
 export const USER_LIST_HEADER: TableHeader[] = [
   {
