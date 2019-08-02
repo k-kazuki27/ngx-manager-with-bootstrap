@@ -61,7 +61,7 @@
     <h3>File</h3>
 </p>
 <p class="comment">
-    <code>src/app/login/login.component.ts</code>
+    <code>src/app/auth/login/login.component.ts</code>
 </p>
 
 
@@ -201,7 +201,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/login/login.component.ts:26</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/auth/login/login.component.ts:21</a></div>
                             </td>
                         </tr>
 
@@ -318,8 +318,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="57"
-                            class="link-to-prism">src/app/login/login.component.ts:57</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="52"
+                            class="link-to-prism">src/app/auth/login/login.component.ts:52</a></div>
                 </td>
             </tr>
 
@@ -357,8 +357,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="46"
-                            class="link-to-prism">src/app/login/login.component.ts:46</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="41"
+                            class="link-to-prism">src/app/auth/login/login.component.ts:41</a></div>
                 </td>
             </tr>
 
@@ -396,8 +396,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="36"
-                            class="link-to-prism">src/app/login/login.component.ts:36</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="31"
+                            class="link-to-prism">src/app/auth/login/login.component.ts:31</a></div>
                 </td>
             </tr>
 
@@ -439,7 +439,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/login/login.component.ts:24</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/auth/login/login.component.ts:19</a></div>
                             </td>
                         </tr>
 
@@ -466,7 +466,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/login/login.component.ts:23</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/auth/login/login.component.ts:18</a></div>
                             </td>
                         </tr>
 
@@ -493,7 +493,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/login/login.component.ts:26</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/auth/login/login.component.ts:21</a></div>
                             </td>
                         </tr>
 
@@ -522,7 +522,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/login/login.component.ts:50</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/auth/login/login.component.ts:45</a></div>
                                 </td>
                             </tr>
 
@@ -544,7 +544,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/login/login.component.ts:53</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/auth/login/login.component.ts:48</a></div>
                                 </td>
                             </tr>
 
@@ -561,14 +561,9 @@ import { Router } from &#x27;@angular/router&#x27;
 import { Subject } from &#x27;rxjs&#x27;
 import { takeUntil } from &#x27;rxjs/operators&#x27;
 
-import { routerTransition } from &#x27;../router.animations&#x27;
-import {
-  LOGIN_ERROR,
-  LoginApi,
-  LoginUserService,
-  REQUIRED_ERROR,
-  StorageService
-} from &#x27;../shared&#x27;
+import { routerTransition } from &#x27;../../router.animations&#x27;
+import { LoginApi, LoginUserService, StorageService } from &#x27;../../shared&#x27;
+import { LOGIN_ERROR, REQUIRED_ERROR } from &#x27;../auth-shared&#x27;
 
 @Component({
   selector: &#x27;app-login&#x27;,
@@ -820,7 +815,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><div class="login-page" [@routerTransition]>  <div class="row justify-content-md-center">    <div class="col-md-4">      <img        src="assets/images/login/logo.png"        width="150px"        class="user-avatar"      />      <h1>管理画面</h1>      <form [formGroup]="form" autocomplete="off">        <div class="form-content">          <div class="form-group">            <input              type="text"              class="form-control input-underline input-lg"              name="userId"              formControlName="userId"              placeholder="ユーザID"            />          </div>          <div class="form-group">            <input              type="password"              class="form-control input-underline input-lg"              name="password"              formControlName="password"              placeholder="パスワード"            />          </div>          <p *ngIf="errorMessage" class="text-danger">            <i class="fa fa-times-circle-o"></i>{{ errorMessage }}          </p>        </div>        <a class="btn rounded-btn" (click)="login()">ログイン</a>      </form>    </div>  </div></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BsComponentComponent', 'selector': 'app-bs-component'},{'name': 'CollapseButtonComponent', 'selector': 'app-collapse-button'},{'name': 'ConfirmComponent', 'selector': 'app-confirm'},{'name': 'CustomPaginationComponent', 'selector': 'app-custom-pagination'},{'name': 'DateInputComponent', 'selector': 'app-date-input'},{'name': 'DropdownPageLinesComponent', 'selector': 'app-dropdown-page-lines'},{'name': 'ErrorLabelComponent', 'selector': 'app-error-label'},{'name': 'FileUploadComponent', 'selector': 'app-file-upload'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InputDropdownComponent', 'selector': 'app-input-dropdown'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'PageHeaderComponent', 'selector': 'app-page-header'},{'name': 'PagesComponent', 'selector': 'app-pages'},{'name': 'QuestionTooltipComponent', 'selector': 'app-question-tooltip'},{'name': 'RequiredComponent', 'selector': 'app-required'},{'name': 'ReusableFormComponent', 'selector': 'app-reusable-form'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'UserDetailComponent', 'selector': 'app-user-detail'},{'name': 'UserListComponent', 'selector': 'app-user-list'}];
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BsComponentComponent', 'selector': 'app-bs-component'},{'name': 'CollapseButtonComponent', 'selector': 'app-collapse-button'},{'name': 'ConfirmComponent', 'selector': 'app-confirm'},{'name': 'CustomPaginationComponent', 'selector': 'app-custom-pagination'},{'name': 'DateInputComponent', 'selector': 'app-date-input'},{'name': 'DropdownPageLinesComponent', 'selector': 'app-dropdown-page-lines'},{'name': 'ErrorLabelComponent', 'selector': 'app-error-label'},{'name': 'FeaturesComponent', 'selector': 'app-features'},{'name': 'FileUploadComponent', 'selector': 'app-file-upload'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InputDropdownComponent', 'selector': 'app-input-dropdown'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'PageHeaderComponent', 'selector': 'app-page-header'},{'name': 'QuestionTooltipComponent', 'selector': 'app-question-tooltip'},{'name': 'RequiredComponent', 'selector': 'app-required'},{'name': 'ReusableFormComponent', 'selector': 'app-reusable-form'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'UserDetailComponent', 'selector': 'app-user-detail'},{'name': 'UserListComponent', 'selector': 'app-user-list'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'LoginComponent'};
 </script>

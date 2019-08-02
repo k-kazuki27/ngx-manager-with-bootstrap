@@ -34,7 +34,7 @@
 
 <ol class="breadcrumb">
     <li>Modules</li>
-    <li>PagesRoutingModule</li>
+    <li>FeaturesServiceModule</li>
 </ol>
 
 
@@ -54,7 +54,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/pages/pages-routing.module.ts</code>
+            <code>src/app/features/features-shared/services/features-service.module.ts</code>
         </p>
 
 
@@ -71,39 +71,12 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;
-import { RouterModule, Routes } from &#x27;@angular/router&#x27;
-
-import { PagesComponent } from &#x27;./pages.component&#x27;
-
-const routes: Routes &#x3D; [
-  {
-    path: &#x27;&#x27;,
-    component: PagesComponent,
-    children: [
-      {
-        path: &#x27;home&#x27;,
-        loadChildren: () &#x3D;&gt; &quot;import(&#x27;./home/home.module&#x27;).then(m &#x3D;&gt; m.HomeModule)&quot;
-      },
-      {
-        path: &#x27;user&#x27;,
-        loadChildren: () &#x3D;&gt; &quot;import(&#x27;./user/user.module&#x27;).then(m &#x3D;&gt; m.UserModule)&quot;
-      },
-      {
-        path: &#x27;bs-component&#x27;,
-        loadChildren: () &#x3D;&gt;
-          &quot;import(&#x27;./bs-component/bs-component.module&#x27;).then(\
-            m &#x3D;&gt; m.BsComponentModule\
-          )&quot;
-      }
-    ]
-  }
-]
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  declarations: [],
+  imports: []
 })
-export class PagesRoutingModule {}
+export class FeaturesServiceModule {}
 </code></pre>
     </div>
 </div>
@@ -139,7 +112,7 @@ export class PagesRoutingModule {}
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'module';
-            var COMPODOC_CURRENT_PAGE_URL = 'PagesRoutingModule.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'FeaturesServiceModule.html';
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

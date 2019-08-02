@@ -60,7 +60,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/shared/validators/user-validator.ts</code>
+            <code>src/app/features/user/user-shared/validators/user-validator.ts</code>
         </p>
 
 
@@ -131,8 +131,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="29"
-                            class="link-to-prism">src/app/shared/validators/user-validator.ts:29</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="28"
+                            class="link-to-prism">src/app/features/user/user-shared/validators/user-validator.ts:28</a></div>
                 </td>
             </tr>
 
@@ -203,8 +203,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="13"
-                            class="link-to-prism">src/app/shared/validators/user-validator.ts:13</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="12"
+                            class="link-to-prism">src/app/features/user/user-shared/validators/user-validator.ts:12</a></div>
                 </td>
             </tr>
 
@@ -269,8 +269,7 @@
 } from &#x27;@angular/forms&#x27;
 import { Observable } from &#x27;rxjs&#x27;
 import { map } from &#x27;rxjs/operators&#x27;
-
-import { UserApi, UsersDTO } from &#x27;../api-clients&#x27;
+import { UserApi, UsersDTO } from &#x27;src/app/shared&#x27;
 
 export class UserValidator {
   static uniqueUserId(userApi: UserApi): AsyncValidatorFn {

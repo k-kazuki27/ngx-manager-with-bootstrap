@@ -61,7 +61,7 @@
     <h3>File</h3>
 </p>
 <p class="comment">
-    <code>src/app/pages/bs-component/bs-component.component.ts</code>
+    <code>src/app/features/bs-component/bs-component.component.ts</code>
 </p>
 
 
@@ -186,7 +186,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">src/app/pages/bs-component/bs-component.component.ts:72</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">src/app/features/bs-component/bs-component.component.ts:72</a></div>
                             </td>
                         </tr>
 
@@ -256,7 +256,7 @@
             <tr>
                 <td class="col-md-4">
                     <div class="io-line">Defined in <a href="" data-line="76"
-                            class="link-to-prism">src/app/pages/bs-component/bs-component.component.ts:76</a></div>
+                            class="link-to-prism">src/app/features/bs-component/bs-component.component.ts:76</a></div>
                 </td>
             </tr>
 
@@ -298,7 +298,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/pages/bs-component/bs-component.component.ts:10</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/features/bs-component/bs-component.component.ts:10</a></div>
                             </td>
                         </tr>
 
@@ -334,7 +334,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/pages/bs-component/bs-component.component.ts:12</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/features/bs-component/bs-component.component.ts:12</a></div>
                             </td>
                         </tr>
 
@@ -362,7 +362,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/pages/bs-component/bs-component.component.ts:20</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/features/bs-component/bs-component.component.ts:20</a></div>
                             </td>
                         </tr>
 
@@ -394,7 +394,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/pages/bs-component/bs-component.component.ts:17</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/features/bs-component/bs-component.component.ts:17</a></div>
                             </td>
                         </tr>
 
@@ -426,7 +426,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/pages/bs-component/bs-component.component.ts:18</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/features/bs-component/bs-component.component.ts:18</a></div>
                             </td>
                         </tr>
 
@@ -509,7 +509,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/pages/bs-component/bs-component.component.ts:21</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/features/bs-component/bs-component.component.ts:21</a></div>
                             </td>
                         </tr>
 
@@ -748,7 +748,7 @@ export class BsComponentComponent implements OnInit {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><div class="card">  <div class="card-header">    ng-select  </div>  <div class="card-body">    <ng-select      class="form-control form-control-sm"      [items]="people"      [multiple]="true"      bindLabel="name"      groupBy="gender"      [selectableGroup]="true"      [closeOnSelect]="false"      bindValue="id"      [(ngModel)]="selectedPeople"    >      <ng-template        ng-optgroup-tmp        let-item="item"        let-item$="item$"        let-index="index"      >        <input          id="item-{{ index }}"          type="checkbox"          [ngModel]="item$.selected"        />        {{ item.gender | uppercase }}      </ng-template>      <ng-template        ng-option-tmp        let-item="item"        let-item$="item$"        let-index="index"      >        <input          id="item-{{ index }}"          type="checkbox"          [ngModel]="item$.selected"        />        {{ item.name }}      </ng-template>    </ng-select>  </div></div><div class="card m-t-lg">  <div class="card-header">    input-dropdown  </div>  <div class="card-body">    <app-input-dropdown      [parentForm]="form"      controlName="hoge"    ></app-input-dropdown>  </div></div><div class="card m-t-lg">  <div class="card-header">    tab-button  </div>  <div class="card-body">    <tabset type="pills">      <tab heading="Pills 1"></tab>      <tab heading="Pills 2"></tab>    </tabset>  </div></div><div class="card m-t-lg">  <div class="card-header">    typeahead  </div>  <div class="card-body">    <input      [(ngModel)]="selected"      [typeahead]="states"      [typeaheadOptionsInScrollableView]="5"      [typeaheadScrollable]="true"      class="form-control form-control-sm"    />  </div></div><div class="card m-t-lg">  <div class="card-header">    file-upload  </div>  <div class="card-body">    <app-file-upload></app-file-upload>  </div></div><form [formGroup]="form">  <div class="card m-t-lg">    <div class="card-header">      reusable-form    </div>    <div class="card-body">      <app-reusable-form formControlName="test"></app-reusable-form>    </div>  </div></form></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BsComponentComponent', 'selector': 'app-bs-component'},{'name': 'CollapseButtonComponent', 'selector': 'app-collapse-button'},{'name': 'ConfirmComponent', 'selector': 'app-confirm'},{'name': 'CustomPaginationComponent', 'selector': 'app-custom-pagination'},{'name': 'DateInputComponent', 'selector': 'app-date-input'},{'name': 'DropdownPageLinesComponent', 'selector': 'app-dropdown-page-lines'},{'name': 'ErrorLabelComponent', 'selector': 'app-error-label'},{'name': 'FileUploadComponent', 'selector': 'app-file-upload'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InputDropdownComponent', 'selector': 'app-input-dropdown'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'PageHeaderComponent', 'selector': 'app-page-header'},{'name': 'PagesComponent', 'selector': 'app-pages'},{'name': 'QuestionTooltipComponent', 'selector': 'app-question-tooltip'},{'name': 'RequiredComponent', 'selector': 'app-required'},{'name': 'ReusableFormComponent', 'selector': 'app-reusable-form'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'UserDetailComponent', 'selector': 'app-user-detail'},{'name': 'UserListComponent', 'selector': 'app-user-list'}];
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BsComponentComponent', 'selector': 'app-bs-component'},{'name': 'CollapseButtonComponent', 'selector': 'app-collapse-button'},{'name': 'ConfirmComponent', 'selector': 'app-confirm'},{'name': 'CustomPaginationComponent', 'selector': 'app-custom-pagination'},{'name': 'DateInputComponent', 'selector': 'app-date-input'},{'name': 'DropdownPageLinesComponent', 'selector': 'app-dropdown-page-lines'},{'name': 'ErrorLabelComponent', 'selector': 'app-error-label'},{'name': 'FeaturesComponent', 'selector': 'app-features'},{'name': 'FileUploadComponent', 'selector': 'app-file-upload'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InputDropdownComponent', 'selector': 'app-input-dropdown'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'PageHeaderComponent', 'selector': 'app-page-header'},{'name': 'QuestionTooltipComponent', 'selector': 'app-question-tooltip'},{'name': 'RequiredComponent', 'selector': 'app-required'},{'name': 'ReusableFormComponent', 'selector': 'app-reusable-form'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'UserDetailComponent', 'selector': 'app-user-detail'},{'name': 'UserListComponent', 'selector': 'app-user-list'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'BsComponentComponent'};
 </script>

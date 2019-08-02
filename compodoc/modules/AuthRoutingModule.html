@@ -34,7 +34,7 @@
 
 <ol class="breadcrumb">
     <li>Modules</li>
-    <li>UserResolverModule</li>
+    <li>AuthRoutingModule</li>
 </ol>
 
 
@@ -54,7 +54,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/pages/user/services/user-resolver.module.ts</code>
+            <code>src/app/auth/auth-routing.module.ts</code>
         </p>
 
 
@@ -71,12 +71,20 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;
+import { RouterModule, Routes } from &#x27;@angular/router&#x27;
+
+import { LoginComponent } from &#x27;./login/login.component&#x27;
+
+const routes: Routes &#x3D; [
+  { path: &#x27;login&#x27;, component: LoginComponent },
+  { path: &#x27;**&#x27;, redirectTo: &#x27;login&#x27; }
+]
 
 @NgModule({
-  declarations: [],
-  imports: []
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
 })
-export class UserResolverModule {}
+export class AuthRoutingModule {}
 </code></pre>
     </div>
 </div>
@@ -112,7 +120,7 @@ export class UserResolverModule {}
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'module';
-            var COMPODOC_CURRENT_PAGE_URL = 'UserResolverModule.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'AuthRoutingModule.html';
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

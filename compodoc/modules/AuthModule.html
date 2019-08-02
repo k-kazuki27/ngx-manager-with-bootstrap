@@ -34,7 +34,7 @@
 
 <ol class="breadcrumb">
     <li>Modules</li>
-    <li>LoginModule</li>
+    <li>AuthModule</li>
 </ol>
 
 <div class="text-center module-graph-container">
@@ -62,46 +62,46 @@
 <polygon fill="#fb8072" stroke="transparent" points="406,-10 406,-30 426,-30 426,-10 406,-10"/>
 <text text-anchor="start" x="429.7258" y="-15.4" font-family="sans-serif" font-size="14.00" fill="#000000"> &#160;Exports</text>
 <g id="clust1" class="cluster">
-<title>cluster_LoginModule</title>
-<polygon fill="none" stroke="#000000" stroke-dasharray="1,5" points="94,-70 94,-195 402,-195 402,-70 94,-70"/>
+<title>cluster_AuthModule</title>
+<polygon fill="none" stroke="#000000" stroke-dasharray="1,5" points="97,-70 97,-195 399,-195 399,-70 97,-70"/>
 </g>
 <g id="clust2" class="cluster">
-<title>cluster_LoginModule_declarations</title>
-<polygon fill="none" stroke="#000000" points="264,-78 264,-130 394,-130 394,-78 264,-78"/>
+<title>cluster_AuthModule_declarations</title>
+<polygon fill="none" stroke="#000000" points="261,-78 261,-130 391,-130 391,-78 261,-78"/>
 </g>
 <g id="clust4" class="cluster">
-<title>cluster_LoginModule_imports</title>
-<polygon fill="none" stroke="#000000" points="102,-78 102,-130 256,-130 256,-78 102,-78"/>
+<title>cluster_AuthModule_imports</title>
+<polygon fill="none" stroke="#000000" points="105,-78 105,-130 253,-130 253,-78 105,-78"/>
 </g>
 <!-- LoginComponent -->
 <g id="node1" class="node">
 <title>LoginComponent</title>
-<polygon fill="#ffffb3" stroke="#000000" points="386.2758,-122 271.7242,-122 271.7242,-86 386.2758,-86 386.2758,-122"/>
-<text text-anchor="middle" x="329" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">LoginComponent</text>
+<polygon fill="#ffffb3" stroke="#000000" points="383.2758,-122 268.7242,-122 268.7242,-86 383.2758,-86 383.2758,-122"/>
+<text text-anchor="middle" x="326" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">LoginComponent</text>
 </g>
-<!-- LoginModule -->
+<!-- AuthModule -->
 <g id="node2" class="node">
-<title>LoginModule</title>
-<polygon fill="#8dd3c7" stroke="#000000" points="300.493,-187 297.493,-191 276.493,-191 273.493,-187 207.507,-187 207.507,-151 300.493,-151 300.493,-187"/>
-<text text-anchor="middle" x="254" y="-164.8" font-family="Times,serif" font-size="14.00" fill="#000000">LoginModule</text>
+<title>AuthModule</title>
+<polygon fill="#8dd3c7" stroke="#000000" points="295.5482,-187 292.5482,-191 271.5482,-191 268.5482,-187 208.4518,-187 208.4518,-151 295.5482,-151 295.5482,-187"/>
+<text text-anchor="middle" x="252" y="-164.8" font-family="Times,serif" font-size="14.00" fill="#000000">AuthModule</text>
 </g>
-<!-- LoginComponent&#45;&gt;LoginModule -->
+<!-- LoginComponent&#45;&gt;AuthModule -->
 <g id="edge1" class="edge">
-<title>LoginComponent&#45;&gt;LoginModule</title>
-<path fill="none" stroke="#000000" d="M286.0544,-122.1061C286.0544,-122.1061 286.0544,-140.991 286.0544,-140.991"/>
-<polygon fill="#000000" stroke="#000000" points="282.5544,-140.9909 286.0544,-150.991 289.5544,-140.991 282.5544,-140.9909"/>
+<title>LoginComponent&#45;&gt;AuthModule</title>
+<path fill="none" stroke="#000000" d="M282.1929,-122.1061C282.1929,-122.1061 282.1929,-140.991 282.1929,-140.991"/>
+<polygon fill="#000000" stroke="#000000" points="278.6929,-140.9909 282.1929,-150.991 285.6929,-140.991 278.6929,-140.9909"/>
 </g>
-<!-- LoginRoutingModule -->
+<!-- AuthRoutingModule -->
 <g id="node3" class="node">
-<title>LoginRoutingModule</title>
-<polygon fill="#8dd3c7" stroke="#000000" points="248.1108,-122 245.1108,-126 224.1108,-126 221.1108,-122 109.8892,-122 109.8892,-86 248.1108,-86 248.1108,-122"/>
-<text text-anchor="middle" x="179" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">LoginRoutingModule</text>
+<title>AuthRoutingModule</title>
+<polygon fill="#8dd3c7" stroke="#000000" points="245.1652,-122 242.1652,-126 221.1652,-126 218.1652,-122 112.8348,-122 112.8348,-86 245.1652,-86 245.1652,-122"/>
+<text text-anchor="middle" x="179" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">AuthRoutingModule</text>
 </g>
-<!-- LoginRoutingModule&#45;&gt;LoginModule -->
+<!-- AuthRoutingModule&#45;&gt;AuthModule -->
 <g id="edge2" class="edge">
-<title>LoginRoutingModule&#45;&gt;LoginModule</title>
-<path fill="none" stroke="#000000" d="M227.7795,-122.1061C227.7795,-122.1061 227.7795,-140.991 227.7795,-140.991"/>
-<polygon fill="#000000" stroke="#000000" points="224.2795,-140.9909 227.7795,-150.991 231.2795,-140.991 224.2795,-140.9909"/>
+<title>AuthRoutingModule&#45;&gt;AuthModule</title>
+<path fill="none" stroke="#000000" d="M226.7795,-122.1061C226.7795,-122.1061 226.7795,-140.991 226.7795,-140.991"/>
+<polygon fill="#000000" stroke="#000000" points="223.2795,-140.9909 226.7795,-150.991 230.2795,-140.991 223.2795,-140.9909"/>
 </g>
 </g>
 </svg>
@@ -133,7 +133,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/login/login.module.ts</code>
+            <code>src/app/auth/auth.module.ts</code>
         </p>
 
 
@@ -155,7 +155,7 @@
                                 class="icon ion-ios-information-circle-outline"></a></h3>
                     <ul class="list-group">
                         <li class="list-group-item">
-                            <a href="../modules/LoginRoutingModule.html">LoginRoutingModule</a>
+                            <a href="../modules/AuthRoutingModule.html">AuthRoutingModule</a>
                         </li>
                     </ul>
                 </div>
@@ -171,14 +171,14 @@
 import { NgModule } from &#x27;@angular/core&#x27;
 import { ReactiveFormsModule } from &#x27;@angular/forms&#x27;
 
-import { LoginRoutingModule } from &#x27;./login-routing.module&#x27;
-import { LoginComponent } from &#x27;./login.component&#x27;
+import { AuthRoutingModule } from &#x27;./auth-routing.module&#x27;
+import { LoginComponent } from &#x27;./login/login.component&#x27;
 
 @NgModule({
-  imports: [CommonModule, LoginRoutingModule, ReactiveFormsModule],
-  declarations: [LoginComponent]
+  declarations: [LoginComponent],
+  imports: [CommonModule, AuthRoutingModule, ReactiveFormsModule]
 })
-export class LoginModule {}
+export class AuthModule {}
 </code></pre>
     </div>
 </div>
@@ -214,7 +214,7 @@ export class LoginModule {}
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'module';
-            var COMPODOC_CURRENT_PAGE_URL = 'LoginModule.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'AuthModule.html';
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

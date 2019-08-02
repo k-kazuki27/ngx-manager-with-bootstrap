@@ -56,7 +56,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/pages/user/services/user.service.ts</code>
+            <code>src/app/features/user/user-shared/services/user.service.ts</code>
         </p>
 
 
@@ -137,7 +137,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/pages/user/services/user.service.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/features/user/user-shared/services/user.service.ts:12</a></div>
                             </td>
                         </tr>
 
@@ -203,7 +203,7 @@
             <tr>
                 <td class="col-md-4">
                     <div class="io-line">Defined in <a href="" data-line="30"
-                            class="link-to-prism">src/app/pages/user/services/user.service.ts:30</a></div>
+                            class="link-to-prism">src/app/features/user/user-shared/services/user.service.ts:30</a></div>
                 </td>
             </tr>
 
@@ -289,7 +289,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/pages/user/services/user.service.ts:11</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/features/user/user-shared/services/user.service.ts:11</a></div>
                             </td>
                         </tr>
 
@@ -317,7 +317,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/pages/user/services/user.service.ts:12</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/features/user/user-shared/services/user.service.ts:12</a></div>
                             </td>
                         </tr>
 
@@ -346,7 +346,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/pages/user/services/user.service.ts:16</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/features/user/user-shared/services/user.service.ts:16</a></div>
                                 </td>
                             </tr>
 
@@ -368,7 +368,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/pages/user/services/user.service.ts:23</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/features/user/user-shared/services/user.service.ts:23</a></div>
                                 </td>
                             </tr>
 
@@ -383,10 +383,10 @@
 import { FormGroup } from &#x27;@angular/forms&#x27;
 import { Page, RouteHistoryService } from &#x27;src/app/shared&#x27;
 
-import { UserResolverModule } from &#x27;./user-resolver.module&#x27;
+import { UserServiceModule } from &#x27;./user-service.module&#x27;
 
 @Injectable({
-  providedIn: UserResolverModule
+  providedIn: UserServiceModule
 })
 export class UserService {
   private form!: FormGroup

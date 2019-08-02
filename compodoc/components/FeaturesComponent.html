@@ -35,7 +35,7 @@
 
 <ol class="breadcrumb">
   <li>Components</li>
-  <li>PagesComponent</li>
+  <li>FeaturesComponent</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -61,7 +61,7 @@
     <h3>File</h3>
 </p>
 <p class="comment">
-    <code>src/app/pages/pages.component.ts</code>
+    <code>src/app/features/features.component.ts</code>
 </p>
 
 
@@ -92,19 +92,19 @@
 
             <tr>
                 <td class="col-md-3">selector</td>
-                <td class="col-md-9"><code>app-pages</code></td>
+                <td class="col-md-9"><code>app-features</code></td>
             </tr>
 
             <tr>
                 <td class="col-md-3">styleUrls</td>
-                <td class="col-md-9"><code>./pages.component.scss</code></td>
+                <td class="col-md-9"><code>./features.component.scss</code></td>
             </tr>
 
 
 
             <tr>
                 <td class="col-md-3">templateUrl</td>
-                <td class="col-md-9"><code>./pages.component.html</code></td>
+                <td class="col-md-9"><code>./features.component.html</code></td>
             </tr>
 
 
@@ -178,7 +178,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/pages/pages.component.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/features/features.component.ts:18</a></div>
                             </td>
                         </tr>
 
@@ -284,7 +284,7 @@
             <tr>
                 <td class="col-md-4">
                     <div class="io-line">Defined in <a href="" data-line="47"
-                            class="link-to-prism">src/app/pages/pages.component.ts:47</a></div>
+                            class="link-to-prism">src/app/features/features.component.ts:47</a></div>
                 </td>
             </tr>
 
@@ -323,7 +323,7 @@
             <tr>
                 <td class="col-md-4">
                     <div class="io-line">Defined in <a href="" data-line="27"
-                            class="link-to-prism">src/app/pages/pages.component.ts:27</a></div>
+                            class="link-to-prism">src/app/features/features.component.ts:27</a></div>
                 </td>
             </tr>
 
@@ -365,7 +365,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/pages/pages.component.ts:16</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/features/features.component.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -392,7 +392,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/pages/pages.component.ts:18</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/features/features.component.ts:18</a></div>
                             </td>
                         </tr>
 
@@ -412,14 +412,14 @@ import { takeUntil } from &#x27;rxjs/operators&#x27;
 import { LoginUserService } from &#x27;src/app/shared&#x27;
 
 import { LoginApi } from &#x27;../shared&#x27;
-import { PagesService } from &#x27;./services/pages.service&#x27;
+import { PagesService } from &#x27;./features-shared/services/features.service&#x27;
 
 @Component({
-  selector: &#x27;app-pages&#x27;,
-  templateUrl: &#x27;./pages.component.html&#x27;,
-  styleUrls: [&#x27;./pages.component.scss&#x27;]
+  selector: &#x27;app-features&#x27;,
+  templateUrl: &#x27;./features.component.html&#x27;,
+  styleUrls: [&#x27;./features.component.scss&#x27;]
 })
-export class PagesComponent implements OnInit, OnDestroy {
+export class FeaturesComponent implements OnInit, OnDestroy {
   collapedSideBar!: boolean
 
   private onDestroy$ &#x3D; new Subject()
@@ -469,7 +469,7 @@ export class PagesComponent implements OnInit, OnDestroy {
 
     <div class="tab-pane fade " id="c-styleData">
                 <p class="comment">
-                    <code>./pages.component.scss</code>
+                    <code>./features.component.scss</code>
                 </p>
                 <pre class="line-numbers"><code class="language-scss">@import &#x27;~src/styles/variables&#x27;;
 
@@ -531,9 +531,9 @@ $collapsed-sidebar-width: 50px !default;
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><app-header></app-header><app-sidebar></app-sidebar><section class="main-container" [ngClass]="{ collapsed: collapedSideBar }">  <router-outlet></router-outlet></section></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BsComponentComponent', 'selector': 'app-bs-component'},{'name': 'CollapseButtonComponent', 'selector': 'app-collapse-button'},{'name': 'ConfirmComponent', 'selector': 'app-confirm'},{'name': 'CustomPaginationComponent', 'selector': 'app-custom-pagination'},{'name': 'DateInputComponent', 'selector': 'app-date-input'},{'name': 'DropdownPageLinesComponent', 'selector': 'app-dropdown-page-lines'},{'name': 'ErrorLabelComponent', 'selector': 'app-error-label'},{'name': 'FileUploadComponent', 'selector': 'app-file-upload'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InputDropdownComponent', 'selector': 'app-input-dropdown'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'PageHeaderComponent', 'selector': 'app-page-header'},{'name': 'PagesComponent', 'selector': 'app-pages'},{'name': 'QuestionTooltipComponent', 'selector': 'app-question-tooltip'},{'name': 'RequiredComponent', 'selector': 'app-required'},{'name': 'ReusableFormComponent', 'selector': 'app-reusable-form'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'UserDetailComponent', 'selector': 'app-user-detail'},{'name': 'UserListComponent', 'selector': 'app-user-list'}];
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BsComponentComponent', 'selector': 'app-bs-component'},{'name': 'CollapseButtonComponent', 'selector': 'app-collapse-button'},{'name': 'ConfirmComponent', 'selector': 'app-confirm'},{'name': 'CustomPaginationComponent', 'selector': 'app-custom-pagination'},{'name': 'DateInputComponent', 'selector': 'app-date-input'},{'name': 'DropdownPageLinesComponent', 'selector': 'app-dropdown-page-lines'},{'name': 'ErrorLabelComponent', 'selector': 'app-error-label'},{'name': 'FeaturesComponent', 'selector': 'app-features'},{'name': 'FileUploadComponent', 'selector': 'app-file-upload'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InputDropdownComponent', 'selector': 'app-input-dropdown'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'PageHeaderComponent', 'selector': 'app-page-header'},{'name': 'QuestionTooltipComponent', 'selector': 'app-question-tooltip'},{'name': 'RequiredComponent', 'selector': 'app-required'},{'name': 'ReusableFormComponent', 'selector': 'app-reusable-form'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'UserDetailComponent', 'selector': 'app-user-detail'},{'name': 'UserListComponent', 'selector': 'app-user-list'}];
     var DIRECTIVES = [];
-    var ACTUAL_COMPONENT = {'name': 'PagesComponent'};
+    var ACTUAL_COMPONENT = {'name': 'FeaturesComponent'};
 </script>
 <script src="../js/tree.js"></script>
 
@@ -568,7 +568,7 @@ $collapsed-sidebar-width: 50px !default;
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
-            var COMPODOC_CURRENT_PAGE_URL = 'PagesComponent.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'FeaturesComponent.html';
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>
