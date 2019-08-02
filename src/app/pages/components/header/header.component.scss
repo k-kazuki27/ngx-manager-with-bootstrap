@@ -10,6 +10,7 @@ $header-height: 56px !default;
   .navbar {
     height: $header-height;
     background-color: $header-background-color;
+
     .navbar-brand {
       color: $header-title-font-color;
       display: flex;
@@ -17,17 +18,21 @@ $header-height: 56px !default;
       margin-right: 0;
       min-width: 219px;
     }
+
     .navbar-toggler {
       &:focus {
         outline: 0;
       }
+
       &:hover {
         box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.5);
       }
     }
+
     .nav-item {
       > a {
         color: $header-link-font-color;
+
         &:hover {
           color: #fff;
         }
@@ -38,6 +43,6 @@ $header-height: 56px !default;
 
 @media screen and (max-width: 992px) {
   nav {
-    padding: 0px 10px;
+    padding: 0 10px;
   }
 }

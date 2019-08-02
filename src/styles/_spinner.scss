@@ -5,6 +5,7 @@
   transform: translate(-50%, -50%);
   width: 70px;
   height: 70px;
+
   > div {
     width: 18px;
     height: 18px;
@@ -13,6 +14,7 @@
     display: inline-block;
     animation: sk-bouncedelay 1.4s infinite ease-in-out both;
   }
+
   .bounce1 {
     animation-delay: -0.32s;
   }
@@ -28,6 +30,7 @@
   100% {
     transform: scale(0);
   }
+
   40% {
     transform: scale(1);
   }

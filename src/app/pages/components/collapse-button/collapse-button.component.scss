@@ -1,5 +1,5 @@
 .collapse-button {
-  padding: 5px 10px 5px 0px;
+  padding: 5px 10px 5px 0;
   text-align: right;
 
   .menu-arrow {
@@ -20,22 +20,27 @@
       display: inline-block;
       transition: all 0.4s;
       box-sizing: border-box;
+
       &:nth-of-type(1) {
         top: 0;
       }
+
       &:nth-of-type(2) {
         top: 9px;
       }
+
       &:nth-of-type(3) {
         bottom: 0;
       }
     }
+
     &:hover {
       span {
         &:nth-of-type(1) {
           width: 20px;
           transform: translate(-4px, 2px) rotate(-45deg);
         }
+
         &:nth-of-type(3) {
           width: 20px;
           transform: translate(-4px, -2px) rotate(45deg);
@@ -51,6 +56,7 @@
           width: 20px;
           transform: translate(4px, 2px) rotate(45deg);
         }
+
         &:nth-of-type(3) {
           width: 20px;
           transform: translate(4px, -2px) rotate(-45deg);

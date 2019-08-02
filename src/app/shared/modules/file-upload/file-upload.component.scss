@@ -6,6 +6,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   span {
     font-size: 14px;
     color: #707070;
@@ -26,19 +27,26 @@
   font-weight: 400;
   border: 1px solid #6c757d;
   user-select: none;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition:
+    color 0.15s ease-in-out,
+    background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+
   &:hover {
     color: #fff;
     background-color: #6c757d;
     border-color: #6c757d;
   }
+
   label {
     margin: 0;
   }
+
   #fileInput {
     display: none;
   }
+
   .file-preview {
     max-width: 200px;
     margin-right: 20px;
@@ -48,12 +56,14 @@
 .file-image {
   display: flex;
   justify-content: flex-start;
+
   label {
     height: calc(1.5em + 0.5rem + 2px);
     padding: 0.25rem 0.5rem;
     font-size: 0.875rem;
     line-height: 1.5;
   }
+
   button {
     height: calc(1.5em + 0.5rem + 2px);
   }

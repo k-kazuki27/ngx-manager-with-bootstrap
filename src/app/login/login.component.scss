@@ -1,7 +1,9 @@
 $topnav-background-color: #222;
+
 :host {
   display: block;
 }
+
 .login-page {
   position: absolute;
   top: 0;
@@ -13,9 +15,11 @@ $topnav-background-color: #222;
   text-align: center;
   color: #fff;
   padding: 3em;
+
   .col-lg-4 {
     padding: 0;
   }
+
   .input-lg {
     height: 46px;
     padding: 10px 16px;
@@ -23,6 +27,7 @@ $topnav-background-color: #222;
     line-height: 1.3333333;
     border-radius: 0;
   }
+
   .input-underline {
     background: 0 0;
     border: none;
@@ -31,10 +36,12 @@ $topnav-background-color: #222;
     color: #fff;
     border-radius: 0;
   }
+
   .input-underline:focus {
     border-bottom: 2px solid #fff;
     box-shadow: none;
   }
+
   .rounded-btn {
     -webkit-border-radius: 50px;
     border-radius: 50px;
@@ -46,6 +53,7 @@ $topnav-background-color: #222;
     padding: 0 25px;
     width: 100%;
   }
+
   .rounded-btn:hover,
   .rounded-btn:focus,
   .rounded-btn:active,
@@ -60,6 +68,7 @@ $topnav-background-color: #222;
     margin-top: 20px;
     margin-bottom: 10px;
     font-size: 36px;
+
     small {
       color: rgba(255, 255, 255, 0.7);
     }
@@ -67,6 +76,7 @@ $topnav-background-color: #222;
 
   .form-group {
     padding: 8px 0;
+
     input::-webkit-input-placeholder {
       color: rgba(255, 255, 255, 0.6) !important;
     }
@@ -76,18 +86,15 @@ $topnav-background-color: #222;
       color: rgba(255, 255, 255, 0.6) !important;
     }
 
-    input::-moz-placeholder {
-      /* Firefox 19+ */
-      color: rgba(255, 255, 255, 0.6) !important;
-    }
-
     input:-ms-input-placeholder {
       color: rgba(255, 255, 255, 0.6) !important;
     }
   }
+
   .form-content {
     padding: 40px 0;
   }
+
   .user-avatar {
     -webkit-border-radius: 50%;
     border-radius: 50%;

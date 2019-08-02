@@ -23,20 +23,25 @@ $positions: (('t', 'top'), ('r', 'right'), ('b', 'bottom'), ('l', 'left'));
 @each $size in $sizes {
   $sizeKey: nth($size, 1);
   $sizeValue: nth($size, 2);
+
   .#{$marginKey}#{$separator}#{$sizeKey} {
-    margin: sizeValue($sizeKey, $sizeValue);
+    margin: sizevalue($sizeKey, $sizeValue);
   }
+
   .#{$paddingKey}#{$separator}#{$sizeKey} {
-    padding: sizeValue($sizeKey, $sizeValue);
+    padding: sizevalue($sizeKey, $sizeValue);
   }
+
   @each $position in $positions {
     $posKey: nth($position, 1);
     $posValue: nth($position, 2);
+
     .#{$marginKey}#{$separator}#{$posKey}#{$separator}#{$sizeKey} {
-      margin-#{$posValue}: sizeValue($sizeKey, $sizeValue);
+      margin-#{$posValue}: sizevalue($sizeKey, $sizeValue);
     }
+
     .#{$paddingKey}#{$separator}#{$posKey}#{$separator}#{$sizeKey} {
-      padding-#{$posValue}: sizeValue($sizeKey, $sizeValue);
+      padding-#{$posValue}: sizevalue($sizeKey, $sizeValue);
     }
   }
 }
