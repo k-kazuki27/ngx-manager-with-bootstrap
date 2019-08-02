@@ -13,7 +13,7 @@ import {
   UserApi,
   UserDTO
 } from 'src/app/shared'
-import { UserValidator } from '../user-shared';
+import { UserValidator } from '../user-shared'
 
 @Component({
   selector: 'app-user-detail',
