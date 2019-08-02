@@ -5,9 +5,49 @@
     <title>管理画面</title>
     <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="assets/images/icons/favicon.ico"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="assets/images/icons/icon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="assets/images/icons/icon-194x194.png"
+      sizes="194x194"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="assets/images/icons/icon-96x96.png"
+      sizes="96x96"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="assets/images/icons/icon-16x16.png"
+      sizes="16x16"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="assets/images/icons/icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon-precomposed"
+      sizes="144x144"
+      href="assets/images/favicons/icon-144x144.png"
+    />
     <link rel="manifest" href="manifest.webmanifest" />
     <meta name="theme-color" content="#1976d2" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="translucent" />
     <!-- Google Tag Manager -->
     <script>
       ;(function(w, d, s, l, i) {
@@ -25,6 +65,40 @@
       })(window, document, 'script', 'dataLayer', 'GTM-T95F8B8')
     </script>
     <!-- End Google Tag Manager -->
+    <script>
+      // Report fatal errors to Google Analytics
+      window.onerror = function() {
+        ga('send', 'exception', {
+          exDescription: formatError.apply(null, arguments),
+          exFatal: true
+        })
+
+        function formatError(msg, url, line, col, e) {
+          var stack
+          msg = msg.replace(/^Error: /, '')
+          if (e) {
+            stack = e.stack
+              // strip the leading "Error: " from the stack trace
+              .replace(/^Error: /, '')
+              // strip the message from the stack trace, if present
+              .replace(msg + '\n', '')
+              // strip leading spaces
+              .replace(/^ +/gm, '')
+              // strip all leading "at " for each frame
+              .replace(/^at /gm, '')
+              // replace long urls with just the last segment: `filename:line:column`
+              .replace(/(?: \(|@)http.+\/([^/)]+)\)?(?:\n|$)/gm, '@$1\n')
+              // replace "eval code" in Edge
+              .replace(/ *\(eval code(:\d+:\d+)\)(?:\n|$)/gm, '@???$1\n')
+          } else {
+            line = line || '?'
+            col = col || '?'
+            stack = url + ':' + line + ':' + col
+          }
+          return (msg + '\n' + stack).substr(0, 150)
+        }
+      }
+    </script>
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
