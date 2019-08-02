@@ -4,9 +4,45 @@
     <meta charset="utf-8" />
     <title>管理画面</title>
     <base href="/ngx-manager-with-bootstrap/">    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="assets/icons/icon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="assets/icons/icon-194x194.png"
+      sizes="194x194"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="assets/icons/icon-96x96.png"
+      sizes="96x96"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="assets/icons/icon-16x16.png"
+      sizes="16x16"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="assets/icons/icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon-precomposed"
+      sizes="144x144"
+      href="assets/favicons/icon-144x144.png"
+    />
     <link rel="manifest" href="manifest.webmanifest" />
     <meta name="theme-color" content="#1976d2" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="translucent" />
     <!-- Google Tag Manager -->
     <script>
       ;(function(w, d, s, l, i) {
@@ -24,6 +60,40 @@
       })(window, document, 'script', 'dataLayer', 'GTM-T95F8B8')
     </script>
     <!-- End Google Tag Manager -->
+    <script>
+      // Report fatal errors to Google Analytics
+      window.onerror = function() {
+        ga('send', 'exception', {
+          exDescription: formatError.apply(null, arguments),
+          exFatal: true
+        })
+
+        function formatError(msg, url, line, col, e) {
+          var stack
+          msg = msg.replace(/^Error: /, '')
+          if (e) {
+            stack = e.stack
+              // strip the leading "Error: " from the stack trace
+              .replace(/^Error: /, '')
+              // strip the message from the stack trace, if present
+              .replace(msg + '\n', '')
+              // strip leading spaces
+              .replace(/^ +/gm, '')
+              // strip all leading "at " for each frame
+              .replace(/^at /gm, '')
+              // replace long urls with just the last segment: `filename:line:column`
+              .replace(/(?: \(|@)http.+\/([^/)]+)\)?(?:\n|$)/gm, '@$1\n')
+              // replace "eval code" in Edge
+              .replace(/ *\(eval code(:\d+:\d+)\)(?:\n|$)/gm, '@???$1\n')
+          } else {
+            line = line || '?'
+            col = col || '?'
+            stack = url + ':' + line + ':' + col
+          }
+          return (msg + '\n' + stack).substr(0, 150)
+        }
+      }
+    </script>
   <link rel="stylesheet" href="styles.84f8995c1b465f7c47a3.css"></head>
   <body>
     <!-- Google Tag Manager (noscript) -->
@@ -50,5 +120,5 @@
       @import '//fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap';
       @import '//fonts.googleapis.com/css?family=Droid+Sans+Mono&display=swap';
     </style>
-  <script src="polyfills-nomodule-es5.b79bfebc521ac1ea1602.js" nomodule></script><script src="runtime-es2015.8e3c96811349307b461e.js" type="module"></script><script src="polyfills-es2015.c332a6bd448691e8cdf6.js" type="module"></script><script src="runtime-es5.f958a00ee07483076fa6.js" nomodule></script><script src="polyfills-es5.412d7cb247bdd997a077.js" nomodule></script><script src="vendor-es2015.78387a00a3bbc535635d.js" type="module"></script><script src="main-es2015.492f0aa15a5e4794f27e.js" type="module"></script><script src="vendor-es5.75c0eabd63a70e015005.js" nomodule></script><script src="main-es5.e83ec60870323c531246.js" nomodule></script></body>
+  <script src="polyfills-nomodule-es5.b79bfebc521ac1ea1602.js" nomodule></script><script src="runtime-es2015.8e3c96811349307b461e.js" type="module"></script><script src="polyfills-es2015.c332a6bd448691e8cdf6.js" type="module"></script><script src="runtime-es5.f958a00ee07483076fa6.js" nomodule></script><script src="polyfills-es5.412d7cb247bdd997a077.js" nomodule></script><script src="vendor-es2015.78387a00a3bbc535635d.js" type="module"></script><script src="main-es2015.492f0aa15a5e4794f27e.js" type="module"></script><script src="vendor-es5.75c0eabd63a70e015005.js" nomodule></script><script src="main-es5.3f562d0597a4597cf19c.js" nomodule></script></body>
 </html>
