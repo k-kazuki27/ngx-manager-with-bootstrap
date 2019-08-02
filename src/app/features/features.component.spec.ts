@@ -3,20 +3,22 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing'
 import { RouterTestingModule } from '@angular/router/testing'
 import { BsDropdownModule } from 'ngx-bootstrap'
 
-import { CollapseButtonComponent } from './components/collapse-button/collapse-button.component'
-import { HeaderComponent } from './components/header/header.component'
-import { SidebarComponent } from './components/sidebar/sidebar.component'
-import { PagesComponent } from './pages.component'
-import { PagesResolverModule } from './services/pages-resolver.module'
+import {
+  CollapseButtonComponent,
+  FeaturesServiceModule,
+  HeaderComponent,
+  SidebarComponent
+} from './features-shared'
+import { FeaturesComponent } from './features.component'
 
 describe('PagesComponent', () => {
-  let component: PagesComponent
-  let fixture: ComponentFixture<PagesComponent>
+  let component: FeaturesComponent
+  let fixture: ComponentFixture<FeaturesComponent>
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        PagesComponent,
+        FeaturesComponent,
         HeaderComponent,
         SidebarComponent,
         CollapseButtonComponent
@@ -24,14 +26,14 @@ describe('PagesComponent', () => {
       imports: [
         HttpClientModule,
         RouterTestingModule,
-        PagesResolverModule,
+        FeaturesServiceModule,
         BsDropdownModule.forRoot()
       ]
     }).compileComponents()
   }))
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PagesComponent)
+    fixture = TestBed.createComponent(FeaturesComponent)
     component = fixture.componentInstance
     fixture.detectChanges()
   })

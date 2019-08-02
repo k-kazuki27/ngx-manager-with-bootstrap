@@ -5,14 +5,14 @@ import { takeUntil } from 'rxjs/operators'
 import { LoginUserService } from 'src/app/shared'
 
 import { LoginApi } from '../shared'
-import { PagesService } from './services/pages.service'
+import { PagesService } from './features-shared/services/features.service'
 
 @Component({
-  selector: 'app-pages',
-  templateUrl: './pages.component.html',
-  styleUrls: ['./pages.component.scss']
+  selector: 'app-features',
+  templateUrl: './features.component.html',
+  styleUrls: ['./features.component.scss']
 })
-export class PagesComponent implements OnInit, OnDestroy {
+export class FeaturesComponent implements OnInit, OnDestroy {
   collapedSideBar!: boolean
 
   private onDestroy$ = new Subject()

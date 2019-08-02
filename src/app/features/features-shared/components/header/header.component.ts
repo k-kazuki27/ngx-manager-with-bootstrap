@@ -4,7 +4,7 @@ import { Subject } from 'rxjs'
 import { takeUntil } from 'rxjs/operators'
 import { LoginUserService, UserDTO } from 'src/app/shared'
 
-import { PagesService } from '../../services/pages.service'
+import { PagesService } from '../../services/features.service'
 
 @Component({
   selector: 'app-header',

@@ -6,7 +6,8 @@ import { AuthGuard } from './shared'
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule),
+    loadChildren: () =>
+      import('./features/features.module').then(m => m.FeaturesModule),
     canActivate: [AuthGuard]
   },
   {

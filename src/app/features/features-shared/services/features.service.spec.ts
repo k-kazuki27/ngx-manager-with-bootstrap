@@ -1,13 +1,13 @@
+import { Type } from '@angular/core'
 import { TestBed } from '@angular/core/testing'
 
-import { PagesResolverModule } from './pages-resolver.module'
-import { PagesService } from './pages.service'
-import { Type } from '@angular/core'
+import { FeaturesServiceModule } from './features-service.module'
+import { PagesService } from './features.service'
 
 describe('PagesService', () => {
   beforeEach(() =>
     TestBed.configureTestingModule({
-      imports: [PagesResolverModule]
+      imports: [FeaturesServiceModule]
     })
   )
 

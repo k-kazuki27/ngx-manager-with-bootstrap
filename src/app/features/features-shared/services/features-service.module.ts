@@ -4,4 +4,4 @@ import { NgModule } from '@angular/core'
   declarations: [],
   imports: []
 })
-export class PagesResolverModule {}
+export class FeaturesServiceModule {}

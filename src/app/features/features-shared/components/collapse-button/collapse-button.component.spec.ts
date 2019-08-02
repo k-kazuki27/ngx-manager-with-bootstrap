@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing'
 
-import { PagesResolverModule } from '../../services/pages-resolver.module'
+import { FeaturesServiceModule } from '../../services/features-service.module'
 import { CollapseButtonComponent } from './collapse-button.component'
 
 describe('CollapseButtonComponent', () => {
@@ -10,7 +10,7 @@ describe('CollapseButtonComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [CollapseButtonComponent],
-      imports: [PagesResolverModule]
+      imports: [FeaturesServiceModule]
     }).compileComponents()
   }))
 

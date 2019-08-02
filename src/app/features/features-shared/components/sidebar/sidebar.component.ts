@@ -3,7 +3,7 @@ import { NavigationEnd, Router } from '@angular/router'
 import { Subject } from 'rxjs'
 import { takeUntil } from 'rxjs/operators'
 
-import { PagesService } from '../../services/pages.service'
+import { PagesService } from '../../services/features.service'
 
 @Component({
   selector: 'app-sidebar',

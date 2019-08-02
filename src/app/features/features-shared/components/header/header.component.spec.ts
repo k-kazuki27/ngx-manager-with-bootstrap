@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing'
 import { RouterTestingModule } from '@angular/router/testing'
 import { BsDropdownModule } from 'ngx-bootstrap'
 
-import { PagesResolverModule } from '../../services/pages-resolver.module'
+import { FeaturesServiceModule } from '../../services/features-service.module'
 import { HeaderComponent } from './header.component'
 
 describe('HeaderComponent', () => {
@@ -14,7 +14,7 @@ describe('HeaderComponent', () => {
       declarations: [HeaderComponent],
       imports: [
         RouterTestingModule,
-        PagesResolverModule,
+        FeaturesServiceModule,
         BsDropdownModule.forRoot()
       ]
     }).compileComponents()

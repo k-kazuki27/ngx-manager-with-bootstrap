@@ -3,10 +3,10 @@ import { Injectable } from '@angular/core'
 import { BehaviorSubject, Observable, Subject } from 'rxjs'
 import { map } from 'rxjs/operators'
 
-import { PagesResolverModule } from './pages-resolver.module'
+import { FeaturesServiceModule } from './features-service.module'
 
 @Injectable({
-  providedIn: PagesResolverModule
+  providedIn: FeaturesServiceModule
 })
 export class PagesService {
   private collapsed$ = new BehaviorSubject<boolean>(false)

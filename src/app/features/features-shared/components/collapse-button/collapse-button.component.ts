@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 
-import { PagesService } from '../../services/pages.service'
+import { PagesService } from '../../services/features.service'
 
 @Component({
   selector: 'app-collapse-button',
