@@ -13,6 +13,7 @@
     "updateSnapshot": "npm test -- --updateSnapshot",
     "coverage": "npm test -- --coverage",
     "lint": "ng lint",
+    "stylelint": "stylelint 'src/**/*.scss'",
     "e2e": "ng e2e",
     "test:watch": "jest --watch",
     "test:ci": "CI=true node --max_old_space_size=1024 ./node_modules/jest/bin/jest.js --maxWorkers=2",
@@ -22,7 +23,8 @@
     "compodoc": "compodoc -p src/tsconfig.app.json -s",
     "build:compodoc": "compodoc -p src/tsconfig.app.json -d dist/compodoc",
     "storybook": "start-storybook -p 6006",
-    "build:storybook": "build-storybook -o dist/story"
+    "build:storybook": "build-storybook -o dist/story",
+    "check": "npm run lint && npm run stylelint && npm run format:check && npm run test"
   },
   "private": true,
   "dependencies": {

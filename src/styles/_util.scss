@@ -16,7 +16,7 @@ $sizes: (
 );
 $positions: (('t', 'top'), ('r', 'right'), ('b', 'bottom'), ('l', 'left'));
 
-@function sizeValue($key, $value) {
+@function size-value($key, $value) {
   @return if($key == 'none', 0, $value + $sizeUnit);
 }
 
@@ -25,11 +25,11 @@ $positions: (('t', 'top'), ('r', 'right'), ('b', 'bottom'), ('l', 'left'));
   $sizeValue: nth($size, 2);
 
   .#{$marginKey}#{$separator}#{$sizeKey} {
-    margin: sizevalue($sizeKey, $sizeValue);
+    margin: size-value($sizeKey, $sizeValue);
   }
 
   .#{$paddingKey}#{$separator}#{$sizeKey} {
-    padding: sizevalue($sizeKey, $sizeValue);
+    padding: size-value($sizeKey, $sizeValue);
   }
 
   @each $position in $positions {
@@ -37,11 +37,11 @@ $positions: (('t', 'top'), ('r', 'right'), ('b', 'bottom'), ('l', 'left'));
     $posValue: nth($position, 2);
 
     .#{$marginKey}#{$separator}#{$posKey}#{$separator}#{$sizeKey} {
-      margin-#{$posValue}: sizevalue($sizeKey, $sizeValue);
+      margin-#{$posValue}: size-value($sizeKey, $sizeValue);
     }
 
     .#{$paddingKey}#{$separator}#{$posKey}#{$separator}#{$sizeKey} {
-      padding-#{$posValue}: sizevalue($sizeKey, $sizeValue);
+      padding-#{$posValue}: size-value($sizeKey, $sizeValue);
     }
   }
 }

@@ -6,7 +6,7 @@ import {
 } from '@angular/core'
 import { ValidationErrors } from '@angular/forms'
 
-import { REG_EXP_HALF_ALPHA_NUM_SYMBOL } from '../../constants'
+import { REG_EXP_HALF_ALPHA_NUM_SYMBOL } from '../../../constants'
 
 const ERROR_MAP = new Map<string, string>([
   ['required', '必須です。'],

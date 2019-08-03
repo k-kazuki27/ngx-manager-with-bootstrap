@@ -2,9 +2,7 @@ import { action } from '@storybook/addon-actions'
 import { linkTo } from '@storybook/addon-links'
 import { storiesOf } from '@storybook/angular'
 import { Button } from '@storybook/angular/demo'
-import {
-  RequiredComponent
-} from 'src/app/shared/modules/required/required.component'
+import { RequiredComponent } from 'src/app/shared/modules/forms/required/required.component'
 
 storiesOf('RequiredComponent', module).add('Normal', () => ({
   component: RequiredComponent,

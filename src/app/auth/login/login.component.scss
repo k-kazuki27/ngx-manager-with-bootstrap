@@ -7,14 +7,14 @@ $topnav-background-color: #222;
 .login-page {
   position: absolute;
   top: 0;
-  left: 0;
   right: 0;
   bottom: 0;
-  overflow: auto;
-  background: $topnav-background-color;
-  text-align: center;
-  color: #fff;
+  left: 0;
   padding: 3em;
+  overflow: auto;
+  color: #fff;
+  text-align: center;
+  background: $topnav-background-color;
 
   .col-lg-4 {
     padding: 0;
@@ -29,12 +29,12 @@ $topnav-background-color: #222;
   }
 
   .input-underline {
+    color: #fff;
     background: 0 0;
     border: none;
-    box-shadow: none;
     border-bottom: 2px solid rgba(255, 255, 255, 0.5);
-    color: #fff;
     border-radius: 0;
+    box-shadow: none;
   }
 
   .input-underline:focus {
@@ -43,15 +43,15 @@ $topnav-background-color: #222;
   }
 
   .rounded-btn {
-    -webkit-border-radius: 50px;
-    border-radius: 50px;
+    width: 100%;
+    padding: 0 25px;
     color: rgba(255, 255, 255, 0.8);
-    background: $topnav-background-color;
-    border: 2px solid rgba(255, 255, 255, 0.8);
     font-size: 18px;
     line-height: 40px;
-    padding: 0 25px;
-    width: 100%;
+    background: $topnav-background-color;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
   }
 
   .rounded-btn:hover,
@@ -64,9 +64,9 @@ $topnav-background-color: #222;
   }
 
   h1 {
-    font-weight: 300;
     margin-top: 20px;
     margin-bottom: 10px;
+    font-weight: 300;
     font-size: 36px;
 
     small {
@@ -96,8 +96,8 @@ $topnav-background-color: #222;
   }
 
   .user-avatar {
+    border: 2px solid #fff;
     -webkit-border-radius: 50%;
     border-radius: 50%;
-    border: 2px solid #fff;
   }
 }
