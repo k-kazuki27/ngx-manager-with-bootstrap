@@ -598,28 +598,28 @@ $header-height: 56px !default;
 $sidebar-width: 235px !default;
 
 .sidebar {
-  border-radius: 0;
   position: fixed;
-  z-index: 1000;
   top: $header-height;
+  bottom: 0;
   left: $sidebar-width;
+  z-index: 1000;
   width: $sidebar-width;
   margin-left: -$sidebar-width;
-  border: none;
-  overflow-y: auto;
-  background-color: $sidebar-background-color;
-  bottom: 0;
   overflow-x: hidden;
+  overflow-y: auto;
   white-space: nowrap;
+  background-color: $sidebar-background-color;
+  border: none;
+  border-radius: 0;
   transition: all 0.2s ease-in-out;
   // border-top: 1px solid rgba(255, 255, 255, 0.3);
   .list-group {
     a.list-group-item {
+      color: $sidebar-font-color;
+      text-decoration: none;
       background: $sidebar-background-color;
       border: 0;
       border-radius: 0;
-      color: $sidebar-font-color;
-      text-decoration: none;
 
       .fa {
         margin-right: 10px;
@@ -627,13 +627,13 @@ $sidebar-width: 235px !default;
     }
 
     a:hover {
-      background: darken($sidebar-background-color, 5%);
       color: #fff;
+      background: darken($sidebar-background-color, 5%);
     }
 
     a.router-link-active {
-      background-color: $page-background-color;
       color: $sidebar-background-color;
+      background-color: $page-background-color;
     }
 
     .header-fields {
@@ -663,14 +663,14 @@ $sidebar-width: 235px !default;
   &amp; .expand {
     ul.submenu {
       display: block;
-      list-style-type: none;
       height: auto;
+      list-style-type: none;
 
       li {
         a {
-          color: #fff;
-          padding: 10px;
           display: block;
+          padding: 10px;
+          color: #fff;
         }
       }
     }
