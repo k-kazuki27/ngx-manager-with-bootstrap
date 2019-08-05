@@ -252,7 +252,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(fb: <a href="https://angular.io/api/forms/FormBuilder" target="_blank">FormBuilder</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, confirmService: <a href="../injectables/ConfirmService.html">ConfirmService</a>, route: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>, userService: <a href="../injectables/UserService.html">UserService</a>, userApi: <a href="../injectables/UserApi.html">UserApi</a>)</code>
+<code>constructor(fb: <a href="https://angular.io/api/forms/FormBuilder" target="_blank">FormBuilder</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, confirmService: <a href="../injectables/ConfirmService.html">ConfirmService</a>, route: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>, userStoreService: <a href="../injectables/UserStoreService.html">UserStoreService</a>, userApi: <a href="../injectables/UserApi.html">UserApi</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -323,10 +323,10 @@
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>userService</td>
+                                                        <td>userStoreService</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/UserService.html" target="_self" >UserService</a></code>
+                                                                        <code><a href="../injectables/UserStoreService.html" target="_self" >UserStoreService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -1635,7 +1635,7 @@ import {
   UsersDTO
 } from &#x27;src/app/shared&#x27;
 
-import { USER_LIST_HEADER, UserService } from &#x27;../user-shared&#x27;
+import { USER_LIST_HEADER, UserStoreService } from &#x27;../user-shared&#x27;
 
 @Component({
   selector: &#x27;app-user-list&#x27;,
@@ -1659,26 +1659,26 @@ export class UserListComponent extends AbstractList
     private router: Router,
     private confirmService: ConfirmService,
     private route: ActivatedRoute,
-    private userService: UserService,
+    private userStoreService: UserStoreService,
     private userApi: UserApi
   ) {
     super()
   }
 
   ngOnInit() {
-    if (!this.userService.searchForm) {
+    if (!this.userStoreService.searchForm) {
       this.searchForm &#x3D; this.fb.group({
         email: [null],
         lastName: [null],
         firstName: [null]
       })
     } else {
-      this.searchForm &#x3D; this.userService.searchForm
+      this.searchForm &#x3D; this.userStoreService.searchForm
     }
 
-    if (this.userService.searchPage) {
-      this.currentPage &#x3D; this.userService.searchPage.currentPage
-      this.itemsPerPage &#x3D; this.userService.searchPage.itemsPerPage
+    if (this.userStoreService.searchPage) {
+      this.currentPage &#x3D; this.userStoreService.searchPage.currentPage
+      this.itemsPerPage &#x3D; this.userStoreService.searchPage.itemsPerPage
     }
 
     this.list$ &#x3D; this.search$.asObservable().pipe(
@@ -1700,7 +1700,7 @@ export class UserListComponent extends AbstractList
         map((res: UsersDTO) &#x3D;&gt; res.users || []),
         finalize(() &#x3D;&gt; {
           this.setPaging()
-          this.userService.saveSearch(this.searchForm, {
+          this.userStoreService.saveSearch(this.searchForm, {
             currentPage: this.currentPage,
             itemsPerPage: this.itemsPerPage
           })
