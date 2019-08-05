@@ -13,7 +13,7 @@ import {
   UsersDTO
 } from 'src/app/shared'
 
-import { USER_LIST_HEADER, UserService } from '../user-shared'
+import { USER_LIST_HEADER, UserStoreService } from '../user-shared'
 
 @Component({
   selector: 'app-user-list',
@@ -37,26 +37,26 @@ export class UserListComponent extends AbstractList
     private router: Router,
     private confirmService: ConfirmService,
     private route: ActivatedRoute,
-    private userService: UserService,
+    private userStoreService: UserStoreService,
     private userApi: UserApi
   ) {
     super()
   }
 
   ngOnInit() {
-    if (!this.userService.searchForm) {
+    if (!this.userStoreService.searchForm) {
       this.searchForm = this.fb.group({
         email: [null],
         lastName: [null],
         firstName: [null]
       })
     } else {
-      this.searchForm = this.userService.searchForm
+      this.searchForm = this.userStoreService.searchForm
     }
 
-    if (this.userService.searchPage) {
-      this.currentPage = this.userService.searchPage.currentPage
-      this.itemsPerPage = this.userService.searchPage.itemsPerPage
+    if (this.userStoreService.searchPage) {
+      this.currentPage = this.userStoreService.searchPage.currentPage
+      this.itemsPerPage = this.userStoreService.searchPage.itemsPerPage
     }
 
     this.list$ = this.search$.asObservable().pipe(
@@ -78,7 +78,7 @@ export class UserListComponent extends AbstractList
         map((res: UsersDTO) => res.users || []),
         finalize(() => {
           this.setPaging()
-          this.userService.saveSearch(this.searchForm, {
+          this.userStoreService.saveSearch(this.searchForm, {
             currentPage: this.currentPage,
             itemsPerPage: this.itemsPerPage
           })

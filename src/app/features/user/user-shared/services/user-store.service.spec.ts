@@ -1,11 +1,10 @@
-import { Type } from '@angular/core'
 import { TestBed } from '@angular/core/testing'
 import { RouterTestingModule } from '@angular/router/testing'
 
 import { UserServiceModule } from './user-service.module'
-import { UserService } from './user.service'
+import { UserStoreService } from './user-store.service'
 
-describe('UserService', () => {
+describe('UserStoreService', () => {
   beforeEach(() =>
     TestBed.configureTestingModule({
       imports: [UserServiceModule, RouterTestingModule]
@@ -13,7 +12,7 @@ describe('UserService', () => {
   )
 
   it('should be created', () => {
-    const service: UserService = TestBed.get(UserService as Type<UserService>)
+    const service: UserStoreService = TestBed.get(UserStoreService)
     expect(service).toBeTruthy()
   })
 })

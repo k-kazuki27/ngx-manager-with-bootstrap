@@ -2,12 +2,10 @@ import { Injectable } from '@angular/core'
 import { FormGroup } from '@angular/forms'
 import { Page, RouteHistoryService } from 'src/app/shared'
 
-import { UserServiceModule } from './user-service.module'
-
 @Injectable({
-  providedIn: UserServiceModule
+  providedIn: 'root'
 })
-export class UserService {
+export class UserStoreService {
   private form!: FormGroup
   private page!: Page
 
