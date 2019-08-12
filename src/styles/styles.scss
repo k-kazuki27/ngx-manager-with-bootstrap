@@ -15,24 +15,16 @@ html {
 body {
   height: calc(100% - #{$header-height});
   color: #333;
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    Roboto,
-    'Noto Sans JP',
-    'Helvetica Neue Light',
-    'Helvetica Neue',
-    Helvetica,
-    Arial,
-    'Lucida Grande',
-    sans-serif;
   font-weight: 400;
   font-size: 14px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: -apple-system, BlinkMacSystemFont, Roboto, 'Noto Sans JP',
+    'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande',
+    sans-serif;
   line-height: 1.65;
   letter-spacing: 0.1rem;
   text-align: justify;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .minimum-width {
@@ -41,6 +33,10 @@ body {
 
 .w-100px {
   min-width: 100px;
+}
+
+.pd-0 {
+  padding: 0;
 }
 
 // Form
