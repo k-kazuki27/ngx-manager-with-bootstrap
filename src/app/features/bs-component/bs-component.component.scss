@@ -2,3 +2,18 @@
   border: none;
   padding: 0;
 }
+
+.viewport {
+  height: 50vh;
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.sticky-header {
+  position: sticky;
+  top: 0;
+  background-color: white;
+}

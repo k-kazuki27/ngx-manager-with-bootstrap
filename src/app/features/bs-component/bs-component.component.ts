@@ -71,6 +71,20 @@ export class BsComponentComponent implements OnInit {
     'Wyoming'
   ]
 
+  vsHeaders: any[] = [
+    {
+      name: 'No'
+    },
+    {
+      name: '詳細'
+    },
+    {
+      name: '登録日時'
+    }
+  ]
+
+  vsItems: any[] = []
+
   constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
@@ -78,5 +92,12 @@ export class BsComponentComponent implements OnInit {
       hoge: [null, []],
       test: []
     })
+
+    for (let i = 1; i <= 100; i++) {
+      this.vsItems.push({
+        detail: '詳細' + i,
+        createdAt: '2019/01/01 10:00'
+      })
+    }
   }
 }

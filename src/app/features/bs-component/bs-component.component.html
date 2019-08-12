@@ -98,3 +98,34 @@
     </div>
   </div>
 </form>
+
+<div class="card m-t-lg">
+  <div class="card-header">
+    virtual scroll
+  </div>
+  <div class="card-body">
+    <div class="m-t-xs">
+      <cdk-virtual-scroll-viewport itemSize="1" class="viewport">
+        <table class="table table-bordered table-striped table-hover table-sm">
+          <thead>
+            <tr>
+              <th class="sticky-header" *ngFor="let item of vsHeaders">
+                {{ item.name }}
+              </th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <ng-container *cdkVirtualFor="let item of vsItems; let i = index">
+              <tr>
+                <td>{{ i + 1 }}</td>
+                <td>{{ item.detail }}</td>
+                <td>{{ item.createdAt }}</td>
+              </tr>
+            </ng-container>
+          </tbody>
+        </table>
+      </cdk-virtual-scroll-viewport>
+    </div>
+  </div>
+</div>

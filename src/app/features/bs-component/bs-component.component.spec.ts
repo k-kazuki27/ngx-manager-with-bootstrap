@@ -1,3 +1,4 @@
+import { ScrollingModule } from '@angular/cdk/scrolling'
 import { async, ComponentFixture, TestBed } from '@angular/core/testing'
 import { FormsModule } from '@angular/forms'
 import { NgSelectModule } from '@ng-select/ng-select'
@@ -26,7 +27,8 @@ describe('BsComponentComponent', () => {
         TabsModule.forRoot(),
         TypeaheadModule.forRoot(),
         FileUploadModule,
-        ReusableFormModule
+        ReusableFormModule,
+        ScrollingModule
       ]
     }).compileComponents()
   }))
