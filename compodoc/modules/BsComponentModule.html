@@ -207,7 +207,7 @@ import {
   InputDropdownModule,
   ReusableFormModule
 } from &#x27;src/app/shared&#x27;
-
+import { ScrollingModule } from &#x27;@angular/cdk/scrolling&#x27;
 import { BsComponentRoutingModule } from &#x27;./bs-component-routing.module&#x27;
 import { BsComponentComponent } from &#x27;./bs-component.component&#x27;
 
@@ -223,7 +223,8 @@ import { BsComponentComponent } from &#x27;./bs-component.component&#x27;
     TabsModule.forRoot(),
     TypeaheadModule.forRoot(),
     FileUploadModule,
-    ReusableFormModule
+    ReusableFormModule,
+    ScrollingModule
   ]
 })
 export class BsComponentModule {}
