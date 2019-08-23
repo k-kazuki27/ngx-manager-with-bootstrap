@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1566017805092,
+  "timestamp": 1566562341411,
   "index": "/ngx-manager-with-bootstrap/index.html",
   "assetGroups": [
     {
@@ -22,15 +22,15 @@
         "/ngx-manager-with-bootstrap/common-es5.b92fef12033b8d9f3a88.js",
         "/ngx-manager-with-bootstrap/index.html",
         "/ngx-manager-with-bootstrap/main-es2015.7006907b6ebbbf048215.js",
-        "/ngx-manager-with-bootstrap/main-es5.1da7e442ff351552e356.js",
+        "/ngx-manager-with-bootstrap/main-es5.dd339aa3fff091bb2386.js",
         "/ngx-manager-with-bootstrap/polyfills-es2015.c332a6bd448691e8cdf6.js",
         "/ngx-manager-with-bootstrap/polyfills-es5.412d7cb247bdd997a077.js",
         "/ngx-manager-with-bootstrap/polyfills-nomodule-es5.b79bfebc521ac1ea1602.js",
         "/ngx-manager-with-bootstrap/runtime-es2015.8bbf139e747194f4088f.js",
         "/ngx-manager-with-bootstrap/runtime-es5.4a2d92dc0d1793db864c.js",
         "/ngx-manager-with-bootstrap/styles.1d28597ff8d608d9c892.css",
-        "/ngx-manager-with-bootstrap/vendor-es2015.0e396a4f7022fb5dcd7e.js",
-        "/ngx-manager-with-bootstrap/vendor-es5.059ba91ce75f44fcb995.js"
+        "/ngx-manager-with-bootstrap/vendor-es2015.fc65b3d82bb452038116.js",
+        "/ngx-manager-with-bootstrap/vendor-es5.474714f97408a6ec9ead.js"
       ],
       "patterns": []
     },
@@ -93,17 +93,17 @@
     "/ngx-manager-with-bootstrap/fontawesome-webfont.af7ae505a9eed503f8b8.woff2": "d6f48cba7d076fb6f2fd6ba993a75b9dc1ecbf0c",
     "/ngx-manager-with-bootstrap/fontawesome-webfont.b06871f281fee6b241d6.ttf": "13b1eab65a983c7a73bc7997c479d66943f7c6cb",
     "/ngx-manager-with-bootstrap/fontawesome-webfont.fee66e712a8a08eef580.woff": "28b782240b3e76db824e12c02754a9731a167527",
-    "/ngx-manager-with-bootstrap/index.html": "b14ee47da70fb938197db7825c7d35a12f5aba24",
+    "/ngx-manager-with-bootstrap/index.html": "abdd87c92b4f55d155303cf9e4a17c3d79d819ee",
     "/ngx-manager-with-bootstrap/main-es2015.7006907b6ebbbf048215.js": "e00f78ac742cab3cdc030553595212710dc36da1",
-    "/ngx-manager-with-bootstrap/main-es5.1da7e442ff351552e356.js": "7f25843684215c53ea90cfa12aa44b377ac52ce7",
+    "/ngx-manager-with-bootstrap/main-es5.dd339aa3fff091bb2386.js": "7f25843684215c53ea90cfa12aa44b377ac52ce7",
     "/ngx-manager-with-bootstrap/polyfills-es2015.c332a6bd448691e8cdf6.js": "67314c5690f1379d624b3be33e16674fdf8da2d1",
     "/ngx-manager-with-bootstrap/polyfills-es5.412d7cb247bdd997a077.js": "6e65333ed583a73e648bfff03b3bc2e19b0e0e6f",
     "/ngx-manager-with-bootstrap/polyfills-nomodule-es5.b79bfebc521ac1ea1602.js": "8982d31d786192b8f6d0bb7428940bb08f0cc3ae",
     "/ngx-manager-with-bootstrap/runtime-es2015.8bbf139e747194f4088f.js": "990d9afc212393eeb6120c885cfe03c3f1a1c00d",
     "/ngx-manager-with-bootstrap/runtime-es5.4a2d92dc0d1793db864c.js": "6e8bc858ae792c84695b93d9558f4c7ed3be2020",
     "/ngx-manager-with-bootstrap/styles.1d28597ff8d608d9c892.css": "5f8e2e89b5b289614c67477b8b5455a59032eb8d",
-    "/ngx-manager-with-bootstrap/vendor-es2015.0e396a4f7022fb5dcd7e.js": "661dea5021c038f4aa5f98424c7ee6742b258df1",
-    "/ngx-manager-with-bootstrap/vendor-es5.059ba91ce75f44fcb995.js": "3f6b1523364900f72e5f8da7af34bfdb9aa526eb"
+    "/ngx-manager-with-bootstrap/vendor-es2015.fc65b3d82bb452038116.js": "143443119d4bb5ba8223e7b808264a6f3f456533",
+    "/ngx-manager-with-bootstrap/vendor-es5.474714f97408a6ec9ead.js": "1e2a24151d206731f5cc26c63442538a6c8f088e"
   },
   "navigationUrls": [
     {
