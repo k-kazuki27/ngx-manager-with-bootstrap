@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1566562341411,
+  "timestamp": 1566620457079,
   "index": "/ngx-manager-with-bootstrap/index.html",
   "assetGroups": [
     {
@@ -22,7 +22,7 @@
         "/ngx-manager-with-bootstrap/common-es5.b92fef12033b8d9f3a88.js",
         "/ngx-manager-with-bootstrap/index.html",
         "/ngx-manager-with-bootstrap/main-es2015.7006907b6ebbbf048215.js",
-        "/ngx-manager-with-bootstrap/main-es5.dd339aa3fff091bb2386.js",
+        "/ngx-manager-with-bootstrap/main-es5.1da7e442ff351552e356.js",
         "/ngx-manager-with-bootstrap/polyfills-es2015.c332a6bd448691e8cdf6.js",
         "/ngx-manager-with-bootstrap/polyfills-es5.412d7cb247bdd997a077.js",
         "/ngx-manager-with-bootstrap/polyfills-nomodule-es5.b79bfebc521ac1ea1602.js",
@@ -93,9 +93,9 @@
     "/ngx-manager-with-bootstrap/fontawesome-webfont.af7ae505a9eed503f8b8.woff2": "d6f48cba7d076fb6f2fd6ba993a75b9dc1ecbf0c",
     "/ngx-manager-with-bootstrap/fontawesome-webfont.b06871f281fee6b241d6.ttf": "13b1eab65a983c7a73bc7997c479d66943f7c6cb",
     "/ngx-manager-with-bootstrap/fontawesome-webfont.fee66e712a8a08eef580.woff": "28b782240b3e76db824e12c02754a9731a167527",
-    "/ngx-manager-with-bootstrap/index.html": "abdd87c92b4f55d155303cf9e4a17c3d79d819ee",
+    "/ngx-manager-with-bootstrap/index.html": "ed2f6f461c7773455040ad0f22eb38d51b6ac872",
     "/ngx-manager-with-bootstrap/main-es2015.7006907b6ebbbf048215.js": "e00f78ac742cab3cdc030553595212710dc36da1",
-    "/ngx-manager-with-bootstrap/main-es5.dd339aa3fff091bb2386.js": "7f25843684215c53ea90cfa12aa44b377ac52ce7",
+    "/ngx-manager-with-bootstrap/main-es5.1da7e442ff351552e356.js": "7f25843684215c53ea90cfa12aa44b377ac52ce7",
     "/ngx-manager-with-bootstrap/polyfills-es2015.c332a6bd448691e8cdf6.js": "67314c5690f1379d624b3be33e16674fdf8da2d1",
     "/ngx-manager-with-bootstrap/polyfills-es5.412d7cb247bdd997a077.js": "6e65333ed583a73e648bfff03b3bc2e19b0e0e6f",
     "/ngx-manager-with-bootstrap/polyfills-nomodule-es5.b79bfebc521ac1ea1602.js": "8982d31d786192b8f6d0bb7428940bb08f0cc3ae",
