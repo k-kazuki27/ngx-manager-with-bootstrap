@@ -541,6 +541,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             <li class="link">
                                 <a href="guards/AuthGuard.html" data-type="entity-link">AuthGuard</a>
                             </li>
+                            <li class="link">
+                                <a href="guards/UnsavedChangeGuard.html" data-type="entity-link">UnsavedChangeGuard</a>
+                            </li>
                         </ul>
                     </li>
                     <li class="chapter">
@@ -553,6 +556,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         <ul class="links collapse " ${ isNormalMode ? ' id="interfaces-links"' : 'id="xs-interfaces-links"' }>
                             <li class="link">
                                 <a href="interfaces/ConfigurationParameters.html" data-type="entity-link">ConfigurationParameters</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/FormComponent.html" data-type="entity-link">FormComponent</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/Image.html" data-type="entity-link">Image</a>

@@ -390,7 +390,8 @@ import {
   ErrorLabelModule,
   PageHeaderModule,
   QuestionTooltipModule,
-  RequiredModule
+  RequiredModule,
+  UnsavedChangeGuard
 } from &#x27;.&#x27;
 
 const modules &#x3D; [
@@ -411,7 +412,7 @@ const modules &#x3D; [
   declarations: [],
   imports: [...modules],
   exports: [...modules],
-  providers: [DatePipe]
+  providers: [DatePipe, UnsavedChangeGuard]
 })
 export class SharedModule {}
 </code></pre>
