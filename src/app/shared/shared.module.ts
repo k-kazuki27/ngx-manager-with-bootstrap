@@ -11,7 +11,8 @@ import {
   ErrorLabelModule,
   PageHeaderModule,
   QuestionTooltipModule,
-  RequiredModule
+  RequiredModule,
+  UnsavedChangeGuard
 } from '.'
 
 const modules = [
@@ -32,6 +33,6 @@ const modules = [
   declarations: [],
   imports: [...modules],
   exports: [...modules],
-  providers: [DatePipe]
+  providers: [DatePipe, UnsavedChangeGuard]
 })
 export class SharedModule {}

@@ -13,6 +13,7 @@ import {
   UserApi,
   UserDTO
 } from 'src/app/shared'
+
 import { UserValidator } from '../user-shared'
 
 @Component({
@@ -59,6 +60,7 @@ export class UserDetailComponent extends AbstractDetail
 
   ngOnDestroy() {
     this.onDestroy$.next()
+    this.onDestroy$.complete()
   }
 
   private buildForm(): void {
