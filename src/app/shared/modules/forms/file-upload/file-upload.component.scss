@@ -26,8 +26,7 @@
   border-color: #6c757d;
   border-radius: 0.2rem;
   cursor: pointer;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   user-select: none;
 
   &:hover {
@@ -43,11 +42,6 @@
   #fileInput {
     display: none;
   }
-
-  .file-preview {
-    max-width: 200px;
-    margin-right: 20px;
-  }
 }
 
 .file-image {
@@ -59,6 +53,11 @@
     padding: 0.25rem 0.5rem;
     font-size: 0.875rem;
     line-height: 1.5;
+  }
+
+  .file-preview {
+    max-width: 200px;
+    margin-right: 20px;
   }
 
   button {
