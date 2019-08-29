@@ -682,13 +682,13 @@ interface Image {
     <div class="tab-pane fade " id="c-templateData">
         <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;row&quot;&gt;
   &lt;div
-    class&#x3D;&quot;drag-drop-area col-sm-10&quot;
+    class&#x3D;&quot;drag-drop-area col-sm-7&quot;
     (dragover)&#x3D;&quot;onDragOver($event)&quot;
     (drop)&#x3D;&quot;onDrop($event)&quot;
   &gt;
     &lt;span&gt;ドラッグ＆ドロップ&lt;/span&gt;
   &lt;/div&gt;
-  &lt;div class&#x3D;&quot;fileup col-sm-2&quot;&gt;
+  &lt;div class&#x3D;&quot;fileup col-sm-5&quot;&gt;
     &lt;label for&#x3D;&quot;fileInput&quot;&gt;
       &lt;input
         id&#x3D;&quot;fileInput&quot;
@@ -703,8 +703,8 @@ interface Image {
     &lt;/label&gt;
   &lt;/div&gt;
   &lt;div class&#x3D;&quot;file-image col-sm-12 m-t-sm&quot; *ngIf&#x3D;&quot;image&quot;&gt;
-    &lt;div class&#x3D;&quot;file-preview&quot;&gt;
-      &lt;img [src]&#x3D;&quot;image?.src&quot; alt&#x3D;&quot;イメージ&quot; /&gt;
+    &lt;div&gt;
+      &lt;img class&#x3D;&quot;file-preview&quot; [src]&#x3D;&quot;image?.src&quot; alt&#x3D;&quot;イメージ&quot; /&gt;
     &lt;/div&gt;
     &lt;label class&#x3D;&quot;m-l-sm&quot;&gt;{{ image?.name }}&lt;/label&gt;
     &lt;button
@@ -768,11 +768,6 @@ interface Image {
   #fileInput {
     display: none;
   }
-
-  .file-preview {
-    max-width: 200px;
-    margin-right: 20px;
-  }
 }
 
 .file-image {
@@ -784,6 +779,11 @@ interface Image {
     padding: 0.25rem 0.5rem;
     font-size: 0.875rem;
     line-height: 1.5;
+  }
+
+  .file-preview {
+    max-width: 200px;
+    margin-right: 20px;
   }
 
   button {
@@ -818,7 +818,7 @@ interface Image {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="row">  <div    class="drag-drop-area col-sm-10"    (dragover)="onDragOver($event)"    (drop)="onDrop($event)"  >    <span>ドラッグ＆ドロップ</span>  </div>  <div class="fileup col-sm-2">    <label for="fileInput">      <input        id="fileInput"        type="file"        value="ファイルを選択"        accept="image/png,image/jpeg,image/gif"        maxsize="5242880"        name="image"        (change)="onFileSelect($event)"      />      <span>ファイルを選択</span>    </label>  </div>  <div class="file-image col-sm-12 m-t-sm" *ngIf="image">    <div class="file-preview">      <img [src]="image?.src" alt="イメージ" />    </div>    <label class="m-l-sm">{{ image?.name }}</label>    <button      type="button"      class="btn btn btn-outline-secondary btn-sm m-l-sm"      (click)="deleteImage()"    >      <i class="fa fa-fw fa-trash"></i>削除    </button>  </div></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="row">  <div    class="drag-drop-area col-sm-7"    (dragover)="onDragOver($event)"    (drop)="onDrop($event)"  >    <span>ドラッグ＆ドロップ</span>  </div>  <div class="fileup col-sm-5">    <label for="fileInput">      <input        id="fileInput"        type="file"        value="ファイルを選択"        accept="image/png,image/jpeg,image/gif"        maxsize="5242880"        name="image"        (change)="onFileSelect($event)"      />      <span>ファイルを選択</span>    </label>  </div>  <div class="file-image col-sm-12 m-t-sm" *ngIf="image">    <div>      <img class="file-preview" [src]="image?.src" alt="イメージ" />    </div>    <label class="m-l-sm">{{ image?.name }}</label>    <button      type="button"      class="btn btn btn-outline-secondary btn-sm m-l-sm"      (click)="deleteImage()"    >      <i class="fa fa-fw fa-trash"></i>削除    </button>  </div></div></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BsComponentComponent', 'selector': 'app-bs-component'},{'name': 'CollapseButtonComponent', 'selector': 'app-collapse-button'},{'name': 'ConfirmComponent', 'selector': 'app-confirm'},{'name': 'CustomPaginationComponent', 'selector': 'app-custom-pagination'},{'name': 'DateInputComponent', 'selector': 'app-date-input'},{'name': 'DropdownPageLinesComponent', 'selector': 'app-dropdown-page-lines'},{'name': 'ErrorLabelComponent', 'selector': 'app-error-label'},{'name': 'FeaturesComponent', 'selector': 'app-features'},{'name': 'FileUploadComponent', 'selector': 'app-file-upload'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InputDropdownComponent', 'selector': 'app-input-dropdown'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'PageHeaderComponent', 'selector': 'app-page-header'},{'name': 'QuestionTooltipComponent', 'selector': 'app-question-tooltip'},{'name': 'RequiredComponent', 'selector': 'app-required'},{'name': 'ReusableFormComponent', 'selector': 'app-reusable-form'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'UserDetailComponent', 'selector': 'app-user-detail'},{'name': 'UserListComponent', 'selector': 'app-user-list'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'FileUploadComponent'};
