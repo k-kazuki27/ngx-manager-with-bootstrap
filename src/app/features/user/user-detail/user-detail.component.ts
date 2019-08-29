@@ -137,7 +137,7 @@ export class UserDetailComponent extends AbstractDetail
       .createUser(user, 'body', true)
       .pipe(takeUntil(this.onDestroy$))
       .subscribe(() => {
-        history.back()
+        this.afterRegist()
       })
   }
 
@@ -146,8 +146,13 @@ export class UserDetailComponent extends AbstractDetail
       .editUser(user, 'body', true)
       .pipe(takeUntil(this.onDestroy$))
       .subscribe(() => {
-        history.back()
+        this.afterRegist()
       })
+  }
+
+  private afterRegist(): void {
+    this.form.reset()
+    history.back()
   }
 
   get userId(): FormControl {
