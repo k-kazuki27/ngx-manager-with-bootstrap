@@ -172,6 +172,10 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Private</span>
+                                <a href="#afterRegist">afterRegist</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
                                 <a href="#buildForm">buildForm</a>
                             </li>
                             <li>
@@ -348,6 +352,47 @@
     <h3 id="methods">
         Methods
     </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="afterRegist"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            afterRegist
+                        </b>
+                        <a href="#afterRegist"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>afterRegist()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="153"
+                            class="link-to-prism">src/app/features/user/user-detail/user-detail.component.ts:153</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -1015,7 +1060,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="153" class="link-to-prism">src/app/features/user/user-detail/user-detail.component.ts:153</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="158" class="link-to-prism">src/app/features/user/user-detail/user-detail.component.ts:158</a></div>
                                 </td>
                             </tr>
 
@@ -1037,7 +1082,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="156" class="link-to-prism">src/app/features/user/user-detail/user-detail.component.ts:156</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="161" class="link-to-prism">src/app/features/user/user-detail/user-detail.component.ts:161</a></div>
                                 </td>
                             </tr>
 
@@ -1059,7 +1104,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="159" class="link-to-prism">src/app/features/user/user-detail/user-detail.component.ts:159</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="164" class="link-to-prism">src/app/features/user/user-detail/user-detail.component.ts:164</a></div>
                                 </td>
                             </tr>
 
@@ -1081,7 +1126,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="162" class="link-to-prism">src/app/features/user/user-detail/user-detail.component.ts:162</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="167" class="link-to-prism">src/app/features/user/user-detail/user-detail.component.ts:167</a></div>
                                 </td>
                             </tr>
 
@@ -1103,7 +1148,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="165" class="link-to-prism">src/app/features/user/user-detail/user-detail.component.ts:165</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="170" class="link-to-prism">src/app/features/user/user-detail/user-detail.component.ts:170</a></div>
                                 </td>
                             </tr>
 
@@ -1125,7 +1170,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="168" class="link-to-prism">src/app/features/user/user-detail/user-detail.component.ts:168</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="173" class="link-to-prism">src/app/features/user/user-detail/user-detail.component.ts:173</a></div>
                                 </td>
                             </tr>
 
@@ -1147,7 +1192,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="171" class="link-to-prism">src/app/features/user/user-detail/user-detail.component.ts:171</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="176" class="link-to-prism">src/app/features/user/user-detail/user-detail.component.ts:176</a></div>
                                 </td>
                             </tr>
 
@@ -1297,7 +1342,7 @@ export class UserDetailComponent extends AbstractDetail
       .createUser(user, &#x27;body&#x27;, true)
       .pipe(takeUntil(this.onDestroy$))
       .subscribe(() &#x3D;&gt; {
-        history.back()
+        this.afterRegist()
       })
   }
 
@@ -1306,8 +1351,13 @@ export class UserDetailComponent extends AbstractDetail
       .editUser(user, &#x27;body&#x27;, true)
       .pipe(takeUntil(this.onDestroy$))
       .subscribe(() &#x3D;&gt; {
-        history.back()
+        this.afterRegist()
       })
+  }
+
+  private afterRegist(): void {
+    this.form.reset()
+    history.back()
   }
 
   get userId(): FormControl {
