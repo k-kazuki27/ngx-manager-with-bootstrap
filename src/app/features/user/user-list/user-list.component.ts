@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core'
-import { FormBuilder, FormGroup } from '@angular/forms'
-import { ActivatedRoute, Router } from '@angular/router'
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms'
+import { ActivatedRoute, Router, ParamMap } from '@angular/router'
 import { BehaviorSubject, Observable, Subject } from 'rxjs'
 import { finalize, map, switchMap, takeUntil, tap } from 'rxjs/operators'
 import { routerTransition } from 'src/app/router.animations'
@@ -13,7 +13,7 @@ import {
   UsersDTO
 } from 'src/app/shared'
 
-import { USER_LIST_HEADER, UserStoreService } from '../user-shared'
+import { USER_LIST_HEADER } from '../user-shared'
 
 @Component({
   selector: 'app-user-list',
@@ -37,27 +37,27 @@ export class UserListComponent extends AbstractList
     private router: Router,
     private confirmService: ConfirmService,
     private route: ActivatedRoute,
-    private userStoreService: UserStoreService,
     private userApi: UserApi
   ) {
     super()
   }
 
   ngOnInit() {
-    if (!this.userStoreService.searchForm) {
-      this.searchForm = this.fb.group({
-        email: [null],
-        lastName: [null],
-        firstName: [null]
-      })
-    } else {
-      this.searchForm = this.userStoreService.searchForm
-    }
+    this.searchForm = this.fb.group({
+      email: [null],
+      lastName: [null],
+      firstName: [null]
+    })
 
-    if (this.userStoreService.searchPage) {
-      this.currentPage = this.userStoreService.searchPage.currentPage
-      this.itemsPerPage = this.userStoreService.searchPage.itemsPerPage
-    }
+    const paramMap: ParamMap = this.route.snapshot.paramMap
+
+    this.searchForm.patchValue({
+      email: paramMap.get('email'),
+      lastName: paramMap.get('lastName'),
+      firstName: paramMap.get('firstName')
+    })
+    this.currentPage = Number(paramMap.get('currentPage') || 1)
+    this.itemsPerPage = Number(paramMap.get('itemsPerPage') || 25)
 
     this.list$ = this.search$.asObservable().pipe(
       switchMap(() => {
@@ -78,10 +78,6 @@ export class UserListComponent extends AbstractList
         map((res: UsersDTO) => res.users || []),
         finalize(() => {
           this.setPaging()
-          this.userStoreService.saveSearch(this.searchForm, {
-            currentPage: this.currentPage,
-            itemsPerPage: this.itemsPerPage
-          })
         })
       )
   }
@@ -97,6 +93,16 @@ export class UserListComponent extends AbstractList
     if (doPageReset) {
       this.currentPage = 1
     }
+    this.router.navigate([], {
+      queryParams: {
+        email: this.email.value,
+        lastName: this.lastName.value,
+        firstName: this.firstName.value,
+        currentPage: this.currentPage,
+        itemsPerPage: this.itemsPerPage
+      }
+    })
+
     this.search$.next(null)
   }
 
@@ -129,5 +135,17 @@ export class UserListComponent extends AbstractList
             })
         }
       })
+  }
+
+  get email(): FormControl {
+    return this.searchForm.get('email') as FormControl
+  }
+
+  get lastName(): FormControl {
+    return this.searchForm.get('lastName') as FormControl
+  }
+
+  get firstName(): FormControl {
+    return this.searchForm.get('firstName') as FormControl
   }
 }
