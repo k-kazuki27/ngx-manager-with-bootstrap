@@ -16,7 +16,6 @@ export class UserValidator {
       | Promise<ValidationErrors | null>
       | Observable<ValidationErrors | null> => {
       const userId = control.value
-      console.log('UserValidator')
       return userApi.findUsers(1, 2).pipe(
         map((res: UsersDTO) => {
           return res ? null : { uniqueUserId: true }

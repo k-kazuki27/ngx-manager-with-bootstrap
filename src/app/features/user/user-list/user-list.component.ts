@@ -1,3 +1,4 @@
+import { Page } from './../../../shared/models/common'
 import { Component, OnDestroy, OnInit } from '@angular/core'
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms'
 import { ActivatedRoute, Router, ParamMap } from '@angular/router'
@@ -13,7 +14,7 @@ import {
   UsersDTO
 } from 'src/app/shared'
 
-import { USER_LIST_HEADER } from '../user-shared'
+import { USER_LIST_HEADER, UserSearchParam } from '../user-shared'
 
 @Component({
   selector: 'app-user-list',
@@ -29,7 +30,7 @@ export class UserListComponent extends AbstractList
   list$!: Observable<UserDTO[]>
   headers: TableHeader[] = USER_LIST_HEADER
 
-  private search$ = new BehaviorSubject(null)
+  private search$ = new BehaviorSubject<UserSearchParam>({})
   private onDestroy$ = new Subject()
 
   constructor(
@@ -60,8 +61,8 @@ export class UserListComponent extends AbstractList
     this.itemsPerPage = Number(paramMap.get('itemsPerPage') || 25)
 
     this.list$ = this.search$.asObservable().pipe(
-      switchMap(() => {
-        return this.findUsers()
+      switchMap(param => {
+        return this.findUsers(param)
       })
     )
   }
@@ -70,9 +71,16 @@ export class UserListComponent extends AbstractList
     this.onDestroy$.next()
   }
 
-  private findUsers(): Observable<UserDTO[]> {
+  private findUsers(param: UserSearchParam): Observable<UserDTO[]> {
     return this.userApi
-      .findUsers(1, 2, undefined, undefined, 'body', true)
+      .findUsers(
+        this.fromItem,
+        this.toItem,
+        param.email,
+        param.lastName,
+        'body',
+        true
+      )
       .pipe(
         tap((res: UsersDTO) => (this.totalItems = res.totalItems || 0)),
         map((res: UsersDTO) => res.users || []),
@@ -93,17 +101,25 @@ export class UserListComponent extends AbstractList
     if (doPageReset) {
       this.currentPage = 1
     }
+    const param: UserSearchParam = {
+      email: this.email.value,
+      lastName: this.lastName.value,
+      firstName: this.firstName.value
+    }
+
+    const page: Page = {
+      currentPage: this.currentPage,
+      itemsPerPage: this.itemsPerPage
+    }
+
     this.router.navigate([], {
       queryParams: {
-        email: this.email.value,
-        lastName: this.lastName.value,
-        firstName: this.firstName.value,
-        currentPage: this.currentPage,
-        itemsPerPage: this.itemsPerPage
+        ...param,
+        ...page
       }
     })
 
-    this.search$.next(null)
+    this.search$.next(param)
   }
 
   reset(): void {
