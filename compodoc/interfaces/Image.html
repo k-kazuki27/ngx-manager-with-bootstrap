@@ -158,19 +158,42 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, forwardRef, OnInit } from &#x27;@angular/core&#x27;
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from &#x27;@angular/forms&#x27;
 
 @Component({
   selector: &#x27;app-file-upload&#x27;,
   templateUrl: &#x27;./file-upload.component.html&#x27;,
-  styleUrls: [&#x27;./file-upload.component.scss&#x27;]
+  styleUrls: [&#x27;./file-upload.component.scss&#x27;],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() &#x3D;&gt; FileUploadComponent),
+      multi: true
+    }
+  ]
 })
-export class FileUploadComponent implements OnInit {
+export class FileUploadComponent implements OnInit, ControlValueAccessor {
+  disabled!: boolean
   image: Image | null &#x3D; null
+
+  onChange!: (value: any) &#x3D;&gt; void
+  onTouched!: () &#x3D;&gt; void
+
   constructor() {}
 
-  ngOnInit() {
-    this.image &#x3D; null
+  ngOnInit() {}
+
+  writeValue(obj: any): void {}
+
+  registerOnChange(fn: any): void {
+    this.onChange &#x3D; fn
+  }
+  registerOnTouched(fn: any): void {
+    this.onTouched &#x3D; fn
+  }
+  setDisabledState(isDisabled: boolean) {
+    this.disabled &#x3D; isDisabled
   }
 
   onDragOver(e: Event): void {
@@ -195,7 +218,6 @@ export class FileUploadComponent implements OnInit {
     const reader &#x3D; new FileReader()
 
     reader.onload &#x3D; (e: ProgressEvent) &#x3D;&gt; {
-      console.log(e)
       if (e &amp;&amp; e.target) {
         const target &#x3D; e.target as FileReader
         this.image &#x3D; {
@@ -203,6 +225,7 @@ export class FileUploadComponent implements OnInit {
           src: target.result
         }
         console.log(this.image)
+        this.onChange(this.image)
       }
     }
     reader.readAsDataURL(file)
