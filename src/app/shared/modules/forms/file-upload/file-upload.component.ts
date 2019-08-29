@@ -1,16 +1,39 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, forwardRef, OnInit } from '@angular/core'
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
 
 @Component({
   selector: 'app-file-upload',
   templateUrl: './file-upload.component.html',
-  styleUrls: ['./file-upload.component.scss']
+  styleUrls: ['./file-upload.component.scss'],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => FileUploadComponent),
+      multi: true
+    }
+  ]
 })
-export class FileUploadComponent implements OnInit {
+export class FileUploadComponent implements OnInit, ControlValueAccessor {
+  disabled!: boolean
   image: Image | null = null
+
+  onChange!: (value: any) => void
+  onTouched!: () => void
+
   constructor() {}
 
-  ngOnInit() {
-    this.image = null
+  ngOnInit() {}
+
+  writeValue(obj: any): void {}
+
+  registerOnChange(fn: any): void {
+    this.onChange = fn
+  }
+  registerOnTouched(fn: any): void {
+    this.onTouched = fn
+  }
+  setDisabledState(isDisabled: boolean) {
+    this.disabled = isDisabled
   }
 
   onDragOver(e: Event): void {
@@ -35,7 +58,6 @@ export class FileUploadComponent implements OnInit {
     const reader = new FileReader()
 
     reader.onload = (e: ProgressEvent) => {
-      console.log(e)
       if (e && e.target) {
         const target = e.target as FileReader
         this.image = {
@@ -43,6 +65,7 @@ export class FileUploadComponent implements OnInit {
           src: target.result
         }
         console.log(this.image)
+        this.onChange(this.image)
       }
     }
     reader.readAsDataURL(file)

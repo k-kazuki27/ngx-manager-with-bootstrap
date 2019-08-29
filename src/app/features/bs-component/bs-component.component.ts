@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core'
-import { FormBuilder, FormGroup } from '@angular/forms'
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms'
 
 @Component({
   selector: 'app-bs-component',
@@ -8,6 +8,7 @@ import { FormBuilder, FormGroup } from '@angular/forms'
 })
 export class BsComponentComponent implements OnInit {
   form!: FormGroup
+  form1!: FormGroup
 
   people: any[] = [
     { id: 1, name: '田中太郎' },
@@ -93,11 +94,19 @@ export class BsComponentComponent implements OnInit {
       test: []
     })
 
+    this.form1 = this.fb.group({
+      image: [null, []]
+    })
+
     for (let i = 1; i <= 100; i++) {
       this.vsItems.push({
         detail: '詳細' + i,
         createdAt: '2019/01/01 10:00'
       })
     }
+  }
+
+  get image(): FormControl {
+    return this.form1.get('image') as FormControl
   }
 }

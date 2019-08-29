@@ -85,7 +85,10 @@
     file-upload
   </div>
   <div class="card-body">
-    <app-file-upload></app-file-upload>
+    <form [formGroup]="form1">
+      <app-file-upload formControlName="image"></app-file-upload>
+      <p>確認：{{ image.value?.name }}</p>
+    </form>
   </div>
 </div>
 <form [formGroup]="form">
