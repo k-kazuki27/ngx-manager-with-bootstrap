@@ -131,8 +131,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="28"
-                            class="link-to-prism">src/app/features/user/user-shared/validators/user-validator.ts:28</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="27"
+                            class="link-to-prism">src/app/features/user/user-shared/validators/user-validator.ts:27</a></div>
                 </td>
             </tr>
 
@@ -279,7 +279,6 @@ export class UserValidator {
       | Promise&lt;ValidationErrors | null&gt;
       | Observable&lt;ValidationErrors | null&gt; &#x3D;&gt; {
       const userId &#x3D; control.value
-      console.log(&#x27;UserValidator&#x27;)
       return userApi.findUsers(1, 2).pipe(
         map((res: UsersDTO) &#x3D;&gt; {
           return res ? null : { uniqueUserId: true }

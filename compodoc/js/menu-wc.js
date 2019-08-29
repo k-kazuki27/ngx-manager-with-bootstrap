@@ -578,6 +578,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             <li class="link">
                                 <a href="interfaces/UsersDTO.html" data-type="entity-link">UsersDTO</a>
                             </li>
+                            <li class="link">
+                                <a href="interfaces/UserSearchParam.html" data-type="entity-link">UserSearchParam</a>
+                            </li>
                         </ul>
                     </li>
                     <li class="chapter">
