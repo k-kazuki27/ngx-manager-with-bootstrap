@@ -101,11 +101,16 @@
                 }"
                 (click)="setOrder(item.key, item.isSort)"
               >
-                {{ item.name }}
-                <span *ngIf="order === item.key">
-                  <i [hidden]="reverse" class="fa fa-sort-asc"></i>
-                  <i [hidden]="!reverse" class="fa fa-sort-desc"></i>
-                </span>
+                <ng-container *ngIf="item.isSort">
+                  {{ item.name }}
+                  <ng-container *ngIf="order !== item.key; else elseBlock">
+                    <i class="fa fa-sort fa-disable"></i>
+                  </ng-container>
+                  <ng-template #elseBlock>
+                    <i [hidden]="reverse" class="fa fa-sort-asc"></i>
+                    <i [hidden]="!reverse" class="fa fa-sort-desc"></i>
+                  </ng-template>
+                </ng-container>
               </th>
             </tr>
           </thead>
