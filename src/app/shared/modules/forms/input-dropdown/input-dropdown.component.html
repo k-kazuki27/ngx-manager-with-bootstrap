@@ -1,14 +1,10 @@
 <ng-container [formGroup]="parentForm">
   <div class="input-group input-group-sm">
-    <input
-      type="text"
-      class="form-control form-control-sm"
-      [formControlName]="controlName"
-    />
+    <input type="text" class="form-control" [formControlName]="controlName" />
     <div class="input-group-append" dropdown>
       <button
         type="button"
-        class="btn btn-outline-secondary btn-sm dropdown-toggle"
+        class="btn btn-outline-secondary dropdown-toggle"
         dropdownToggle
       ></button>
       <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu">

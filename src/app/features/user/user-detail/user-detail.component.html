@@ -113,14 +113,14 @@
       <div class="detail-bottom">
         <button
           type="button"
-          class="btn btn btn-outline-secondary btn-sm m-l-sm"
+          class="btn btn btn-outline-secondary m-l-sm"
           (click)="cancel()"
         >
           <i class="fa fa-fw fa-times"></i>キャンセル
         </button>
         <button
           type="button"
-          class="btn btn-primary btn-sm w-100px"
+          class="btn btn-primary w-100px"
           (click)="register()"
           [attr.disabled]="form.valid && form.dirty ? null : true"
         >

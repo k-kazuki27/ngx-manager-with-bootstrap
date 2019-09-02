@@ -4,7 +4,7 @@
   </div>
   <div class="card-body">
     <ng-select
-      class="form-control form-control-sm"
+      class="form-control"
       [items]="people"
       [multiple]="true"
       bindLabel="name"
@@ -75,7 +75,7 @@
       [typeahead]="states"
       [typeaheadOptionsInScrollableView]="5"
       [typeaheadScrollable]="true"
-      class="form-control form-control-sm"
+      class="form-control"
     />
   </div>
 </div>
@@ -142,7 +142,7 @@
   <div class="card-body">
     <div class="m-t-xs">
       <cdk-virtual-scroll-viewport itemSize="1" class="viewport">
-        <table class="table table-bordered table-striped table-hover table-sm">
+        <table class="table table-bordered table-striped table-hover">
           <thead>
             <tr>
               <th class="sticky-header" *ngFor="let item of vsHeaders">
