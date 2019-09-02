@@ -355,8 +355,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="54"
-                            class="link-to-prism">src/app/shared/modules/forms/file-upload/file-upload.component.ts:54</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="53"
+                            class="link-to-prism">src/app/shared/modules/forms/file-upload/file-upload.component.ts:53</a></div>
                 </td>
             </tr>
 
@@ -425,8 +425,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="60"
-                            class="link-to-prism">src/app/shared/modules/forms/file-upload/file-upload.component.ts:60</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="59"
+                            class="link-to-prism">src/app/shared/modules/forms/file-upload/file-upload.component.ts:59</a></div>
                 </td>
             </tr>
 
@@ -565,8 +565,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="44"
-                            class="link-to-prism">src/app/shared/modules/forms/file-upload/file-upload.component.ts:44</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="43"
+                            class="link-to-prism">src/app/shared/modules/forms/file-upload/file-upload.component.ts:43</a></div>
                 </td>
             </tr>
 
@@ -635,8 +635,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="47"
-                            class="link-to-prism">src/app/shared/modules/forms/file-upload/file-upload.component.ts:47</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="46"
+                            class="link-to-prism">src/app/shared/modules/forms/file-upload/file-upload.component.ts:46</a></div>
                 </td>
             </tr>
 
@@ -705,8 +705,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="50"
-                            class="link-to-prism">src/app/shared/modules/forms/file-upload/file-upload.component.ts:50</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="49"
+                            class="link-to-prism">src/app/shared/modules/forms/file-upload/file-upload.component.ts:49</a></div>
                 </td>
             </tr>
 
@@ -777,8 +777,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="72"
-                            class="link-to-prism">src/app/shared/modules/forms/file-upload/file-upload.component.ts:72</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="71"
+                            class="link-to-prism">src/app/shared/modules/forms/file-upload/file-upload.component.ts:71</a></div>
                 </td>
             </tr>
 
@@ -847,8 +847,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="42"
-                            class="link-to-prism">src/app/shared/modules/forms/file-upload/file-upload.component.ts:42</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="41"
+                            class="link-to-prism">src/app/shared/modules/forms/file-upload/file-upload.component.ts:41</a></div>
                 </td>
             </tr>
 
@@ -1021,19 +1021,19 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, Optional, Self } from &#x27;@angular/core&#x27;
-import { ControlValueAccessor, NgControl, Validators } from &#x27;@angular/forms&#x27;
+import {
+  AbstractControl,
+  ControlValueAccessor,
+  FormControl,
+  NgControl,
+  ValidationErrors,
+  ValidatorFn
+} from &#x27;@angular/forms&#x27;
 
 @Component({
   selector: &#x27;app-file-upload&#x27;,
   templateUrl: &#x27;./file-upload.component.html&#x27;,
   styleUrls: [&#x27;./file-upload.component.scss&#x27;]
-  // providers: [
-  //   {
-  //     provide: NG_VALUE_ACCESSOR,
-  //     useExisting: forwardRef(() &#x3D;&gt; FileUploadComponent),
-  //     multi: true
-  //   }
-  // ]
 })
 export class FileUploadComponent implements OnInit, ControlValueAccessor {
   disabled!: boolean
@@ -1050,11 +1050,10 @@ export class FileUploadComponent implements OnInit, ControlValueAccessor {
 
   ngOnInit() {
     if (this.ngControl) {
-      const control &#x3D; this.ngControl.control
+      const control &#x3D; this.ngControl.control as FormControl
+
       if (control) {
-        const validators &#x3D; control.validator
-          ? [control.validator, Validators.required]
-          : Validators.required
+        const validators: ValidatorFn[] &#x3D; [fileType(), fileSize()]
         control.setValidators(validators)
         control.updateValueAndValidity()
       }
@@ -1098,10 +1097,11 @@ export class FileUploadComponent implements OnInit, ControlValueAccessor {
       if (e &amp;&amp; e.target) {
         const target &#x3D; e.target as FileReader
         this.image &#x3D; {
+          type: file.type,
+          size: file.size,
           name: file.name,
           src: target.result
         }
-        console.log(this.image)
         this.onChange(this.image)
       }
     }
@@ -1124,8 +1124,29 @@ export class FileUploadComponent implements OnInit, ControlValueAccessor {
 }
 
 interface Image {
+  type: string
+  size: number
   name: string
   src: string | ArrayBuffer | null
+}
+
+function fileType(): ValidatorFn {
+  return (control: AbstractControl): ValidationErrors | null &#x3D;&gt; {
+    const image: Image &#x3D; control.value
+    return image !&#x3D;&#x3D; null &amp;&amp;
+      image.type !&#x3D;&#x3D; &#x27;image/jpeg&#x27; &amp;&amp;
+      image.type !&#x3D;&#x3D; &#x27;image/gif&#x27; &amp;&amp;
+      image.type !&#x3D;&#x3D; &#x27;image/png&#x27;
+      ? { fileType: true }
+      : null
+  }
+}
+
+function fileSize(): ValidatorFn {
+  return (control: AbstractControl): ValidationErrors | null &#x3D;&gt; {
+    const image: Image &#x3D; control.value
+    return image !&#x3D;&#x3D; null &amp;&amp; image.size &gt; 5242880 ? { fileSize: true } : null
+  }
 }
 </code></pre>
     </div>
