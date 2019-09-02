@@ -1907,9 +1907,7 @@ export class UserListComponent extends AbstractList
     &lt;div class&#x3D;&quot;card-body&quot;&gt;
       &lt;form class&#x3D;&quot;row&quot; [formGroup]&#x3D;&quot;searchForm&quot; autocomplete&#x3D;&quot;off&quot;&gt;
         &lt;div class&#x3D;&quot;form-group col-sm-3&quot;&gt;
-          &lt;label for&#x3D;&quot;email&quot; class&#x3D;&quot;col-form-label col-form-label-sm&quot;
-            &gt;メールアドレス&lt;/label
-          &gt;
+          &lt;label for&#x3D;&quot;email&quot; class&#x3D;&quot;col-form-label&quot;&gt;メールアドレス&lt;/label&gt;
           &lt;input
             type&#x3D;&quot;email&quot;
             class&#x3D;&quot;form-control form-control-sm&quot;
@@ -1918,9 +1916,7 @@ export class UserListComponent extends AbstractList
           /&gt;
         &lt;/div&gt;
         &lt;div class&#x3D;&quot;form-group  col-sm-3&quot;&gt;
-          &lt;label for&#x3D;&quot;lastName&quot; class&#x3D;&quot;col-form-label col-form-label-sm&quot;
-            &gt;名前（姓）&lt;/label
-          &gt;
+          &lt;label for&#x3D;&quot;lastName&quot; class&#x3D;&quot;col-form-label&quot;&gt;名前（姓）&lt;/label&gt;
           &lt;input
             type&#x3D;&quot;text&quot;
             class&#x3D;&quot;form-control form-control-sm&quot;
@@ -1929,11 +1925,7 @@ export class UserListComponent extends AbstractList
           /&gt;
         &lt;/div&gt;
         &lt;div class&#x3D;&quot;m-b-sm col-sm-12&quot;&gt;
-          &lt;button
-            type&#x3D;&quot;button&quot;
-            class&#x3D;&quot;btn btn-link btn-sm&quot;
-            (click)&#x3D;&quot;openAdvance()&quot;
-          &gt;
+          &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-link&quot; (click)&#x3D;&quot;openAdvance()&quot;&gt;
             &lt;i
               class&#x3D;&quot;fa fa-fw&quot;
               [ngClass]&#x3D;&quot;{ &#x27;fa-plus&#x27;: !showAdvance, &#x27;fa-times&#x27;: showAdvance }&quot;
@@ -1944,9 +1936,7 @@ export class UserListComponent extends AbstractList
         &lt;ng-container *ngIf&#x3D;&quot;showAdvance&quot;&gt;
           &lt;div class&#x3D;&quot;dropdown-divider col-sm-12&quot;&gt;&lt;/div&gt;
           &lt;div class&#x3D;&quot;form-group col-sm-3&quot;&gt;
-            &lt;label for&#x3D;&quot;firstName&quot; class&#x3D;&quot;col-form-label col-form-label-sm&quot;
-              &gt;名前（名）&lt;/label
-            &gt;
+            &lt;label for&#x3D;&quot;firstName&quot; class&#x3D;&quot;col-form-label&quot;&gt;名前（名）&lt;/label&gt;
             &lt;input
               type&#x3D;&quot;text&quot;
               class&#x3D;&quot;form-control form-control-sm&quot;
@@ -1959,14 +1949,14 @@ export class UserListComponent extends AbstractList
       &lt;div class&#x3D;&quot;search-bottom&quot;&gt;
         &lt;button
           type&#x3D;&quot;button&quot;
-          class&#x3D;&quot;btn btn-primary btn-sm w-100px&quot;
+          class&#x3D;&quot;btn btn-primary w-100px&quot;
           (click)&#x3D;&quot;search(true)&quot;
         &gt;
           &lt;i class&#x3D;&quot;fa fa-fw fa-search&quot;&gt;&lt;/i&gt;検索
         &lt;/button&gt;
         &lt;button
           type&#x3D;&quot;button&quot;
-          class&#x3D;&quot;btn btn btn-outline-secondary btn-sm w-100px m-l-sm&quot;
+          class&#x3D;&quot;btn btn btn-outline-secondary w-100px m-l-sm&quot;
           (click)&#x3D;&quot;reset()&quot;
         &gt;
           &lt;i class&#x3D;&quot;fa fa-fw fa-refresh&quot;&gt;&lt;/i&gt;リセット
@@ -1979,7 +1969,7 @@ export class UserListComponent extends AbstractList
       &lt;div class&#x3D;&quot;list-bottom&quot;&gt;
         &lt;button
           type&#x3D;&quot;button&quot;
-          class&#x3D;&quot;btn btn-primary btn-sm w-100px&quot;
+          class&#x3D;&quot;btn btn-primary w-100px&quot;
           (click)&#x3D;&quot;create()&quot;
         &gt;
           &lt;i class&#x3D;&quot;fa fa-fw fa-plus&quot;&gt;&lt;/i&gt;新規
@@ -2022,7 +2012,7 @@ export class UserListComponent extends AbstractList
               &lt;th nowrap&#x3D;&quot;true&quot;&gt;
                 &lt;button
                   type&#x3D;&quot;button&quot;
-                  class&#x3D;&quot;btn btn-primary btn-sm&quot;
+                  class&#x3D;&quot;btn btn-primary&quot;
                   (click)&#x3D;&quot;edit(item.id)&quot;
                 &gt;
                   &lt;i class&#x3D;&quot;fa fa-fw fa-edit&quot;&gt;&lt;/i&gt;修正
@@ -2035,7 +2025,7 @@ export class UserListComponent extends AbstractList
               &lt;td nowrap&#x3D;&quot;true&quot;&gt;
                 &lt;button
                   type&#x3D;&quot;button&quot;
-                  class&#x3D;&quot;btn btn-danger btn-sm&quot;
+                  class&#x3D;&quot;btn btn-danger&quot;
                   (click)&#x3D;&quot;remove(item.id)&quot;
                 &gt;
                   &lt;i class&#x3D;&quot;fa fa-fw fa-trash&quot;&gt;&lt;/i&gt;削除
@@ -2129,7 +2119,7 @@ thead {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div [@routerTransition]>  <app-page-header [title]="\'ユーザ管理\'"></app-page-header>  <div class="card m-t-lg">    <div class="card-body">      <form class="row" [formGroup]="searchForm" autocomplete="off">        <div class="form-group col-sm-3">          <label for="email" class="col-form-label col-form-label-sm"            >メールアドレス</label          >          <input            type="email"            class="form-control form-control-sm"            name="email"            formControlName="email"          />        </div>        <div class="form-group  col-sm-3">          <label for="lastName" class="col-form-label col-form-label-sm"            >名前（姓）</label          >          <input            type="text"            class="form-control form-control-sm"            name="lastName"            formControlName="lastName"          />        </div>        <div class="m-b-sm col-sm-12">          <button            type="button"            class="btn btn-link btn-sm"            (click)="openAdvance()"          >            <i              class="fa fa-fw"              [ngClass]="{ \'fa-plus\': !showAdvance, \'fa-times\': showAdvance }"            ></i            >詳細検索          </button>        </div>        <ng-container *ngIf="showAdvance">          <div class="dropdown-divider col-sm-12"></div>          <div class="form-group col-sm-3">            <label for="firstName" class="col-form-label col-form-label-sm"              >名前（名）</label            >            <input              type="text"              class="form-control form-control-sm"              name="firstName"              formControlName="firstName"            />          </div>        </ng-container>      </form>      <div class="search-bottom">        <button          type="button"          class="btn btn-primary btn-sm w-100px"          (click)="search(true)"        >          <i class="fa fa-fw fa-search"></i>検索        </button>        <button          type="button"          class="btn btn btn-outline-secondary btn-sm w-100px m-l-sm"          (click)="reset()"        >          <i class="fa fa-fw fa-refresh"></i>リセット        </button>      </div>    </div>  </div>  <div class="card m-t-lg">    <div class="card-body">      <div class="list-bottom">        <button          type="button"          class="btn btn-primary btn-sm w-100px"          (click)="create()"        >          <i class="fa fa-fw fa-plus"></i>新規        </button>        <app-dropdown-page-lines          class="m-l-sm"          (changeItemsPerPage)="changeItemsPerPage($event)"        ></app-dropdown-page-lines>      </div>      <ng-container *ngIf="list$ | async as user; else notFound">        <div class="pagination">          全 {{ totalItems }} 件中 {{ fromItem }} 件 ～ {{ toItem }} 件を表示        </div>        <table class="table table-bordered table-striped table-hover table-sm">          <thead>            <tr>              <th                *ngFor="let item of headers"                [ngClass]="{                  \'minimum-width\': item.isButton,                  sort: item.isSort                }"                (click)="setOrder(item.key, item.isSort)"              >                <ng-container *ngIf="item.isSort">                  {{ item.name }}                  <ng-container *ngIf="order !== item.key; else elseBlock">                    <i class="fa fa-sort fa-disable"></i>                  </ng-container>                  <ng-template #elseBlock>                    <i [hidden]="reverse" class="fa fa-sort-asc"></i>                    <i [hidden]="!reverse" class="fa fa-sort-desc"></i>                  </ng-template>                </ng-container>              </th>            </tr>          </thead>          <tbody>            <tr *ngFor="let item of user | orderBy: order:reverse">              <th nowrap="true">                <button                  type="button"                  class="btn btn-primary btn-sm"                  (click)="edit(item.id)"                >                  <i class="fa fa-fw fa-edit"></i>修正                </button>              </th>              <td>{{ item.userId }}</td>              <td>{{ item.email }}</td>              <td>{{ item.lastName }}</td>              <td>{{ item.firstName }}</td>              <td nowrap="true">                <button                  type="button"                  class="btn btn-danger btn-sm"                  (click)="remove(item.id)"                >                  <i class="fa fa-fw fa-trash"></i>削除                </button>              </td>            </tr>          </tbody>        </table>        <div class="list-footer">          <app-custom-pagination            [currentPage]="currentPage"            [itemsPerPage]="itemsPerPage"            [totalItems]="totalItems"            (pageChanged)="pageChanged($event)"          ></app-custom-pagination>        </div>      </ng-container>      <ng-template #notFound>        <p>検索結果は0件です</p>      </ng-template>    </div>  </div></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div [@routerTransition]>  <app-page-header [title]="\'ユーザ管理\'"></app-page-header>  <div class="card m-t-lg">    <div class="card-body">      <form class="row" [formGroup]="searchForm" autocomplete="off">        <div class="form-group col-sm-3">          <label for="email" class="col-form-label">メールアドレス</label>          <input            type="email"            class="form-control form-control-sm"            name="email"            formControlName="email"          />        </div>        <div class="form-group  col-sm-3">          <label for="lastName" class="col-form-label">名前（姓）</label>          <input            type="text"            class="form-control form-control-sm"            name="lastName"            formControlName="lastName"          />        </div>        <div class="m-b-sm col-sm-12">          <button type="button" class="btn btn-link" (click)="openAdvance()">            <i              class="fa fa-fw"              [ngClass]="{ \'fa-plus\': !showAdvance, \'fa-times\': showAdvance }"            ></i            >詳細検索          </button>        </div>        <ng-container *ngIf="showAdvance">          <div class="dropdown-divider col-sm-12"></div>          <div class="form-group col-sm-3">            <label for="firstName" class="col-form-label">名前（名）</label>            <input              type="text"              class="form-control form-control-sm"              name="firstName"              formControlName="firstName"            />          </div>        </ng-container>      </form>      <div class="search-bottom">        <button          type="button"          class="btn btn-primary w-100px"          (click)="search(true)"        >          <i class="fa fa-fw fa-search"></i>検索        </button>        <button          type="button"          class="btn btn btn-outline-secondary w-100px m-l-sm"          (click)="reset()"        >          <i class="fa fa-fw fa-refresh"></i>リセット        </button>      </div>    </div>  </div>  <div class="card m-t-lg">    <div class="card-body">      <div class="list-bottom">        <button          type="button"          class="btn btn-primary w-100px"          (click)="create()"        >          <i class="fa fa-fw fa-plus"></i>新規        </button>        <app-dropdown-page-lines          class="m-l-sm"          (changeItemsPerPage)="changeItemsPerPage($event)"        ></app-dropdown-page-lines>      </div>      <ng-container *ngIf="list$ | async as user; else notFound">        <div class="pagination">          全 {{ totalItems }} 件中 {{ fromItem }} 件 ～ {{ toItem }} 件を表示        </div>        <table class="table table-bordered table-striped table-hover table-sm">          <thead>            <tr>              <th                *ngFor="let item of headers"                [ngClass]="{                  \'minimum-width\': item.isButton,                  sort: item.isSort                }"                (click)="setOrder(item.key, item.isSort)"              >                <ng-container *ngIf="item.isSort">                  {{ item.name }}                  <ng-container *ngIf="order !== item.key; else elseBlock">                    <i class="fa fa-sort fa-disable"></i>                  </ng-container>                  <ng-template #elseBlock>                    <i [hidden]="reverse" class="fa fa-sort-asc"></i>                    <i [hidden]="!reverse" class="fa fa-sort-desc"></i>                  </ng-template>                </ng-container>              </th>            </tr>          </thead>          <tbody>            <tr *ngFor="let item of user | orderBy: order:reverse">              <th nowrap="true">                <button                  type="button"                  class="btn btn-primary"                  (click)="edit(item.id)"                >                  <i class="fa fa-fw fa-edit"></i>修正                </button>              </th>              <td>{{ item.userId }}</td>              <td>{{ item.email }}</td>              <td>{{ item.lastName }}</td>              <td>{{ item.firstName }}</td>              <td nowrap="true">                <button                  type="button"                  class="btn btn-danger"                  (click)="remove(item.id)"                >                  <i class="fa fa-fw fa-trash"></i>削除                </button>              </td>            </tr>          </tbody>        </table>        <div class="list-footer">          <app-custom-pagination            [currentPage]="currentPage"            [itemsPerPage]="itemsPerPage"            [totalItems]="totalItems"            (pageChanged)="pageChanged($event)"          ></app-custom-pagination>        </div>      </ng-container>      <ng-template #notFound>        <p>検索結果は0件です</p>      </ng-template>    </div>  </div></div></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BsComponentComponent', 'selector': 'app-bs-component'},{'name': 'CollapseButtonComponent', 'selector': 'app-collapse-button'},{'name': 'ConfirmComponent', 'selector': 'app-confirm'},{'name': 'CustomPaginationComponent', 'selector': 'app-custom-pagination'},{'name': 'DateInputComponent', 'selector': 'app-date-input'},{'name': 'DropdownPageLinesComponent', 'selector': 'app-dropdown-page-lines'},{'name': 'ErrorLabelComponent', 'selector': 'app-error-label'},{'name': 'FeaturesComponent', 'selector': 'app-features'},{'name': 'FileUploadComponent', 'selector': 'app-file-upload'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InputDropdownComponent', 'selector': 'app-input-dropdown'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'PageHeaderComponent', 'selector': 'app-page-header'},{'name': 'QuestionTooltipComponent', 'selector': 'app-question-tooltip'},{'name': 'RequiredComponent', 'selector': 'app-required'},{'name': 'ReusableFormComponent', 'selector': 'app-reusable-form'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'UserDetailComponent', 'selector': 'app-user-detail'},{'name': 'UserListComponent', 'selector': 'app-user-list'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'UserListComponent'};
