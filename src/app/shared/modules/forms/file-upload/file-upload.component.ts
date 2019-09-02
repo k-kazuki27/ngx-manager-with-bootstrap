@@ -1,17 +1,17 @@
 import { Component, OnInit, Optional, Self } from '@angular/core'
-import { ControlValueAccessor, NgControl, Validators } from '@angular/forms'
+import {
+  AbstractControl,
+  ControlValueAccessor,
+  FormControl,
+  NgControl,
+  ValidationErrors,
+  ValidatorFn
+} from '@angular/forms'
 
 @Component({
   selector: 'app-file-upload',
   templateUrl: './file-upload.component.html',
   styleUrls: ['./file-upload.component.scss']
-  // providers: [
-  //   {
-  //     provide: NG_VALUE_ACCESSOR,
-  //     useExisting: forwardRef(() => FileUploadComponent),
-  //     multi: true
-  //   }
-  // ]
 })
 export class FileUploadComponent implements OnInit, ControlValueAccessor {
   disabled!: boolean
@@ -28,11 +28,10 @@ export class FileUploadComponent implements OnInit, ControlValueAccessor {
 
   ngOnInit() {
     if (this.ngControl) {
-      const control = this.ngControl.control
+      const control = this.ngControl.control as FormControl
+
       if (control) {
-        const validators = control.validator
-          ? [control.validator, Validators.required]
-          : Validators.required
+        const validators: ValidatorFn[] = [fileType(), fileSize()]
         control.setValidators(validators)
         control.updateValueAndValidity()
       }
@@ -76,10 +75,11 @@ export class FileUploadComponent implements OnInit, ControlValueAccessor {
       if (e && e.target) {
         const target = e.target as FileReader
         this.image = {
+          type: file.type,
+          size: file.size,
           name: file.name,
           src: target.result
         }
-        console.log(this.image)
         this.onChange(this.image)
       }
     }
@@ -102,6 +102,27 @@ export class FileUploadComponent implements OnInit, ControlValueAccessor {
 }
 
 interface Image {
+  type: string
+  size: number
   name: string
   src: string | ArrayBuffer | null
+}
+
+function fileType(): ValidatorFn {
+  return (control: AbstractControl): ValidationErrors | null => {
+    const image: Image = control.value
+    return image !== null &&
+      image.type !== 'image/jpeg' &&
+      image.type !== 'image/gif' &&
+      image.type !== 'image/png'
+      ? { fileType: true }
+      : null
+  }
+}
+
+function fileSize(): ValidatorFn {
+  return (control: AbstractControl): ValidationErrors | null => {
+    const image: Image = control.value
+    return image !== null && image.size > 5242880 ? { fileSize: true } : null
+  }
 }

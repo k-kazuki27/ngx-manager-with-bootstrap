@@ -88,6 +88,7 @@
     <form [formGroup]="form1">
       <app-file-upload formControlName="image"></app-file-upload>
       <p>確認：{{ image.value?.name }}</p>
+      <p>エラー{{ image.errors | json }}</p>
     </form>
   </div>
 </div>
