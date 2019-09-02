@@ -962,9 +962,11 @@ export class BsComponentComponent implements OnInit {
                 <p class="comment">
                     <code>./bs-component.component.scss</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss">.form-control.ng-select {
-  border: none;
-  padding: 0;
+                <pre class="line-numbers"><code class="language-scss">.form-control {
+  .ng-select {
+    padding: 0;
+    border: none;
+  }
 }
 
 .viewport {
