@@ -10,7 +10,7 @@ import { Injectable } from '@angular/core'
 import { Router } from '@angular/router'
 import { NgxSpinnerService } from 'ngx-spinner'
 import { Observable, of, throwError } from 'rxjs'
-import { catchError, delay, finalize } from 'rxjs/operators'
+import { catchError, finalize } from 'rxjs/operators'
 
 import { DUMMY_USER, DUMMY_USERS } from './../mock/user'
 
@@ -29,7 +29,6 @@ export class CustomInterceptorService implements HttpInterceptor {
     }
     // APIがないため、MOCKに差し替え
     return (httpMock(req) || next.handle(req)).pipe(
-      // delay(new Date(Date.now() + 1000)), // 意図的に遅延
       catchError((res: HttpErrorResponse) => {
         switch (res.status) {
           case 401:
@@ -78,8 +77,8 @@ export function httpMock(
     )
     return result
   }
-
-  if (url.includes('/user/1/2') && method === 'GET') {
+  console.log(url)
+  if (url.includes('/user/1/1') && method === 'GET') {
     // tslint:disable-next-line: deprecation
     result = of(
       new HttpResponse({

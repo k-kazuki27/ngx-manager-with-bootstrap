@@ -1,7 +1,7 @@
 {
   "typescriptHero.imports.organizeOnSave": true,
   "typescriptHero.imports.insertSemicolons": false,
-  "typescriptHero.imports.multiLineWrapThreshold": 140,
+  "typescriptHero.imports.multiLineWrapThreshold": 110,
   "typescriptHero.imports.multiLineTrailingComma": false,
   "editor.formatOnSave": true,
   "prettier.semi": false,

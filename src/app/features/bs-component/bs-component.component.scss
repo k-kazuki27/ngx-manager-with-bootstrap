@@ -1,6 +1,8 @@
-.form-control.ng-select {
-  border: none;
-  padding: 0;
+.form-control {
+  .ng-select {
+    padding: 0;
+    border: none;
+  }
 }
 
 .viewport {
