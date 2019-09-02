@@ -38,19 +38,31 @@
 }
 
 // table
+.table {
+  td,
+  th {
+    padding: 0.3rem;
+    border: 1px solid #bdbdbd;
+  }
 
-.table-hover tbody tr:hover {
-  background-color: #fcfade;
-}
+  thead {
+    th {
+      vertical-align: bottom;
+      border-bottom: 2px solid #bdbdbd;
+    }
+  }
 
-.table-bordered td,
-.table-bordered th {
-  border: 1px solid #bdbdbd;
-}
+  tbody {
+    tr {
+      &:nth-of-type(odd) {
+        background-color: rgba(0, 0, 0, 0.05);
+      }
 
-.table thead th {
-  vertical-align: bottom;
-  border-bottom: 2px solid #bdbdbd;
+      &:hover {
+        background-color: #fcfade;
+      }
+    }
+  }
 }
 
 // card
@@ -63,7 +75,7 @@
   background-color: white;
 }
 
-// size
+// fixed size
 .btn {
   padding: 0.25rem 0.5rem;
   font-size: 0.875rem;
@@ -84,9 +96,4 @@
   padding-bottom: calc(0.25rem + 1px);
   font-size: 0.875rem;
   line-height: 1.5;
-}
-
-.table-sm td,
-.table-sm th {
-  padding: 0.3rem;
 }
