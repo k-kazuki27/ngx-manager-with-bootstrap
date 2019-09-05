@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core'
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms'
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms'
+import { Image } from 'src/app/shared'
 
 @Component({
   selector: 'app-bs-component',
@@ -94,8 +95,12 @@ export class BsComponentComponent implements OnInit {
       test: []
     })
 
+    const src =
+      'https://media.gettyimages.com/photos/caffee-on-table-and-blured-cafe-picture-id652628318'
+
+    const image: Image = { name: 'test', src }
     this.form1 = this.fb.group({
-      image: [null, []]
+      image: [image, []]
     })
 
     for (let i = 1; i <= 100; i++) {

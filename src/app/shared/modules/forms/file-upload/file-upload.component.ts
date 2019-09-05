@@ -31,6 +31,11 @@ export class FileUploadComponent implements OnInit, ControlValueAccessor {
       const control = this.ngControl.control as FormControl
 
       if (control) {
+        this.image = control.value as Image
+        if (this.image) {
+          this.image.size = 1
+          this.image.type = 'image/png'
+        }
         const validators: ValidatorFn[] = [fileType(), fileSize()]
         control.setValidators(validators)
         control.updateValueAndValidity()
@@ -88,6 +93,7 @@ export class FileUploadComponent implements OnInit, ControlValueAccessor {
 
   deleteImage() {
     this.image = null
+    this.onChange(null)
   }
   onFileSelect(e: Event) {
     if (e) {
@@ -101,9 +107,9 @@ export class FileUploadComponent implements OnInit, ControlValueAccessor {
   }
 }
 
-interface Image {
-  type: string
-  size: number
+export interface Image {
+  type?: string
+  size?: number
   name: string
   src: string | ArrayBuffer | null
 }
@@ -122,7 +128,9 @@ function fileType(): ValidatorFn {
 
 function fileSize(): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
-    const image: Image = control.value
-    return image !== null && image.size > 5242880 ? { fileSize: true } : null
+    const image: Image = control.value as Image
+    return image !== null && image.size !== undefined && image.size > 5242880
+      ? { fileSize: true }
+      : null
   }
 }
