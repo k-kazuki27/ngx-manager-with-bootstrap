@@ -51,7 +51,7 @@ export class UserListComponent extends AbstractList
       firstName: paramMap.get('firstName')
     }
     this.pageNo = Number(paramMap.get('pageNo') || 1)
-    this.countPerPage = Number(paramMap.get('countPerPage') || 25)
+    this.itemsPerPage = Number(paramMap.get('itemsPerPage') || 25)
 
     this.list$ = this.search$.asObservable().pipe(
       switchMap(param => {
@@ -67,7 +67,7 @@ export class UserListComponent extends AbstractList
   search(searchParam: UserSearchParam): void {
     const page: Page = {
       pageNo: this.pageNo,
-      countPerPage: this.countPerPage
+      itemsPerPage: this.itemsPerPage
     }
 
     this.router.navigate([], {

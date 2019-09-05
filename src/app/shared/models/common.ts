@@ -7,5 +7,5 @@ export interface TableHeader {
 
 export interface Page {
   pageNo: number
-  countPerPage: number
+  itemsPerPage: number
 }
