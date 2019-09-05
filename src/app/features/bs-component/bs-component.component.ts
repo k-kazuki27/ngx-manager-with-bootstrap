@@ -119,4 +119,7 @@ export class BsComponentComponent implements OnInit {
   get image(): FormControl {
     return this.form1.get('image') as FormControl
   }
+  get date(): FormControl {
+    return this.form2.get('date') as FormControl
+  }
 }

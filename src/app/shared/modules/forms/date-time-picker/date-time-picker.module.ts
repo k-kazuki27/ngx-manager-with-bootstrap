@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common'
 import { NgModule } from '@angular/core'
-import { ReactiveFormsModule, FormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import {
   BsDatepickerConfig,
   BsDatepickerModule,
@@ -26,6 +26,7 @@ import { DateTimePickerComponent } from './date-time-picker.component'
 })
 export class DateTimePickerModule {
   constructor(private bsLocaleService: BsLocaleService) {
+    jaLocale.invalidDate = '不正な日付'
     defineLocale('ja', jaLocale)
     this.bsLocaleService.use('ja')
   }

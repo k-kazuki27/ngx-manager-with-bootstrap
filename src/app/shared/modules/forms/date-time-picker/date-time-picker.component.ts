@@ -44,11 +44,8 @@ export class DateTimePickerComponent implements OnInit, ControlValueAccessor {
     }
   }
 
-  writeValue(obj: any): void {
-    console.log('writeValue', obj)
-  }
+  writeValue(obj: any): void {}
   registerOnChange(fn: any): void {
-    console.log('registerOnChange')
     this.onChange = fn
   }
   registerOnTouched(fn: any): void {
