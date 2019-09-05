@@ -1,13 +1,12 @@
-import { Page } from './../../../shared/models/common'
 import { Component, OnDestroy, OnInit } from '@angular/core'
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms'
-import { ActivatedRoute, Router, ParamMap } from '@angular/router'
+import { ActivatedRoute, ParamMap, Router } from '@angular/router'
 import { BehaviorSubject, Observable, Subject } from 'rxjs'
 import { finalize, map, switchMap, takeUntil, tap } from 'rxjs/operators'
 import { routerTransition } from 'src/app/router.animations'
 import {
   AbstractList,
   ConfirmService,
+  Page,
   TableHeader,
   UserApi,
   UserDTO,
@@ -24,17 +23,18 @@ import { USER_LIST_HEADER, UserSearchParam } from '../user-shared'
 })
 export class UserListComponent extends AbstractList
   implements OnInit, OnDestroy {
-  searchForm!: FormGroup
-  showAdvance = false
-
   list$!: Observable<UserDTO[]>
   headers: TableHeader[] = USER_LIST_HEADER
+  searchParam: UserSearchParam = {
+    email: null,
+    lastName: null,
+    firstName: null
+  }
 
-  private search$ = new BehaviorSubject<UserSearchParam>({})
+  private search$ = new BehaviorSubject<UserSearchParam>(this.searchParam)
   private onDestroy$ = new Subject()
 
   constructor(
-    private fb: FormBuilder,
     private router: Router,
     private confirmService: ConfirmService,
     private route: ActivatedRoute,
@@ -44,19 +44,13 @@ export class UserListComponent extends AbstractList
   }
 
   ngOnInit() {
-    this.searchForm = this.fb.group({
-      email: [null],
-      lastName: [null],
-      firstName: [null]
-    })
-
     const paramMap: ParamMap = this.route.snapshot.paramMap
-
-    this.searchForm.patchValue({
+    this.searchParam = {
       email: paramMap.get('email'),
       lastName: paramMap.get('lastName'),
       firstName: paramMap.get('firstName')
-    })
+    }
+
     this.currentPage = Number(paramMap.get('currentPage') || 1)
     this.itemsPerPage = Number(paramMap.get('itemsPerPage') || 25)
 
@@ -71,42 +65,7 @@ export class UserListComponent extends AbstractList
     this.onDestroy$.next()
   }
 
-  private findUsers(param: UserSearchParam): Observable<UserDTO[]> {
-    return this.userApi
-      .findUsers(
-        this.fromItem,
-        this.toItem,
-        param.email,
-        param.lastName,
-        'body',
-        true
-      )
-      .pipe(
-        tap((res: UsersDTO) => (this.totalItems = res.totalItems || 0)),
-        map((res: UsersDTO) => res.users || []),
-        finalize(() => {
-          this.setPaging()
-        })
-      )
-  }
-
-  //
-  // 検索
-  //
-  openAdvance(): void {
-    this.showAdvance = !this.showAdvance
-  }
-
-  search(doPageReset?: boolean): void {
-    if (doPageReset) {
-      this.currentPage = 1
-    }
-    const param: UserSearchParam = {
-      email: this.email.value,
-      lastName: this.lastName.value,
-      firstName: this.firstName.value
-    }
-
+  search(searchParam: UserSearchParam): void {
     const page: Page = {
       currentPage: this.currentPage,
       itemsPerPage: this.itemsPerPage
@@ -114,16 +73,24 @@ export class UserListComponent extends AbstractList
 
     this.router.navigate([], {
       queryParams: {
-        ...param,
+        ...searchParam,
         ...page
       }
     })
 
-    this.search$.next(param)
+    this.search$.next(searchParam)
   }
 
-  reset(): void {
-    this.searchForm.reset()
+  private findUsers(param: UserSearchParam): Observable<UserDTO[]> {
+    return this.userApi
+      .findUsers(this.fromItem, this.toItem, '', '', 'body', true)
+      .pipe(
+        tap((res: UsersDTO) => (this.totalItems = res.totalItems || 0)),
+        map((res: UsersDTO) => res.users || []),
+        finalize(() => {
+          this.setPaging()
+        })
+      )
   }
 
   //
@@ -147,21 +114,9 @@ export class UserListComponent extends AbstractList
             .removeUser(id, 'body', true)
             .pipe(takeUntil(this.onDestroy$))
             .subscribe(() => {
-              this.search()
+              // this.search()
             })
         }
       })
-  }
-
-  get email(): FormControl {
-    return this.searchForm.get('email') as FormControl
-  }
-
-  get lastName(): FormControl {
-    return this.searchForm.get('lastName') as FormControl
-  }
-
-  get firstName(): FormControl {
-    return this.searchForm.get('firstName') as FormControl
   }
 }

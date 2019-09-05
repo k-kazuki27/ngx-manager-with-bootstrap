@@ -11,11 +11,9 @@ export abstract class AbstractList {
 
   constructor() {}
 
-  abstract search(doPageReset?: boolean): void
-
   changeItemsPerPage(itemsPerPage: number): void {
     this.itemsPerPage = itemsPerPage
-    this.search(true)
+    // this.search(true)
   }
 
   setOrder(value: string, isSort: boolean): void {
@@ -38,7 +36,7 @@ export abstract class AbstractList {
       return
     }
     this.currentPage = currentPage
-    this.search()
+    // this.search()
   }
 
   protected setPaging(): void {

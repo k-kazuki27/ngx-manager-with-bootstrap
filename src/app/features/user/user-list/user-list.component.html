@@ -1,66 +1,9 @@
 <div [@routerTransition]>
   <app-page-header [title]="'ユーザ管理'"></app-page-header>
-  <div class="card m-t-lg">
-    <div class="card-body">
-      <form class="row" [formGroup]="searchForm" autocomplete="off">
-        <div class="form-group col-sm-3">
-          <label for="email" class="col-form-label">メールアドレス</label>
-          <input
-            type="email"
-            class="form-control form-control-sm"
-            name="email"
-            formControlName="email"
-          />
-        </div>
-        <div class="form-group  col-sm-3">
-          <label for="lastName" class="col-form-label">名前（姓）</label>
-          <input
-            type="text"
-            class="form-control form-control-sm"
-            name="lastName"
-            formControlName="lastName"
-          />
-        </div>
-        <div class="m-b-sm col-sm-12">
-          <button type="button" class="btn btn-link" (click)="openAdvance()">
-            <i
-              class="fa fa-fw"
-              [ngClass]="{ 'fa-plus': !showAdvance, 'fa-times': showAdvance }"
-            ></i
-            >詳細検索
-          </button>
-        </div>
-        <ng-container *ngIf="showAdvance">
-          <div class="dropdown-divider col-sm-12"></div>
-          <div class="form-group col-sm-3">
-            <label for="firstName" class="col-form-label">名前（名）</label>
-            <input
-              type="text"
-              class="form-control form-control-sm"
-              name="firstName"
-              formControlName="firstName"
-            />
-          </div>
-        </ng-container>
-      </form>
-      <div class="search-bottom">
-        <button
-          type="button"
-          class="btn btn-primary w-100px"
-          (click)="search(true)"
-        >
-          <i class="fa fa-fw fa-search"></i>検索
-        </button>
-        <button
-          type="button"
-          class="btn btn btn-outline-secondary w-100px m-l-sm"
-          (click)="reset()"
-        >
-          <i class="fa fa-fw fa-refresh"></i>リセット
-        </button>
-      </div>
-    </div>
-  </div>
+  <app-user-search
+    [searchParam]="searchParam"
+    (searched)="search($event)"
+  ></app-user-search>
   <div class="card m-t-lg">
     <div class="card-body">
       <div class="list-bottom">
@@ -80,57 +23,59 @@
         <div class="pagination">
           全 {{ totalItems }} 件中 {{ fromItem }} 件 ～ {{ toItem }} 件を表示
         </div>
-        <table class="table">
-          <thead>
-            <tr>
-              <th
-                *ngFor="let item of headers"
-                [ngClass]="{
-                  'minimum-width': item.isButton,
-                  sort: item.isSort
-                }"
-                (click)="setOrder(item.key, item.isSort)"
-              >
-                <ng-container *ngIf="item.isSort">
-                  {{ item.name }}
-                  <ng-container *ngIf="order !== item.key; else elseBlock">
-                    <i class="fa fa-sort fa-disable"></i>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th
+                  *ngFor="let item of headers"
+                  [ngClass]="{
+                    'minimum-width': item.isButton,
+                    sort: item.isSort
+                  }"
+                  (click)="setOrder(item.key, item.isSort)"
+                >
+                  <ng-container *ngIf="item.isSort">
+                    {{ item.name }}
+                    <ng-container *ngIf="order !== item.key; else elseBlock">
+                      <i class="fa fa-sort fa-disable"></i>
+                    </ng-container>
+                    <ng-template #elseBlock>
+                      <i [hidden]="reverse" class="fa fa-sort-asc"></i>
+                      <i [hidden]="!reverse" class="fa fa-sort-desc"></i>
+                    </ng-template>
                   </ng-container>
-                  <ng-template #elseBlock>
-                    <i [hidden]="reverse" class="fa fa-sort-asc"></i>
-                    <i [hidden]="!reverse" class="fa fa-sort-desc"></i>
-                  </ng-template>
-                </ng-container>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let item of user | orderBy: order:reverse">
-              <th nowrap="true">
-                <button
-                  type="button"
-                  class="btn btn-primary"
-                  (click)="edit(item.id)"
-                >
-                  <i class="fa fa-fw fa-edit"></i>修正
-                </button>
-              </th>
-              <td>{{ item.userId }}</td>
-              <td>{{ item.email }}</td>
-              <td>{{ item.lastName }}</td>
-              <td>{{ item.firstName }}</td>
-              <td nowrap="true">
-                <button
-                  type="button"
-                  class="btn btn-danger"
-                  (click)="remove(item.id)"
-                >
-                  <i class="fa fa-fw fa-trash"></i>削除
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of user | orderBy: order:reverse">
+                <th nowrap="true">
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    (click)="edit(item.id)"
+                  >
+                    <i class="fa fa-fw fa-edit"></i>修正
+                  </button>
+                </th>
+                <td>{{ item.userId }}</td>
+                <td>{{ item.email }}</td>
+                <td>{{ item.lastName }}</td>
+                <td>{{ item.firstName }}</td>
+                <td nowrap="true">
+                  <button
+                    type="button"
+                    class="btn btn-danger"
+                    (click)="remove(item.id)"
+                  >
+                    <i class="fa fa-fw fa-trash"></i>削除
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
         <div class="list-footer">
           <app-custom-pagination
             [currentPage]="currentPage"

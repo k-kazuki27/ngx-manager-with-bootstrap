@@ -25,10 +25,8 @@ describe('AbstractList', () => {
   })
 
   it('changeItemsPerPage', () => {
-    spyOn(target, 'search')
     expect(target.itemsPerPage).toBe(25)
     target.changeItemsPerPage(50)
     expect(target.itemsPerPage).toBe(50)
-    expect(target.search).toHaveBeenCalled()
   })
 })

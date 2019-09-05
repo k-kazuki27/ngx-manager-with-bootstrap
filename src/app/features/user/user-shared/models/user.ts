@@ -1,5 +1,5 @@
 export interface UserSearchParam {
-  email?: string
-  lastName?: string
-  firstName?: string
+  email: string | null
+  lastName: string | null
+  firstName: string | null
 }

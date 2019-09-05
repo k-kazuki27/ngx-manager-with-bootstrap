@@ -4,7 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { RouterTestingModule } from '@angular/router/testing'
 import { SharedModule } from 'src/app/shared/shared.module'
 
-import { UserServiceModule } from '../user-shared'
+import { UserSearchComponent, UserServiceModule } from '../user-shared'
 import { UserListComponent } from './user-list.component'
 
 describe('UserListComponent', () => {
@@ -13,7 +13,7 @@ describe('UserListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [UserListComponent],
+      declarations: [UserListComponent, UserSearchComponent],
       imports: [
         HttpClientModule,
         BrowserAnimationsModule,
