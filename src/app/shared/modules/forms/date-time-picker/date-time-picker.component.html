@@ -1,0 +1,27 @@
+<ng-container>
+  <div class="input-group input-group-sm">
+    <input
+      [(ngModel)]="date"
+      type="text"
+      class="form-control form-control-sm"
+      bsDatepicker
+      #dp="bsDatepicker"
+    />
+    <div class="input-group-append">
+      <button
+        type="button"
+        class="btn btn-outline-secondary"
+        (click)="dp.show()"
+      >
+        <i class="fa fa-fw fa-calendar"></i>
+      </button>
+    </div>
+  </div>
+  <timepicker
+    [(ngModel)]="date"
+    [showMeridian]="false"
+    [minuteStep]="1"
+    [mousewheel]="false"
+  ></timepicker>
+  <p>時間：{{ date }}</p>
+</ng-container>

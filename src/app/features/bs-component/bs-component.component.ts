@@ -10,6 +10,7 @@ import { Image } from 'src/app/shared'
 export class BsComponentComponent implements OnInit {
   form!: FormGroup
   form1!: FormGroup
+  form2!: FormGroup
 
   people: any[] = [
     { id: 1, name: '田中太郎' },
@@ -101,6 +102,10 @@ export class BsComponentComponent implements OnInit {
     const image: Image = { name: 'test', src }
     this.form1 = this.fb.group({
       image: [image, []]
+    })
+
+    this.form2 = this.fb.group({
+      date: [new Date(), []]
     })
 
     for (let i = 1; i <= 100; i++) {

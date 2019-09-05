@@ -1,14 +1,16 @@
+import { ScrollingModule } from '@angular/cdk/scrolling'
 import { CommonModule } from '@angular/common'
 import { NgModule } from '@angular/core'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { NgSelectModule } from '@ng-select/ng-select'
 import { TabsModule, TypeaheadModule } from 'ngx-bootstrap'
 import {
+  DateTimePickerModule,
   FileUploadModule,
   InputDropdownModule,
   ReusableFormModule
 } from 'src/app/shared'
-import { ScrollingModule } from '@angular/cdk/scrolling'
+
 import { BsComponentRoutingModule } from './bs-component-routing.module'
 import { BsComponentComponent } from './bs-component.component'
 
@@ -25,7 +27,8 @@ import { BsComponentComponent } from './bs-component.component'
     TypeaheadModule.forRoot(),
     FileUploadModule,
     ReusableFormModule,
-    ScrollingModule
+    ScrollingModule,
+    DateTimePickerModule
   ]
 })
 export class BsComponentModule {}
