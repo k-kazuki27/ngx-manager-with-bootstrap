@@ -1,12 +1,7 @@
-import {
-  AbstractControl,
-  AsyncValidatorFn,
-  ValidationErrors,
-  ValidatorFn
-} from '@angular/forms'
+import { AbstractControl, AsyncValidatorFn, ValidationErrors, ValidatorFn } from '@angular/forms'
 import { Observable } from 'rxjs'
 import { map } from 'rxjs/operators'
-import { UserApi, UsersDTO } from 'src/app/shared'
+import { UserApi, UserResultDTO } from 'src/app/shared'
 
 export class UserValidator {
   static uniqueUserId(userApi: UserApi): AsyncValidatorFn {
@@ -16,9 +11,9 @@ export class UserValidator {
       | Promise<ValidationErrors | null>
       | Observable<ValidationErrors | null> => {
       const userId = control.value
-      return userApi.findUsers(1, 2).pipe(
-        map((res: UsersDTO) => {
-          return res ? null : { uniqueUserId: true }
+      return userApi.findUsers(undefined, undefined, userId).pipe(
+        map((res: UserResultDTO) => {
+          return res.totalItems === 0 ? null : { uniqueUserId: true }
         })
       )
     }

@@ -6,6 +6,6 @@ export interface TableHeader {
 }
 
 export interface Page {
-  currentPage: number
-  itemsPerPage: number
+  pageNo: number
+  countPerPage: number
 }

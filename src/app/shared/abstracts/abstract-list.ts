@@ -4,7 +4,7 @@ export abstract class AbstractList {
   reverse = true
 
   itemsPerPage = 25
-  currentPage = 1
+  pageNo = 1
   totalItems = 0
   fromItem = 1
   toItem = 1
@@ -30,18 +30,18 @@ export abstract class AbstractList {
     this.order = value
   }
 
-  pageChanged(currentPage: number): void {
+  pageChanged(pageNo: number): void {
     // currentPageに値を設定することによって発火するイベントをスルー
-    if (this.currentPage === currentPage) {
+    if (this.pageNo === pageNo) {
       return
     }
-    this.currentPage = currentPage
+    this.pageNo = pageNo
     // this.search()
   }
 
   protected setPaging(): void {
-    this.fromItem = this.itemsPerPage * (this.currentPage - 1) + 1
-    const maxToItem = this.itemsPerPage * this.currentPage
+    this.fromItem = this.itemsPerPage * (this.pageNo - 1) + 1
+    const maxToItem = this.itemsPerPage * this.pageNo
     this.toItem = this.totalItems < maxToItem ? this.totalItems : maxToItem
   }
 }

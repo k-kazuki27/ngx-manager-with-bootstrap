@@ -18,101 +18,100 @@ paths:
       tags:
         - login
       summary: Login
-      description: ''
+      description: ""
       operationId: login
       requestBody:
-        $ref: '#/components/requestBodies/LoginRequest'
+        $ref: "#/components/requestBodies/LoginRequest"
       responses:
-        '200':
+        "200":
           description: successful operation
           content:
             application/json::
               schema:
-                $ref: '#/components/schemas/User'
+                $ref: "#/components/schemas/User"
   /login/user:
     get:
       tags:
         - login
       summary: Login
-      description: ''
+      description: ""
       operationId: getCurrentAuthenticatedUser
       responses:
-        '200':
+        "200":
           description: successful operation
           content:
             application/json::
               schema:
-                $ref: '#/components/schemas/User'
-  /user/{from}/{to}:
+                $ref: "#/components/schemas/User"
+  /user:
     get:
       tags:
         - user
       summary: find users
-      description: ''
+      description: ""
       operationId: findUsers
       parameters:
-        - name: from
-          in: path
-          required: true
+        - name: itemsPerPage
+          in: query
+          required: false
+          description: 取得件数
           schema:
             type: integer
             format: int32
-          description: ''
-        - name: to
-          in: path
-          required: true
+        - name: pageNo
+          in: query
+          required: false
+          description: ページ番号
           schema:
             type: integer
             format: int32
-          description: ''
         - name: userId
           in: query
-          description: ''
+          description: ""
           required: false
           schema:
             type: string
         - name: lastName
           in: query
-          description: ''
+          description: ""
           required: false
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: successful operation
           content:
             application/json::
               schema:
-                $ref: '#/components/schemas/Users'
-  /user:
+                $ref: "#/components/schemas/UserResult"
     post:
       tags:
         - user
       summary: Create User
-      description: ''
+      description: ""
       operationId: createUser
       requestBody:
-        $ref: '#/components/requestBodies/UserRequest'
+        $ref: "#/components/requestBodies/User"
       responses:
-        '200':
+        "200":
           description: OK
     put:
       tags:
         - user
       summary: Edit User
-      description: ''
+      description: ""
       operationId: editUser
       requestBody:
-        $ref: '#/components/requestBodies/UserRequest'
+        $ref: "#/components/requestBodies/User"
       responses:
-        '200':
+        "200":
           description: OK
   /user/{id}:
     get:
       tags:
         - user
       summary: find user
-      description: ''
+      description: ""
       operationId: getUser
       parameters:
         - name: id
@@ -121,19 +120,19 @@ paths:
           schema:
             type: integer
             format: int32
-          description: ''
+          description: ""
       responses:
-        '200':
+        "200":
           description: successful operation
           content:
             application/json::
               schema:
-                $ref: '#/components/schemas/User'
+                $ref: "#/components/schemas/User"
     delete:
       tags:
         - user
       summary: Remove User
-      description: ''
+      description: ""
       operationId: removeUser
       parameters:
         - name: id
@@ -142,9 +141,9 @@ paths:
           schema:
             type: integer
             format: int32
-          description: ''
+          description: ""
       responses:
-        '200':
+        "200":
           description: OK
 components:
   requestBodies:
@@ -152,14 +151,14 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Login'
+            $ref: "#/components/schemas/Login"
       description: List of user object
       required: true
-    UserRequest:
+    User:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/User'
+            $ref: "#/components/schemas/User"
       description: List of user object
       required: true
   schemas:
@@ -171,7 +170,7 @@ components:
         password:
           type: string
           format: password
-    Users:
+    UserResult:
       type: object
       properties:
         totalItems:
@@ -180,7 +179,7 @@ components:
         users:
           type: array
           items:
-            $ref: '#/components/schemas/User'
+            $ref: "#/components/schemas/User"
     User:
       type: object
       properties:
@@ -206,6 +205,3 @@ components:
         - userId
         - firstName
         - lastName
-        
-        
-        

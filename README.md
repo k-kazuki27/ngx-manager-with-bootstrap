@@ -1,6 +1,6 @@
-# Simple Admin App in Angular7 and Bootstrap 4
+# Simple Admin App in Angular8 and Bootstrap 4
 
-Simple Admin App built using Angular 7 and Bootstrap 4
+Simple Admin App built using Angular 8 and Bootstrap 4
 This project is a port of the famous Free Admin Bootstrap Theme SB Admin v7.0 to Angular7 Theme.
 Powered by StartAngular & StrapUI
 
@@ -66,7 +66,7 @@ $ openapi-generator generate \
 -i openapi.yaml  \
 -g typescript-angular \
 -o src/app/shared/api-clients \
---additional-properties ngVersion=7.0.0 \
+--additional-properties ngVersion=8.0.0 \
 --additional-properties fileNaming=kebab-case \
 --additional-properties serviceSuffix=Api \
 --additional-properties serviceFileSuffix=-api \

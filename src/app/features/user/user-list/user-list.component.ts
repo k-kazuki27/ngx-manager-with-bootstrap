@@ -10,7 +10,7 @@ import {
   TableHeader,
   UserApi,
   UserDTO,
-  UsersDTO
+  UserResultDTO
 } from 'src/app/shared'
 
 import { USER_LIST_HEADER, UserSearchParam } from '../user-shared'
@@ -50,9 +50,8 @@ export class UserListComponent extends AbstractList
       lastName: paramMap.get('lastName'),
       firstName: paramMap.get('firstName')
     }
-
-    this.currentPage = Number(paramMap.get('currentPage') || 1)
-    this.itemsPerPage = Number(paramMap.get('itemsPerPage') || 25)
+    this.pageNo = Number(paramMap.get('pageNo') || 1)
+    this.countPerPage = Number(paramMap.get('countPerPage') || 25)
 
     this.list$ = this.search$.asObservable().pipe(
       switchMap(param => {
@@ -67,8 +66,8 @@ export class UserListComponent extends AbstractList
 
   search(searchParam: UserSearchParam): void {
     const page: Page = {
-      currentPage: this.currentPage,
-      itemsPerPage: this.itemsPerPage
+      pageNo: this.pageNo,
+      countPerPage: this.countPerPage
     }
 
     this.router.navigate([], {
@@ -85,8 +84,8 @@ export class UserListComponent extends AbstractList
     return this.userApi
       .findUsers(this.fromItem, this.toItem, '', '', 'body', true)
       .pipe(
-        tap((res: UsersDTO) => (this.totalItems = res.totalItems || 0)),
-        map((res: UsersDTO) => res.users || []),
+        tap((res: UserResultDTO) => (this.totalItems = res.totalItems || 0)),
+        map((res: UserResultDTO) => res.users || []),
         finalize(() => {
           this.setPaging()
         })

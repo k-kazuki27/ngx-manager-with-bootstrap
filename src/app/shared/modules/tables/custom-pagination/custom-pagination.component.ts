@@ -8,7 +8,7 @@ import { PageChangedEvent } from 'ngx-bootstrap'
 })
 export class CustomPaginationComponent implements OnInit {
   @Input()
-  currentPage!: number
+  pageNo!: number
 
   @Input()
   itemsPerPage!: number

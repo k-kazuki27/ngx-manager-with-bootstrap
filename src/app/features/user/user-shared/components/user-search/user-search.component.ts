@@ -42,20 +42,6 @@ export class UserSearchComponent implements OnInit {
     }
 
     this.searched.emit(param)
-
-    // const page: Page = {
-    //   currentPage: this.currentPage,
-    //   itemsPerPage: this.itemsPerPage
-    // }
-
-    // this.router.navigate([], {
-    //   queryParams: {
-    //     ...param,
-    //     ...page
-    //   }
-    // })
-
-    // this.search$.next(param)
   }
 
   openAdvance(): void {
