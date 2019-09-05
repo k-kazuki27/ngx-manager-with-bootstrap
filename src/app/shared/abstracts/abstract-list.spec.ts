@@ -21,7 +21,7 @@ describe('AbstractList', () => {
   })
 
   it('init', () => {
-    expect(target.currentPage).toBe(1)
+    expect(target.pageNo).toBe(1)
   })
 
   it('changeItemsPerPage', () => {
