@@ -10,6 +10,7 @@ import {
   TimepickerModule
 } from 'ngx-bootstrap'
 
+import { getDatepickerConfig } from './date-forms-shared'
 import { DatePickerComponent } from './date-picker/date-picker.component'
 import { DateTimePickerComponent } from './date-time-picker/date-time-picker.component'
 
@@ -30,12 +31,4 @@ export class DateFormsModule {
     defineLocale('ja', jaLocale)
     this.bsLocaleService.use('ja')
   }
-}
-
-export function getDatepickerConfig(): BsDatepickerConfig {
-  return Object.assign(new BsDatepickerConfig(), {
-    dateInputFormat: 'YYYY-MM-DD',
-    containerClass: 'theme-blue',
-    showWeekNumbers: false
-  })
 }

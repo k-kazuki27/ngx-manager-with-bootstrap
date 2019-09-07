@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, Optional, Self } from '@angular/core'
+import { AfterViewInit, Component, Input, OnInit, Optional, Self } from '@angular/core'
 import {
   ControlValueAccessor,
   FormBuilder,
@@ -7,8 +7,10 @@ import {
   NgControl,
   ValidatorFn
 } from '@angular/forms'
+import { BsDatepickerConfig } from 'ngx-bootstrap'
+import { BsDatepickerViewMode } from 'ngx-bootstrap/datepicker/models'
 
-import { DateFormsValidator } from '../date-forms-shared'
+import { DateFormsValidator, getDatepickerConfig } from '../date-forms-shared'
 
 @Component({
   selector: 'app-date-picker',
@@ -17,6 +19,10 @@ import { DateFormsValidator } from '../date-forms-shared'
 })
 export class DatePickerComponent
   implements OnInit, AfterViewInit, ControlValueAccessor {
+  @Input()
+  mode: BsDatepickerViewMode = 'day'
+  bsConfig!: Partial<BsDatepickerConfig>
+
   form!: FormGroup
 
   disabled!: boolean
@@ -34,6 +40,11 @@ export class DatePickerComponent
   }
 
   ngOnInit() {
+    this.bsConfig = Object.assign(getDatepickerConfig(), {
+      minMode: this.mode,
+      dateInputFormat: (this.mode === 'month' ? 'YYYY/MM' : 'YYYY/MM/DD')
+    })
+
     this.form = this.fb.group({
       date: [null, []]
     })
