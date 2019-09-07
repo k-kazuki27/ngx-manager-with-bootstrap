@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common'
 import { NgModule } from '@angular/core'
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { ReactiveFormsModule } from '@angular/forms'
 import {
   BsDatepickerConfig,
   BsDatepickerModule,
@@ -10,30 +10,29 @@ import {
   TimepickerModule
 } from 'ngx-bootstrap'
 
-import { DateTimePickerComponent } from './date-time-picker.component'
+import { DatePickerComponent } from './date-picker/date-picker.component'
+import { DateTimePickerComponent } from './date-time-picker/date-time-picker.component'
 
 @NgModule({
-  declarations: [DateTimePickerComponent],
+  declarations: [DatePickerComponent, DateTimePickerComponent],
   imports: [
     CommonModule,
-    FormsModule,
     ReactiveFormsModule,
     BsDatepickerModule.forRoot(),
     TimepickerModule.forRoot()
   ],
-  exports: [DateTimePickerComponent],
-  providers: [
-    { provide: BsDatepickerConfig, useFactory: getDatepickerConfigByTime }
-  ]
+  exports: [DatePickerComponent, DateTimePickerComponent],
+  providers: [{ provide: BsDatepickerConfig, useFactory: getDatepickerConfig }]
 })
-export class DateTimePickerModule {
+export class DateFormsModule {
   constructor(private bsLocaleService: BsLocaleService) {
     jaLocale.invalidDate = '不正な日付'
     defineLocale('ja', jaLocale)
     this.bsLocaleService.use('ja')
   }
 }
-export function getDatepickerConfigByTime(): BsDatepickerConfig {
+
+export function getDatepickerConfig(): BsDatepickerConfig {
   return Object.assign(new BsDatepickerConfig(), {
     dateInputFormat: 'YYYY-MM-DD',
     containerClass: 'theme-blue',

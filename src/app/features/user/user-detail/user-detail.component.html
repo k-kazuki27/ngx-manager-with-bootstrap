@@ -98,11 +98,10 @@
 
         <div [class]="formGroupClass">
           <label [class]="labelClass">誕生日</label>
-          <app-date-input
+          <app-date-picker
             class="col-sm-9"
-            [parentForm]="form"
-            controlName="birthday"
-          ></app-date-input>
+            formControlName="birthday"
+          ></app-date-picker>
           <app-error-label
             *ngIf="birthday?.invalid && (birthday?.dirty || birthday?.touched)"
             [class]="errorLabelClass"

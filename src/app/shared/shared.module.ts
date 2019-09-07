@@ -6,7 +6,7 @@ import { OrderModule } from 'ngx-order-pipe'
 import {
   ConfirmModule,
   CustomPaginationModule,
-  DateInputModule,
+  DateFormsModule,
   DropdownPageLinesModule,
   ErrorLabelModule,
   PageHeaderModule,
@@ -25,7 +25,7 @@ const modules = [
   RequiredModule,
   ErrorLabelModule,
   QuestionTooltipModule,
-  DateInputModule,
+  DateFormsModule,
   OrderModule
 ]
 

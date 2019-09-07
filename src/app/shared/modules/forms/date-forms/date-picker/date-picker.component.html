@@ -1,17 +1,17 @@
-<ng-container [formGroup]="parentForm">
-  <div class="input-group input-group-sm">
+<ng-container [formGroup]="form">
+  <div class="input-group">
     <input
+      formControlName="date"
       type="text"
-      class="form-control form-control-sm"
+      class="form-control"
       bsDatepicker
-      #birthdayDp="bsDatepicker"
-      [formControlName]="controlName"
+      #dp="bsDatepicker"
     />
     <div class="input-group-append">
       <button
         type="button"
         class="btn btn-outline-secondary"
-        (click)="birthdayDp.show()"
+        (click)="dp.show()"
       >
         <i class="fa fa-fw fa-calendar"></i>
       </button>

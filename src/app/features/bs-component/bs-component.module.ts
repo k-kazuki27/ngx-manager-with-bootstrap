@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { NgSelectModule } from '@ng-select/ng-select'
 import { TabsModule, TypeaheadModule } from 'ngx-bootstrap'
 import {
-  DateTimePickerModule,
+  DateFormsModule,
   FileUploadModule,
   InputDropdownModule,
   ReusableFormModule
@@ -28,7 +28,7 @@ import { BsComponentComponent } from './bs-component.component'
     FileUploadModule,
     ReusableFormModule,
     ScrollingModule,
-    DateTimePickerModule
+    DateFormsModule
   ]
 })
 export class BsComponentModule {}

@@ -1,7 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing'
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'
-import { BsDatepickerModule, TimepickerModule } from 'ngx-bootstrap'
 
+import { DateFormsModule } from '../../..'
 import { DateTimePickerComponent } from './date-time-picker.component'
 
 describe('DateTimePickerComponent', () => {
@@ -10,13 +9,7 @@ describe('DateTimePickerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [DateTimePickerComponent],
-      imports: [
-        FormsModule,
-        ReactiveFormsModule,
-        BsDatepickerModule.forRoot(),
-        TimepickerModule.forRoot()
-      ]
+      imports: [DateFormsModule]
     }).compileComponents()
   }))
 

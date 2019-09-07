@@ -1,7 +1,16 @@
-import { Component, OnInit, Optional, Self } from '@angular/core'
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  Component,
+  OnInit,
+  Optional,
+  Self
+} from '@angular/core'
 import {
   ControlValueAccessor,
+  FormBuilder,
   FormControl,
+  FormGroup,
   NgControl,
   ValidatorFn
 } from '@angular/forms'
@@ -9,44 +18,52 @@ import {
 @Component({
   selector: 'app-date-time-picker',
   templateUrl: './date-time-picker.component.html',
-  styleUrls: ['./date-time-picker.component.scss']
+  styleUrls: ['./date-time-picker.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DateTimePickerComponent implements OnInit, ControlValueAccessor {
+export class DateTimePickerComponent
+  implements OnInit, AfterViewInit, ControlValueAccessor {
+  form!: FormGroup
   disabled!: boolean
-
-  private value: Date | null = null
-
-  get date(): Date | null {
-    return this.value
-  }
-  set date(date: Date | null) {
-    if (this.value !== date) {
-      this.value = date
-      this.onChange(date)
-    }
-  }
 
   onChange!: (value: any) => void
   onTouched!: () => void
 
-  constructor(@Self() @Optional() private ngControl: NgControl) {
+  constructor(
+    @Self() @Optional() private ngControl: NgControl,
+    private fb: FormBuilder
+  ) {
     if (this.ngControl) {
       this.ngControl.valueAccessor = this
     }
   }
 
   ngOnInit() {
+    this.form = this.fb.group({
+      date: [null, []]
+    })
+
     if (this.ngControl) {
       const control = this.ngControl.control as FormControl
 
       if (control) {
-        this.date = control.value as Date
+        this.date.setValue(control.value as Date)
 
         const validators: ValidatorFn[] = []
         control.setValidators(validators)
         control.updateValueAndValidity()
       }
     }
+  }
+
+  ngAfterViewInit() {
+    this.date.valueChanges.subscribe(value => {
+      this.onChange(value)
+    })
+  }
+
+  get date(): FormControl {
+    return this.form.get('date') as FormControl
   }
 
   writeValue(obj: any): void {}
