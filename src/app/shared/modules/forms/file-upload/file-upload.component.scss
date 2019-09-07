@@ -49,6 +49,19 @@
   }
 }
 
+.disabled {
+  color: #6c757d;
+  background-color: transparent;
+  opacity: 0.65;
+
+  &:hover {
+    color: #6c757d;
+    background-color: transparent;
+    border-color: #6c757d;
+    opacity: 0.65;
+  }
+}
+
 .file-image {
   display: flex;
   justify-content: flex-start;

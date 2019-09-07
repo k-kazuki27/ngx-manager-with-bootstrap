@@ -6,15 +6,14 @@
   >
     <span>ドラッグ＆ドロップ</span>
   </div>
-  <div class="fileup col-sm-5">
+  <div class="fileup col-sm-5 disabled" [ngClass]="{ disabled: disabled }">
     <label for="fileInput">
       <input
         id="fileInput"
         type="file"
-        value="ファイルを選択"
-        accept="image/png,image/jpeg,image/gif"
-        maxsize="5242880"
-        name="image"
+        [accept]="fileTypes.join(',')"
+        [attr.maxsize]="maxsize"
+        [attr.disabled]="disabled ? true : null"
         (change)="onFileSelect($event)"
       />
       <span>ファイルを選択</span>
@@ -27,8 +26,9 @@
     <label class="m-l-sm">{{ image?.name }}</label>
     <button
       type="button"
-      class="btn btn btn-outline-secondary m-l-sm"
+      class="btn btn-outline-secondary m-l-sm"
       (click)="deleteImage()"
+      [attr.disabled]="disabled ? true : null"
     >
       <i class="fa fa-fw fa-trash"></i>削除
     </button>

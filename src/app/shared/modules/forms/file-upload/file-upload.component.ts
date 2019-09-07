@@ -14,6 +14,8 @@ import {
   styleUrls: ['./file-upload.component.scss']
 })
 export class FileUploadComponent implements OnInit, ControlValueAccessor {
+  fileTypes = ['image/png', 'image/jpeg', 'image/jpg']
+  maxsize = 5242880
   disabled!: boolean
   image: Image | null = null
 
@@ -64,6 +66,9 @@ export class FileUploadComponent implements OnInit, ControlValueAccessor {
   onDrop(e: Event): void {
     if (e) {
       e.preventDefault()
+      if (this.disabled) {
+        return
+      }
       const drag = e as DragEvent
       if (drag && drag.dataTransfer) {
         const fileList: FileList = drag.dataTransfer.files
