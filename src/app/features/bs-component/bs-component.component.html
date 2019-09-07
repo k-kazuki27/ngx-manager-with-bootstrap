@@ -109,6 +109,8 @@
       date-time-picker
     </div>
     <div class="card-body">
+      <app-date-picker formControlName="date"></app-date-picker>
+      <hr />
       <app-date-time-picker formControlName="date"></app-date-time-picker>
       <p>確認：{{ date.value }}</p>
       <p>エラー{{ date.errors | json }}</p>

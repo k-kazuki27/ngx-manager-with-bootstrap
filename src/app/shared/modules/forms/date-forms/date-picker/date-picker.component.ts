@@ -1,11 +1,4 @@
-import {
-  AfterViewInit,
-  ChangeDetectionStrategy,
-  Component,
-  OnInit,
-  Optional,
-  Self
-} from '@angular/core'
+import { AfterViewInit, Component, OnInit, Optional, Self } from '@angular/core'
 import {
   ControlValueAccessor,
   FormBuilder,
@@ -15,11 +8,12 @@ import {
   ValidatorFn
 } from '@angular/forms'
 
+import { DateFormsValidator } from '../date-forms-shared'
+
 @Component({
   selector: 'app-date-picker',
   templateUrl: './date-picker.component.html',
-  styleUrls: ['./date-picker.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./date-picker.component.scss']
 })
 export class DatePickerComponent
   implements OnInit, AfterViewInit, ControlValueAccessor {
@@ -49,8 +43,7 @@ export class DatePickerComponent
 
       if (control) {
         this.date.setValue(control.value as Date)
-
-        const validators: ValidatorFn[] = []
+        const validators: ValidatorFn[] = [DateFormsValidator.invalidBsDate()]
         control.setValidators(validators)
         control.updateValueAndValidity()
       }
@@ -63,6 +56,9 @@ export class DatePickerComponent
     })
   }
 
+  add() {
+    this.onChange(new Date())
+  }
   get date(): FormControl {
     return this.form.get('date') as FormControl
   }

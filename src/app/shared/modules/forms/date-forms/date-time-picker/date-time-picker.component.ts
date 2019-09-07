@@ -15,6 +15,8 @@ import {
   ValidatorFn
 } from '@angular/forms'
 
+import { DateFormsValidator } from '../date-forms-shared'
+
 @Component({
   selector: 'app-date-time-picker',
   templateUrl: './date-time-picker.component.html',
@@ -49,7 +51,7 @@ export class DateTimePickerComponent
       if (control) {
         this.date.setValue(control.value as Date)
 
-        const validators: ValidatorFn[] = []
+        const validators: ValidatorFn[] = [DateFormsValidator.invalidBsDate()]
         control.setValidators(validators)
         control.updateValueAndValidity()
       }

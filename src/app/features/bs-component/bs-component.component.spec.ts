@@ -3,7 +3,11 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing'
 import { FormsModule } from '@angular/forms'
 import { NgSelectModule } from '@ng-select/ng-select'
 import { TabsModule, TypeaheadModule } from 'ngx-bootstrap'
-import { FileUploadModule, InputDropdownModule, ReusableFormModule } from 'src/app/shared'
+import {
+  FileUploadModule,
+  InputDropdownModule,
+  ReusableFormModule
+} from 'src/app/shared'
 import { SharedModule } from 'src/app/shared/shared.module'
 
 import { BsComponentComponent } from './bs-component.component'
