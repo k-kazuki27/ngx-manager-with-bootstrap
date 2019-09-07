@@ -6,7 +6,8 @@ import { TabsModule, TypeaheadModule } from 'ngx-bootstrap'
 import {
   FileUploadModule,
   InputDropdownModule,
-  ReusableFormModule
+  ReusableFormModule,
+  DateTimePickerModule
 } from 'src/app/shared'
 import { SharedModule } from 'src/app/shared/shared.module'
 
@@ -28,7 +29,8 @@ describe('BsComponentComponent', () => {
         TypeaheadModule.forRoot(),
         FileUploadModule,
         ReusableFormModule,
-        ScrollingModule
+        ScrollingModule,
+        DateTimePickerModule
       ]
     }).compileComponents()
   }))

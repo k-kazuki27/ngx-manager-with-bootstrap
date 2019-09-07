@@ -22,7 +22,9 @@ import { DateTimePickerComponent } from './date-time-picker.component'
     TimepickerModule.forRoot()
   ],
   exports: [DateTimePickerComponent],
-  providers: [{ provide: BsDatepickerConfig, useFactory: getDatepickerConfig }]
+  providers: [
+    { provide: BsDatepickerConfig, useFactory: getDatepickerConfigByTime }
+  ]
 })
 export class DateTimePickerModule {
   constructor(private bsLocaleService: BsLocaleService) {
@@ -31,7 +33,7 @@ export class DateTimePickerModule {
     this.bsLocaleService.use('ja')
   }
 }
-function getDatepickerConfig(): BsDatepickerConfig {
+export function getDatepickerConfigByTime(): BsDatepickerConfig {
   return Object.assign(new BsDatepickerConfig(), {
     dateInputFormat: 'YYYY-MM-DD',
     containerClass: 'theme-blue',
