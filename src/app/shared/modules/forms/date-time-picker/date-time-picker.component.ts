@@ -1,5 +1,10 @@
 import { Component, OnInit, Optional, Self } from '@angular/core'
-import { ControlValueAccessor, FormControl, NgControl, ValidatorFn } from '@angular/forms'
+import {
+  ControlValueAccessor,
+  FormControl,
+  NgControl,
+  ValidatorFn
+} from '@angular/forms'
 
 @Component({
   selector: 'app-date-time-picker',
