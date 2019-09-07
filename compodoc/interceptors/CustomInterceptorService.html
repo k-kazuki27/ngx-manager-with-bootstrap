@@ -323,23 +323,23 @@ export function httpMock(
     )
     return result
   }
-  console.log(url)
-  if (url.includes(&#x27;/user/1/1&#x27;) &amp;&amp; method &#x3D;&#x3D;&#x3D; &#x27;GET&#x27;) {
-    // tslint:disable-next-line: deprecation
-    result &#x3D; of(
-      new HttpResponse({
-        status: 200,
-        body: DUMMY_USERS
-      })
-    )
-    return result
-  }
+
   if (url.includes(&#x27;/user/&#x27;) &amp;&amp; method &#x3D;&#x3D;&#x3D; &#x27;GET&#x27;) {
     // tslint:disable-next-line: deprecation
     result &#x3D; of(
       new HttpResponse({
         status: 200,
         body: DUMMY_USER
+      })
+    )
+    return result
+  }
+  if (url.includes(&#x27;/user&#x27;) &amp;&amp; method &#x3D;&#x3D;&#x3D; &#x27;GET&#x27;) {
+    // tslint:disable-next-line: deprecation
+    result &#x3D; of(
+      new HttpResponse({
+        status: 200,
+        body: DUMMY_USERS
       })
     )
     return result

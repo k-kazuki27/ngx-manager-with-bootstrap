@@ -119,13 +119,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/BsComponentModule.html" data-type="entity-link">BsComponentModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-BsComponentModule-43ac590360405f1be9326838dcfd32c5"' : 'data-target="#xs-components-links-module-BsComponentModule-43ac590360405f1be9326838dcfd32c5"' }>
+                                            'data-target="#components-links-module-BsComponentModule-e4307058952fab05d42f169e203a0b56"' : 'data-target="#xs-components-links-module-BsComponentModule-e4307058952fab05d42f169e203a0b56"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-BsComponentModule-43ac590360405f1be9326838dcfd32c5"' :
-                                            'id="xs-components-links-module-BsComponentModule-43ac590360405f1be9326838dcfd32c5"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-BsComponentModule-e4307058952fab05d42f169e203a0b56"' :
+                                            'id="xs-components-links-module-BsComponentModule-e4307058952fab05d42f169e203a0b56"' }>
                                             <li class="link">
                                                 <a href="components/BsComponentComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">BsComponentComponent</a>
@@ -201,6 +201,24 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                             <li class="link">
                                                 <a href="components/DateInputComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">DateInputComponent</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                            </li>
+                            <li class="link">
+                                <a href="modules/DateTimePickerModule.html" data-type="entity-link">DateTimePickerModule</a>
+                                    <li class="chapter inner">
+                                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
+                                            'data-target="#components-links-module-DateTimePickerModule-9e2845515a66a49310f4b14fbe3fc91d"' : 'data-target="#xs-components-links-module-DateTimePickerModule-9e2845515a66a49310f4b14fbe3fc91d"' }>
+                                            <span class="icon ion-md-cog"></span>
+                                            <span>Components</span>
+                                            <span class="icon ion-ios-arrow-down"></span>
+                                        </div>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-DateTimePickerModule-9e2845515a66a49310f4b14fbe3fc91d"' :
+                                            'id="xs-components-links-module-DateTimePickerModule-9e2845515a66a49310f4b14fbe3fc91d"' }>
+                                            <li class="link">
+                                                <a href="components/DateTimePickerComponent.html"
+                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">DateTimePickerComponent</a>
                                             </li>
                                         </ul>
                                     </li>
@@ -413,13 +431,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/UserModule.html" data-type="entity-link">UserModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-UserModule-44486ccfeff716d7d83cb4a6a8f4a679"' : 'data-target="#xs-components-links-module-UserModule-44486ccfeff716d7d83cb4a6a8f4a679"' }>
+                                            'data-target="#components-links-module-UserModule-79faedc1dfef810942f0b00d1a848acd"' : 'data-target="#xs-components-links-module-UserModule-79faedc1dfef810942f0b00d1a848acd"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-UserModule-44486ccfeff716d7d83cb4a6a8f4a679"' :
-                                            'id="xs-components-links-module-UserModule-44486ccfeff716d7d83cb4a6a8f4a679"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-UserModule-79faedc1dfef810942f0b00d1a848acd"' :
+                                            'id="xs-components-links-module-UserModule-79faedc1dfef810942f0b00d1a848acd"' }>
                                             <li class="link">
                                                 <a href="components/UserDetailComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">UserDetailComponent</a>
@@ -427,6 +445,10 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                             <li class="link">
                                                 <a href="components/UserListComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">UserListComponent</a>
+                                            </li>
+                                            <li class="link">
+                                                <a href="components/UserSearchComponent.html"
+                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">UserSearchComponent</a>
                                             </li>
                                         </ul>
                                     </li>
@@ -479,7 +501,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/Configuration.html" data-type="entity-link">Configuration</a>
                             </li>
                             <li class="link">
-                                <a href="classes/CustomHttpUrlEncodingCodec.html" data-type="entity-link">CustomHttpUrlEncodingCodec</a>
+                                <a href="classes/CustomHttpParameterCodec.html" data-type="entity-link">CustomHttpParameterCodec</a>
                             </li>
                             <li class="link">
                                 <a href="classes/UserValidator.html" data-type="entity-link">UserValidator</a>
@@ -573,7 +595,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/UserDTO.html" data-type="entity-link">UserDTO</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/UsersDTO.html" data-type="entity-link">UsersDTO</a>
+                                <a href="interfaces/UserResultDTO.html" data-type="entity-link">UserResultDTO</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/UserSearchParam.html" data-type="entity-link">UserSearchParam</a>

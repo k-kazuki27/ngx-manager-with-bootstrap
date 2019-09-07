@@ -277,8 +277,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="89"
-                            class="link-to-prism">src/app/shared/modules/forms/file-upload/file-upload.component.ts:89</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="94"
+                            class="link-to-prism">src/app/shared/modules/forms/file-upload/file-upload.component.ts:94</a></div>
                 </td>
             </tr>
 
@@ -355,8 +355,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="53"
-                            class="link-to-prism">src/app/shared/modules/forms/file-upload/file-upload.component.ts:53</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="58"
+                            class="link-to-prism">src/app/shared/modules/forms/file-upload/file-upload.component.ts:58</a></div>
                 </td>
             </tr>
 
@@ -425,8 +425,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="59"
-                            class="link-to-prism">src/app/shared/modules/forms/file-upload/file-upload.component.ts:59</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="64"
+                            class="link-to-prism">src/app/shared/modules/forms/file-upload/file-upload.component.ts:64</a></div>
                 </td>
             </tr>
 
@@ -495,8 +495,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="92"
-                            class="link-to-prism">src/app/shared/modules/forms/file-upload/file-upload.component.ts:92</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="98"
+                            class="link-to-prism">src/app/shared/modules/forms/file-upload/file-upload.component.ts:98</a></div>
                 </td>
             </tr>
 
@@ -565,8 +565,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="43"
-                            class="link-to-prism">src/app/shared/modules/forms/file-upload/file-upload.component.ts:43</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="48"
+                            class="link-to-prism">src/app/shared/modules/forms/file-upload/file-upload.component.ts:48</a></div>
                 </td>
             </tr>
 
@@ -635,8 +635,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="46"
-                            class="link-to-prism">src/app/shared/modules/forms/file-upload/file-upload.component.ts:46</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="51"
+                            class="link-to-prism">src/app/shared/modules/forms/file-upload/file-upload.component.ts:51</a></div>
                 </td>
             </tr>
 
@@ -705,8 +705,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="49"
-                            class="link-to-prism">src/app/shared/modules/forms/file-upload/file-upload.component.ts:49</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="54"
+                            class="link-to-prism">src/app/shared/modules/forms/file-upload/file-upload.component.ts:54</a></div>
                 </td>
             </tr>
 
@@ -777,8 +777,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="71"
-                            class="link-to-prism">src/app/shared/modules/forms/file-upload/file-upload.component.ts:71</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="76"
+                            class="link-to-prism">src/app/shared/modules/forms/file-upload/file-upload.component.ts:76</a></div>
                 </td>
             </tr>
 
@@ -847,8 +847,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="41"
-                            class="link-to-prism">src/app/shared/modules/forms/file-upload/file-upload.component.ts:41</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="46"
+                            class="link-to-prism">src/app/shared/modules/forms/file-upload/file-upload.component.ts:46</a></div>
                 </td>
             </tr>
 
@@ -1053,6 +1053,11 @@ export class FileUploadComponent implements OnInit, ControlValueAccessor {
       const control &#x3D; this.ngControl.control as FormControl
 
       if (control) {
+        this.image &#x3D; control.value as Image
+        if (this.image) {
+          this.image.size &#x3D; 1
+          this.image.type &#x3D; &#x27;image/png&#x27;
+        }
         const validators: ValidatorFn[] &#x3D; [fileType(), fileSize()]
         control.setValidators(validators)
         control.updateValueAndValidity()
@@ -1110,6 +1115,7 @@ export class FileUploadComponent implements OnInit, ControlValueAccessor {
 
   deleteImage() {
     this.image &#x3D; null
+    this.onChange(null)
   }
   onFileSelect(e: Event) {
     if (e) {
@@ -1123,9 +1129,9 @@ export class FileUploadComponent implements OnInit, ControlValueAccessor {
   }
 }
 
-interface Image {
-  type: string
-  size: number
+export interface Image {
+  type?: string
+  size?: number
   name: string
   src: string | ArrayBuffer | null
 }
@@ -1144,8 +1150,10 @@ function fileType(): ValidatorFn {
 
 function fileSize(): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null &#x3D;&gt; {
-    const image: Image &#x3D; control.value
-    return image !&#x3D;&#x3D; null &amp;&amp; image.size &gt; 5242880 ? { fileSize: true } : null
+    const image: Image &#x3D; control.value as Image
+    return image !&#x3D;&#x3D; null &amp;&amp; image.size !&#x3D;&#x3D; undefined &amp;&amp; image.size &gt; 5242880
+      ? { fileSize: true }
+      : null
   }
 }
 </code></pre>
@@ -1295,7 +1303,7 @@ function fileSize(): ValidatorFn {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><div class="row">  <div    class="drag-drop-area col-sm-7"    (dragover)="onDragOver($event)"    (drop)="onDrop($event)"  >    <span>ドラッグ＆ドロップ</span>  </div>  <div class="fileup col-sm-5">    <label for="fileInput">      <input        id="fileInput"        type="file"        value="ファイルを選択"        accept="image/png,image/jpeg,image/gif"        maxsize="5242880"        name="image"        (change)="onFileSelect($event)"      />      <span>ファイルを選択</span>    </label>  </div>  <div class="file-image col-sm-12 m-t-sm" *ngIf="image">    <div>      <img class="file-preview" [src]="image?.src" alt="イメージ" />    </div>    <label class="m-l-sm">{{ image?.name }}</label>    <button      type="button"      class="btn btn btn-outline-secondary m-l-sm"      (click)="deleteImage()"    >      <i class="fa fa-fw fa-trash"></i>削除    </button>  </div></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BsComponentComponent', 'selector': 'app-bs-component'},{'name': 'CollapseButtonComponent', 'selector': 'app-collapse-button'},{'name': 'ConfirmComponent', 'selector': 'app-confirm'},{'name': 'CustomPaginationComponent', 'selector': 'app-custom-pagination'},{'name': 'DateInputComponent', 'selector': 'app-date-input'},{'name': 'DropdownPageLinesComponent', 'selector': 'app-dropdown-page-lines'},{'name': 'ErrorLabelComponent', 'selector': 'app-error-label'},{'name': 'FeaturesComponent', 'selector': 'app-features'},{'name': 'FileUploadComponent', 'selector': 'app-file-upload'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InputDropdownComponent', 'selector': 'app-input-dropdown'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'PageHeaderComponent', 'selector': 'app-page-header'},{'name': 'QuestionTooltipComponent', 'selector': 'app-question-tooltip'},{'name': 'RequiredComponent', 'selector': 'app-required'},{'name': 'ReusableFormComponent', 'selector': 'app-reusable-form'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'UserDetailComponent', 'selector': 'app-user-detail'},{'name': 'UserListComponent', 'selector': 'app-user-list'}];
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BsComponentComponent', 'selector': 'app-bs-component'},{'name': 'CollapseButtonComponent', 'selector': 'app-collapse-button'},{'name': 'ConfirmComponent', 'selector': 'app-confirm'},{'name': 'CustomPaginationComponent', 'selector': 'app-custom-pagination'},{'name': 'DateInputComponent', 'selector': 'app-date-input'},{'name': 'DateTimePickerComponent', 'selector': 'app-date-time-picker'},{'name': 'DropdownPageLinesComponent', 'selector': 'app-dropdown-page-lines'},{'name': 'ErrorLabelComponent', 'selector': 'app-error-label'},{'name': 'FeaturesComponent', 'selector': 'app-features'},{'name': 'FileUploadComponent', 'selector': 'app-file-upload'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InputDropdownComponent', 'selector': 'app-input-dropdown'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'PageHeaderComponent', 'selector': 'app-page-header'},{'name': 'QuestionTooltipComponent', 'selector': 'app-question-tooltip'},{'name': 'RequiredComponent', 'selector': 'app-required'},{'name': 'ReusableFormComponent', 'selector': 'app-reusable-form'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'UserDetailComponent', 'selector': 'app-user-detail'},{'name': 'UserListComponent', 'selector': 'app-user-list'},{'name': 'UserSearchComponent', 'selector': 'app-user-search'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'FileUploadComponent'};
 </script>

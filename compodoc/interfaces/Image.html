@@ -82,12 +82,14 @@
                                         <a href="#name">name</a>
                                 </li>
                                 <li>
+                                            <span class="modifier">Optional</span>
                                         <a href="#size">size</a>
                                 </li>
                                 <li>
                                         <a href="#src">src</a>
                                 </li>
                                 <li>
+                                            <span class="modifier">Optional</span>
                                         <a href="#type">type</a>
                                 </li>
                             </ul>
@@ -153,6 +155,11 @@
                                         </td>
                                     </tr>
 
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
 
 
 
@@ -211,6 +218,11 @@
                                         </td>
                                     </tr>
 
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
 
 
 
@@ -255,6 +267,11 @@ export class FileUploadComponent implements OnInit, ControlValueAccessor {
       const control &#x3D; this.ngControl.control as FormControl
 
       if (control) {
+        this.image &#x3D; control.value as Image
+        if (this.image) {
+          this.image.size &#x3D; 1
+          this.image.type &#x3D; &#x27;image/png&#x27;
+        }
         const validators: ValidatorFn[] &#x3D; [fileType(), fileSize()]
         control.setValidators(validators)
         control.updateValueAndValidity()
@@ -312,6 +329,7 @@ export class FileUploadComponent implements OnInit, ControlValueAccessor {
 
   deleteImage() {
     this.image &#x3D; null
+    this.onChange(null)
   }
   onFileSelect(e: Event) {
     if (e) {
@@ -325,9 +343,9 @@ export class FileUploadComponent implements OnInit, ControlValueAccessor {
   }
 }
 
-interface Image {
-  type: string
-  size: number
+export interface Image {
+  type?: string
+  size?: number
   name: string
   src: string | ArrayBuffer | null
 }
@@ -346,8 +364,10 @@ function fileType(): ValidatorFn {
 
 function fileSize(): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null &#x3D;&gt; {
-    const image: Image &#x3D; control.value
-    return image !&#x3D;&#x3D; null &amp;&amp; image.size &gt; 5242880 ? { fileSize: true } : null
+    const image: Image &#x3D; control.value as Image
+    return image !&#x3D;&#x3D; null &amp;&amp; image.size !&#x3D;&#x3D; undefined &amp;&amp; image.size &gt; 5242880
+      ? { fileSize: true }
+      : null
   }
 }
 </code></pre>

@@ -79,10 +79,10 @@
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
-                                        <a href="#currentPage">currentPage</a>
+                                        <a href="#itemsPerPage">itemsPerPage</a>
                                 </li>
                                 <li>
-                                        <a href="#itemsPerPage">itemsPerPage</a>
+                                        <a href="#pageNo">pageNo</a>
                                 </li>
                             </ul>
                         </td>
@@ -99,13 +99,13 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="currentPage"></a>
-                                        <span class="name"><b>currentPage</b><a href="#currentPage"><span class="icon ion-ios-link"></span></a></span>
+                                        <a name="itemsPerPage"></a>
+                                        <span class="name"><b>itemsPerPage</b><a href="#itemsPerPage"><span class="icon ion-ios-link"></span></a></span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>currentPage:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                        <code>itemsPerPage:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -128,13 +128,13 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="itemsPerPage"></a>
-                                        <span class="name"><b>itemsPerPage</b><a href="#itemsPerPage"><span class="icon ion-ios-link"></span></a></span>
+                                        <a name="pageNo"></a>
+                                        <span class="name"><b>pageNo</b><a href="#pageNo"><span class="icon ion-ios-link"></span></a></span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>itemsPerPage:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                        <code>pageNo:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -166,7 +166,7 @@
 }
 
 export interface Page {
-  currentPage: number
+  pageNo: number
   itemsPerPage: number
 }
 </code></pre>
