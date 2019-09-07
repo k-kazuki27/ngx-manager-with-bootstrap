@@ -13,6 +13,7 @@
         type="button"
         class="btn btn-outline-secondary"
         (click)="dp.show()"
+        [attr.disabled]="date.disabled ? true : null"
       >
         <i class="fa fa-fw fa-calendar"></i>
       </button>

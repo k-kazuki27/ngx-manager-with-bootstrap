@@ -1,11 +1,4 @@
-import {
-  AfterViewInit,
-  ChangeDetectionStrategy,
-  Component,
-  OnInit,
-  Optional,
-  Self
-} from '@angular/core'
+import { AfterViewInit, ChangeDetectionStrategy, Component, OnInit, Optional, Self } from '@angular/core'
 import {
   ControlValueAccessor,
   FormBuilder,
@@ -26,7 +19,6 @@ import { DateFormsValidator } from '../date-forms-shared'
 export class DateTimePickerComponent
   implements OnInit, AfterViewInit, ControlValueAccessor {
   form!: FormGroup
-  disabled!: boolean
 
   onChange!: (value: any) => void
   onTouched!: () => void
@@ -50,8 +42,11 @@ export class DateTimePickerComponent
 
       if (control) {
         this.date.setValue(control.value as Date)
-
         const validators: ValidatorFn[] = [DateFormsValidator.invalidBsDate()]
+        if (control.validator) {
+          validators.push(control.validator)
+          this.date.setValidators(control.validator)
+        }
         control.setValidators(validators)
         control.updateValueAndValidity()
       }
@@ -76,6 +71,6 @@ export class DateTimePickerComponent
     this.onTouched = fn
   }
   setDisabledState(isDisabled: boolean) {
-    this.disabled = isDisabled
+    isDisabled ? this.form.disable() : this.form.enable()
   }
 }

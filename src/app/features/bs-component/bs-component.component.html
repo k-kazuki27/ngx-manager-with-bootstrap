@@ -109,11 +109,15 @@
       date-time-picker
     </div>
     <div class="card-body">
+      <tabset type="pills">
+        <tab heading="Enable" (selectTab)="onSelect(false)"></tab>
+        <tab heading="Disable" (selectTab)="onSelect(true)"></tab>
+      </tabset>
       <app-date-picker formControlName="date"></app-date-picker>
       <hr />
       <app-date-time-picker formControlName="date"></app-date-time-picker>
       <p>確認：{{ date.value }}</p>
-      <p>エラー{{ date.errors | json }}</p>
+      <p>エラー：{{ date.errors | json }}</p>
     </div>
   </div>
 </form>

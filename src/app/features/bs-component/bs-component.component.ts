@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core'
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms'
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Image } from 'src/app/shared'
 
 @Component({
@@ -8,6 +8,14 @@ import { Image } from 'src/app/shared'
   styleUrls: ['./bs-component.component.scss']
 })
 export class BsComponentComponent implements OnInit {
+  constructor(private fb: FormBuilder) {}
+
+  get image(): FormControl {
+    return this.form1.get('image') as FormControl
+  }
+  get date(): FormControl {
+    return this.form2.get('date') as FormControl
+  }
   form!: FormGroup
   form1!: FormGroup
   form2!: FormGroup
@@ -88,8 +96,6 @@ export class BsComponentComponent implements OnInit {
 
   vsItems: any[] = []
 
-  constructor(private fb: FormBuilder) {}
-
   ngOnInit() {
     this.form = this.fb.group({
       hoge: [null, []],
@@ -105,7 +111,7 @@ export class BsComponentComponent implements OnInit {
     })
 
     this.form2 = this.fb.group({
-      date: [new Date(), []]
+      date: [new Date(), [Validators.required]]
     })
 
     for (let i = 1; i <= 100; i++) {
@@ -115,11 +121,7 @@ export class BsComponentComponent implements OnInit {
       })
     }
   }
-
-  get image(): FormControl {
-    return this.form1.get('image') as FormControl
-  }
-  get date(): FormControl {
-    return this.form2.get('date') as FormControl
+  onSelect(disable: boolean) {
+    disable ? this.date.disable() : this.date.enable()
   }
 }

@@ -1,4 +1,12 @@
-import { AfterViewInit, Component, Input, OnInit, Optional, Self } from '@angular/core'
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnInit,
+  Optional,
+  Self
+} from '@angular/core'
 import {
   ControlValueAccessor,
   FormBuilder,
@@ -15,17 +23,16 @@ import { DateFormsValidator, getDatepickerConfig } from '../date-forms-shared'
 @Component({
   selector: 'app-date-picker',
   templateUrl: './date-picker.component.html',
-  styleUrls: ['./date-picker.component.scss']
+  styleUrls: ['./date-picker.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DatePickerComponent
   implements OnInit, AfterViewInit, ControlValueAccessor {
   @Input()
   mode: BsDatepickerViewMode = 'day'
+
   bsConfig!: Partial<BsDatepickerConfig>
-
   form!: FormGroup
-
-  disabled!: boolean
 
   onChange!: (value: Date) => void
   onTouched!: () => void
@@ -42,7 +49,7 @@ export class DatePickerComponent
   ngOnInit() {
     this.bsConfig = Object.assign(getDatepickerConfig(), {
       minMode: this.mode,
-      dateInputFormat: (this.mode === 'month' ? 'YYYY/MM' : 'YYYY/MM/DD')
+      dateInputFormat: this.mode === 'month' ? 'YYYY/MM' : 'YYYY/MM/DD'
     })
 
     this.form = this.fb.group({
@@ -54,7 +61,12 @@ export class DatePickerComponent
 
       if (control) {
         this.date.setValue(control.value as Date)
+
         const validators: ValidatorFn[] = [DateFormsValidator.invalidBsDate()]
+        if (control.validator) {
+          validators.push(control.validator)
+          this.date.setValidators(control.validator)
+        }
         control.setValidators(validators)
         control.updateValueAndValidity()
       }
@@ -67,9 +79,6 @@ export class DatePickerComponent
     })
   }
 
-  add() {
-    this.onChange(new Date())
-  }
   get date(): FormControl {
     return this.form.get('date') as FormControl
   }
@@ -82,6 +91,6 @@ export class DatePickerComponent
     this.onTouched = fn
   }
   setDisabledState(isDisabled: boolean) {
-    this.disabled = isDisabled
+    isDisabled ? this.form.disable() : this.form.enable()
   }
 }
