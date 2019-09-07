@@ -82,7 +82,7 @@
                             <a href="#DUMMY_USERS" title="src/app/shared/mock/user.ts"><b>DUMMY_USERS</b>&nbsp;&nbsp;&nbsp;(src/.../user.ts)</a>
                         </li>
                         <li>
-                            <a href="#environment" title="src/environments/environment.ts"><b>environment</b>&nbsp;&nbsp;&nbsp;(src/.../environment.ts)</a>
+                            <a href="#environment" title="src/environments/environment.stg.ts"><b>environment</b>&nbsp;&nbsp;&nbsp;(src/.../environment.stg.ts)</a>
                         </li>
                         <li>
                             <a href="#environment" title="src/environments/environment.dev.ts"><b>environment</b>&nbsp;&nbsp;&nbsp;(src/.../environment.dev.ts)</a>
@@ -91,7 +91,7 @@
                             <a href="#environment" title="src/environments/environment.live.ts"><b>environment</b>&nbsp;&nbsp;&nbsp;(src/.../environment.live.ts)</a>
                         </li>
                         <li>
-                            <a href="#environment" title="src/environments/environment.stg.ts"><b>environment</b>&nbsp;&nbsp;&nbsp;(src/.../environment.stg.ts)</a>
+                            <a href="#environment" title="src/environments/environment.ts"><b>environment</b>&nbsp;&nbsp;&nbsp;(src/.../environment.ts)</a>
                         </li>
                         <li>
                             <a href="#ERROR_MAP" title="src/app/shared/modules/forms/error-label/error-label.component.ts"><b>ERROR_MAP</b>&nbsp;&nbsp;&nbsp;(src/.../error-label.component.ts)</a>
@@ -426,7 +426,7 @@
             </tbody>
         </table>
 </section>
-    <h3>src/environments/environment.ts</h3>
+    <h3>src/environments/environment.stg.ts</h3>
     <section>
     <h3></h3>        <table class="table table-sm table-bordered">
             <tbody>
@@ -449,8 +449,8 @@
                     <tr>
                         <td class="col-md-4">
                             <i>Default value : </i><code>{
-  production: false,
-  ENV: &#x27;LOCAL&#x27;,
+  production: true,
+  ENV: &#x27;STG&#x27;,
   API_BASE_PATH: &#x27;http://127.0.0.1:8080&#x27;
 }</code>
                         </td>
@@ -528,7 +528,7 @@
             </tbody>
         </table>
 </section>
-    <h3>src/environments/environment.stg.ts</h3>
+    <h3>src/environments/environment.ts</h3>
     <section>
     <h3></h3>        <table class="table table-sm table-bordered">
             <tbody>
@@ -551,8 +551,8 @@
                     <tr>
                         <td class="col-md-4">
                             <i>Default value : </i><code>{
-  production: true,
-  ENV: &#x27;STG&#x27;,
+  production: false,
+  ENV: &#x27;LOCAL&#x27;,
   API_BASE_PATH: &#x27;http://127.0.0.1:8080&#x27;
 }</code>
                         </td>
@@ -715,7 +715,7 @@
   RequiredModule,
   ErrorLabelModule,
   QuestionTooltipModule,
-  DateInputModule,
+  DateFormsModule,
   OrderModule
 ]</code>
                         </td>

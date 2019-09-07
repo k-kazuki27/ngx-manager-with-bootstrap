@@ -119,13 +119,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/BsComponentModule.html" data-type="entity-link">BsComponentModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-BsComponentModule-e4307058952fab05d42f169e203a0b56"' : 'data-target="#xs-components-links-module-BsComponentModule-e4307058952fab05d42f169e203a0b56"' }>
+                                            'data-target="#components-links-module-BsComponentModule-39af8f6126d06ea9352c543d94701607"' : 'data-target="#xs-components-links-module-BsComponentModule-39af8f6126d06ea9352c543d94701607"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-BsComponentModule-e4307058952fab05d42f169e203a0b56"' :
-                                            'id="xs-components-links-module-BsComponentModule-e4307058952fab05d42f169e203a0b56"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-BsComponentModule-39af8f6126d06ea9352c543d94701607"' :
+                                            'id="xs-components-links-module-BsComponentModule-39af8f6126d06ea9352c543d94701607"' }>
                                             <li class="link">
                                                 <a href="components/BsComponentComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">BsComponentComponent</a>
@@ -188,34 +188,20 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     </li>
                             </li>
                             <li class="link">
-                                <a href="modules/DateInputModule.html" data-type="entity-link">DateInputModule</a>
+                                <a href="modules/DateFormsModule.html" data-type="entity-link">DateFormsModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-DateInputModule-d02a0420b4e4adbf8689530a776353ea"' : 'data-target="#xs-components-links-module-DateInputModule-d02a0420b4e4adbf8689530a776353ea"' }>
+                                            'data-target="#components-links-module-DateFormsModule-4c788274ad78bc3e9ad4c47778e5c354"' : 'data-target="#xs-components-links-module-DateFormsModule-4c788274ad78bc3e9ad4c47778e5c354"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-DateInputModule-d02a0420b4e4adbf8689530a776353ea"' :
-                                            'id="xs-components-links-module-DateInputModule-d02a0420b4e4adbf8689530a776353ea"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-DateFormsModule-4c788274ad78bc3e9ad4c47778e5c354"' :
+                                            'id="xs-components-links-module-DateFormsModule-4c788274ad78bc3e9ad4c47778e5c354"' }>
                                             <li class="link">
-                                                <a href="components/DateInputComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">DateInputComponent</a>
+                                                <a href="components/DatePickerComponent.html"
+                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">DatePickerComponent</a>
                                             </li>
-                                        </ul>
-                                    </li>
-                            </li>
-                            <li class="link">
-                                <a href="modules/DateTimePickerModule.html" data-type="entity-link">DateTimePickerModule</a>
-                                    <li class="chapter inner">
-                                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-DateTimePickerModule-9e2845515a66a49310f4b14fbe3fc91d"' : 'data-target="#xs-components-links-module-DateTimePickerModule-9e2845515a66a49310f4b14fbe3fc91d"' }>
-                                            <span class="icon ion-md-cog"></span>
-                                            <span>Components</span>
-                                            <span class="icon ion-ios-arrow-down"></span>
-                                        </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-DateTimePickerModule-9e2845515a66a49310f4b14fbe3fc91d"' :
-                                            'id="xs-components-links-module-DateTimePickerModule-9e2845515a66a49310f4b14fbe3fc91d"' }>
                                             <li class="link">
                                                 <a href="components/DateTimePickerComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">DateTimePickerComponent</a>
@@ -502,6 +488,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/CustomHttpParameterCodec.html" data-type="entity-link">CustomHttpParameterCodec</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/DateFormsValidator.html" data-type="entity-link">DateFormsValidator</a>
                             </li>
                             <li class="link">
                                 <a href="classes/UserValidator.html" data-type="entity-link">UserValidator</a>
