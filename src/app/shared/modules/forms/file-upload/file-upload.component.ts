@@ -18,6 +18,7 @@ export class FileUploadComponent implements OnInit, ControlValueAccessor {
   maxsize = 5242880
   disabled!: boolean
   image: Image | null = null
+  isDragOver = false
 
   onChange!: (value: any) => void
   onTouched!: () => void
@@ -59,8 +60,13 @@ export class FileUploadComponent implements OnInit, ControlValueAccessor {
 
   onDragOver(e: Event): void {
     if (e) {
+      this.isDragOver = true
       e.preventDefault()
     }
+  }
+
+  onDragLeave(e: Event): void {
+    this.isDragOver = false
   }
 
   onDrop(e: Event): void {

@@ -1,7 +1,9 @@
 <div class="row">
   <div
     class="drag-drop-area col-sm-7"
+    [ngClass]="{ 'drag-over': isDragOver }"
     (dragover)="onDragOver($event)"
+    (dragleave)="onDragLeave($event)"
     (drop)="onDrop($event)"
   >
     <span>ドラッグ＆ドロップ</span>
