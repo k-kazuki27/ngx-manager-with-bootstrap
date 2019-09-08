@@ -61,7 +61,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/shared/modules/forms/file-upload/file-upload.component.ts</code>
+            <code>src/app/shared/modules/forms/file-upload/file-upload-shared/models/file-upload.ts</code>
         </p>
 
 
@@ -234,141 +234,11 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, Optional, Self } from &#x27;@angular/core&#x27;
-import {
-  AbstractControl,
-  ControlValueAccessor,
-  FormControl,
-  NgControl,
-  ValidationErrors,
-  ValidatorFn
-} from &#x27;@angular/forms&#x27;
-
-@Component({
-  selector: &#x27;app-file-upload&#x27;,
-  templateUrl: &#x27;./file-upload.component.html&#x27;,
-  styleUrls: [&#x27;./file-upload.component.scss&#x27;]
-})
-export class FileUploadComponent implements OnInit, ControlValueAccessor {
-  disabled!: boolean
-  image: Image | null &#x3D; null
-
-  onChange!: (value: any) &#x3D;&gt; void
-  onTouched!: () &#x3D;&gt; void
-
-  constructor(@Self() @Optional() private ngControl: NgControl) {
-    if (this.ngControl) {
-      this.ngControl.valueAccessor &#x3D; this
-    }
-  }
-
-  ngOnInit() {
-    if (this.ngControl) {
-      const control &#x3D; this.ngControl.control as FormControl
-
-      if (control) {
-        this.image &#x3D; control.value as Image
-        if (this.image) {
-          this.image.size &#x3D; 1
-          this.image.type &#x3D; &#x27;image/png&#x27;
-        }
-        const validators: ValidatorFn[] &#x3D; [fileType(), fileSize()]
-        control.setValidators(validators)
-        control.updateValueAndValidity()
-      }
-    }
-  }
-
-  writeValue(obj: any): void {}
-
-  registerOnChange(fn: any): void {
-    this.onChange &#x3D; fn
-  }
-  registerOnTouched(fn: any): void {
-    this.onTouched &#x3D; fn
-  }
-  setDisabledState(isDisabled: boolean) {
-    this.disabled &#x3D; isDisabled
-  }
-
-  onDragOver(e: Event): void {
-    if (e) {
-      e.preventDefault()
-    }
-  }
-
-  onDrop(e: Event): void {
-    if (e) {
-      e.preventDefault()
-      const drag &#x3D; e as DragEvent
-      if (drag &amp;&amp; drag.dataTransfer) {
-        const fileList: FileList &#x3D; drag.dataTransfer.files
-        const file: File &#x3D; fileList[0]
-        this.setImage(file)
-      }
-    }
-  }
-
-  private setImage(file: File) {
-    const reader &#x3D; new FileReader()
-
-    reader.onload &#x3D; (e: ProgressEvent) &#x3D;&gt; {
-      if (e &amp;&amp; e.target) {
-        const target &#x3D; e.target as FileReader
-        this.image &#x3D; {
-          type: file.type,
-          size: file.size,
-          name: file.name,
-          src: target.result
-        }
-        this.onChange(this.image)
-      }
-    }
-    reader.readAsDataURL(file)
-  }
-
-  deleteImage() {
-    this.image &#x3D; null
-    this.onChange(null)
-  }
-  onFileSelect(e: Event) {
-    if (e) {
-      const fileInput &#x3D; e.target as HTMLInputElement
-      const fileList: FileList | null &#x3D; fileInput.files
-      if (fileList) {
-        const file: File &#x3D; fileList[0]
-        this.setImage(file)
-      }
-    }
-  }
-}
-
-export interface Image {
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export interface Image {
   type?: string
   size?: number
   name: string
   src: string | ArrayBuffer | null
-}
-
-function fileType(): ValidatorFn {
-  return (control: AbstractControl): ValidationErrors | null &#x3D;&gt; {
-    const image: Image &#x3D; control.value
-    return image !&#x3D;&#x3D; null &amp;&amp;
-      image.type !&#x3D;&#x3D; &#x27;image/jpeg&#x27; &amp;&amp;
-      image.type !&#x3D;&#x3D; &#x27;image/gif&#x27; &amp;&amp;
-      image.type !&#x3D;&#x3D; &#x27;image/png&#x27;
-      ? { fileType: true }
-      : null
-  }
-}
-
-function fileSize(): ValidatorFn {
-  return (control: AbstractControl): ValidationErrors | null &#x3D;&gt; {
-    const image: Image &#x3D; control.value as Image
-    return image !&#x3D;&#x3D; null &amp;&amp; image.size !&#x3D;&#x3D; undefined &amp;&amp; image.size &gt; 5242880
-      ? { fileSize: true }
-      : null
-  }
 }
 </code></pre>
     </div>

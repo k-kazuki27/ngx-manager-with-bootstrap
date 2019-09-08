@@ -209,6 +209,7 @@ import {
   TimepickerModule
 } from &#x27;ngx-bootstrap&#x27;
 
+import { getDatepickerConfig } from &#x27;./date-forms-shared&#x27;
 import { DatePickerComponent } from &#x27;./date-picker/date-picker.component&#x27;
 import { DateTimePickerComponent } from &#x27;./date-time-picker/date-time-picker.component&#x27;
 
@@ -229,14 +230,6 @@ export class DateFormsModule {
     defineLocale(&#x27;ja&#x27;, jaLocale)
     this.bsLocaleService.use(&#x27;ja&#x27;)
   }
-}
-
-export function getDatepickerConfig(): BsDatepickerConfig {
-  return Object.assign(new BsDatepickerConfig(), {
-    dateInputFormat: &#x27;YYYY-MM-DD&#x27;,
-    containerClass: &#x27;theme-blue&#x27;,
-    showWeekNumbers: false
-  })
 }
 </code></pre>
     </div>
