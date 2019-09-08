@@ -1,4 +1,5 @@
 import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms'
+import { FILE_SIZE, FILE_TYPE } from 'src/app/shared'
 
 import { FILE_TYPES, MAX_SIZE } from '../constants/file-upload'
 import { Image } from '../models/file-upload'
@@ -10,7 +11,7 @@ export class FileUploadValidator {
       return image !== null &&
         image.type !== undefined &&
         FILE_TYPES.indexOf(image.type) === -1
-        ? { fileType: true }
+        ? FILE_TYPE
         : null
     }
   }
@@ -19,7 +20,7 @@ export class FileUploadValidator {
     return (control: AbstractControl): ValidationErrors | null => {
       const image: Image = control.value as Image
       return image !== null && image.size !== undefined && image.size > MAX_SIZE
-        ? { fileSize: true }
+        ? FILE_SIZE
         : null
     }
   }

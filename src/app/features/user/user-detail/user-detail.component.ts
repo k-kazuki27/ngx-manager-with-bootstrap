@@ -137,7 +137,7 @@ export class UserDetailComponent extends AbstractDetail
       .createUser(user, 'body', true)
       .pipe(takeUntil(this.onDestroy$))
       .subscribe(() => {
-        this.afterRegist()
+        this.afterRegister()
       })
   }
 
@@ -146,11 +146,11 @@ export class UserDetailComponent extends AbstractDetail
       .editUser(user, 'body', true)
       .pipe(takeUntil(this.onDestroy$))
       .subscribe(() => {
-        this.afterRegist()
+        this.afterRegister()
       })
   }
 
-  private afterRegist(): void {
+  private afterRegister(): void {
     this.form.reset()
     history.back()
   }

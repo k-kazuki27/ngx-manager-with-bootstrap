@@ -1,12 +1,7 @@
-import {
-  AbstractControl,
-  AsyncValidatorFn,
-  ValidationErrors,
-  ValidatorFn
-} from '@angular/forms'
+import { AbstractControl, AsyncValidatorFn, ValidationErrors, ValidatorFn } from '@angular/forms'
 import { Observable } from 'rxjs'
 import { map } from 'rxjs/operators'
-import { UserApi, UserResultDTO } from 'src/app/shared'
+import { SAME_PASSWORD, UserApi, UserResultDTO } from 'src/app/shared'
 
 export class UserValidator {
   static uniqueUserId(userApi: UserApi): AsyncValidatorFn {
@@ -26,7 +21,7 @@ export class UserValidator {
 
   static samePassword(target: AbstractControl): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
-      return control.value !== target.value ? { samePassword: true } : null
+      return control.value !== target.value ? SAME_PASSWORD : null
     }
   }
 }
