@@ -1,12 +1,17 @@
 import { Component, OnInit, Optional, Self } from '@angular/core'
 import {
-  AbstractControl,
   ControlValueAccessor,
   FormControl,
   NgControl,
-  ValidationErrors,
   ValidatorFn
 } from '@angular/forms'
+
+import {
+  FILE_TYPES,
+  FileUploadValidator,
+  Image,
+  MAX_SIZE
+} from './file-upload-shared'
 
 @Component({
   selector: 'app-file-upload',
@@ -14,8 +19,8 @@ import {
   styleUrls: ['./file-upload.component.scss']
 })
 export class FileUploadComponent implements OnInit, ControlValueAccessor {
-  fileTypes = ['image/png', 'image/jpeg', 'image/jpg']
-  maxsize = 5242880
+  fileTypes = FILE_TYPES
+  maxsize = MAX_SIZE // 5MB
   disabled!: boolean
   image: Image | null = null
   isDragOver = false
@@ -39,7 +44,10 @@ export class FileUploadComponent implements OnInit, ControlValueAccessor {
           this.image.size = 1
           this.image.type = 'image/png'
         }
-        const validators: ValidatorFn[] = [fileType(), fileSize()]
+        const validators: ValidatorFn[] = [
+          FileUploadValidator.fileType(),
+          FileUploadValidator.fileSize()
+        ]
         control.setValidators(validators)
         control.updateValueAndValidity()
       }
@@ -115,33 +123,5 @@ export class FileUploadComponent implements OnInit, ControlValueAccessor {
         this.setImage(file)
       }
     }
-  }
-}
-
-export interface Image {
-  type?: string
-  size?: number
-  name: string
-  src: string | ArrayBuffer | null
-}
-
-function fileType(): ValidatorFn {
-  return (control: AbstractControl): ValidationErrors | null => {
-    const image: Image = control.value
-    return image !== null &&
-      image.type !== 'image/jpeg' &&
-      image.type !== 'image/gif' &&
-      image.type !== 'image/png'
-      ? { fileType: true }
-      : null
-  }
-}
-
-function fileSize(): ValidatorFn {
-  return (control: AbstractControl): ValidationErrors | null => {
-    const image: Image = control.value as Image
-    return image !== null && image.size !== undefined && image.size > 5242880
-      ? { fileSize: true }
-      : null
   }
 }
