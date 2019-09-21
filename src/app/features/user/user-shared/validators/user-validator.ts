@@ -6,7 +6,9 @@ import {
 } from '@angular/forms'
 import { Observable } from 'rxjs'
 import { map } from 'rxjs/operators'
-import { SAME_PASSWORD, UserApi, UserResultDTO } from 'src/app/shared'
+import { UserApi, UserResultDTO } from 'src/app/shared'
+
+import { SAME_PASSWORD } from '../constants/user'
 
 export class UserValidator {
   static uniqueUserId(userApi: UserApi): AsyncValidatorFn {

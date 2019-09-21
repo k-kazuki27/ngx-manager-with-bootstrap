@@ -1,3 +1,4 @@
+import { ValidationErrors } from '@angular/forms'
 import { TableHeader } from 'src/app/shared'
 
 export const USER_LIST_HEADER: TableHeader[] = [
@@ -34,3 +35,4 @@ export const USER_LIST_HEADER: TableHeader[] = [
     isSort: false
   }
 ]
+export const SAME_PASSWORD: ValidationErrors = { samePassword: true }

@@ -1,7 +1,11 @@
 import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms'
-import { FILE_SIZE, FILE_TYPE } from 'src/app/shared'
 
-import { FILE_TYPES, MAX_SIZE } from '../constants/file-upload'
+import {
+  FILE_SIZE,
+  FILE_TYPE,
+  FILE_TYPES,
+  MAX_SIZE
+} from '../constants/file-upload'
 import { Image } from '../models/file-upload'
 
 export class FileUploadValidator {

@@ -1,5 +1,6 @@
 import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms'
-import { INVALID_DATE } from 'src/app/shared'
+
+import { INVALID_DATE } from '../constants/date-forms'
 
 export class DateFormsValidator {
   static invalidBsDate(): ValidatorFn {
