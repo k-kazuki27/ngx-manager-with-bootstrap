@@ -83,7 +83,14 @@ export class DatePickerComponent
     return this.form.get('date') as FormControl
   }
 
-  writeValue(obj: any): void {}
+  writeValue(obj: any): void {
+    if (this.ngControl) {
+      const control = this.ngControl.control as FormControl
+      if (control) {
+        this.date.setValue(control.value as Date)
+      }
+    }
+  }
   registerOnChange(fn: (value: Date) => void): void {
     this.onChange = fn
   }

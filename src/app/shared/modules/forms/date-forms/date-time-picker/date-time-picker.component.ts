@@ -1,11 +1,4 @@
-import {
-  AfterViewInit,
-  ChangeDetectionStrategy,
-  Component,
-  OnInit,
-  Optional,
-  Self
-} from '@angular/core'
+import { AfterViewInit, ChangeDetectionStrategy, Component, OnInit, Optional, Self } from '@angular/core'
 import {
   ControlValueAccessor,
   FormBuilder,
@@ -70,7 +63,14 @@ export class DateTimePickerComponent
     return this.form.get('date') as FormControl
   }
 
-  writeValue(obj: any): void {}
+  writeValue(obj: any): void {
+    if (this.ngControl) {
+      const control = this.ngControl.control as FormControl
+      if (control) {
+        this.date.setValue(control.value as Date)
+      }
+    }
+  }
   registerOnChange(fn: any): void {
     this.onChange = fn
   }
