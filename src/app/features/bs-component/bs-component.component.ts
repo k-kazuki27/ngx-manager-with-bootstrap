@@ -124,4 +124,8 @@ export class BsComponentComponent implements OnInit {
   onSelect(disable: boolean) {
     disable ? this.date.disable() : this.date.enable()
   }
+
+  reset() {
+    this.form2.reset()
+  }
 }

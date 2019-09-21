@@ -106,7 +106,7 @@
 <form [formGroup]="form2">
   <div class="card m-t-lg">
     <div class="card-header">
-      date-time-picker
+      date-picker/date-time-picker
     </div>
     <div class="card-body">
       <tabset type="pills">
@@ -118,6 +118,13 @@
       <app-date-time-picker formControlName="date"></app-date-time-picker>
       <p>確認：{{ date.value }}</p>
       <p>エラー：{{ date.errors | json }}</p>
+      <button
+        type="button"
+        class="btn btn btn-outline-secondary w-100px m-l-sm"
+        (click)="reset()"
+      >
+        <i class="fa fa-fw fa-refresh"></i>リセット
+      </button>
     </div>
   </div>
 </form>
