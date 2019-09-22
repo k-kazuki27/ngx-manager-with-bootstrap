@@ -22,7 +22,6 @@ jobs:
       - run: sudo apt-get update
       - run: sudo apt-get --only-upgrade install google-chrome-stable
       - run: node_modules/protractor/bin/webdriver-manager update
-      - run: npm run e2e
   deploy:
     docker:
       - image: circleci/node:10.15.3
