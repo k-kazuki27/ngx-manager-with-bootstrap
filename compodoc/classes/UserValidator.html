@@ -131,8 +131,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="27"
-                            class="link-to-prism">src/app/features/user/user-shared/validators/user-validator.ts:27</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="29"
+                            class="link-to-prism">src/app/features/user/user-shared/validators/user-validator.ts:29</a></div>
                 </td>
             </tr>
 
@@ -203,8 +203,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="12"
-                            class="link-to-prism">src/app/features/user/user-shared/validators/user-validator.ts:12</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="14"
+                            class="link-to-prism">src/app/features/user/user-shared/validators/user-validator.ts:14</a></div>
                 </td>
             </tr>
 
@@ -271,6 +271,8 @@ import { Observable } from &#x27;rxjs&#x27;
 import { map } from &#x27;rxjs/operators&#x27;
 import { UserApi, UserResultDTO } from &#x27;src/app/shared&#x27;
 
+import { SAME_PASSWORD } from &#x27;../constants/user&#x27;
+
 export class UserValidator {
   static uniqueUserId(userApi: UserApi): AsyncValidatorFn {
     return (
@@ -289,7 +291,7 @@ export class UserValidator {
 
   static samePassword(target: AbstractControl): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null &#x3D;&gt; {
-      return control.value !&#x3D;&#x3D; target.value ? { samePassword: true } : null
+      return control.value !&#x3D;&#x3D; target.value ? SAME_PASSWORD : null
     }
   }
 }

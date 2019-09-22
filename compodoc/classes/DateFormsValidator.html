@@ -127,8 +127,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="4"
-                            class="link-to-prism">src/app/shared/modules/forms/date-forms/date-forms-shared/validators/date-forms-validator.ts:4</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="6"
+                            class="link-to-prism">src/app/shared/modules/forms/date-forms/date-forms-shared/validators/date-forms-validator.ts:6</a></div>
                 </td>
             </tr>
 
@@ -156,12 +156,12 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { AbstractControl, ValidationErrors, ValidatorFn } from &#x27;@angular/forms&#x27;
 
+import { INVALID_DATE } from &#x27;../constants/date-forms&#x27;
+
 export class DateFormsValidator {
   static invalidBsDate(): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null &#x3D;&gt; {
-      return String(control.value) !&#x3D;&#x3D; &#x27;Invalid Date&#x27;
-        ? null
-        : { invalidDate: true }
+      return String(control.value) !&#x3D;&#x3D; &#x27;Invalid Date&#x27; ? null : INVALID_DATE
     }
   }
 }

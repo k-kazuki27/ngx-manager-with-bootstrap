@@ -172,7 +172,7 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#afterRegist">afterRegist</a>
+                                <a href="#afterRegister">afterRegister</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
@@ -356,20 +356,20 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="afterRegist"></a>
+                    <a name="afterRegister"></a>
                     <span class="name">
                         <b>
                             <span class="modifier">Private</span>
-                            afterRegist
+                            afterRegister
                         </b>
-                        <a href="#afterRegist"><span class="icon ion-ios-link"></span></a>
+                        <a href="#afterRegister"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>afterRegist()</code>
+                    <code>afterRegister()</code>
                 </td>
             </tr>
 
@@ -1019,7 +1019,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>&#x27;col-sm-3 col-form-label&#x27;</code>
+                            <i>Default value : </i><code>&#x27;col-form-label col-sm-3&#x27;</code>
                         </td>
                     </tr>
                             <tr>
@@ -1342,7 +1342,7 @@ export class UserDetailComponent extends AbstractDetail
       .createUser(user, &#x27;body&#x27;, true)
       .pipe(takeUntil(this.onDestroy$))
       .subscribe(() &#x3D;&gt; {
-        this.afterRegist()
+        this.afterRegister()
       })
   }
 
@@ -1351,11 +1351,11 @@ export class UserDetailComponent extends AbstractDetail
       .editUser(user, &#x27;body&#x27;, true)
       .pipe(takeUntil(this.onDestroy$))
       .subscribe(() &#x3D;&gt; {
-        this.afterRegist()
+        this.afterRegister()
       })
   }
 
-  private afterRegist(): void {
+  private afterRegister(): void {
     this.form.reset()
     history.back()
   }

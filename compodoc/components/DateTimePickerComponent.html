@@ -370,8 +370,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="74"
-                            class="link-to-prism">src/app/shared/modules/forms/date-forms/date-time-picker/date-time-picker.component.ts:74</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="81"
+                            class="link-to-prism">src/app/shared/modules/forms/date-forms/date-time-picker/date-time-picker.component.ts:81</a></div>
                 </td>
             </tr>
 
@@ -440,8 +440,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="77"
-                            class="link-to-prism">src/app/shared/modules/forms/date-forms/date-time-picker/date-time-picker.component.ts:77</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="84"
+                            class="link-to-prism">src/app/shared/modules/forms/date-forms/date-time-picker/date-time-picker.component.ts:84</a></div>
                 </td>
             </tr>
 
@@ -510,8 +510,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="80"
-                            class="link-to-prism">src/app/shared/modules/forms/date-forms/date-time-picker/date-time-picker.component.ts:80</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="87"
+                            class="link-to-prism">src/app/shared/modules/forms/date-forms/date-time-picker/date-time-picker.component.ts:87</a></div>
                 </td>
             </tr>
 
@@ -820,7 +820,14 @@ export class DateTimePickerComponent
     return this.form.get(&#x27;date&#x27;) as FormControl
   }
 
-  writeValue(obj: any): void {}
+  writeValue(obj: any): void {
+    if (this.ngControl) {
+      const control &#x3D; this.ngControl.control as FormControl
+      if (control) {
+        this.date.setValue(control.value as Date)
+      }
+    }
+  }
   registerOnChange(fn: any): void {
     this.onChange &#x3D; fn
   }
