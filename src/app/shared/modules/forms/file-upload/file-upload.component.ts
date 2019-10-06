@@ -1,5 +1,6 @@
 import { Component, OnInit, Optional, Self } from '@angular/core'
 import {
+  AsyncValidatorFn,
   ControlValueAccessor,
   FormControl,
   NgControl,
@@ -44,11 +45,25 @@ export class FileUploadComponent implements OnInit, ControlValueAccessor {
           this.image.size = 1
           this.image.type = 'image/png'
         }
+
         const validators: ValidatorFn[] = [
           FileUploadValidator.fileType(),
           FileUploadValidator.fileSize()
         ]
+
+        const parentValidator = control.validator
+        if (parentValidator) {
+          validators.push(parentValidator)
+        }
+
+        const asyncValidators: AsyncValidatorFn[] = []
+        const parentAsyncValidator = control.asyncValidator
+        if (parentAsyncValidator) {
+          asyncValidators.push(parentAsyncValidator)
+        }
+
         control.setValidators(validators)
+        control.setAsyncValidators(asyncValidators)
         control.updateValueAndValidity()
       }
     }

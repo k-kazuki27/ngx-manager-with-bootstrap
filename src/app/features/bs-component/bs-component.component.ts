@@ -107,7 +107,7 @@ export class BsComponentComponent implements OnInit {
 
     const image: Image = { name: 'test', src }
     this.form1 = this.fb.group({
-      image: [image, []]
+      image: [image, [Validators.required]]
     })
 
     this.form2 = this.fb.group({
