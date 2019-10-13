@@ -64,9 +64,10 @@ export class DatePickerComponent
         this.date.setValue(control.value as Date)
 
         const validators: ValidatorFn[] = [DateFormsValidator.invalidBsDate()]
-        if (control.validator) {
-          validators.push(control.validator)
-          this.date.setValidators(control.validator)
+        const parentValidator = control.validator
+        if (parentValidator) {
+          validators.push(parentValidator)
+          this.date.setValidators(parentValidator)
         }
 
         const asyncValidators: AsyncValidatorFn[] = []

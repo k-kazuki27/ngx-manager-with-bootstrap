@@ -1,12 +1,6 @@
+import { AfterViewInit, ChangeDetectionStrategy, Component, OnInit, Optional, Self } from '@angular/core'
 import {
-  AfterViewInit,
-  ChangeDetectionStrategy,
-  Component,
-  OnInit,
-  Optional,
-  Self
-} from '@angular/core'
-import {
+  AsyncValidatorFn,
   ControlValueAccessor,
   FormBuilder,
   FormControl,
@@ -49,12 +43,23 @@ export class DateTimePickerComponent
 
       if (control) {
         this.date.setValue(control.value as Date)
+
         const validators: ValidatorFn[] = [DateFormsValidator.invalidBsDate()]
-        if (control.validator) {
-          validators.push(control.validator)
-          this.date.setValidators(control.validator)
+        const parentValidator = control.validator
+        if (parentValidator) {
+          validators.push(parentValidator)
+          this.date.setValidators(parentValidator)
         }
+
+        const asyncValidators: AsyncValidatorFn[] = []
+        const parentAsyncValidator = control.asyncValidator
+        if (parentAsyncValidator) {
+          asyncValidators.push(parentAsyncValidator)
+          this.date.setAsyncValidators(parentAsyncValidator)
+        }
+
         control.setValidators(validators)
+        control.setAsyncValidators(asyncValidators)
         control.updateValueAndValidity()
       }
     }
