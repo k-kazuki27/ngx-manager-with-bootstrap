@@ -118,6 +118,8 @@
       <hr />
       <app-date-time-picker formControlName="date"></app-date-time-picker>
       <p>確認：{{ date.value }}</p>
+      <p>dirty：{{ date.dirty }}</p>
+      <p>touch：{{ date.touched }}</p>
       <p>エラー：{{ date.errors | json }}</p>
       <button
         type="button"
