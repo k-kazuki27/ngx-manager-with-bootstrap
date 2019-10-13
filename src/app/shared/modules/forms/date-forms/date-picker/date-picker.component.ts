@@ -8,6 +8,7 @@ import {
   Self
 } from '@angular/core'
 import {
+  AsyncValidatorFn,
   ControlValueAccessor,
   FormBuilder,
   FormControl,
@@ -67,7 +68,16 @@ export class DatePickerComponent
           validators.push(control.validator)
           this.date.setValidators(control.validator)
         }
+
+        const asyncValidators: AsyncValidatorFn[] = []
+        const parentAsyncValidator = control.asyncValidator
+        if (parentAsyncValidator) {
+          asyncValidators.push(parentAsyncValidator)
+          this.date.setAsyncValidators(parentAsyncValidator)
+        }
+
         control.setValidators(validators)
+        control.setAsyncValidators(asyncValidators)
         control.updateValueAndValidity()
       }
     }
