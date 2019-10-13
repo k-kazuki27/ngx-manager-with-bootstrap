@@ -9,9 +9,10 @@
     <span>ドラッグ＆ドロップ</span>
   </div>
   <div class="fileup col-sm-5 disabled" [ngClass]="{ disabled: disabled }">
-    <label for="fileInput">
+    <label [for]="id">
       <input
-        id="fileInput"
+        [id]="id"
+        class="fileInput"
         type="file"
         [accept]="fileTypes.join(',')"
         [attr.maxsize]="maxsize"

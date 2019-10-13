@@ -25,6 +25,7 @@ export class FileUploadComponent implements OnInit, ControlValueAccessor {
   disabled!: boolean
   image: Image | null = null
   isDragOver = false
+  id!: string | null
 
   onChange!: (value: any) => void
   onTouched!: () => void
@@ -40,6 +41,7 @@ export class FileUploadComponent implements OnInit, ControlValueAccessor {
       const control = this.ngControl.control as FormControl
 
       if (control) {
+        this.id = this.ngControl.name
         this.image = control.value as Image
         if (this.image) {
           this.image.size = 1
