@@ -9,7 +9,7 @@ import {
   ValidatorFn
 } from '@angular/forms'
 
-import { DateFormsValidator } from '../date-forms-shared'
+import { DateAndTime, DateFormsValidator } from '../date-forms-shared'
 
 @Component({
   selector: 'app-date-time-picker',
@@ -21,7 +21,7 @@ export class DateTimePickerComponent
   implements OnInit, AfterViewInit, ControlValueAccessor {
   form!: FormGroup
 
-  onChange!: (value: any) => void
+  onChange!: (value: Date) => void
   onTouched!: () => void
 
   constructor(
@@ -35,7 +35,8 @@ export class DateTimePickerComponent
 
   ngOnInit() {
     this.form = this.fb.group({
-      date: [null, []]
+      date: [null, []],
+      time: [null, []]
     })
 
     if (this.ngControl) {
@@ -43,12 +44,14 @@ export class DateTimePickerComponent
 
       if (control) {
         this.date.setValue(control.value as Date)
+        this.time.setValue(control.value as Date)
 
         const validators: ValidatorFn[] = [DateFormsValidator.invalidBsDate()]
         const parentValidator = control.validator
         if (parentValidator) {
           validators.push(parentValidator)
           this.date.setValidators(parentValidator)
+          this.time.setValidators(parentValidator)
         }
 
         const asyncValidators: AsyncValidatorFn[] = []
@@ -56,6 +59,7 @@ export class DateTimePickerComponent
         if (parentAsyncValidator) {
           asyncValidators.push(parentAsyncValidator)
           this.date.setAsyncValidators(parentAsyncValidator)
+          this.time.setAsyncValidators(parentAsyncValidator)
         }
 
         control.setValidators(validators)
@@ -66,8 +70,9 @@ export class DateTimePickerComponent
   }
 
   ngAfterViewInit() {
-    this.date.valueChanges.subscribe(value => {
-      this.onChange(value)
+    this.form.valueChanges.subscribe((value: DateAndTime) => {
+      console.log('valueChanges', value)
+      this.onChange(this.getDateTime(value.date, value.time))
     })
   }
 
@@ -75,11 +80,17 @@ export class DateTimePickerComponent
     return this.form.get('date') as FormControl
   }
 
+  get time(): FormControl {
+    return this.form.get('time') as FormControl
+  }
+
   writeValue(obj: any): void {
+    console.log('writeValue', obj)
     if (this.ngControl) {
       const control = this.ngControl.control as FormControl
       if (control) {
         this.date.setValue(control.value as Date)
+        this.time.setValue(control.value as Date)
       }
     }
   }
@@ -91,5 +102,13 @@ export class DateTimePickerComponent
   }
   setDisabledState(isDisabled: boolean) {
     isDisabled ? this.form.disable() : this.form.enable()
+  }
+
+  private getDateTime(date: Date, time: Date): Date {
+    let datetime: Date
+    datetime = date
+    datetime.setHours(time.getHours(), time.getMinutes(), time.getSeconds())
+    console.log('getDateTime', datetime)
+    return datetime
   }
 }
