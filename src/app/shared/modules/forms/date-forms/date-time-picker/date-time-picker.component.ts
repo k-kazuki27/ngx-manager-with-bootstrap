@@ -1,4 +1,11 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, OnInit, Optional, Self } from '@angular/core'
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  Component,
+  OnInit,
+  Optional,
+  Self
+} from '@angular/core'
 import {
   AsyncValidatorFn,
   ControlValueAccessor,
