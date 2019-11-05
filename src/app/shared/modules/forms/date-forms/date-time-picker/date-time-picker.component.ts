@@ -1,11 +1,4 @@
-import {
-  AfterViewInit,
-  ChangeDetectionStrategy,
-  Component,
-  OnInit,
-  Optional,
-  Self
-} from '@angular/core'
+import { AfterViewInit, Component, OnInit, Optional, Self } from '@angular/core'
 import {
   AsyncValidatorFn,
   ControlValueAccessor,
@@ -16,19 +9,18 @@ import {
   ValidatorFn
 } from '@angular/forms'
 
-import { DateAndTime, DateFormsValidator } from '../date-forms-shared'
+import { DateFormsValidator } from '../date-forms-shared'
 
 @Component({
   selector: 'app-date-time-picker',
   templateUrl: './date-time-picker.component.html',
-  styleUrls: ['./date-time-picker.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./date-time-picker.component.scss']
 })
 export class DateTimePickerComponent
   implements OnInit, AfterViewInit, ControlValueAccessor {
   form!: FormGroup
 
-  onChange!: (value: Date) => void
+  onChange!: (value: Date | null) => void
   onTouched!: () => void
 
   constructor(
@@ -77,9 +69,19 @@ export class DateTimePickerComponent
   }
 
   ngAfterViewInit() {
-    this.form.valueChanges.subscribe((value: DateAndTime) => {
-      console.log('valueChanges', value)
-      this.onChange(this.getDateTime(value.date, value.time))
+    this.date.valueChanges.subscribe(date => {
+      const time = this.time.value as Date
+      if (time) {
+        date.setHours(time.getHours(), time.getMinutes(), time.getSeconds())
+      }
+      this.onChange(date)
+    })
+    this.time.valueChanges.subscribe((time: Date) => {
+      const date = this.date.value as Date
+      if (date) {
+        time.setFullYear(date.getFullYear(), date.getMonth(), date.getDate())
+      }
+      this.onChange(time)
     })
   }
 
@@ -92,7 +94,6 @@ export class DateTimePickerComponent
   }
 
   writeValue(obj: any): void {
-    console.log('writeValue', obj)
     if (this.ngControl) {
       const control = this.ngControl.control as FormControl
       if (control) {
@@ -109,13 +110,5 @@ export class DateTimePickerComponent
   }
   setDisabledState(isDisabled: boolean) {
     isDisabled ? this.form.disable() : this.form.enable()
-  }
-
-  private getDateTime(date: Date, time: Date): Date {
-    let datetime: Date
-    datetime = date
-    datetime.setHours(time.getHours(), time.getMinutes(), time.getSeconds())
-    console.log('getDateTime', datetime)
-    return datetime
   }
 }

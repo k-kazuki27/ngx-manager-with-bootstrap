@@ -114,13 +114,13 @@
         <tab heading="Enable" (selectTab)="onSelect(false)"></tab>
         <tab heading="Disable" (selectTab)="onSelect(true)"></tab>
       </tabset>
-      <app-date-picker formControlName="date"></app-date-picker>
+      <!-- <app-date-picker formControlName="date01"></app-date-picker> -->
       <hr />
-      <app-date-time-picker formControlName="date"></app-date-time-picker>
-      <p>確認：{{ date.value }}</p>
-      <p>dirty：{{ date.dirty }}</p>
-      <p>touch：{{ date.touched }}</p>
-      <p>エラー：{{ date.errors | json }}</p>
+      <app-date-time-picker formControlName="date01"></app-date-time-picker>
+      <p>確認：{{ date01.value }}</p>
+      <p>dirty：{{ date01.dirty }}</p>
+      <p>touch：{{ date01.touched }}</p>
+      <p>エラー：{{ date01.errors | json }}</p>
       <button
         type="button"
         class="btn btn btn-outline-secondary w-100px m-l-sm"

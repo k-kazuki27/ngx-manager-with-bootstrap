@@ -13,8 +13,8 @@ export class BsComponentComponent implements OnInit {
   get image(): FormControl {
     return this.form1.get('image') as FormControl
   }
-  get date(): FormControl {
-    return this.form2.get('date') as FormControl
+  get date01(): FormControl {
+    return this.form2.get('date01') as FormControl
   }
   form!: FormGroup
   form1!: FormGroup
@@ -111,7 +111,7 @@ export class BsComponentComponent implements OnInit {
     })
 
     this.form2 = this.fb.group({
-      date: [new Date(), [Validators.required]]
+      date01: [null, [Validators.required]]
     })
 
     for (let i = 1; i <= 100; i++) {
@@ -122,7 +122,7 @@ export class BsComponentComponent implements OnInit {
     }
   }
   onSelect(disable: boolean) {
-    disable ? this.date.disable() : this.date.enable()
+    disable ? this.date01.disable() : this.date01.enable()
   }
 
   reset() {
