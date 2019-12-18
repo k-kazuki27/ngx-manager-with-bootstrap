@@ -52,9 +52,9 @@ describe('UserDetailComponent', () => {
   test('Test ngOnInit routeParamあり', fakeAsync(() => {
     const buildFormSpy = jest.spyOn(target as any, 'buildForm')
     const buildPasswordFormSpy = jest.spyOn(target as any, 'buildPasswordForm')
-    const route: ActivatedRoute = TestBed.get(ActivatedRoute as Type<
-      ActivatedRoute
-    >)
+    const route: ActivatedRoute = TestBed.get(
+      ActivatedRoute as Type<ActivatedRoute>
+    )
     route.snapshot.params = { id: '1' }
 
     const userApi: UserApi = TestBed.get(UserApi as Type<UserApi>)

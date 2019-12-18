@@ -13,9 +13,9 @@ describe('ConfirmService', () => {
   )
 
   it('should be created', () => {
-    const service: ConfirmService = TestBed.get(ConfirmService as Type<
-      ConfirmService
-    >)
+    const service: ConfirmService = TestBed.get(
+      ConfirmService as Type<ConfirmService>
+    )
     expect(service).toBeTruthy()
   })
 })

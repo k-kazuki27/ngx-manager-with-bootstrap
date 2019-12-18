@@ -12,9 +12,9 @@ describe('PagesService', () => {
   )
 
   it('should be created', () => {
-    const service: PagesService = TestBed.get(PagesService as Type<
-      PagesService
-    >)
+    const service: PagesService = TestBed.get(
+      PagesService as Type<PagesService>
+    )
     expect(service).toBeTruthy()
   })
 })
