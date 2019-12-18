@@ -1,12 +1,4 @@
-import {
-  AfterViewInit,
-  ChangeDetectionStrategy,
-  Component,
-  Input,
-  OnInit,
-  Optional,
-  Self
-} from '@angular/core'
+import { AfterViewInit, ChangeDetectionStrategy, Component, Input, OnInit, Optional, Self } from '@angular/core'
 import {
   AsyncValidatorFn,
   ControlValueAccessor,
@@ -35,7 +27,7 @@ export class DatePickerComponent
   bsConfig!: Partial<BsDatepickerConfig>
   form!: FormGroup
 
-  onChange!: (value: Date) => void
+  onChange!: (value: Date | string) => void
   onTouched!: () => void
 
   constructor(
@@ -86,7 +78,9 @@ export class DatePickerComponent
 
   ngAfterViewInit() {
     this.date.valueChanges.subscribe(value => {
-      this.onChange(value)
+      const date: Date =
+        typeof value === 'string' ? new Date(value as string) : value
+      this.onChange(date)
     })
   }
 
@@ -102,7 +96,7 @@ export class DatePickerComponent
       }
     }
   }
-  registerOnChange(fn: (value: Date) => void): void {
+  registerOnChange(fn: (value: Date | string) => void): void {
     this.onChange = fn
   }
   registerOnTouched(fn: any): void {
