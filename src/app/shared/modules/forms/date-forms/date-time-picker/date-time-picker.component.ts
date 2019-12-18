@@ -70,16 +70,35 @@ export class DateTimePickerComponent
 
   ngAfterViewInit() {
     this.date.valueChanges.subscribe(date => {
-      const time = this.time.value as Date
+      if (!date) {
+        this.onChange(date)
+        return
+      }
+
+      const time: Date =
+        typeof this.time.value === 'string'
+          ? new Date(this.time.value as string)
+          : (this.time.value as Date)
+
       if (time) {
-        date.setHours(time.getHours(), time.getMinutes(), time.getSeconds())
+        date.setHours(time.getHours(), time.getMinutes(), 0, 0)
       }
       this.onChange(date)
     })
+
     this.time.valueChanges.subscribe((time: Date) => {
-      const date = this.date.value as Date
+      if (!time) {
+        this.onChange(time)
+        return
+      }
+
+      const date =
+        typeof this.date.value === 'string'
+          ? new Date(this.date.value as string)
+          : (this.date.value as Date)
       if (date) {
         time.setFullYear(date.getFullYear(), date.getMonth(), date.getDate())
+        time.setHours(time.getHours(), time.getMinutes(), 0, 0)
       }
       this.onChange(time)
     })

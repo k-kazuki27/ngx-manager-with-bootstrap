@@ -1,17 +1,11 @@
 {
   "typescriptHero.imports.organizeOnSave": true,
   "typescriptHero.imports.insertSemicolons": false,
-  "typescriptHero.imports.multiLineWrapThreshold": 110,
+  "typescriptHero.imports.multiLineWrapThreshold": 120,
   "typescriptHero.imports.multiLineTrailingComma": false,
   "editor.formatOnSave": true,
-  "prettier.semi": false,
-  "prettier.singleQuote": true,
-  "prettier.printWidth": 80,
-  "prettier.useTabs": false,
-  "prettier.tabWidth": 2,
-  "prettier.bracketSpacing": true,
+  "workbench.colorCustomizations": {},
   "editor.codeActionsOnSave": {
     "source.fixAll.tslint": true
-  },
-  "workbench.colorCustomizations": {}
+  }
 }

@@ -17,16 +17,6 @@ export class AppComponent implements OnInit {
     private routeHistoryService: RouteHistoryService
   ) {
     console.log(detect())
-
-    // updateChecker
-    if (this.swUpdate.isEnabled) {
-      this.swUpdate.available.subscribe(() => {
-        window.location.reload()
-      })
-      interval(60 * 60 * 1000).subscribe(() => {
-        this.swUpdate.checkForUpdate()
-      })
-    }
   }
 
   ngOnInit() {
