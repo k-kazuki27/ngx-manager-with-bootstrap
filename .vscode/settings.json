@@ -7,5 +7,6 @@
   "workbench.colorCustomizations": {},
   "editor.codeActionsOnSave": {
     "source.fixAll.tslint": true
-  }
+  },
+  "stylelint.autoFixOnSave": true
 }
