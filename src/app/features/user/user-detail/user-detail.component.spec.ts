@@ -1,12 +1,6 @@
-import { HttpClientModule, HttpResponse } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http'
 import { Type } from '@angular/core'
-import {
-  async,
-  ComponentFixture,
-  fakeAsync,
-  TestBed,
-  tick
-} from '@angular/core/testing'
+import { async, ComponentFixture, TestBed, tick } from '@angular/core/testing'
 import { FormGroup } from '@angular/forms'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { ActivatedRoute } from '@angular/router'
@@ -49,7 +43,7 @@ describe('UserDetailComponent', () => {
     expect(buildPasswordFormSpy).toHaveBeenCalledTimes(1)
   }))
 
-  test('Test ngOnInit routeParamあり', fakeAsync(() => {
+  it('Test ngOnInit routeParamあり', () => {
     const buildFormSpy = jest.spyOn(target as any, 'buildForm')
     const buildPasswordFormSpy = jest.spyOn(target as any, 'buildPasswordForm')
     const route: ActivatedRoute = TestBed.get(
@@ -59,14 +53,7 @@ describe('UserDetailComponent', () => {
 
     const userApi: UserApi = TestBed.get(UserApi as Type<UserApi>)
     const userApiSpy = jest.spyOn(userApi, 'getUser')
-    userApiSpy.mockReturnValue(
-      of(
-        new HttpResponse({
-          status: 200,
-          body: DUMMY_USER
-        })
-      )
-    )
+    userApiSpy.mockReturnValue(of(DUMMY_USER as any))
 
     fixture.detectChanges()
     tick()
@@ -82,7 +69,7 @@ describe('UserDetailComponent', () => {
     fixture.whenStable().then(() => {
       expect(target.userId.value).toEqual('z0001')
     })
-  }))
+  })
 
   test('Test buildForm', async(() => {
     // プライベートメソッドへのアクセス
